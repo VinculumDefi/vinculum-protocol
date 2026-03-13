@@ -8,234 +8,71 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=DM+Sans:wght@200;300;400&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --white: #fafaf8;
-    --off-white: #f4f3ef;
-    --black: #0a0a0a;
-    --mid: #6b6b65;
-    --blue-glow: #00d4ff;
-  }
+  :root { --white: #fafaf8; --off-white: #f4f3ef; --black: #0a0a0a; --mid: #6b6b65; --blue-glow: #00d4ff; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
-  body {
-    background: var(--white);
-    color: var(--black);
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 300;
-    overflow-x: hidden;
-    cursor: none;
-  }
-  .cursor {
-    width: 8px; height: 8px;
-    background: var(--black);
-    border-radius: 50%;
-    position: fixed; top: 0; left: 0;
-    pointer-events: none; z-index: 9999;
-    transition: transform 0.15s ease, width 0.3s ease, height 0.3s ease, background 0.3s ease;
-    transform: translate(-50%, -50%);
-  }
+  body { background: var(--white); color: var(--black); font-family: 'DM Sans', sans-serif; font-weight: 300; overflow-x: hidden; cursor: none; }
+  .cursor { width: 8px; height: 8px; background: var(--black); border-radius: 50%; position: fixed; top: 0; left: 0; pointer-events: none; z-index: 9999; transition: transform 0.15s ease, width 0.3s ease, height 0.3s ease, background 0.3s ease; transform: translate(-50%, -50%); }
   .cursor.hovering { width: 40px; height: 40px; background: transparent; border: 1px solid var(--black); }
   .cursor.light { background: white; }
   .cursor.light.hovering { border-color: white; background: transparent; }
-  nav {
-    position: fixed; top: 0; left: 0; right: 0;
-    z-index: 100;
-    display: flex; justify-content: space-between; align-items: center;
-    padding: 2rem 3rem;
-    mix-blend-mode: difference;
-  }
-  .nav-logo {
-    font-family: 'Cormorant Garamond', serif; font-weight: 300;
-    font-size: 1.1rem; letter-spacing: 0.15em;
-    color: var(--white); text-decoration: none; text-transform: uppercase;
-  }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 2rem 3rem; mix-blend-mode: difference; }
+  .nav-logo { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: 1.1rem; letter-spacing: 0.15em; color: var(--white); text-decoration: none; text-transform: uppercase; }
   .nav-links { display: flex; gap: 3rem; list-style: none; }
-  .nav-links a {
-    font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase;
-    color: var(--white); text-decoration: none; opacity: 0.8; transition: opacity 0.3s;
-  }
+  .nav-links a { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--white); text-decoration: none; opacity: 0.8; transition: opacity 0.3s; }
   .nav-links a:hover { opacity: 1; }
-  .hero {
-    position: relative; height: 100vh; width: 100%;
-    overflow: hidden; background: var(--black);
-  }
-  .hero-bg {
-    position: absolute; inset: 0;
-    background: linear-gradient(135deg, #060a10 0%, #0d1b2a 40%, #1a1a2e 70%, #060a10 100%);
-  }
-  .orb {
-    position: absolute; border-radius: 50%;
-    filter: blur(80px); opacity: 0.15;
-    animation: orbFloat 12s ease-in-out infinite;
-  }
+  .hero { position: relative; height: 100vh; width: 100%; overflow: hidden; background: var(--black); }
+  .hero-bg { position: absolute; inset: 0; background: linear-gradient(135deg, #060a10 0%, #0d1b2a 40%, #1a1a2e 70%, #060a10 100%); }
+  .orb { position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.15; animation: orbFloat 12s ease-in-out infinite; }
   .orb-1 { width: 600px; height: 600px; background: #00d4ff; top: -100px; left: -100px; animation-delay: 0s; }
   .orb-2 { width: 400px; height: 400px; background: #0066ff; bottom: -50px; right: 10%; animation-delay: -4s; }
   .orb-3 { width: 300px; height: 300px; background: #00e887; top: 40%; left: 50%; animation-delay: -8s; }
-  @keyframes orbFloat {
-    0%,100% { transform: translate(0,0) scale(1); }
-    33% { transform: translate(30px,-40px) scale(1.05); }
-    66% { transform: translate(-20px,20px) scale(0.95); }
-  }
-  .hero-grid {
-    position: absolute; inset: 0;
-    background-image:
-      linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-    background-size: 80px 80px;
-    animation: gridDrift 20s linear infinite;
-  }
+  @keyframes orbFloat { 0%,100% { transform: translate(0,0) scale(1); } 33% { transform: translate(30px,-40px) scale(1.05); } 66% { transform: translate(-20px,20px) scale(0.95); } }
+  .hero-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px); background-size: 80px 80px; animation: gridDrift 20s linear infinite; }
   @keyframes gridDrift { 0% { transform: translateY(0); } 100% { transform: translateY(80px); } }
-  .hero-content {
-    position: relative; z-index: 10; height: 100%;
-    display: flex; flex-direction: column; justify-content: flex-end;
-    padding: 0 3rem 4rem;
-  }
-  .hero-eyebrow {
-    font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
-    color: rgba(255,255,255,0.4); margin-bottom: 1rem;
-    animation: fadeUp 1.2s ease forwards; animation-delay: 0.3s; opacity: 0;
-  }
-  .hero-title {
-    font-family: 'Cormorant Garamond', serif; font-weight: 300;
-    font-size: clamp(3.5rem, 8vw, 7rem); line-height: 1.0;
-    color: var(--white); margin-bottom: 1.5rem;
-    animation: fadeUp 1.2s ease forwards; animation-delay: 0.5s; opacity: 0;
-  }
+  .hero-content { position: relative; z-index: 10; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; padding: 0 3rem 4rem; }
+  .hero-eyebrow { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 1rem; animation: fadeUp 1.2s ease forwards; animation-delay: 0.3s; opacity: 0; }
+  .hero-title { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(3.5rem, 8vw, 7rem); line-height: 1.0; color: var(--white); margin-bottom: 1.5rem; animation: fadeUp 1.2s ease forwards; animation-delay: 0.5s; opacity: 0; }
   .hero-title em { font-style: italic; opacity: 0.5; }
-  .hero-sub {
-    font-size: 0.75rem; letter-spacing: 0.1em; color: rgba(255,255,255,0.35);
-    text-transform: uppercase; margin-bottom: 2rem;
-    animation: fadeUp 1.2s ease forwards; animation-delay: 0.8s; opacity: 0;
-  }
-  .hero-definition {
-    position: absolute; bottom: 4rem; right: 3rem;
-    max-width: 320px; z-index: 10;
-    animation: fadeUp 1.4s ease forwards; animation-delay: 1s; opacity: 0;
-  }
-  .def-word {
-    font-family: 'Cormorant Garamond', serif; font-style: italic;
-    font-size: 1.1rem; color: rgba(255,255,255,0.9);
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-    padding-bottom: 0.5rem; margin-bottom: 0.75rem;
-    display: flex; align-items: baseline; gap: 0.5rem;
-  }
-  .def-pos {
-    font-size: 0.55rem; letter-spacing: 0.1em; text-transform: uppercase;
-    color: rgba(255,255,255,0.3); font-style: normal; font-family: 'DM Sans', sans-serif;
-  }
-  .def-text {
-    font-size: 0.72rem; line-height: 1.7; color: rgba(255,255,255,0.35);
-    font-style: normal; font-family: 'DM Sans', sans-serif;
-  }
+  .hero-sub { font-size: 0.75rem; letter-spacing: 0.1em; color: rgba(255,255,255,0.35); text-transform: uppercase; margin-bottom: 2rem; animation: fadeUp 1.2s ease forwards; animation-delay: 0.8s; opacity: 0; }
+  .hero-definition { position: absolute; bottom: 4rem; right: 3rem; max-width: 320px; z-index: 10; animation: fadeUp 1.4s ease forwards; animation-delay: 1s; opacity: 0; }
+  .def-word { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.1rem; color: rgba(255,255,255,0.9); border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.5rem; margin-bottom: 0.75rem; display: flex; align-items: baseline; gap: 0.5rem; }
+  .def-pos { font-size: 0.55rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.3); font-style: normal; font-family: 'DM Sans', sans-serif; }
+  .def-text { font-size: 0.72rem; line-height: 1.7; color: rgba(255,255,255,0.35); font-style: normal; font-family: 'DM Sans', sans-serif; }
   .def-text em { font-style: italic; color: rgba(255,255,255,0.5); }
-  .hero-stats {
-    position: absolute; top: 50%; left: 3rem;
-    transform: translateY(-50%);
-    z-index: 10; display: flex; flex-direction: column; gap: 2rem;
-    animation: fadeUp 1.4s ease forwards; animation-delay: 1.2s; opacity: 0;
-  }
+  .hero-stats { position: absolute; top: 50%; left: 3rem; transform: translateY(-50%); z-index: 10; display: flex; flex-direction: column; gap: 2rem; animation: fadeUp 1.4s ease forwards; animation-delay: 1.2s; opacity: 0; }
   .live-stat { display: flex; flex-direction: column; gap: 0.3rem; }
-  .live-stat-label {
-    font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase;
-    color: rgba(255,255,255,0.25);
-  }
-  .live-stat-value {
-    font-family: 'Cormorant Garamond', serif; font-weight: 300;
-    font-size: 1.8rem; color: rgba(255,255,255,0.8); line-height: 1;
-  }
-  .live-indicator {
-    display: flex; align-items: center; gap: 0.4rem;
-    font-size: 0.55rem; letter-spacing: 0.1em; text-transform: uppercase;
-    color: rgba(0,212,255,0.6); margin-top: 0.2rem;
-  }
-  .live-dot {
-    width: 5px; height: 5px; background: #00d4ff; border-radius: 50%;
-    animation: livePulse 2s ease-in-out infinite;
-  }
+  .live-stat-label { font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.25); }
+  .live-stat-value { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: 1.8rem; color: rgba(255,255,255,0.8); line-height: 1; }
+  .live-indicator { display: flex; align-items: center; gap: 0.4rem; font-size: 0.55rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(0,212,255,0.6); margin-top: 0.2rem; }
+  .live-dot { width: 5px; height: 5px; background: #00d4ff; border-radius: 50%; animation: livePulse 2s ease-in-out infinite; }
   @keyframes livePulse { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.4; transform: scale(0.7); } }
-  .hero-chart-wrap {
-    position: absolute; bottom: 0; left: 0; right: 0;
-    height: 120px; z-index: 5; pointer-events: none;
-  }
+  .hero-chart-wrap { position: absolute; bottom: 0; left: 0; right: 0; height: 120px; z-index: 5; pointer-events: none; }
   #heroSparkline { width: 100%; height: 100%; }
-  .hero-scroll {
-    position: absolute; bottom: 3rem; left: 50%; transform: translateX(-50%);
-    display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
-    color: rgba(255,255,255,0.2); font-size: 0.6rem; letter-spacing: 0.15em;
-    text-transform: uppercase;
-    animation: fadeUp 1.2s ease forwards; animation-delay: 1.5s; opacity: 0;
-    z-index: 10;
-  }
-  .scroll-line {
-    width: 1px; height: 50px; background: rgba(255,255,255,0.15);
-    position: relative; overflow: hidden;
-  }
-  .scroll-line::after {
-    content: ''; position: absolute; top: -100%; left: 0;
-    width: 100%; height: 100%; background: rgba(255,255,255,0.5);
-    animation: scrollDrop 2s ease infinite;
-  }
+  .hero-scroll { position: absolute; bottom: 3rem; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 0.5rem; color: rgba(255,255,255,0.2); font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; animation: fadeUp 1.2s ease forwards; animation-delay: 1.5s; opacity: 0; z-index: 10; }
+  .scroll-line { width: 1px; height: 50px; background: rgba(255,255,255,0.15); position: relative; overflow: hidden; }
+  .scroll-line::after { content: ''; position: absolute; top: -100%; left: 0; width: 100%; height: 100%; background: rgba(255,255,255,0.5); animation: scrollDrop 2s ease infinite; }
   @keyframes scrollDrop { 0% { top: -100%; } 100% { top: 100%; } }
   @keyframes fadeUp { 0% { opacity: 0; transform: translateY(30px); } 100% { opacity: 1; transform: translateY(0); } }
-  .etymology {
-    padding: 8rem 3rem;
-    background: var(--off-white);
-    position: relative; overflow: hidden;
-  }
-  .etymology-inner {
-    max-width: 1400px; margin: 0 auto;
-    display: grid; grid-template-columns: 1fr 2fr; gap: 8rem; align-items: start;
-  }
+  .etymology { padding: 8rem 3rem; background: var(--off-white); position: relative; overflow: hidden; }
+  .etymology-inner { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 1fr 2fr; gap: 8rem; align-items: start; }
   .etymology-left { position: sticky; top: 8rem; }
-  .etym-label {
-    font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase;
-    color: var(--mid); margin-bottom: 1.5rem;
-  }
-  .etym-word {
-    font-family: 'Cormorant Garamond', serif; font-weight: 300; font-style: italic;
-    font-size: clamp(3rem, 5vw, 4.5rem); color: var(--black); line-height: 1;
-    margin-bottom: 0.5rem;
-  }
+  .etym-label { font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--mid); margin-bottom: 1.5rem; }
+  .etym-word { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-style: italic; font-size: clamp(3rem, 5vw, 4.5rem); color: var(--black); line-height: 1; margin-bottom: 0.5rem; }
   .etym-origin { font-size: 0.65rem; letter-spacing: 0.1em; color: var(--mid); }
   .etymology-right { display: flex; flex-direction: column; gap: 4rem; }
   .etym-block { border-top: 1px solid rgba(0,0,0,0.06); padding-top: 2.5rem; }
-  .etym-block-label {
-    font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase;
-    color: var(--mid); margin-bottom: 1.2rem;
-  }
-  .etym-block-text {
-    font-family: 'Cormorant Garamond', serif; font-weight: 300;
-    font-size: clamp(1.2rem, 1.8vw, 1.5rem); line-height: 1.7; color: var(--black);
-  }
+  .etym-block-label { font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--mid); margin-bottom: 1.2rem; }
+  .etym-block-text { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(1.2rem, 1.8vw, 1.5rem); line-height: 1.7; color: var(--black); }
   .etym-block-text em { font-style: italic; color: var(--mid); }
-  .charts-strip {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;
-    margin-top: 2rem;
-  }
-  .chart-card {
-    background: white; padding: 2rem;
-    border: 1px solid rgba(0,0,0,0.06);
-  }
-  .chart-card-label {
-    font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase;
-    color: var(--mid); margin-bottom: 0.5rem;
-  }
-  .chart-card-value {
-    font-family: 'Cormorant Garamond', serif; font-weight: 300;
-    font-size: 1.6rem; color: var(--black); margin-bottom: 1.5rem;
-    line-height: 1;
-  }
+  .charts-strip { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 2rem; }
+  .chart-card { background: white; padding: 2rem; border: 1px solid rgba(0,0,0,0.06); }
+  .chart-card-label { font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--mid); margin-bottom: 0.5rem; }
+  .chart-card-value { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: 1.6rem; color: var(--black); margin-bottom: 1.5rem; line-height: 1; }
   .chart-canvas-wrap { position: relative; height: 100px; }
   .chart-canvas-wrap canvas { width: 100% !important; height: 100% !important; }
-  .chart-prelaunch-badge {
-    position: absolute; bottom: 6px; right: 0;
-    font-size: 0.55rem; letter-spacing: 0.15em; text-transform: uppercase;
-    color: var(--mid); opacity: 0.6;
-  }
-  .intro {
-    padding: 10rem 3rem; max-width: 1400px; margin: 0 auto;
-    display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start;
-  }
+  .chart-prelaunch-badge { position: absolute; bottom: 6px; right: 0; font-size: 0.55rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--mid); opacity: 0.6; }
+  .intro { padding: 10rem 3rem; max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start; }
   .intro-label { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--mid); margin-bottom: 2rem; }
   .intro-headline { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(2rem, 3.5vw, 3rem); line-height: 1.2; color: var(--black); }
   .intro-headline em { font-style: italic; color: var(--mid); }
@@ -328,6 +165,7 @@
     nav { padding: 1.5rem; }
     .nav-links { display: none; }
     .hero-stats { display: none; }
+    .hero-chart-wrap { display: none; }
     .hero-definition { display: none; }
     .intro, .vclm-grid, .trial-inner, .chains-header, .etymology-inner { grid-template-columns: 1fr; gap: 3rem; }
     .steps { grid-template-columns: 1fr; }
@@ -547,7 +385,7 @@
     <div class="reveal reveal-delay-2">
       <p class="intro-label">Before you commit</p>
       <h2 class="trial-headline">Send $1 first.<br>Verify everything works.<br>Then commit with confidence.</h2>
-      <p class="trial-body">Your finger is hovering. Thousands of dollars one tap from gone forever. We built something for that moment.</p>
+      <p class="trial-body">One tap away from... "and it's gone." We built something for that moment.</p>
       <p class="trial-body">Every Vinculum vault lets you send a micro test deposit through the exact same contract, the exact same flow. Watch the VCLM arrive in your wallet. Check the transaction on Basescan yourself. Then decide.</p>
       <p class="trial-body">No trust required. Verify first.</p>
     </div>
@@ -632,8 +470,8 @@ window.addEventListener('load', () => {
   setTimeout(() => {
     animateCounter(document.getElementById('vclmCounter'), vclmTarget);
     animateCounter(document.getElementById('walletCounter'), walletTarget);
-    document.getElementById('vclmChartVal').textContent = vclmTarget === 0 ? '0 VCLM' : vclmTarget.toLocaleString() + ' VCLM';
-    document.getElementById('walletChartVal').textContent = walletTarget === 0 ? '0 wallets' : walletTarget.toLocaleString() + ' wallets';
+    document.getElementById('vclmChartVal').textContent = '0 VCLM';
+    document.getElementById('walletChartVal').textContent = '0 wallets';
   }, 1400);
   drawHeroSparkline();
   drawSmallCharts();
@@ -648,49 +486,49 @@ function drawHeroSparkline() {
   canvas.height = canvas.offsetHeight * dpr;
   ctx.scale(dpr, dpr);
   const w = canvas.offsetWidth, h = canvas.offsetHeight;
-  const pts1 = Array.from({length: 40}, (_, i) => ({ x: (i/39)*w, y: h*0.85 }));
-  const pts2 = Array.from({length: 40}, (_, i) => ({ x: (i/39)*w, y: h*0.75 }));
-  ctx.beginPath(); ctx.moveTo(pts1[0].x, pts1[0].y);
-  for (let i=1;i<pts1.length;i++){const c=(pts1[i-1].x+pts1[i].x)/2;ctx.bezierCurveTo(c,pts1[i-1].y,c,pts1[i].y,pts1[i].x,pts1[i].y);}
+  const pts1 = Array.from({length:40},(_,i)=>({x:(i/39)*w,y:h*0.85}));
+  const pts2 = Array.from({length:40},(_,i)=>({x:(i/39)*w,y:h*0.75}));
+  ctx.beginPath(); ctx.moveTo(pts1[0].x,pts1[0].y);
+  for(let i=1;i<pts1.length;i++){const c=(pts1[i-1].x+pts1[i].x)/2;ctx.bezierCurveTo(c,pts1[i-1].y,c,pts1[i].y,pts1[i].x,pts1[i].y);}
   ctx.strokeStyle='rgba(0,212,255,0.3)'; ctx.lineWidth=1; ctx.stroke();
-  ctx.beginPath(); ctx.moveTo(pts2[0].x, pts2[0].y);
-  for (let i=1;i<pts2.length;i++){const c=(pts2[i-1].x+pts2[i].x)/2;ctx.bezierCurveTo(c,pts2[i-1].y,c,pts2[i].y,pts2[i].x,pts2[i].y);}
+  ctx.beginPath(); ctx.moveTo(pts2[0].x,pts2[0].y);
+  for(let i=1;i<pts2.length;i++){const c=(pts2[i-1].x+pts2[i].x)/2;ctx.bezierCurveTo(c,pts2[i-1].y,c,pts2[i].y,pts2[i].x,pts2[i].y);}
   ctx.strokeStyle='rgba(0,232,135,0.2)'; ctx.lineWidth=1; ctx.stroke();
   ctx.fillStyle='rgba(0,212,255,0.35)'; ctx.font=`${10*dpr}px DM Sans`;
-  ctx.fillText('$VCLM minted', 16/dpr, (h*0.85-8)/dpr);
+  ctx.fillText('$VCLM minted',16/dpr,(h*0.85-8)/dpr);
   ctx.fillStyle='rgba(0,232,135,0.3)';
-  ctx.fillText('Committed wallets', 16/dpr, (h*0.75-8)/dpr);
+  ctx.fillText('Committed wallets',16/dpr,(h*0.75-8)/dpr);
 }
 function drawSmallCharts() {
   const vclmCanvas = document.getElementById('vclmChart');
   const walletCanvas = document.getElementById('walletChart');
-  if (!vclmCanvas || !walletCanvas) return;
+  if (!vclmCanvas||!walletCanvas) return;
   const vclmSample = [0,120,380,800,1600,3200,5800,9200,13500,18000,23000,28500,34000];
   const walletSample = [0,8,22,45,90,160,240,340,460,590,720,860,1000];
-  function drawSampleChart(canvas, data, stroke, fill) {
-    const dpr = window.devicePixelRatio || 1;
-    canvas.width = canvas.offsetWidth * dpr;
-    canvas.height = canvas.offsetHeight * dpr;
+  function drawSampleChart(canvas,data,stroke,fill) {
+    const dpr = window.devicePixelRatio||1;
+    canvas.width = canvas.offsetWidth*dpr;
+    canvas.height = canvas.offsetHeight*dpr;
     const ctx = canvas.getContext('2d');
-    ctx.scale(dpr, dpr);
-    const w = canvas.offsetWidth, h = canvas.offsetHeight;
-    const max = Math.max(...data);
-    const pts = data.map((v,i) => ({ x:(i/(data.length-1))*w, y:h-(v/max)*h*0.75-h*0.1 }));
-    ctx.beginPath(); ctx.moveTo(pts[0].x, pts[0].y);
+    ctx.scale(dpr,dpr);
+    const w=canvas.offsetWidth,h=canvas.offsetHeight;
+    const max=Math.max(...data);
+    const pts=data.map((v,i)=>({x:(i/(data.length-1))*w,y:h-(v/max)*h*0.75-h*0.1}));
+    ctx.beginPath(); ctx.moveTo(pts[0].x,pts[0].y);
     for(let i=1;i<pts.length;i++){const c=(pts[i-1].x+pts[i].x)/2;ctx.bezierCurveTo(c,pts[i-1].y,c,pts[i].y,pts[i].x,pts[i].y);}
     ctx.lineTo(w,h); ctx.lineTo(0,h); ctx.closePath();
     const g=ctx.createLinearGradient(0,0,0,h); g.addColorStop(0,fill); g.addColorStop(1,'rgba(0,0,0,0)');
     ctx.fillStyle=g; ctx.fill();
-    ctx.beginPath(); ctx.moveTo(pts[0].x, pts[0].y);
+    ctx.beginPath(); ctx.moveTo(pts[0].x,pts[0].y);
     for(let i=1;i<pts.length;i++){const c=(pts[i-1].x+pts[i].x)/2;ctx.bezierCurveTo(c,pts[i-1].y,c,pts[i].y,pts[i].x,pts[i].y);}
     ctx.strokeStyle=stroke; ctx.lineWidth=1.5; ctx.stroke();
     const last=pts[pts.length-1];
     ctx.beginPath(); ctx.arc(last.x,last.y,3,0,Math.PI*2); ctx.fillStyle=stroke; ctx.fill();
   }
-  setTimeout(() => {
-    drawSampleChart(vclmCanvas, vclmSample, 'rgba(10,10,10,0.25)', 'rgba(10,10,10,0.06)');
-    drawSampleChart(walletCanvas, walletSample, 'rgba(10,10,10,0.25)', 'rgba(10,10,10,0.06)');
-  }, 100);
+  setTimeout(()=>{
+    drawSampleChart(vclmCanvas,vclmSample,'rgba(10,10,10,0.25)','rgba(10,10,10,0.06)');
+    drawSampleChart(walletCanvas,walletSample,'rgba(10,10,10,0.25)','rgba(10,10,10,0.06)');
+  },100);
 }
 </script>
 </body>
