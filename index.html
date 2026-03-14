@@ -143,6 +143,32 @@
   .chain-name { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 300; color: var(--black); }
   .chain-status { font-size: 0.55rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--mid); margin-top: 0.3rem; }
   .chain-status.live { color: #2d6a4f; }
+  .validators-section { padding: 10rem 3rem; background: var(--white); }
+  .validators-inner { max-width: 1400px; margin: 0 auto; }
+  .validators-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start; margin-bottom: 6rem; }
+  .validators-headline { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(2rem, 3vw, 2.8rem); line-height: 1.2; }
+  .validators-headline em { font-style: italic; color: var(--mid); }
+  .validators-body { font-size: 0.9rem; line-height: 1.9; color: var(--mid); padding-top: 0.5rem; }
+  .validator-tiers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-top: 1px solid rgba(0,0,0,0.06); }
+  .validator-tier { padding: 3rem; border-right: 1px solid rgba(0,0,0,0.06); transition: background 0.4s ease; }
+  .validator-tier:last-child { border-right: none; }
+  .validator-tier:hover { background: var(--off-white); }
+  .validator-tier-archon { background: var(--black); }
+  .validator-tier-archon:hover { background: #111; }
+  .tier-number { font-family: 'Cormorant Garamond', serif; font-size: 4rem; font-weight: 300; color: rgba(0,0,0,0.06); line-height: 1; margin-bottom: 1rem; }
+  .validator-tier-archon .tier-number { color: rgba(255,255,255,0.06); }
+  .tier-name { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: 2rem; color: var(--black); margin-bottom: 0.3rem; }
+  .validator-tier-archon .tier-name { color: var(--white); }
+  .tier-stake { font-size: 0.75rem; letter-spacing: 0.1em; color: var(--mid); margin-bottom: 1.5rem; }
+  .validator-tier-archon .tier-stake { color: rgba(255,255,255,0.4); }
+  .tier-divider { width: 100%; height: 1px; background: rgba(0,0,0,0.06); margin-bottom: 1.5rem; }
+  .validator-tier-archon .tier-divider { background: rgba(255,255,255,0.08); }
+  .tier-desc { font-size: 0.8rem; line-height: 1.8; color: var(--mid); margin-top: 0; border-top: none; padding-top: 0; }
+  .validator-tier-archon .tier-desc { color: rgba(255,255,255,0.35); }
+  .validators-cta { display: flex; flex-direction: column; gap: 1rem; margin-top: 4rem; border-top: 1px solid rgba(0,0,0,0.06); padding-top: 3rem; }
+  .validators-link { font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--black); text-decoration: none; font-weight: 400; transition: opacity 0.3s; }
+  .validators-link:hover { opacity: 0.5; }
+  .validators-footnote { font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--mid); margin-top: 0; }
   .manifesto { padding: 12rem 3rem; background: var(--black); text-align: center; position: relative; overflow: hidden; }
   .manifesto-inner { position: relative; z-index: 2; max-width: 900px; margin: 0 auto; }
   .manifesto-label { font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase; color: rgba(255,255,255,0.25); margin-bottom: 3rem; }
@@ -170,6 +196,9 @@
     .intro, .vclm-grid, .trial-inner, .chains-header, .etymology-inner { grid-template-columns: 1fr; gap: 3rem; }
     .steps { grid-template-columns: 1fr; }
     .step { border-right: none; border-bottom: 1px solid rgba(0,0,0,0.06); }
+    .validator-tiers { grid-template-columns: 1fr; }
+    .validator-tier { border-right: none; border-bottom: 1px solid rgba(0,0,0,0.06); }
+    .validators-intro { grid-template-columns: 1fr; gap: 2rem; }
     .token-grid { grid-template-columns: repeat(2, 1fr); }
     .chain-list { grid-template-columns: repeat(2, 1fr); }
     .charts-strip { grid-template-columns: 1fr; }
@@ -190,6 +219,8 @@
     <li><a href="#protocol">Protocol</a></li>
     <li><a href="#vclm">$VCLM</a></li>
     <li><a href="#chains">Chains</a></li>
+    <li><a href="vision.html">Vision</a></li>
+    <li><a href="guardians.html">Stewards</a></li>
     <li><a href="#" style="opacity:0.4">Launch — Soon</a></li>
   </ul>
 </nav>
@@ -274,7 +305,7 @@
     <h2 class="intro-headline">DeFi has always rewarded<br><em>capital over conviction.</em><br>Vinculum changes that.</h2>
   </div>
   <div class="intro-right reveal reveal-delay-2">
-    <p class="intro-body">Vinculum is a commitment vault protocol built on Base. Lock your tokens for a defined period and earn $VCLM — a governance token that cannot be purchased, pre-allocated, or airdropped. The only path to $VCLM is through commitment.</p>
+    <p class="intro-body">Vinculum is a commitment vault protocol built on Base. Lock your tokens for a defined period and earn $VCLM — the protocol's native token. It governs. It stakes. It earns fee revenue. And it cannot be purchased, pre-allocated, or airdropped. The only path to $VCLM is through commitment.</p>
     <p class="intro-body">Not even the team holds $VCLM. We stake to earn it just like you.</p>
     <div class="intro-stat"><span class="stat-number">16</span><span class="stat-label">Approved assets at launch</span></div>
     <div class="intro-stat"><span class="stat-number">93</span><span class="stat-label">Tests passing</span></div>
@@ -335,7 +366,8 @@
   <div class="vclm-grid">
     <div class="reveal">
       <p class="intro-label">The Token</p>
-      <h2 class="vclm-headline">$VCLM cannot<br>be bought.<br><em>Only earned.</em></h2>
+      <h2 class="vclm-headline">$VCLM is not a<br>governance token.<br><em>It is the only token.</em></h2>
+      <p class="vclm-body">It governs the protocol. It powers the Governance Steward tiers. It earns fee revenue after the minting era. It appreciates through permanent scarcity. There is no other token. There is no main token coming later. This is it.</p>
       <p class="vclm-body">No presale. No premine. No VC allocation. No insider round. Every $VCLM that will ever exist was minted by someone who committed real value and waited.</p>
       <p class="vclm-body">The emission rate decays 1.667% every single month from day one. No floor. No ceiling. The longer you wait to start, the less you earn when you do. Early believers are mathematically privileged forever.</p>
       <p class="vclm-body">Hard cap: 10,000,000,000 VCLM. Immutable. No governance can ever change it.</p>
@@ -409,6 +441,45 @@
     <div class="chain-item"><div class="chain-name">XDC Network</div><div class="chain-status">Via Axelar ITS</div></div>
   </div>
 </section>
+<section class="validators-section" id="stewards">
+  <div class="validators-inner">
+    <div class="section-header reveal">
+      <span class="section-label">Governance Stewards</span>
+      <span class="section-count">Three tiers</span>
+    </div>
+    <div class="validators-intro reveal">
+      <h2 class="validators-headline">Not validators.<br><em>Something more important.</em></h2>
+      <p class="validators-body">Vinculum does not have validators in the traditional sense. Base handles the chain. What we have instead are Governance Stewards — Keepers, Guardians, and Archons — whose responsibility is to ensure this protocol never goes quiet, never drifts, and is always ready to react, propose, and improve. The chain keeps the contracts alive. The Stewards keep the protocol alive.</p>
+    </div>
+    <div class="validator-tiers">
+      <div class="validator-tier reveal">
+        <div class="tier-number">01</div>
+        <div class="tier-name">Keeper</div>
+        <div class="tier-stake">1,000 $VCLM minimum</div>
+        <div class="tier-divider"></div>
+        <p class="tier-desc">The entry point. Stake your commitment. Earn epoch rewards. Participate in governance. Unlimited seats.</p>
+      </div>
+      <div class="validator-tier reveal reveal-delay-2">
+        <div class="tier-number">02</div>
+        <div class="tier-name">Guardian</div>
+        <div class="tier-stake">10,000 $VCLM minimum</div>
+        <div class="tier-divider"></div>
+        <p class="tier-desc">Enhanced rewards. 1.5× voting weight. Active governance participation expected. Unlimited seats.</p>
+      </div>
+      <div class="validator-tier validator-tier-archon reveal reveal-delay-3">
+        <div class="tier-number">03</div>
+        <div class="tier-name">Archon</div>
+        <div class="tier-stake">30,000 $VCLM minimum</div>
+        <div class="tier-divider"></div>
+        <p class="tier-desc">The founding council. 180-day lock. 2.0× voting weight. First in line for fee revenue. 21 seats. Hard cap. Forever.</p>
+      </div>
+    </div>
+    <div class="validators-cta reveal">
+      <a href="guardians.html" class="validators-link">Learn about becoming a Governance Steward →</a>
+      <p class="validators-footnote">Not appointed. Not purchased. Earned — by committing $VCLM and waiting.</p>
+    </div>
+  </div>
+</section>
 <section class="manifesto">
   <div class="orb orb-1" style="opacity:0.06"></div>
   <div class="orb orb-2" style="opacity:0.06"></div>
@@ -434,8 +505,8 @@
   <ul class="footer-links">
     <li><a href="https://github.com/VinculumDefi/vinculum-protocol" target="_blank">GitHub</a></li>
     <li><a href="https://twitter.com/VinculumDefi" target="_blank">@VinculumDefi</a></li>
-    <li><a href="#">Whitepaper — Soon</a></li>
-    <li><a href="#">Launch — Soon</a></li>
+    <li><a href="vision.html">Vision</a></li>
+    <li><a href="guardians.html">Stewards</a></li>
   </ul>
   <span class="footer-copy">© 2026 Vinculum Protocol DAO LLC</span>
 </footer>
@@ -450,7 +521,7 @@ document.addEventListener('mousemove', e => {
   if (inDark && !isLight) { cursor.classList.add('light'); isLight = true; }
   else if (!inDark && isLight) { cursor.classList.remove('light'); isLight = false; }
 });
-document.querySelectorAll('a, button, .step, .token-item, .chain-item, .phone-btn, .decay-bar').forEach(el => {
+document.querySelectorAll('a, button, .step, .token-item, .chain-item, .phone-btn, .decay-bar, .validator-tier').forEach(el => {
   el.addEventListener('mouseenter', () => cursor.classList.add('hovering'));
   el.addEventListener('mouseleave', () => cursor.classList.remove('hovering'));
 });
