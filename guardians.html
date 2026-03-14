@@ -49,6 +49,8 @@
   .reveal-delay-1 { transition-delay: 0.1s; }
   .reveal-delay-2 { transition-delay: 0.2s; }
   .reveal-delay-3 { transition-delay: 0.3s; }
+  /* Prevent invisible reveal elements from creating blank space on mobile */
+  .why-section { min-height: unset; }
 
   /* WHY SECTION */
   .why-section { padding: 10rem 3rem; max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 8rem; align-items: start; }
@@ -278,19 +280,21 @@
           <div class="tier-spec-label">Max seats</div>
           <div class="tier-spec-value">Unlimited</div>
         </div>
-        <div class="tier-spec">
-          <div class="tier-spec-label">Node required</div>
-          <div class="tier-spec-value">No</div>
-        </div>
       </div>
-      <p class="tier-block-body">The Keeper tier is the entry point into Governance Stewardship. Stake a minimum of 1,000 $VCLM for 90 days. Participate in governance votes. Earn epoch rewards from the Keeper reward pool. No software to run. No hardware requirements. Just commitment and participation.</p>
+      <p class="tier-block-body">The Keeper tier is the entry point into Governance Stewardship. Stake a minimum of 1,000 $VCLM for an initial 90-day lock period. After that initial period your stake rolls into an open-ended lock — still earning epoch rewards, still carrying governance weight, with no repeated entry fees and no further action required on your part.</p>
       <p class="tier-block-body">Keepers are the foundation of the governance layer. The more Keepers that are active and voting, the more robust and representative governance becomes. There is no cap on Keeper seats — the protocol benefits from every participant who chooses to engage.</p>
       <div class="tier-responsibilities">
         <div class="tier-resp-label">Responsibilities</div>
-        <div class="tier-resp-item"><div class="tier-resp-dot"></div><div class="tier-resp-text">Stake minimum 1,000 $VCLM for a 90-day minimum lock period</div></div>
+        <div class="tier-resp-item"><div class="tier-resp-dot"></div><div class="tier-resp-text">Stake minimum 1,000 $VCLM for an initial 90-day lock period</div></div>
         <div class="tier-resp-item"><div class="tier-resp-dot"></div><div class="tier-resp-text">Participate in governance votes on Standard and Treasury proposals</div></div>
         <div class="tier-resp-item"><div class="tier-resp-dot"></div><div class="tier-resp-text">Maintain active participation — consistent absence weakens governance quorum</div></div>
         <div class="tier-resp-item"><div class="tier-resp-dot"></div><div class="tier-resp-text">Stay informed on protocol developments and proposed changes</div></div>
+      </div>
+      <div class="tier-responsibilities">
+        <div class="tier-resp-label">Exiting the Keeper tier</div>
+        <div class="tier-resp-item"><div class="tier-resp-dot"></div><div class="tier-resp-text">You may exit your stake at any time after the initial 90-day lock period ends</div></div>
+        <div class="tier-resp-item"><div class="tier-resp-dot"></div><div class="tier-resp-text">95% of your original staked $VCLM is returned to your wallet upon exit — the 5% protocol entry fee taken at the time of staking is non-refundable</div></div>
+        <div class="tier-resp-item"><div class="tier-resp-dot"></div><div class="tier-resp-text">Exiting ends your Keeper status and removes your governance weight</div></div>
       </div>
     </div>
   </div>
@@ -325,20 +329,22 @@
           <div class="tier-spec-label">Max seats</div>
           <div class="tier-spec-value">Unlimited</div>
         </div>
-        <div class="tier-spec">
-          <div class="tier-spec-label">Node required</div>
-          <div class="tier-spec-value">No</div>
-        </div>
       </div>
       <p class="tier-block-body">Guardians are active governance participants who have demonstrated a deeper commitment to the protocol. With 1.5× voting weight and access to 35% of the governance reward pool, Guardians carry meaningful influence over the protocol's direction.</p>
-      <p class="tier-block-body">Guardian status is not a passive designation. It is an active role. Guardians are expected to deliberate thoughtfully on proposals, contribute to protocol discussions, and help shape the long-term strategy of a cross-chain cooperative that is still in its early years.</p>
+      <p class="tier-block-body">Guardian status is not a passive designation. It is an active role. Stake once for the initial 90-day lock period. After that your stake rolls open-ended — no repeated staking cycles, no repeated entry fees. Your VCLM stays locked and working for the protocol for as long as you choose to remain a Guardian.</p>
       <div class="tier-responsibilities">
         <div class="tier-resp-label">Responsibilities</div>
-        <div class="tier-resp-item"><div class="tier-resp-dot"></div><div class="tier-resp-text">Stake minimum 10,000 $VCLM for a 90-day minimum lock period</div></div>
+        <div class="tier-resp-item"><div class="tier-resp-dot"></div><div class="tier-resp-text">Stake minimum 10,000 $VCLM for an initial 90-day lock period</div></div>
         <div class="tier-resp-item"><div class="tier-resp-dot"></div><div class="tier-resp-text">Vote actively on all proposal types — Standard, Treasury, and Constitutional</div></div>
         <div class="tier-resp-item"><div class="tier-resp-dot"></div><div class="tier-resp-text">Contribute to protocol governance discussions and proposal deliberation</div></div>
         <div class="tier-resp-item"><div class="tier-resp-dot"></div><div class="tier-resp-text">Help maintain governance quorum and ensure proposals reach threshold</div></div>
         <div class="tier-resp-item"><div class="tier-resp-dot"></div><div class="tier-resp-text">Represent the interests of the broader community in governance decisions</div></div>
+      </div>
+      <div class="tier-responsibilities">
+        <div class="tier-resp-label">Exiting the Guardian tier</div>
+        <div class="tier-resp-item"><div class="tier-resp-dot"></div><div class="tier-resp-text">You may exit your stake at any time after the initial 90-day lock period ends</div></div>
+        <div class="tier-resp-item"><div class="tier-resp-dot"></div><div class="tier-resp-text">95% of your original staked $VCLM is returned to your wallet upon exit — the 5% protocol entry fee taken at the time of staking is non-refundable</div></div>
+        <div class="tier-resp-item"><div class="tier-resp-dot"></div><div class="tier-resp-text">Exiting ends your Guardian status and removes your enhanced voting weight</div></div>
       </div>
     </div>
   </div>
@@ -357,9 +363,10 @@
       <em>of a cross-chain cooperative.</em>
     </h2>
     <p class="archon-body reveal">The Archon tier is not a technical role. It is a founding responsibility. <strong>21 seats. Hard cap. No governance vote can ever increase this number.</strong> The people who hold these seats will be permanently recognized in protocol history as the founding council of Vinculum Protocol.</p>
-    <p class="archon-body reveal">Archons carry 2.0× voting weight on all governance proposals, including Constitutional proposals that govern the most fundamental aspects of the protocol. They are first in line for fee revenue distribution after the minting era. They hold their $VCLM for a minimum of 180 days — six months of demonstrated commitment before the role is confirmed.</p>
-    <p class="archon-body reveal"><strong>What Archons are actually responsible for is ensuring this protocol has a future.</strong> Not just technically — but strategically. They are the steady hands, the long-term thinkers, the people who ask: where is this protocol going in five years? In twenty? What challenges will it face? What opportunities will it be positioned to capture? How do we keep the governance layer healthy, representative, and wise as the protocol grows across chains and communities?</p>
-    <p class="archon-body reveal">These are not small questions. And the 21 people who choose to answer them — by staking 30,000 $VCLM for six months and committing to active stewardship — will have earned a permanent place in the protocol's story.</p>
+    <p class="archon-body reveal">Archons carry 2.0× voting weight on all governance proposals, including Constitutional proposals that govern the most fundamental aspects of the protocol. They are first in line for fee revenue distribution after the minting era. The initial lock period is 180 days — six months of demonstrated commitment before the role is confirmed.</p>
+    <p class="archon-body reveal"><strong>How Archon staking works:</strong> You stake 30,000 $VCLM once. After the initial 180-day lock your stake rolls into an open-ended lock — earning epoch rewards and fee revenue distributions indefinitely, with no repeated staking cycles and no repeated entry fees. Your $VCLM is working for you and for the protocol for as long as you hold the seat.</p>
+    <p class="archon-body reveal"><strong>Exiting:</strong> You may choose to exit your Archon stake at any time after the initial 180-day lock period ends. 95% of your original staked $VCLM is returned to your wallet upon exit — the 5% protocol entry fee taken at the time of staking is non-refundable. Exiting releases your Archon seat — making it available for the next person who earns it. Your place in the founding council's history remains permanent regardless.</p>
+    <p class="archon-body reveal">What Archons are actually responsible for is ensuring this protocol has a future. Not just technically — but strategically. They are the steady hands, the long-term thinkers, the people who ask: where is this protocol going in five years? In twenty? What challenges will it face? What opportunities will it be positioned to capture? How do we keep the governance layer healthy, representative, and wise as the protocol grows across chains and communities?</p>
     <div class="archon-rules reveal">
       <div class="archon-rule">
         <div class="archon-rule-label">Minimum stake</div>
@@ -391,6 +398,29 @@
 
 <!-- IMMUTABLE VS GOVERNANCE -->
 <section class="governance-section">
+  <div class="section-header reveal">
+    <span class="section-label">How Governance Steward staking works</span>
+  </div>
+  <p class="why-body reveal" style="max-width:700px; margin-bottom: 3rem;">Governance Steward staking is designed to be simple, fair, and permanent in the right ways. You stake once. Your lock runs open-ended after the initial period. You never pay repeated entry fees to maintain your status. And when you are ready to leave — for any reason — your full $VCLM comes back to you.</p>
+  <div class="governance-grid reveal" style="margin-bottom: 5rem;">
+    <div>
+      <div class="governance-col-label">How it works — all three tiers</div>
+      <div class="governance-item"><div class="gov-dot gov-dot-locked"></div><div class="gov-text"><strong>Stake once</strong> — commit your minimum $VCLM for the initial lock period of your tier</div></div>
+      <div class="governance-item"><div class="gov-dot gov-dot-locked"></div><div class="gov-text"><strong>Lock rolls open-ended</strong> — after the initial period your stake continues indefinitely with no action required</div></div>
+      <div class="governance-item"><div class="gov-dot gov-dot-locked"></div><div class="gov-text"><strong>No repeated entry fees</strong> — you pay the 5% vault entry fee once at the start, never again while your stake remains active</div></div>
+      <div class="governance-item"><div class="gov-dot gov-dot-locked"></div><div class="gov-text"><strong>Epoch rewards continue</strong> — your share of the reward pool accrues every epoch for as long as your stake is active</div></div>
+      <div class="governance-item"><div class="gov-dot gov-dot-locked"></div><div class="gov-text"><strong>Archons receive fee revenue</strong> — first in line for protocol fee distributions after the minting era, indefinitely</div></div>
+    </div>
+    <div>
+      <div class="governance-col-label">Exiting — your choice, your timeline</div>
+      <div class="governance-item"><div class="gov-dot gov-dot-open"></div><div class="gov-text"><strong>Exit any time</strong> — after the initial lock period ends you may withdraw your stake whenever you choose</div></div>
+      <div class="governance-item"><div class="gov-dot gov-dot-open"></div><div class="gov-text"><strong>95% of staked VCLM returned</strong> — the 5% protocol entry fee is non-refundable; it was taken at the time of staking and went to the treasury</div></div>
+      <div class="governance-item"><div class="gov-dot gov-dot-open"></div><div class="gov-text"><strong>Status ends on exit</strong> — withdrawing your stake ends your Steward status and removes your governance weight</div></div>
+      <div class="governance-item"><div class="gov-dot gov-dot-open"></div><div class="gov-text"><strong>Archon seat opens on exit</strong> — if you hold an Archon seat and exit, that seat becomes available for the next person who earns it</div></div>
+      <div class="governance-item"><div class="gov-dot gov-dot-open"></div><div class="gov-text"><strong>History is permanent</strong> — Archons who exit remain part of the founding council's permanent record regardless</div></div>
+    </div>
+  </div>
+
   <div class="section-header reveal">
     <span class="section-label">What Governance Stewards govern</span>
   </div>
