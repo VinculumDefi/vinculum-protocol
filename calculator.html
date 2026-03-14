@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VCLM Calculator — Vinculum Protocol</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=DM+Sans:wght@200;300;400&display=swap" rel="stylesheet">
+<style>
+  :root { --white: #fafaf8; --off-white: #f4f3ef; --black: #0a0a0a; --mid: #6b6b65; --blue: #00d4ff; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--white); color: var(--black); font-family: 'DM Sans', sans-serif; font-weight: 300; overflow-x: hidden; cursor: none; }
+
+  .cursor { width: 8px; height: 8px; background: var(--black); border-radius: 50%; position: fixed; top: 0; left: 0; pointer-events: none; z-index: 9999; transition: transform 0.15s ease, width 0.3s ease, height 0.3s ease, background 0.3s ease; transform: translate(-50%,-50%); }
+  .cursor.hovering { width: 40px; height: 40px; background: transparent; border: 1px solid var(--black); }
+  .cursor.light { background: white; }
+  .cursor.light.hovering { border-color: white; background: transparent; }
+
+  /* NAV */
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 2rem 3rem; mix-blend-mode: difference; }
+  .nav-logo { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: 1.1rem; letter-spacing: 0.15em; color: var(--white); text-decoration: none; text-transform: uppercase; }
+  .nav-back { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--white); text-decoration: none; opacity: 0.6; transition: opacity 0.3s; }
+  .nav-back:hover { opacity: 1; }
+
+  /* HERO */
+  .hero { position: relative; height: 60vh; background: var(--black); display: flex; flex-direction: column; justify-content: flex-end; padding: 0 3rem 5rem; overflow: hidden; }
+  .hero-bg { position: absolute; inset: 0; background: linear-gradient(135deg, #060a10 0%, #0d1b2a 50%, #060a10 100%); }
+  .orb { position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.12; animation: orbFloat 12s ease-in-out infinite; }
+  .orb-1 { width: 500px; height: 500px; background: #00d4ff; top: -100px; right: 5%; }
+  .orb-2 { width: 300px; height: 300px; background: #0066ff; bottom: -50px; left: 10%; animation-delay: -5s; }
+  @keyframes orbFloat { 0%,100%{transform:translate(0,0) scale(1);}50%{transform:translate(20px,-30px) scale(1.05);} }
+  .hero-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.02) 1px,transparent 1px); background-size: 80px 80px; animation: gridDrift 20s linear infinite; }
+  @keyframes gridDrift { 0%{transform:translateY(0);}100%{transform:translateY(80px);} }
+  .hero-content { position: relative; z-index: 10; }
+  .hero-eyebrow { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 1rem; animation: fadeUp 1s ease forwards; animation-delay: 0.3s; opacity: 0; }
+  .hero-title { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(3rem, 6vw, 5rem); line-height: 1.0; color: var(--white); margin-bottom: 1rem; animation: fadeUp 1s ease forwards; animation-delay: 0.5s; opacity: 0; }
+  .hero-title em { font-style: italic; opacity: 0.45; }
+  .hero-sub { font-size: 0.78rem; color: rgba(255,255,255,0.32); animation: fadeUp 1s ease forwards; animation-delay: 0.8s; opacity: 0; max-width: 600px; line-height: 1.9; letter-spacing: 0.03em; }
+  @keyframes fadeUp { 0%{opacity:0;transform:translateY(30px);}100%{opacity:1;transform:translateY(0);} }
+
+  /* SHARED */
+  .full-divider { width: 100%; height: 1px; background: rgba(0,0,0,0.06); }
+  .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.9s ease, transform 0.9s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .section-label { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--mid); margin-bottom: 2rem; display: block; }
+
+  /* CALCULATOR SECTION */
+  .calc-section { padding: 6rem 3rem; max-width: 1400px; margin: 0 auto; }
+
+  /* INPUT PANEL */
+  .input-panel { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 3rem; margin-bottom: 4rem; padding-bottom: 4rem; border-bottom: 1px solid rgba(0,0,0,0.06); }
+
+  .input-group { display: flex; flex-direction: column; gap: 0.8rem; }
+  .input-label { font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--mid); }
+  .input-sublabel { font-size: 0.58rem; color: rgba(107,107,101,0.6); letter-spacing: 0.05em; margin-top: -0.4rem; }
+
+  /* Token select */
+  .token-select { display: grid; grid-template-columns: repeat(4,1fr); gap: 1px; background: rgba(0,0,0,0.06); }
+  .token-btn { background: var(--white); padding: 0.7rem 0.3rem; text-align: center; cursor: pointer; transition: background 0.2s; border: none; font-family: 'DM Sans', sans-serif; font-size: 0.62rem; letter-spacing: 0.05em; color: var(--mid); }
+  .token-btn:hover { background: var(--off-white); color: var(--black); }
+  .token-btn.selected { background: var(--black); color: var(--white); }
+  .token-btn .token-tier-badge { font-size: 0.45rem; display: block; opacity: 0.5; letter-spacing: 0.08em; margin-top: 0.2rem; }
+
+  /* Amount input */
+  .amount-wrap { position: relative; }
+  .amount-input { width: 100%; background: var(--off-white); border: none; border-bottom: 2px solid rgba(0,0,0,0.15); padding: 1rem 1rem 1rem 2rem; font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 300; color: var(--black); outline: none; transition: border-color 0.3s; }
+  .amount-input:focus { border-bottom-color: var(--black); }
+  .amount-prefix { position: absolute; left: 0.8rem; top: 50%; transform: translateY(-50%); font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 300; color: var(--mid); }
+
+  /* Duration select */
+  .duration-select { display: flex; flex-direction: column; gap: 1px; background: rgba(0,0,0,0.06); }
+  .duration-btn { background: var(--white); padding: 0.85rem 1.2rem; cursor: pointer; transition: background 0.2s; border: none; font-family: 'DM Sans', sans-serif; font-size: 0.68rem; letter-spacing: 0.08em; color: var(--mid); text-align: left; display: flex; justify-content: space-between; align-items: center; }
+  .duration-btn:hover { background: var(--off-white); color: var(--black); }
+  .duration-btn.selected { background: var(--black); color: var(--white); }
+  .duration-mult { font-family: 'Cormorant Garamond', serif; font-size: 0.9rem; opacity: 0.6; }
+  .duration-btn.selected .duration-mult { opacity: 0.5; }
+
+  /* MONTH SLIDER */
+  .month-group { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; padding-top: 2rem; border-top: 1px solid rgba(0,0,0,0.06); }
+  .slider-wrap { display: flex; flex-direction: column; gap: 1rem; }
+  .slider-header { display: flex; justify-content: space-between; align-items: baseline; }
+  .slider-title { font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--mid); }
+  .slider-value { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 300; color: var(--black); }
+  input[type=range] { width: 100%; appearance: none; height: 1px; background: rgba(0,0,0,0.12); outline: none; }
+  input[type=range]::-webkit-slider-thumb { appearance: none; width: 14px; height: 14px; background: var(--black); border-radius: 50%; cursor: pointer; }
+  input[type=range]::-moz-range-thumb { width: 14px; height: 14px; background: var(--black); border-radius: 50%; cursor: pointer; border: none; }
+  .slider-note { font-size: 0.68rem; line-height: 1.8; color: var(--mid); padding-top: 0.5rem; }
+  .slider-note strong { color: var(--black); font-weight: 400; }
+
+  /* RESULTS */
+  .results { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: rgba(0,0,0,0.06); margin-bottom: 4rem; }
+  .result-card { background: var(--white); padding: 2.5rem; transition: background 0.3s; }
+  .result-card:hover { background: var(--off-white); }
+  .result-card.primary { background: var(--black); }
+  .result-card.primary:hover { background: #111; }
+  .result-card-label { font-size: 0.58rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--mid); margin-bottom: 1rem; }
+  .result-card.primary .result-card-label { color: rgba(255,255,255,0.35); }
+  .result-num { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: 2.6rem; color: var(--black); line-height: 1; margin-bottom: 0.5rem; }
+  .result-card.primary .result-num { color: var(--white); }
+  .result-sub { font-size: 0.62rem; color: var(--mid); letter-spacing: 0.05em; line-height: 1.6; }
+  .result-card.primary .result-sub { color: rgba(255,255,255,0.3); }
+  .result-unlock { font-size: 0.75rem; color: var(--mid); margin-top: 1rem; border-top: 1px solid rgba(0,0,0,0.06); padding-top: 1rem; line-height: 1.7; }
+  .result-card.primary .result-unlock { color: rgba(255,255,255,0.35); border-top-color: rgba(255,255,255,0.08); }
+  .result-unlock strong { color: var(--black); font-weight: 400; }
+  .result-card.primary .result-unlock strong { color: rgba(255,255,255,0.8); }
+
+  /* CHARTS SECTION */
+  .charts-section { padding: 0 3rem 6rem; max-width: 1400px; margin: 0 auto; }
+  .charts-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-top: 3rem; }
+  .chart-card { background: var(--off-white); padding: 2.5rem; }
+  .chart-title { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: 1.3rem; margin-bottom: 0.5rem; }
+  .chart-title em { font-style: italic; color: var(--mid); }
+  .chart-note { font-size: 0.65rem; color: var(--mid); margin-bottom: 1.5rem; line-height: 1.6; }
+  .chart-canvas-wrap { position: relative; height: 200px; }
+  canvas { width: 100% !important; height: 100% !important; }
+
+  /* DECAY URGENCY BAR */
+  .urgency-section { background: var(--black); padding: 5rem 3rem; }
+  .urgency-inner { max-width: 1400px; margin: 0 auto; }
+  .urgency-headline { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(1.8rem,3vw,2.8rem); color: var(--white); margin-bottom: 1rem; line-height: 1.2; }
+  .urgency-headline em { font-style: italic; opacity: 0.4; }
+  .urgency-body { font-size: 0.82rem; line-height: 1.9; color: rgba(255,255,255,0.35); max-width: 600px; margin-bottom: 3rem; }
+  .urgency-body strong { color: rgba(255,255,255,0.75); font-weight: 300; }
+  .decay-bars { display: flex; align-items: flex-end; gap: 6px; height: 100px; }
+  .dbar { flex: 1; background: rgba(255,255,255,0.15); border-radius: 1px; position: relative; }
+  .dbar::after { content: attr(data-yr); position: absolute; bottom: -1.4rem; left: 50%; transform: translateX(-50%); font-size: 0.5rem; color: rgba(255,255,255,0.25); white-space: nowrap; }
+  .dbar.active { background: rgba(0,212,255,0.5); }
+
+  /* COMPARISON TABLE */
+  .comparison-section { padding: 5rem 3rem; max-width: 1400px; margin: 0 auto; }
+  .comparison-table { width: 100%; border-collapse: collapse; margin-top: 2rem; }
+  .comparison-table th { font-size: 0.58rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--mid); text-align: left; padding: 0.8rem 1rem; border-bottom: 1px solid rgba(0,0,0,0.08); font-weight: 300; }
+  .comparison-table td { font-size: 0.82rem; padding: 0.9rem 1rem; border-bottom: 1px solid rgba(0,0,0,0.04); color: var(--black); }
+  .comparison-table td.num { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 300; }
+  .comparison-table td.dim { color: var(--mid); font-size: 0.75rem; }
+  .comparison-table tr:hover td { background: var(--off-white); }
+  .comparison-table tr.current-row td { background: rgba(0,0,0,0.02); }
+  .comparison-table tr.current-row td.num { font-weight: 400; }
+  .tag-now { font-size: 0.5rem; letter-spacing: 0.1em; text-transform: uppercase; background: var(--black); color: var(--white); padding: 0.15rem 0.4rem; margin-left: 0.5rem; vertical-align: middle; }
+
+  /* FOOTER */
+  footer { padding: 4rem 3rem; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(0,0,0,0.06); }
+  .footer-logo { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: 1rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--black); text-decoration: none; }
+  .footer-links { display: flex; gap: 2.5rem; list-style: none; }
+  .footer-links a { font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mid); text-decoration: none; transition: color 0.3s; }
+  .footer-links a:hover { color: var(--black); }
+  .footer-copy { font-size: 0.65rem; color: var(--mid); }
+
+  @media (max-width: 900px) {
+    nav { padding: 1.5rem; }
+    .input-panel { grid-template-columns: 1fr; gap: 2rem; }
+    .month-group { grid-template-columns: 1fr; }
+    .results { grid-template-columns: 1fr; }
+    .charts-grid { grid-template-columns: 1fr; }
+    .token-select { grid-template-columns: repeat(3,1fr); }
+    footer { flex-direction: column; gap: 2rem; text-align: center; }
+    .footer-links { flex-wrap: wrap; justify-content: center; }
+  }
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+
+<nav>
+  <a href="index.html" class="nav-logo">Vinculum</a>
+  <a href="index.html" class="nav-back">← Back to Protocol</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Vinculum Protocol — VCLM Calculator</p>
+    <h1 class="hero-title">
+      See exactly<br>
+      what you <em>earn.</em>
+    </h1>
+    <p class="hero-sub">Select your token. Enter your amount. Choose your commitment. See your $VCLM — minted directly to your wallet the moment your vault opens. Then see what waiting costs.</p>
+  </div>
+</section>
+
+<!-- CALCULATOR -->
+<section class="calc-section">
+  <span class="section-label reveal">Configure your vault</span>
+
+  <div class="input-panel reveal">
+
+    <!-- TOKEN SELECT -->
+    <div class="input-group">
+      <div class="input-label">Your token</div>
+      <div class="input-sublabel">Select any approved asset</div>
+      <div class="token-select" id="tokenSelect">
+        <!-- Tier A -->
+        <button class="token-btn selected" data-token="ETH" data-tier="A" data-mult="1.0">ETH<span class="token-tier-badge">Tier A</span></button>
+        <button class="token-btn" data-token="USDC" data-tier="A" data-mult="1.0">USDC<span class="token-tier-badge">Tier A</span></button>
+        <button class="token-btn" data-token="USDT" data-tier="A" data-mult="1.0">USDT<span class="token-tier-badge">Tier A</span></button>
+        <button class="token-btn" data-token="RLUSD" data-tier="A" data-mult="1.0">RLUSD<span class="token-tier-badge">Tier A</span></button>
+        <button class="token-btn" data-token="BASE" data-tier="A" data-mult="1.0">BASE<span class="token-tier-badge">Tier A</span></button>
+        <button class="token-btn" data-token="XRP" data-tier="A" data-mult="1.0">XRP<span class="token-tier-badge">Tier A</span></button>
+        <button class="token-btn" data-token="XLM" data-tier="A" data-mult="1.0">XLM<span class="token-tier-badge">Tier A</span></button>
+        <button class="token-btn" data-token="XDC" data-tier="A" data-mult="1.0">XDC<span class="token-tier-badge">Tier A</span></button>
+        <!-- Tier B -->
+        <button class="token-btn" data-token="SHIB" data-tier="B" data-mult="0.85">SHIB<span class="token-tier-badge">Tier B</span></button>
+        <button class="token-btn" data-token="LUNC" data-tier="B" data-mult="0.85">LUNC<span class="token-tier-badge">Tier B</span></button>
+        <button class="token-btn" data-token="VOLT" data-tier="B" data-mult="0.85">VOLT<span class="token-tier-badge">Tier B</span></button>
+        <button class="token-btn" data-token="WKC" data-tier="B" data-mult="0.85">WKC<span class="token-tier-badge">Tier B</span></button>
+        <!-- Tier C -->
+        <button class="token-btn" data-token="TigerOG" data-tier="C" data-mult="0.70">TigerOG<span class="token-tier-badge">Tier C</span></button>
+        <button class="token-btn" data-token="LionOG" data-tier="C" data-mult="0.70">LionOG<span class="token-tier-badge">Tier C</span></button>
+        <button class="token-btn" data-token="FrogOG" data-tier="C" data-mult="0.70">FrogOG<span class="token-tier-badge">Tier C</span></button>
+        <button class="token-btn" data-token="KEKEC" data-tier="C" data-mult="0.70">KEKEC<span class="token-tier-badge">Tier C</span></button>
+      </div>
+    </div>
+
+    <!-- AMOUNT -->
+    <div class="input-group">
+      <div class="input-label">Stake amount (USD value)</div>
+      <div class="input-sublabel">Enter the USD value of your tokens</div>
+      <div class="amount-wrap">
+        <span class="amount-prefix">$</span>
+        <input type="number" class="amount-input" id="amountInput" value="1000" min="1" max="10000000">
+      </div>
+      <div style="margin-top:1rem;">
+        <div class="input-label" style="margin-bottom:0.8rem;">Quick amounts</div>
+        <div style="display:flex;gap:0.5rem;flex-wrap:wrap;">
+          <button class="duration-btn" onclick="setAmount(100)" style="padding:0.5rem 0.8rem;font-size:0.6rem;">$100</button>
+          <button class="duration-btn" onclick="setAmount(500)" style="padding:0.5rem 0.8rem;font-size:0.6rem;">$500</button>
+          <button class="duration-btn" onclick="setAmount(1000)" style="padding:0.5rem 0.8rem;font-size:0.6rem;">$1,000</button>
+          <button class="duration-btn" onclick="setAmount(5000)" style="padding:0.5rem 0.8rem;font-size:0.6rem;">$5,000</button>
+          <button class="duration-btn" onclick="setAmount(10000)" style="padding:0.5rem 0.8rem;font-size:0.6rem;">$10,000</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- DURATION -->
+    <div class="input-group">
+      <div class="input-label">Commitment duration</div>
+      <div class="input-sublabel">Longer commitment = higher multiplier</div>
+      <div class="duration-select" id="durationSelect">
+        <button class="duration-btn" data-dur="7" data-mult="1.0" data-label="7-day trial">7-day trial <span class="duration-mult">1.0×</span></button>
+        <button class="duration-btn selected" data-dur="30" data-mult="1.0" data-label="30 days">30 days <span class="duration-mult">1.0×</span></button>
+        <button class="duration-btn" data-dur="90" data-mult="1.25" data-label="90 days">90 days <span class="duration-mult">1.25×</span></button>
+        <button class="duration-btn" data-dur="180" data-mult="1.5" data-label="180 days">180 days <span class="duration-mult">1.5×</span></button>
+        <button class="duration-btn" data-dur="365" data-mult="2.0" data-label="365 days">365 days <span class="duration-mult">2.0×</span></button>
+        <button class="duration-btn" data-dur="730" data-mult="3.0" data-label="730 days">730 days <span class="duration-mult">3.0×</span></button>
+      </div>
+    </div>
+
+    <!-- MONTH SLIDER -->
+    <div class="month-group">
+      <div class="slider-wrap">
+        <div class="slider-header">
+          <span class="slider-title">Month of entry after launch</span>
+          <span class="slider-value" id="monthDisplay">Month 1 — Launch</span>
+        </div>
+        <input type="range" id="monthSlider" min="0" max="60" value="0" step="1">
+        <div style="display:flex;justify-content:space-between;font-size:0.52rem;color:var(--mid);margin-top:0.3rem;">
+          <span>Launch</span><span>Month 12</span><span>Month 24</span><span>Month 36</span><span>Month 48</span><span>Month 60</span>
+        </div>
+      </div>
+      <div class="slider-note">
+        The emission rate decays <strong>1.667% every month</strong> from launch — permanently. Drag the slider to see exactly what waiting costs you. The earlier you commit, the more VCLM you earn per dollar. <strong>This advantage is mathematically permanent.</strong>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- RESULTS -->
+  <div class="results reveal" id="results">
+    <div class="result-card primary">
+      <div class="result-card-label">$VCLM minted to your wallet</div>
+      <div class="result-num" id="res-vclm">—</div>
+      <div class="result-sub" id="res-vclm-sub">Minted instantly at vault entry</div>
+      <div class="result-unlock" id="res-unlock-vclm"></div>
+    </div>
+    <div class="result-card">
+      <div class="result-card-label">Tokens returned at unlock</div>
+      <div class="result-num" id="res-tokens">—</div>
+      <div class="result-sub" id="res-tokens-sub">USD value returned when vault ends</div>
+      <div class="result-unlock" id="res-unlock-date"></div>
+    </div>
+    <div class="result-card">
+      <div class="result-card-label">Emission factor at entry</div>
+      <div class="result-num" id="res-factor">—</div>
+      <div class="result-sub" id="res-factor-sub">Of original launch-day rate</div>
+      <div class="result-unlock" id="res-factor-note"></div>
+    </div>
+  </div>
+
+</section>
+
+<!-- CHARTS -->
+<section class="charts-section">
+  <span class="section-label reveal">Your earnings visualised</span>
+  <div class="charts-grid reveal">
+
+    <div class="chart-card">
+      <div class="chart-title">VCLM earned <em>by duration</em></div>
+      <div class="chart-note" id="durationChartNote">$VCLM earned at your selected month of entry, across all commitment lengths.</div>
+      <div class="chart-canvas-wrap"><canvas id="durationChart"></canvas></div>
+    </div>
+
+    <div class="chart-card">
+      <div class="chart-title">VCLM earned <em>by month of entry</em></div>
+      <div class="chart-note" id="decayChartNote">Same token, same amount, same duration — shows the cost of waiting.</div>
+      <div class="chart-canvas-wrap"><canvas id="decayChart"></canvas></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- DECAY URGENCY -->
+<section class="urgency-section">
+  <div class="urgency-inner">
+    <h2 class="urgency-headline reveal">
+      The rate only ever<br>
+      goes <em>one direction.</em>
+    </h2>
+    <p class="urgency-body reveal">
+      Every month after launch the emission rate drops 1.667%. It never recovers. It never resets. There is no governance vote that can raise it. The decay is written into the contract and it is immutable. <strong>Early believers are mathematically privileged forever.</strong>
+    </p>
+    <div class="decay-bars reveal" id="decayBars"></div>
+  </div>
+</section>
+
+<!-- COMPARISON TABLE -->
+<section class="comparison-section">
+  <span class="section-label reveal">What waiting actually costs</span>
+  <p style="font-size:0.82rem;line-height:1.9;color:var(--mid);max-width:700px;margin-bottom:0;" class="reveal">
+    The table below shows your exact configuration — <span id="compLabel">your selected token and amount</span> — entered at different months. The highlighted row is your current selection.
+  </p>
+  <table class="comparison-table reveal">
+    <thead>
+      <tr>
+        <th>Month of entry</th>
+        <th>Emission factor</th>
+        <th>VCLM earned</th>
+        <th>Tokens returned</th>
+        <th>VCLM lost vs launch</th>
+      </tr>
+    </thead>
+    <tbody id="compTable"></tbody>
+  </table>
+</section>
+
+<div class="full-divider"></div>
+
+<!-- FOOTER -->
+<footer>
+  <a href="index.html" class="footer-logo">Vinculum Protocol</a>
+  <ul class="footer-links">
+    <li><a href="https://github.com/VinculumDefi/vinculum-protocol" target="_blank">GitHub</a></li>
+    <li><a href="https://twitter.com/VinculumDefi" target="_blank">@VinculumDefi</a></li>
+    <li><a href="index.html">Protocol</a></li>
+    <li><a href="vision.html">Vision</a></li>
+    <li><a href="guardians.html">Stewards</a></li>
+  </ul>
+  <span class="footer-copy">© 2026 Vinculum Protocol DAO LLC</span>
+</footer>
+
+<script>
+// ── CURSOR ──
+const cursor = document.getElementById('cursor');
+let isLight = false;
+document.addEventListener('mousemove', e => {
+  cursor.style.left = e.clientX + 'px';
+  cursor.style.top = e.clientY + 'px';
+  const el = document.elementFromPoint(e.clientX, e.clientY);
+  const inDark = el && el.closest('.hero, .urgency-section');
+  if (inDark && !isLight) { cursor.classList.add('light'); isLight = true; }
+  else if (!inDark && isLight) { cursor.classList.remove('light'); isLight = false; }
+});
+document.querySelectorAll('a, button, input, .token-btn, .duration-btn').forEach(el => {
+  el.addEventListener('mouseenter', () => cursor.classList.add('hovering'));
+  el.addEventListener('mouseleave', () => cursor.classList.remove('hovering'));
+});
+
+// ── SCROLL REVEAL ──
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.06, rootMargin: '0px 0px -40px 0px' });
+reveals.forEach(el => observer.observe(el));
+
+// ── PROTOCOL PARAMS ──
+const MINT_RATIO = 0.10;
+const DECAY = 0.01667;
+const RETENTION_TRIAL = 0.025;
+const RETENTION_STANDARD = 0.05;
+
+function emissionFactor(month) { return Math.pow(1 - DECAY, month); }
+function calcVCLM(usd, tierMult, commitMult, month) {
+  return (usd * tierMult * commitMult * emissionFactor(month)) / MINT_RATIO;
+}
+function calcReturn(usd, dur) {
+  const retention = dur <= 7 ? RETENTION_TRIAL : RETENTION_STANDARD;
+  return usd * (1 - retention);
+}
+
+// ── STATE ──
+let state = {
+  token: 'ETH', tierMult: 1.0, tierLabel: 'A',
+  amount: 1000,
+  durDays: 30, durMult: 1.0, durLabel: '30 days',
+  month: 0
+};
+
+// ── TOKEN BUTTONS ──
+document.getElementById('tokenSelect').addEventListener('click', e => {
+  const btn = e.target.closest('.token-btn');
+  if (!btn) return;
+  document.querySelectorAll('.token-btn').forEach(b => b.classList.remove('selected'));
+  btn.classList.add('selected');
+  state.token = btn.dataset.token;
+  state.tierMult = parseFloat(btn.dataset.mult);
+  state.tierLabel = btn.dataset.tier;
+  update();
+});
+
+// ── AMOUNT INPUT ──
+document.getElementById('amountInput').addEventListener('input', e => {
+  state.amount = parseFloat(e.target.value) || 0;
+  update();
+});
+
+function setAmount(v) {
+  document.getElementById('amountInput').value = v;
+  state.amount = v;
+  update();
+}
+
+// ── DURATION BUTTONS ──
+document.getElementById('durationSelect').addEventListener('click', e => {
+  const btn = e.target.closest('.duration-btn');
+  if (!btn || !btn.dataset.dur) return;
+  document.querySelectorAll('.duration-btn[data-dur]').forEach(b => b.classList.remove('selected'));
+  btn.classList.add('selected');
+  state.durDays = parseInt(btn.dataset.dur);
+  state.durMult = parseFloat(btn.dataset.mult);
+  state.durLabel = btn.dataset.label;
+  update();
+});
+
+// ── MONTH SLIDER ──
+const monthSlider = document.getElementById('monthSlider');
+monthSlider.addEventListener('input', () => {
+  state.month = parseInt(monthSlider.value);
+  document.getElementById('monthDisplay').textContent =
+    state.month === 0 ? 'Month 1 — Launch' : `Month ${state.month}`;
+  update();
+});
+
+// ── BUILD DECAY BARS ──
+const decayBarsEl = document.getElementById('decayBars');
+const barData = [
+  {yr:'Y1',h:100},{yr:'Y2',h:82},{yr:'Y3',h:66},{yr:'Y4',h:54},
+  {yr:'Y5',h:44},{yr:'Y6',h:36},{yr:'Y7',h:29},{yr:'Y8',h:24},
+  {yr:'Y9',h:19},{yr:'Y10',h:13},{yr:'Y15',h:7},{yr:'Y20',h:2}
+];
+barData.forEach(b => {
+  const d = document.createElement('div');
+  d.className = 'dbar';
+  d.setAttribute('data-yr', b.yr);
+  d.style.height = b.h + 'px';
+  decayBarsEl.appendChild(d);
+});
+
+// ── CANVAS CHART HELPER ──
+function drawBarChart(canvas, labels, values, highlightIdx) {
+  const dpr = window.devicePixelRatio || 1;
+  const w = canvas.offsetWidth;
+  const h = canvas.offsetHeight;
+  canvas.width = w * dpr;
+  canvas.height = h * dpr;
+  const ctx = canvas.getContext('2d');
+  ctx.scale(dpr, dpr);
+
+  const pad = { top: 24, right: 10, bottom: 42, left: 10 };
+  const cw = w - pad.left - pad.right;
+  const ch = h - pad.top - pad.bottom;
+  const max = Math.max(...values) * 1.1 || 1;
+  const barW = (cw / labels.length) * 0.6;
+  const gap = cw / labels.length;
+
+  values.forEach((v, i) => {
+    const x = pad.left + i * gap + gap * 0.2;
+    const bh = (v / max) * ch;
+    const y = pad.top + ch - bh;
+    ctx.fillStyle = i === highlightIdx ? 'rgba(10,10,10,0.85)' : 'rgba(10,10,10,0.15)';
+    ctx.fillRect(x, y, barW, bh);
+
+    // Value label
+    ctx.fillStyle = i === highlightIdx ? 'rgba(10,10,10,0.9)' : 'rgba(107,107,101,0.7)';
+    ctx.font = `${9 * dpr}px DM Sans`;
+    ctx.textAlign = 'center';
+    const label = v >= 1000 ? (v/1000).toFixed(1)+'k' : Math.round(v).toString();
+    ctx.fillText(label, x + barW/2, y - 5);
+
+    // X label — stagger alternating to prevent overlap
+    ctx.fillStyle = 'rgba(107,107,101,0.6)';
+    ctx.font = `${8 * dpr}px DM Sans`;
+    ctx.textAlign = 'center';
+    const yOffset = i % 2 === 0 ? 16 : 26;
+    ctx.fillText(labels[i], x + barW/2, pad.top + ch + yOffset);
+  });
+}
+
+function drawLineChart(canvas, datasets, labels, highlightX) {
+  const dpr = window.devicePixelRatio || 1;
+  const w = canvas.offsetWidth;
+  const h = canvas.offsetHeight;
+  canvas.width = w * dpr;
+  canvas.height = h * dpr;
+  const ctx = canvas.getContext('2d');
+  ctx.scale(dpr, dpr);
+
+  const pad = { top: 20, right: 10, bottom: 36, left: 48 };
+  const cw = w - pad.left - pad.right;
+  const ch = h - pad.top - pad.bottom;
+  const allVals = datasets.flatMap(d => d.data);
+  const max = Math.max(...allVals) * 1.1 || 1;
+
+  // Grid
+  for (let i = 0; i <= 3; i++) {
+    const y = pad.top + ch - (i/3)*ch;
+    ctx.strokeStyle = 'rgba(0,0,0,0.06)';
+    ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.moveTo(pad.left, y); ctx.lineTo(pad.left+cw, y); ctx.stroke();
+    ctx.fillStyle = 'rgba(0,0,0,0.3)';
+    ctx.font = `${8*dpr}px DM Sans`;
+    ctx.textAlign = 'right';
+    const v = (i/3)*max;
+    ctx.fillText(v >= 1000 ? (v/1000).toFixed(0)+'k' : Math.round(v), pad.left-4, y+3);
+  }
+
+  datasets.forEach(ds => {
+    const pts = ds.data.map((v, i) => ({
+      x: pad.left + (i/(ds.data.length-1))*cw,
+      y: pad.top + ch - (v/max)*ch
+    }));
+    ctx.beginPath(); ctx.moveTo(pts[0].x, pts[0].y);
+    for (let i=1; i<pts.length; i++) {
+      const cx = (pts[i-1].x+pts[i].x)/2;
+      ctx.bezierCurveTo(cx, pts[i-1].y, cx, pts[i].y, pts[i].x, pts[i].y);
+    }
+    ctx.lineTo(pts[pts.length-1].x, pad.top+ch);
+    ctx.lineTo(pts[0].x, pad.top+ch);
+    ctx.closePath();
+    ctx.fillStyle = ds.fill; ctx.fill();
+    ctx.beginPath(); ctx.moveTo(pts[0].x, pts[0].y);
+    for (let i=1; i<pts.length; i++) {
+      const cx = (pts[i-1].x+pts[i].x)/2;
+      ctx.bezierCurveTo(cx, pts[i-1].y, cx, pts[i].y, pts[i].x, pts[i].y);
+    }
+    ctx.strokeStyle = ds.color; ctx.lineWidth = 1.5; ctx.stroke();
+  });
+
+  // Highlight line for current month
+  if (highlightX !== null) {
+    const hx = pad.left + (highlightX/60)*cw;
+    ctx.strokeStyle = 'rgba(0,212,255,0.5)';
+    ctx.lineWidth = 1;
+    ctx.setLineDash([4,4]);
+    ctx.beginPath(); ctx.moveTo(hx, pad.top); ctx.lineTo(hx, pad.top+ch); ctx.stroke();
+    ctx.setLineDash([]);
+  }
+
+  // X labels — only show 4 to prevent crowding on mobile
+  labels.forEach((lbl, i) => {
+    const x = pad.left + (i/(labels.length-1))*cw;
+    ctx.fillStyle = 'rgba(107,107,101,0.5)';
+    ctx.font = `${8*dpr}px DM Sans`;
+    ctx.textAlign = 'center';
+    ctx.fillText(lbl, x, pad.top+ch+20);
+  });
+}
+
+// ── MAIN UPDATE ──
+function update() {
+  const { token, tierMult, tierLabel, amount, durDays, durMult, durLabel, month } = state;
+  if (!amount || amount <= 0) return;
+
+  const vclmEarned = calcVCLM(amount, tierMult, durMult, month);
+  const tokensBack = calcReturn(amount, durDays);
+  const ef = emissionFactor(month);
+  const launchVclm = calcVCLM(amount, tierMult, durMult, 0);
+
+  // ── RESULT CARDS ──
+  document.getElementById('res-vclm').textContent = Math.round(vclmEarned).toLocaleString() + ' VCLM';
+  document.getElementById('res-vclm-sub').textContent = `Minted to your wallet the moment your vault opens`;
+  document.getElementById('res-unlock-vclm').innerHTML =
+    `Tier ${tierLabel} · ${tierMult}× · ${durMult}× commitment · ${(ef*100).toFixed(1)}% emission`;
+
+  document.getElementById('res-tokens').textContent = '$' + tokensBack.toLocaleString(undefined, {minimumFractionDigits:2, maximumFractionDigits:2});
+  document.getElementById('res-tokens-sub').textContent = `Returned after ${durLabel}`;
+  const retention = durDays <= 7 ? 2.5 : 5;
+  document.getElementById('res-unlock-date').innerHTML =
+    `${retention}% protocol fee retained — <strong>$${(amount - tokensBack).toFixed(2)}</strong>`;
+
+  document.getElementById('res-factor').textContent = (ef * 100).toFixed(2) + '%';
+  document.getElementById('res-factor-sub').textContent = month === 0
+    ? 'You are staking at the highest rate ever'
+    : `Month ${month} — ${(100 - ef*100).toFixed(1)}% below launch rate`;
+  const lostVclm = launchVclm - vclmEarned;
+  document.getElementById('res-factor-note').innerHTML = month === 0
+    ? 'Maximum possible VCLM for this configuration'
+    : `<strong>${Math.round(lostVclm).toLocaleString()} VCLM</strong> less than staking at launch`;
+
+  // ── DURATION BAR CHART ──
+  const durOptions = [
+    { label: '7d', mult: 1.0, dur: 7 },
+    { label: '30d', mult: 1.0, dur: 30 },
+    { label: '90d', mult: 1.25, dur: 90 },
+    { label: '180d', mult: 1.5, dur: 180 },
+    { label: '365d', mult: 2.0, dur: 365 },
+    { label: '730d', mult: 3.0, dur: 730 },
+  ];
+  const durValues = durOptions.map(d => calcVCLM(amount, tierMult, d.mult, month));
+  const durHighlight = durOptions.findIndex(d => d.dur === durDays);
+  setTimeout(() => {
+    drawBarChart(document.getElementById('durationChart'),
+      durOptions.map(d => d.label), durValues, durHighlight);
+  }, 50);
+
+  // ── DECAY LINE CHART ──
+  const decayMonths = Array.from({length:61},(_,i)=>i);
+  const decayVals = decayMonths.map(m => calcVCLM(amount, tierMult, durMult, m));
+  const decayLabels = [0, 20, 40, 60].map(m => m===0?'Launch':'M'+m);
+  const decayDataset = decayMonths.map(m => calcVCLM(amount, tierMult, durMult, m));
+  setTimeout(() => {
+    drawLineChart(
+      document.getElementById('decayChart'),
+      [{ data: decayDataset, color: 'rgba(10,10,10,0.75)', fill: 'rgba(10,10,10,0.05)' }],
+      decayLabels, month
+    );
+  }, 50);
+
+  // ── DECAY BARS — highlight current year ──
+  const currentYear = Math.floor(month / 12) + 1;
+  document.querySelectorAll('.dbar').forEach((bar, i) => {
+    const yrLabels = ['Y1','Y2','Y3','Y4','Y5','Y6','Y7','Y8','Y9','Y10','Y15','Y20'];
+    const yrNums = [1,2,3,4,5,6,7,8,9,10,15,20];
+    bar.classList.toggle('active', yrNums[i] === currentYear);
+  });
+
+  // ── COMPARISON TABLE ──
+  const compMonths = [0,1,3,6,12,18,24,36,48,60];
+  const tbody = document.getElementById('compTable');
+  tbody.innerHTML = '';
+  const launchVal = calcVCLM(amount, tierMult, durMult, 0);
+
+  compMonths.forEach(m => {
+    const v = calcVCLM(amount, tierMult, durMult, m);
+    const lost = launchVal - v;
+    const tr = document.createElement('tr');
+    if (m === month) tr.className = 'current-row';
+    tr.innerHTML = `
+      <td>${m === 0 ? 'Launch' : 'Month ' + m}${m === month ? '<span class="tag-now">your selection</span>' : ''}</td>
+      <td class="dim">${(emissionFactor(m)*100).toFixed(1)}%</td>
+      <td class="num ${m===month?'hi':''}">${Math.round(v).toLocaleString()}</td>
+      <td class="dim">$${tokensBack.toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2})}</td>
+      <td class="num" style="color:${lost > 0 ? 'rgba(180,60,60,0.7)' : 'var(--mid)'};">${lost > 0 ? '−' + Math.round(lost).toLocaleString() : '—'}</td>
+    `;
+    tbody.appendChild(tr);
+  });
+
+  // ── COMPARISON LABEL ──
+  document.getElementById('compLabel').textContent =
+    `$${amount.toLocaleString()} ${token} (Tier ${tierLabel}), ${durLabel} commitment`;
+
+  // ── CHART NOTES ──
+  document.getElementById('durationChartNote').textContent =
+    `$VCLM earned with $${amount.toLocaleString()} ${token} at ${month === 0 ? 'launch' : 'Month ' + month}, across all commitment lengths.`;
+  document.getElementById('decayChartNote').textContent =
+    `Same $${amount.toLocaleString()} ${token}, ${durLabel} vault — entered at different months after launch. The blue line is your current selection.`;
+}
+
+// Init
+update();
+</script>
+</body>
+</html>
