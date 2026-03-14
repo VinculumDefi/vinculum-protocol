@@ -16,10 +16,14 @@
   .cursor.hovering { width: 40px; height: 40px; background: transparent; border: 1px solid var(--black); }
   .cursor.light { background: white; }
   .cursor.light.hovering { border-color: white; background: transparent; }
+
+  /* NAV */
   nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 2rem 3rem; mix-blend-mode: difference; }
   .nav-logo { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: 1.1rem; letter-spacing: 0.15em; color: var(--white); text-decoration: none; text-transform: uppercase; }
   .nav-back { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--white); text-decoration: none; opacity: 0.6; transition: opacity 0.3s; }
   .nav-back:hover { opacity: 1; }
+
+  /* SHARED */
   .full-divider { width: 100%; height: 1px; background: rgba(0,0,0,0.06); }
   .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.9s ease, transform 0.9s ease; }
   .reveal.visible { opacity: 1; transform: translateY(0); }
@@ -29,6 +33,8 @@
   @keyframes fadeUp { 0% { opacity: 0; transform: translateY(30px); } 100% { opacity: 1; transform: translateY(0); } }
   @keyframes orbFloat { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(20px,-30px) scale(1.05); } }
   @keyframes gridDrift { 0% { transform: translateY(0); } 100% { transform: translateY(80px); } }
+
+  /* HERO */
   .hero { position: relative; height: 100vh; width: 100%; overflow: hidden; background: var(--black); display: flex; flex-direction: column; justify-content: flex-end; padding: 0 3rem 5rem; }
   .hero-bg { position: absolute; inset: 0; background: linear-gradient(135deg, #060a10 0%, #0d1b2a 40%, #1a1a2e 70%, #060a10 100%); }
   .orb { position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.12; animation: orbFloat 12s ease-in-out infinite; }
@@ -41,10 +47,14 @@
   .hero-title { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(3.5rem, 8vw, 7rem); line-height: 1.0; color: var(--white); margin-bottom: 2rem; animation: fadeUp 1s ease forwards; animation-delay: 0.5s; opacity: 0; }
   .hero-title em { font-style: italic; opacity: 0.45; }
   .hero-sub { font-size: 0.8rem; letter-spacing: 0.05em; color: rgba(255,255,255,0.3); animation: fadeUp 1s ease forwards; animation-delay: 0.8s; opacity: 0; max-width: 650px; line-height: 1.9; }
+
+  /* OPENING STATEMENT */
   .opening { padding: 10rem 3rem; max-width: 1000px; margin: 0 auto; text-align: center; }
   .opening-text { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(1.8rem, 3.5vw, 3rem); line-height: 1.4; color: var(--black); margin-bottom: 3rem; }
   .opening-text em { font-style: italic; color: var(--mid); }
   .opening-sub { font-size: 0.9rem; line-height: 1.9; color: var(--mid); max-width: 700px; margin: 0 auto; }
+
+  /* PROBLEM SECTION */
   .problem { background: var(--off-white); padding: 10rem 3rem; }
   .problem-inner { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 8rem; align-items: start; }
   .problem-headline { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(2rem, 3vw, 2.8rem); line-height: 1.2; }
@@ -52,6 +62,8 @@
   .problem-right { padding-top: 0.5rem; }
   .problem-body { font-size: 0.95rem; line-height: 1.9; color: var(--mid); margin-bottom: 2rem; }
   .problem-body strong { color: var(--black); font-weight: 400; }
+
+  /* THE SHIFT — DARK */
   .shift { background: var(--black); padding: 10rem 3rem; position: relative; overflow: hidden; }
   .shift-orb-1 { position: absolute; width: 600px; height: 600px; background: #00d4ff; border-radius: 50%; filter: blur(100px); opacity: 0.07; top: -100px; right: -100px; animation: orbFloat 15s ease-in-out infinite; }
   .shift-orb-2 { position: absolute; width: 400px; height: 400px; background: #00e887; border-radius: 50%; filter: blur(80px); opacity: 0.06; bottom: -50px; left: 5%; animation: orbFloat 12s ease-in-out infinite; animation-delay: -6s; }
@@ -67,13 +79,18 @@
   .shift-item-body { font-size: 0.8rem; line-height: 1.8; color: rgba(255,255,255,0.35); }
   .shift-statement { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(1.5rem, 2.5vw, 2.2rem); line-height: 1.5; color: rgba(255,255,255,0.7); border-top: 1px solid rgba(255,255,255,0.06); padding-top: 4rem; }
   .shift-statement em { font-style: italic; color: rgba(255,255,255,0.3); }
+
+  /* THE SUIT */
   .suit { padding: 10rem 3rem; max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 8rem; align-items: center; }
   .suit-headline { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(2rem, 3vw, 2.8rem); line-height: 1.2; }
   .suit-headline em { font-style: italic; color: var(--mid); }
+  .suit-right {}
   .suit-body { font-size: 0.95rem; line-height: 1.9; color: var(--mid); margin-bottom: 2rem; }
   .suit-body strong { color: var(--black); font-weight: 400; }
   .suit-pullquote { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(1.3rem, 2vw, 1.8rem); line-height: 1.4; color: var(--black); border-left: 2px solid rgba(0,0,0,0.1); padding-left: 2rem; margin: 3rem 0; }
   .suit-pullquote em { font-style: italic; color: var(--mid); }
+
+  /* THE ROOM */
   .room { background: var(--black); padding: 12rem 3rem; text-align: center; position: relative; overflow: hidden; }
   .room-orb-1 { position: absolute; width: 500px; height: 500px; background: #00d4ff; border-radius: 50%; filter: blur(100px); opacity: 0.07; top: -100px; left: 10%; animation: orbFloat 15s ease-in-out infinite; }
   .room-orb-2 { position: absolute; width: 300px; height: 300px; background: #0066ff; border-radius: 50%; filter: blur(80px); opacity: 0.07; bottom: -50px; right: 10%; animation: orbFloat 10s ease-in-out infinite; animation-delay: -5s; }
@@ -82,6 +99,8 @@
   .room-text { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(2rem, 4.5vw, 4rem); line-height: 1.3; color: var(--white); margin-bottom: 2rem; }
   .room-text em { font-style: italic; opacity: 0.35; }
   .room-tagline { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.25); margin-top: 4rem; }
+
+  /* RESPONSIBILITY */
   .responsibility { padding: 10rem 3rem; background: var(--off-white); }
   .responsibility-inner { max-width: 1400px; margin: 0 auto; }
   .responsibility-headline { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(2rem, 3.5vw, 3rem); line-height: 1.2; max-width: 800px; margin-bottom: 4rem; }
@@ -92,18 +111,24 @@
   .resp-num { font-family: 'Cormorant Garamond', serif; font-size: 3.5rem; font-weight: 300; color: rgba(0,0,0,0.05); line-height: 1; margin-bottom: 1.5rem; }
   .resp-title { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: 1.4rem; color: var(--black); margin-bottom: 1rem; }
   .resp-body { font-size: 0.85rem; line-height: 1.8; color: var(--mid); }
+
+  /* BRIDGE TO STEWARDS */
   .bridge { padding: 10rem 3rem; max-width: 900px; margin: 0 auto; text-align: center; }
   .bridge-headline { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(2rem, 4vw, 3.5rem); line-height: 1.2; margin-bottom: 2rem; }
   .bridge-headline em { font-style: italic; color: var(--mid); }
   .bridge-body { font-size: 0.9rem; line-height: 1.9; color: var(--mid); margin-bottom: 3rem; max-width: 650px; margin-left: auto; margin-right: auto; }
   .bridge-link { display: inline-block; font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--black); text-decoration: none; border-bottom: 1px solid var(--black); padding-bottom: 0.3rem; transition: opacity 0.3s; }
   .bridge-link:hover { opacity: 0.4; }
+
+  /* FOOTER */
   footer { padding: 4rem 3rem; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(0,0,0,0.06); }
   .footer-logo { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: 1rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--black); text-decoration: none; }
   .footer-links { display: flex; gap: 2.5rem; list-style: none; }
   .footer-links a { font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mid); text-decoration: none; transition: color 0.3s; }
   .footer-links a:hover { color: var(--black); }
   .footer-copy { font-size: 0.65rem; color: var(--mid); }
+
+  /* RESPONSIVE */
   @media (max-width: 900px) {
     nav { padding: 1.5rem; }
     .problem-inner, .suit { grid-template-columns: 1fr; gap: 3rem; }
@@ -116,11 +141,15 @@
 </style>
 </head>
 <body>
+
 <div class="cursor" id="cursor"></div>
+
 <nav>
   <a href="index.html" class="nav-logo">Vinculum</a>
   <a href="index.html" class="nav-back">← Back to Protocol</a>
 </nav>
+
+<!-- HERO -->
 <section class="hero">
   <div class="hero-bg"></div>
   <div class="orb orb-1"></div>
@@ -129,10 +158,16 @@
   <div class="hero-grid"></div>
   <div class="hero-content">
     <p class="hero-eyebrow">Vinculum Protocol — The Vision</p>
-    <h1 class="hero-title">One token.<br>Every chain.<br><em>One cooperative.</em></h1>
+    <h1 class="hero-title">
+      One token.<br>
+      Every chain.<br>
+      <em>One cooperative.</em>
+    </h1>
     <p class="hero-sub">DeFi has spent years moving assets between chains. Vinculum is building something different — a shared economic system that unites participants from entirely different blockchains into a single cooperative that grows stronger through collective commitment.</p>
   </div>
 </section>
+
+<!-- OPENING -->
 <section class="opening">
   <p class="opening-text reveal">
     Most cross-chain work is about moving assets.<br>
@@ -142,11 +177,18 @@
   </p>
   <p class="opening-sub reveal reveal-delay-2">A bridge lets you move your ETH to another chain. Vinculum lets an ETH holder and a TigerOG holder and an XRP holder earn the same token, vote on the same governance, and benefit from the same protocol growth — together, from wherever they are, using whatever they hold.</p>
 </section>
+
 <div class="full-divider"></div>
+
+<!-- THE PROBLEM -->
 <section class="problem">
   <div class="problem-inner">
     <div class="reveal">
-      <h2 class="problem-headline">DeFi has always been<br>fragmented<br><em>by design.</em></h2>
+      <h2 class="problem-headline">
+        DeFi has always been<br>
+        fragmented<br>
+        <em>by design.</em>
+      </h2>
     </div>
     <div class="problem-right reveal reveal-delay-2">
       <p class="problem-body">Every chain has its own ecosystem. Its own communities. Its own tokens and cultures and loyalties. ETH holders do not naturally converge with XRP holders. TigerOG holders and SHIB holders come from entirely different worlds. The infrastructure of blockchain has always kept them separate — different chains, different bridges, different governance systems, different tokens.</p>
@@ -155,6 +197,8 @@
     </div>
   </div>
 </section>
+
+<!-- THE SHIFT -->
 <section class="shift">
   <div class="shift-orb-1"></div>
   <div class="shift-orb-2"></div>
@@ -190,9 +234,15 @@
     </p>
   </div>
 </section>
+
+<!-- THE SUIT ANALOGY -->
 <section class="suit">
   <div class="reveal">
-    <h2 class="suit-headline">Value through<br>commitment.<br><em>Not through purchase.</em></h2>
+    <h2 class="suit-headline">
+      Value through<br>
+      commitment.<br>
+      <em>Not through purchase.</em>
+    </h2>
   </div>
   <div class="suit-right reveal reveal-delay-2">
     <p class="suit-body">A bespoke suit from a Parisian atelier costs more than a machine-made one. Not because the stitches are more perfect — a machine makes better stitches. It costs more because someone sat with it. For hundreds of hours. The tailor invested time and is compensated handsomely for it. The buyer pays willingly because they understand that time has value.</p>
@@ -204,6 +254,8 @@
     <p class="suit-body">The emission rate decays 1.667% every month — permanently. Every month that passes, the rate drops. It never comes back. <strong>Early believers are mathematically privileged forever.</strong> Not because they were given something. Because they committed when the commitment was most costly — at the beginning, when the protocol was unproven and the future was uncertain.</p>
   </div>
 </section>
+
+<!-- THE ROOM -->
 <section class="room">
   <div class="room-orb-1"></div>
   <div class="room-orb-2"></div>
@@ -230,6 +282,8 @@
     <p class="room-tagline reveal">The convergence is the signal</p>
   </div>
 </section>
+
+<!-- THE RESPONSIBILITY -->
 <section class="responsibility">
   <div class="responsibility-inner">
     <h2 class="responsibility-headline reveal">
@@ -256,6 +310,8 @@
     </div>
   </div>
 </section>
+
+<!-- BRIDGE TO STEWARDS -->
 <section class="bridge">
   <div class="reveal">
     <h2 class="bridge-headline">
@@ -267,6 +323,8 @@
     <a href="guardians.html" class="bridge-link">Learn about Governance Stewardship →</a>
   </div>
 </section>
+
+<!-- FOOTER -->
 <footer>
   <a href="index.html" class="footer-logo">Vinculum Protocol</a>
   <ul class="footer-links">
@@ -274,9 +332,11 @@
     <li><a href="https://twitter.com/VinculumDefi" target="_blank">@VinculumDefi</a></li>
     <li><a href="index.html">Protocol</a></li>
     <li><a href="guardians.html">Stewards</a></li>
+    <li><a href="calculator.html">Calculator</a></li>
   </ul>
   <span class="footer-copy">© 2026 Vinculum Protocol DAO LLC</span>
 </footer>
+
 <script>
 const cursor = document.getElementById('cursor');
 let isLight = false;
