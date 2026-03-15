@@ -392,6 +392,22 @@
   .footer-links a:hover { color: var(--black); }
   .footer-copy { font-size: 0.65rem; color: var(--mid); letter-spacing: 0.05em; }
 
+  /* ── ROADMAP ── */
+  .roadmap-section { padding: 10rem 3rem; max-width: 1400px; margin: 0 auto; }
+  .roadmap-list { display: flex; flex-direction: column; gap: 0; margin-top: 4rem; }
+  .rm-item { display: grid; grid-template-columns: 3rem 1fr; gap: 2.5rem; align-items: start; padding: 3rem 0; border-top: 1px solid rgba(0,0,0,0.06); }
+  .rm-dot { width: 2rem; height: 2rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.65rem; font-weight: 400; flex-shrink: 0; margin-top: 0.3rem; }
+  .rm-dot.done { background: var(--black); color: var(--white); }
+  .rm-dot.active { background: var(--black); color: var(--white); outline: 3px solid rgba(0,0,0,0.15); outline-offset: 3px; }
+  .rm-dot.pending { background: transparent; border: 1px solid rgba(0,0,0,0.15); color: var(--mid); }
+  .rm-phase { font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--mid); margin-bottom: 0.5rem; }
+  .rm-title { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: 1.6rem; color: var(--black); margin-bottom: 0.75rem; line-height: 1.2; }
+  .rm-body { font-size: 0.85rem; line-height: 1.8; color: var(--mid); max-width: 700px; }
+  .rm-tag { display: inline-block; font-size: 0.55rem; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.3rem 0.8rem; margin-top: 1rem; }
+  .tag-done { background: var(--black); color: var(--white); }
+  .tag-active { background: rgba(0,0,0,0.06); color: var(--black); }
+  .tag-pending { border: 1px solid rgba(0,0,0,0.12); color: var(--mid); }
+
   /* ── REVEAL ── */
   .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.9s ease, transform 0.9s ease; }
   .reveal.visible { opacity: 1; transform: translateY(0); }
@@ -436,6 +452,7 @@
     <li><a href="#vclm">$VCLM</a></li>
     <li><a href="calculator.html">Calculator</a></li>
     <li><a href="#chains">Chains</a></li>
+    <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="vision.html">Vision</a></li>
     <li><a href="guardians.html">Council</a></li>
     <li><a href="#" style="opacity:0.4">Launch — Soon</a></li>
@@ -642,7 +659,7 @@
     <div class="reveal">
       <p class="intro-label">The Token</p>
       <h2 class="vclm-headline">$VCLM is not a<br>governance token.<br><em>It is the only token.</em></h2>
-      <p class="vclm-body">It governs the protocol. It powers the validator tiers. It earns fee revenue after the minting era. It appreciates through permanent scarcity. There is no other token. There is no main token coming later. This is it.</p>
+      <p class="vclm-body">It governs the protocol. It powers the Governance Council tiers. It earns fee revenue after the minting era. It appreciates through permanent scarcity. There is no other token. There is no main token coming later. This is it.</p>
       <p class="vclm-body">No presale. No premine. No VC allocation. No insider round. Every $VCLM that will ever exist was minted by someone who committed real value and waited.</p>
       <p class="vclm-body">The emission rate decays 1.667% every single month from day one. No floor. No ceiling. The longer you wait to start, the less you earn when you do. Early believers are mathematically privileged forever.</p>
       <p class="vclm-body">Hard cap: 10,000,000,000 VCLM. Immutable. No governance can ever change it.</p>
@@ -763,6 +780,77 @@
   </div>
 </section>
 
+<!-- ROADMAP -->
+<section class="roadmap-section" id="roadmap">
+  <div class="section-header reveal">
+    <span class="section-label">Where We Are</span>
+    <span class="section-count">Built. Being hardened.</span>
+  </div>
+  <div class="roadmap-list">
+
+    <div class="rm-item reveal">
+      <div class="rm-dot done">1</div>
+      <div>
+        <div class="rm-phase">Complete</div>
+        <div class="rm-title">Protocol Designed & Contracts Written</div>
+        <p class="rm-body">All seven core contracts written. 93 tests passing. VaultManager, VinculumToken, AssetRegistry, ValidatorStaking, VinculumGovernor, and both oracle adapters. Wyoming LLC formed. EIN issued.</p>
+        <span class="rm-tag tag-done">Done</span>
+      </div>
+    </div>
+
+    <div class="rm-item reveal">
+      <div class="rm-dot active">2</div>
+      <div>
+        <div class="rm-phase">In Progress</div>
+        <div class="rm-title">Security Audit</div>
+        <p class="rm-body">Full independent audit of all protocol contracts. No mainnet deployment until the audit is complete and findings are resolved. Funding being secured now.</p>
+        <span class="rm-tag tag-active">Active</span>
+      </div>
+    </div>
+
+    <div class="rm-item reveal">
+      <div class="rm-dot pending">3</div>
+      <div>
+        <div class="rm-phase">Coming</div>
+        <div class="rm-title">Mainnet Launch on Base</div>
+        <p class="rm-body">All 16 approved assets live. Commitment vaults open. First $VCLM earned by the people who were here from the start — at the highest emission rate this protocol will ever have.</p>
+        <span class="rm-tag tag-pending">Post-audit</span>
+      </div>
+    </div>
+
+    <div class="rm-item reveal">
+      <div class="rm-dot pending">4</div>
+      <div>
+        <div class="rm-phase">Coming</div>
+        <div class="rm-title">Governance Council Live + Live Dashboard</div>
+        <p class="rm-body">VinculumGovernor activated. The Governance Council dashboard launches — showing live seat availability across all three tiers in real time. Steward, Trustee, and Council Member positions displayed publicly. Open seats are visible, clickable, and stakeable directly from the UI. Queue visibility for Council Member seats. The 21-seat maximum enforced on-chain. First on-chain proposals. The protocol belongs to the people who committed to it.</p>
+        <span class="rm-tag tag-pending">Month 5–6</span>
+      </div>
+    </div>
+
+    <div class="rm-item reveal">
+      <div class="rm-dot pending">5</div>
+      <div>
+        <div class="rm-phase">Coming</div>
+        <div class="rm-title">Axelar ITS + Multi-Chain Expansion</div>
+        <p class="rm-body">VCLM registered as a canonical Axelar Interchain Token. VaultManager deployed on BNB Chain and Ethereum. One unified VCLM supply across all chains. Base remains the canonical home chain.</p>
+        <span class="rm-tag tag-pending">Month 6–8</span>
+      </div>
+    </div>
+
+    <div class="rm-item reveal">
+      <div class="rm-dot pending">6</div>
+      <div>
+        <div class="rm-phase">Future</div>
+        <div class="rm-title">XRPL EVM, XDC & Further Chain Expansion</div>
+        <p class="rm-body">Spoke contracts deployed to XRPL EVM Sidechain and XDC Network. Additional chains added through governance vote as the protocol grows across communities.</p>
+        <span class="rm-tag tag-pending">Governance directed</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 <!-- MANIFESTO -->
 <section class="manifesto">
   <div class="orb orb-1" style="opacity:0.06"></div>
@@ -794,6 +882,7 @@
     <li><a href="vision.html">Vision</a></li>
     <li><a href="guardians.html">Council</a></li>
     <li><a href="calculator.html">Calculator</a></li>
+    <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#">Whitepaper — Soon</a></li>
     <li><a href="#">Launch — Soon</a></li>
   </ul>
