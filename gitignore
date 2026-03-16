@@ -1,0 +1,42 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# Vinculum Protocol — .gitignore
+# ─────────────────────────────────────────────────────────────────────────────
+
+# ── CRITICAL — NEVER COMMIT THESE ────────────────────────────────────────────
+.env
+.env.local
+.env.*.local
+
+# ── NODE ─────────────────────────────────────────────────────────────────────
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ── HARDHAT ──────────────────────────────────────────────────────────────────
+cache/
+artifacts/
+typechain/
+typechain-types/
+
+# ── COVERAGE ─────────────────────────────────────────────────────────────────
+coverage/
+coverage.json
+
+# ── DEPLOYMENTS ──────────────────────────────────────────────────────────────
+# Keep deployment records but not sensitive ones
+# deployments/*.json  ← leave this commented to track deployment addresses
+
+# ── GAS REPORTS ──────────────────────────────────────────────────────────────
+gas-report.txt
+
+# ── OS FILES ─────────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ── EDITOR ───────────────────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
