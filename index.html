@@ -1,1112 +1,649 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vinculum Protocol</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=DM+Sans:wght@200;300;400&display=swap" rel="stylesheet">
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="description" content="Vinculum Protocol — Commitment vaults on Base. Lock any token on any chain. Earn VCLM. Proof of behavior, not proof of capital."/>
+<meta property="og:title" content="Vinculum Protocol"/>
+<meta property="og:description" content="Lock any token. Earn VCLM. Proof of behavior, not proof of capital."/>
+<meta property="og:type" content="website"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:site" content="@VinculumDefi"/>
+<title>Vinculum Protocol — Proof of Behavior</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist+Mono:wght@300;400;500;600&family=Geist:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <style>
-  :root {
-    --white: #fafaf8;
-    --off-white: #f4f3ef;
-    --black: #0a0a0a;
-    --mid: #6b6b65;
-    --blue-glow: #00d4ff;
-  }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body {
-    background: var(--white);
-    color: var(--black);
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 300;
-    overflow-x: hidden;
-    cursor: none;
-  }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+img{max-width:100%;display:block}
+button{cursor:pointer;font-family:inherit}
+a{color:inherit;text-decoration:none}
+:root{
+  --bg:#060a10;--bg1:#090e17;--bg2:#0c121e;--bg3:#101828;
+  --line:#1a2640;--line2:#243352;--line3:#2e4168;
+  --text:#dde8f8;--text2:#8099bb;--text3:#3d5478;--text4:#1e2f48;
+  --accent:#00d4ff;--accent-dim:rgba(0,212,255,.08);
+  --green:#00e887;--green-dim:rgba(0,232,135,.08);
+  --amber:#ffb84d;--purple:#a855f7;--purple-dim:rgba(168,85,247,.08);
+  --serif:'Instrument Serif',serif;--mono:'Geist Mono',monospace;--sans:'Geist',sans-serif;
+  --max:1120px;--gutter:32px;
+}
+body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;background-image:linear-gradient(rgba(0,212,255,.012) 1px,transparent 1px),linear-gradient(90deg,rgba(0,212,255,.012) 1px,transparent 1px);background-size:60px 60px}
+body::after{content:'';position:fixed;top:0;left:0;right:0;height:500px;z-index:0;pointer-events:none;background:radial-gradient(ellipse 80% 60% at 50% -10%,rgba(0,212,255,.06),transparent)}
+.wrap{position:relative;z-index:1}
+.container{max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+@keyframes glow{0%,100%{box-shadow:0 0 20px rgba(0,212,255,.2)}50%{box-shadow:0 0 40px rgba(0,212,255,.5)}}
+@keyframes glowGreen{0%,100%{box-shadow:0 0 16px rgba(0,232,135,.2)}50%{box-shadow:0 0 32px rgba(0,232,135,.5)}}
+@keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.reveal{opacity:0;transform:translateY(32px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:none}
 
-  /* ── CURSOR ── */
-  .cursor {
-    width: 8px; height: 8px;
-    background: var(--black);
-    border-radius: 50%;
-    position: fixed; top: 0; left: 0;
-    pointer-events: none; z-index: 9999;
-    transition: transform 0.15s ease, width 0.3s ease, height 0.3s ease, background 0.3s ease;
-    transform: translate(-50%, -50%);
-  }
-  .cursor.hovering { width: 40px; height: 40px; background: transparent; border: 1px solid var(--black); }
-  .cursor.light { background: white; }
-  .cursor.light.hovering { border-color: white; background: transparent; }
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content:space-between;align-items:center;padding:0 var(--gutter);height:64px;border-bottom:1px solid transparent;transition:background .3s,border-color .3s;backdrop-filter:blur(0)}
+nav.scrolled{background:rgba(6,10,16,.92);border-color:var(--line);backdrop-filter:blur(16px)}
+.nav-logo{font-family:var(--serif);font-size:1.15rem;letter-spacing:.12em;color:var(--text);text-transform:uppercase}
+.nav-links{display:flex;gap:2rem;list-style:none;align-items:center}
+.nav-links a{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--text2);transition:color .2s}
+.nav-links a:hover{color:var(--text)}
+.nav-links a.nav-cta{color:var(--accent);border:1px solid rgba(0,212,255,.3);padding:6px 14px;border-radius:4px;transition:all .2s}
+.nav-links a.nav-cta:hover{background:rgba(0,212,255,.08)}
+.nav-mobile-toggle{display:none;background:none;border:none;color:var(--text);font-size:1.4rem;padding:8px}
+.nav-mobile-menu{display:none;position:fixed;top:64px;left:0;right:0;background:rgba(6,10,16,.98);border-bottom:1px solid var(--line);z-index:199;padding:24px var(--gutter);flex-direction:column;gap:20px}
+.nav-mobile-menu.open{display:flex}
+.nav-mobile-menu a{font-size:.9rem;letter-spacing:.06em;text-transform:uppercase;color:var(--text2);padding:8px 0;border-bottom:1px solid var(--line)}
+.nav-mobile-menu a.nav-cta{color:var(--accent);border-color:rgba(0,212,255,.2)}
 
-  /* ── NAV ── */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0;
-    z-index: 100;
-    display: flex; justify-content: space-between; align-items: center;
-    padding: 2rem 3rem;
-    mix-blend-mode: difference;
-  }
-  .nav-logo {
-    font-family: 'Cormorant Garamond', serif; font-weight: 300;
-    font-size: 1.1rem; letter-spacing: 0.15em;
-    color: var(--white); text-decoration: none; text-transform: uppercase;
-  }
-  .nav-links { display: flex; gap: 3rem; list-style: none; }
-  .nav-links a {
-    font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase;
-    color: var(--white); text-decoration: none; opacity: 0.8; transition: opacity 0.3s;
-  }
-  .nav-links a:hover { opacity: 1; }
+/* HERO */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:120px var(--gutter) 80px;position:relative;overflow:hidden}
+.hero-eyebrow{font-family:var(--mono);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:32px;display:flex;align-items:center;gap:12px;animation:fadeIn 1s ease both}
+.hero-eyebrow::before{content:'';width:40px;height:1px;background:var(--accent)}
+.hero-title{font-family:var(--serif);font-size:clamp(3rem,7vw,6rem);line-height:1.05;color:var(--text);margin-bottom:32px;animation:fadeUp .9s ease both .1s}
+.hero-title em{font-style:italic;color:var(--accent)}
+.hero-sub{font-size:1rem;color:var(--text2);max-width:520px;line-height:1.8;margin-bottom:48px;animation:fadeUp .9s ease both .2s}
+.hero-actions{display:flex;gap:16px;flex-wrap:wrap;animation:fadeUp .9s ease both .3s}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:4px;font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;font-weight:500;transition:all .25s}
+.btn-primary{background:var(--accent);color:#000}
+.btn-primary:hover{background:#00c4ef;transform:translateY(-1px)}
+.btn-outline{border:1px solid var(--line2);color:var(--text2)}
+.btn-outline:hover{border-color:var(--accent);color:var(--accent)}
+.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;margin-top:80px;border:1px solid var(--line);background:var(--line);animation:fadeUp .9s ease both .4s}
+.hero-stat{background:var(--bg);padding:28px 24px}
+.hero-stat-val{font-family:var(--mono);font-size:1.8rem;color:var(--text);margin-bottom:4px}
+.hero-stat-label{font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--text3)}
 
-  /* ── HERO ── */
-  .hero {
-    position: relative; height: 100vh; width: 100%;
-    overflow: hidden; background: var(--black);
-  }
-  .hero-bg {
-    position: absolute; inset: 0;
-    background: linear-gradient(135deg, #060a10 0%, #0d1b2a 40%, #1a1a2e 70%, #060a10 100%);
-  }
-  .orb {
-    position: absolute; border-radius: 50%;
-    filter: blur(80px); opacity: 0.15;
-    animation: orbFloat 12s ease-in-out infinite;
-  }
-  .orb-1 { width: 600px; height: 600px; background: #00d4ff; top: -100px; left: -100px; animation-delay: 0s; }
-  .orb-2 { width: 400px; height: 400px; background: #0066ff; bottom: -50px; right: 10%; animation-delay: -4s; }
-  .orb-3 { width: 300px; height: 300px; background: #00e887; top: 40%; left: 50%; animation-delay: -8s; }
-  @keyframes orbFloat {
-    0%,100% { transform: translate(0,0) scale(1); }
-    33% { transform: translate(30px,-40px) scale(1.05); }
-    66% { transform: translate(-20px,20px) scale(0.95); }
-  }
-  .hero-grid {
-    position: absolute; inset: 0;
-    background-image:
-      linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-    background-size: 80px 80px;
-    animation: gridDrift 20s linear infinite;
-  }
-  @keyframes gridDrift { 0% { transform: translateY(0); } 100% { transform: translateY(80px); } }
+/* TICKER */
+.ticker-wrap{border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;padding:14px 0;background:var(--bg1)}
+.ticker-inner{display:flex;width:max-content;animation:ticker 30s linear infinite}
+.ticker-item{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);padding:0 48px;white-space:nowrap}
+.ticker-item span{color:var(--accent);margin-right:16px}
 
-  /* Hero content */
-  .hero-content {
-    position: relative; z-index: 10; height: 100%;
-    display: flex; flex-direction: column; justify-content: flex-end;
-    padding: 0 3rem 4rem;
-  }
-  .hero-eyebrow {
-    font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
-    color: rgba(255,255,255,0.4); margin-bottom: 1rem;
-    animation: fadeUp 1.2s ease forwards; animation-delay: 0.3s; opacity: 0;
-  }
-  .hero-title {
-    font-family: 'Cormorant Garamond', serif; font-weight: 300;
-    font-size: clamp(3.5rem, 8vw, 7rem); line-height: 1.0;
-    color: var(--white); margin-bottom: 1.5rem;
-    animation: fadeUp 1.2s ease forwards; animation-delay: 0.5s; opacity: 0;
-  }
-  .hero-title em { font-style: italic; opacity: 0.5; }
-  .hero-sub {
-    font-size: 0.75rem; letter-spacing: 0.1em; color: rgba(255,255,255,0.35);
-    text-transform: uppercase; margin-bottom: 2rem;
-    animation: fadeUp 1.2s ease forwards; animation-delay: 0.8s; opacity: 0;
-  }
+/* SECTIONS */
+section{padding:100px 0}
+.section-label{font-family:var(--mono);font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
+.section-title{font-family:var(--serif);font-size:clamp(2rem,4vw,3rem);line-height:1.15;color:var(--text);margin-bottom:20px}
+.section-body{font-size:.95rem;color:var(--text2);line-height:1.85;max-width:600px}
 
-  /* ── HERO DEFINITION OVERLAY ── */
-  .hero-definition {
-    position: absolute; bottom: 4rem; right: 3rem;
-    max-width: 320px; z-index: 10;
-    animation: fadeUp 1.4s ease forwards; animation-delay: 1s; opacity: 0;
-  }
-  .def-word {
-    font-family: 'Cormorant Garamond', serif; font-style: italic;
-    font-size: 1.1rem; color: rgba(255,255,255,0.9);
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-    padding-bottom: 0.5rem; margin-bottom: 0.75rem;
-    display: flex; align-items: baseline; gap: 0.5rem;
-  }
-  .def-pos {
-    font-size: 0.55rem; letter-spacing: 0.1em; text-transform: uppercase;
-    color: rgba(255,255,255,0.3); font-style: normal; font-family: 'DM Sans', sans-serif;
-  }
-  .def-text {
-    font-size: 0.72rem; line-height: 1.7; color: rgba(255,255,255,0.35);
-    font-style: normal; font-family: 'DM Sans', sans-serif;
-  }
-  .def-text em { font-style: italic; color: rgba(255,255,255,0.5); }
+/* HOW IT WORKS */
+.how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:64px}
+.how-card{background:var(--bg1);padding:40px 32px;position:relative;overflow:hidden;transition:background .2s}
+.how-card:hover{background:var(--bg2)}
+.how-num{font-family:var(--mono);font-size:3rem;color:var(--text4);margin-bottom:24px;display:block}
+.how-title{font-size:1rem;font-weight:600;color:var(--text);margin-bottom:12px;letter-spacing:.02em}
+.how-body{font-size:.85rem;color:var(--text2);line-height:1.75}
+.how-tag{display:inline-block;margin-top:20px;font-family:var(--mono);font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;padding:4px 10px;border:1px solid var(--line2);color:var(--text3);border-radius:2px}
+.how-tag.green{border-color:rgba(0,232,135,.3);color:var(--green)}
+.how-tag.accent{border-color:rgba(0,212,255,.3);color:var(--accent)}
 
-  /* ── LIVE STATS OVERLAY ON HERO ── */
-  .hero-stats {
-    position: absolute; top: 50%; left: 3rem;
-    transform: translateY(-50%);
-    z-index: 10; display: flex; flex-direction: column; gap: 2rem;
-    animation: fadeUp 1.4s ease forwards; animation-delay: 1.2s; opacity: 0;
-  }
-  .live-stat {
-    display: flex; flex-direction: column; gap: 0.3rem;
-  }
-  .live-stat-label {
-    font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase;
-    color: rgba(255,255,255,0.25);
-  }
-  .live-stat-value {
-    font-family: 'Cormorant Garamond', serif; font-weight: 300;
-    font-size: 1.8rem; color: rgba(255,255,255,0.8); line-height: 1;
-  }
-  .live-indicator {
-    display: flex; align-items: center; gap: 0.4rem;
-    font-size: 0.55rem; letter-spacing: 0.1em; text-transform: uppercase;
-    color: rgba(0,212,255,0.6); margin-top: 0.2rem;
-  }
-  .live-dot {
-    width: 5px; height: 5px; background: #00d4ff; border-radius: 50%;
-    animation: livePulse 2s ease-in-out infinite;
-  }
-  @keyframes livePulse { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.4; transform: scale(0.7); } }
+/* TRIAL */
+.trial-section{background:var(--bg1);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.trial-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.trial-visual{position:relative}
+.trial-box{border:1px solid var(--line2);border-radius:8px;background:var(--bg2);padding:32px;position:relative;overflow:hidden}
+.trial-box::before{content:'TRIAL VAULT';position:absolute;top:16px;right:16px;font-family:var(--mono);font-size:.6rem;letter-spacing:.15em;color:var(--amber);border:1px solid rgba(255,184,77,.3);padding:3px 8px;border-radius:2px}
+.trial-row{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}
+.trial-row:last-child{border:none;padding-top:20px}
+.trial-label{font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--text3)}
+.trial-val{font-family:var(--mono);font-size:.9rem;color:var(--text)}
+.trial-val.green{color:var(--green)}
+.trial-val.amber{color:var(--amber)}
+.trial-progress{height:4px;background:var(--line);border-radius:2px;overflow:hidden;margin:20px 0 8px}
+.trial-progress-fill{height:100%;width:40%;background:linear-gradient(90deg,var(--amber),var(--accent));border-radius:2px;animation:glow 2s ease infinite}
+.trial-progress-label{display:flex;justify-content:space-between;font-family:var(--mono);font-size:.65rem;color:var(--text3)}
+.trial-decision{margin-top:24px;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.trial-btn{padding:12px;border-radius:4px;font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;text-align:center;border:1px solid}
+.trial-btn.continue{background:rgba(0,232,135,.08);border-color:rgba(0,232,135,.3);color:var(--green)}
+.trial-btn.exit{background:var(--bg3);border-color:var(--line2);color:var(--text2)}
 
-  /* Mini sparkline canvas on hero */
-  .hero-chart-wrap {
-    position: absolute; bottom: 0; left: 0; right: 0;
-    height: 120px; z-index: 5; pointer-events: none;
-  }
-  #heroSparkline { width: 100%; height: 100%; }
+/* VCLM */
+.vclm-section{}
+.vclm-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;margin-top:64px}
+.vclm-props{display:flex;flex-direction:column;gap:0}
+.prop-item{padding:24px 0;border-bottom:1px solid var(--line);display:flex;gap:20px;align-items:flex-start}
+.prop-item:first-child{padding-top:0}
+.prop-icon{width:36px;height:36px;border:1px solid var(--line2);border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:.9rem;flex-shrink:0;background:var(--bg2)}
+.prop-title{font-size:.9rem;font-weight:600;color:var(--text);margin-bottom:4px}
+.prop-body{font-size:.82rem;color:var(--text2);line-height:1.7}
+.emit-card{border:1px solid var(--line);background:var(--bg1);border-radius:4px;padding:28px}
+.emit-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.emit-title{font-size:.85rem;font-weight:600;color:var(--text)}
+.emit-chip{font-family:var(--mono);font-size:.65rem;letter-spacing:.1em;padding:4px 10px;background:var(--accent-dim);border:1px solid rgba(0,212,255,.2);color:var(--accent);border-radius:2px}
+.emit-sub{font-size:.75rem;color:var(--text3);margin-bottom:24px;font-family:var(--mono)}
+.emit-bars{display:flex;gap:6px;align-items:flex-end;height:100px}
+.emit-bar{flex:1;border-radius:2px 2px 0 0;transition:height .3s;min-width:0}
+.emit-years{display:flex;gap:6px;margin-top:6px}
+.emit-year{flex:1;text-align:center;font-family:var(--mono);font-size:.6rem;color:var(--text4)}
+.mult-table{margin-top:24px;border:1px solid var(--line);border-radius:4px;overflow:hidden}
+.mult-row{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-bottom:1px solid var(--line);font-size:.82rem}
+.mult-row:last-child{border:none}
+.mult-dur{color:var(--text2)}
+.mult-val{font-family:var(--mono);color:var(--text)}
+.mult-val.good{color:var(--green)}
+.mult-val.best{color:var(--accent)}
 
-  .hero-scroll {
-    position: absolute; bottom: 3rem; left: 50%; transform: translateX(-50%);
-    display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
-    color: rgba(255,255,255,0.2); font-size: 0.6rem; letter-spacing: 0.15em;
-    text-transform: uppercase;
-    animation: fadeUp 1.2s ease forwards; animation-delay: 1.5s; opacity: 0;
-    z-index: 10;
-  }
-  .scroll-line {
-    width: 1px; height: 50px; background: rgba(255,255,255,0.15);
-    position: relative; overflow: hidden;
-  }
-  .scroll-line::after {
-    content: ''; position: absolute; top: -100%; left: 0;
-    width: 100%; height: 100%; background: rgba(255,255,255,0.5);
-    animation: scrollDrop 2s ease infinite;
-  }
-  @keyframes scrollDrop { 0% { top: -100%; } 100% { top: 100%; } }
-  @keyframes fadeUp { 0% { opacity: 0; transform: translateY(30px); } 100% { opacity: 1; transform: translateY(0); } }
+/* ASSETS */
+.assets-section{background:var(--bg1);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.assets-intro{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;margin-bottom:64px}
+.tier-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.tier-col{background:var(--bg);padding:28px 24px}
+.tier-label{font-family:var(--mono);font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;margin-bottom:6px}
+.tier-label.a{color:var(--green)}.tier-label.b{color:var(--amber)}.tier-label.c{color:var(--text3)}
+.tier-mult{font-family:var(--serif);font-size:2rem;color:var(--text);margin-bottom:20px}
+.token-list{display:flex;flex-direction:column;gap:8px}
+.token-item{display:flex;align-items:center;gap:10px;font-size:.8rem;color:var(--text2)}
+.token-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
+.token-dot.a{background:var(--green)}.token-dot.b{background:var(--amber)}.token-dot.c{background:var(--text3)}
+.token-more{font-family:var(--mono);font-size:.65rem;color:var(--text4);padding-top:8px;border-top:1px solid var(--line);margin-top:8px}
 
-  /* ── ETYMOLOGY SECTION (Page 2) ── */
-  .etymology {
-    padding: 8rem 3rem;
-    background: var(--off-white);
-    position: relative; overflow: hidden;
-  }
-  .etymology-inner {
-    max-width: 1400px; margin: 0 auto;
-    display: grid; grid-template-columns: 1fr 2fr; gap: 8rem; align-items: start;
-  }
-  .etymology-left { position: sticky; top: 8rem; }
-  .etym-label {
-    font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase;
-    color: var(--mid); margin-bottom: 1.5rem;
-  }
-  .etym-word {
-    font-family: 'Cormorant Garamond', serif; font-weight: 300; font-style: italic;
-    font-size: clamp(3rem, 5vw, 4.5rem); color: var(--black); line-height: 1;
-    margin-bottom: 0.5rem;
-  }
-  .etym-origin {
-    font-size: 0.65rem; letter-spacing: 0.1em; color: var(--mid);
-  }
-  .etymology-right { display: flex; flex-direction: column; gap: 4rem; }
-  .etym-block { border-top: 1px solid rgba(0,0,0,0.06); padding-top: 2.5rem; }
-  .etym-block-label {
-    font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase;
-    color: var(--mid); margin-bottom: 1.2rem;
-  }
-  .etym-block-text {
-    font-family: 'Cormorant Garamond', serif; font-weight: 300;
-    font-size: clamp(1.2rem, 1.8vw, 1.5rem); line-height: 1.7; color: var(--black);
-  }
-  .etym-block-text em { font-style: italic; color: var(--mid); }
+/* CHAINS */
+.chains-section{}
+.chains-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin-top:64px}
+.chain-card{background:var(--bg1);padding:28px 24px;transition:background .2s}
+.chain-card:hover{background:var(--bg2)}
+.chain-name{font-size:.9rem;font-weight:600;color:var(--text);margin-bottom:4px}
+.chain-role{font-family:var(--mono);font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);margin-bottom:12px}
+.chain-tag{display:inline-block;font-family:var(--mono);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;padding:3px 8px;border-radius:2px;border:1px solid}
+.chain-tag.hub{border-color:rgba(0,212,255,.3);color:var(--accent);background:var(--accent-dim)}
+.chain-tag.spoke{border-color:var(--line2);color:var(--text3)}
 
-  /* Charts section within etymology */
-  .charts-strip {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;
-    margin-top: 2rem;
-  }
-  .chart-card {
-    background: white; padding: 2rem;
-    border: 1px solid rgba(0,0,0,0.06);
-  }
-  .chart-card-label {
-    font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase;
-    color: var(--mid); margin-bottom: 0.5rem;
-  }
-  .chart-card-value {
-    font-family: 'Cormorant Garamond', serif; font-weight: 300;
-    font-size: 1.6rem; color: var(--black); margin-bottom: 1.5rem;
-    line-height: 1;
-  }
-  .chart-canvas-wrap { position: relative; height: 100px; }
-  .chart-canvas-wrap canvas { width: 100% !important; height: 100% !important; }
-  .chart-prelaunch-badge {
-    position: absolute; bottom: 6px; right: 0;
-    font-size: 0.55rem; letter-spacing: 0.15em; text-transform: uppercase;
-    color: var(--mid); opacity: 0.6;
-  }
+/* COUNCIL */
+.validators-section{background:var(--bg1);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.validators-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.validators-title{font-family:var(--serif);font-size:clamp(1.8rem,3.5vw,2.6rem);color:var(--text);line-height:1.2;margin-bottom:20px}
+.validators-body{font-size:.9rem;color:var(--text2);line-height:1.85;margin-bottom:28px}
+.validators-link{display:inline-flex;align-items:center;gap:8px;font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);border-bottom:1px solid rgba(0,212,255,.3);padding-bottom:2px;transition:border-color .2s}
+.validators-link:hover{border-color:var(--accent)}
+.tier-cards{display:flex;flex-direction:column;gap:12px}
+.tier-card{border:1px solid var(--line);border-radius:4px;padding:20px 24px;background:var(--bg);display:flex;justify-content:space-between;align-items:center;transition:border-color .2s}
+.tier-card:hover{border-color:var(--line2)}
+.tc-left{}
+.tc-name{font-size:.9rem;font-weight:600;color:var(--text);margin-bottom:2px}
+.tc-req{font-family:var(--mono);font-size:.72rem;color:var(--text3)}
+.tc-right{text-align:right}
+.tc-pool{font-family:var(--mono);font-size:1.1rem;color:var(--text);margin-bottom:2px}
+.tc-label{font-family:var(--mono);font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:var(--text3)}
+.tc-badge{display:inline-block;font-family:var(--mono);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;padding:2px 8px;border-radius:2px;margin-top:4px}
+.tc-badge.cap{background:var(--purple-dim);border:1px solid rgba(168,85,247,.3);color:var(--purple)}
 
-  /* ── INTRO ── */
-  .intro {
-    padding: 10rem 3rem; max-width: 1400px; margin: 0 auto;
-    display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start;
-  }
-  .intro-label { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--mid); margin-bottom: 2rem; }
-  .intro-headline { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(2rem, 3.5vw, 3rem); line-height: 1.2; color: var(--black); }
-  .intro-headline em { font-style: italic; color: var(--mid); }
-  .intro-right { padding-top: 4rem; }
-  .intro-body { font-size: 0.95rem; line-height: 1.9; color: var(--mid); margin-bottom: 2rem; }
-  .intro-stat { display: flex; flex-direction: column; border-top: 1px solid rgba(0,0,0,0.08); padding-top: 1.5rem; margin-top: 1.5rem; }
-  .stat-number { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: 3rem; color: var(--black); line-height: 1; }
-  .stat-label { font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--mid); margin-top: 0.5rem; }
-  .full-divider { width: 100%; height: 1px; background: rgba(0,0,0,0.06); }
+/* TREASURY */
+.treasury-section{}
+.treasury-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:64px}
+.pool-card{background:var(--bg1);padding:36px 28px}
+.pool-pct{font-family:var(--serif);font-size:3rem;color:var(--text);margin-bottom:4px}
+.pool-name{font-size:.85rem;font-weight:600;color:var(--text);margin-bottom:12px}
+.pool-body{font-size:.82rem;color:var(--text2);line-height:1.75}
+.pool-bar{height:3px;background:var(--line);border-radius:1px;margin-top:24px;overflow:hidden}
+.pool-fill{height:100%;border-radius:1px;animation:glow 3s ease infinite}
+.pool-fill.core{width:82%;background:var(--accent)}
+.pool-fill.dev{width:12%;background:var(--green)}
+.pool-fill.eco{width:6%;background:var(--purple)}
 
-  /* ── HOW IT WORKS ── */
-  .how { padding: 10rem 3rem; max-width: 1400px; margin: 0 auto; }
-  .section-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6rem; border-bottom: 1px solid rgba(0,0,0,0.06); padding-bottom: 2rem; }
-  .section-label { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--mid); }
-  .section-count { font-family: 'Cormorant Garamond', serif; font-size: 0.9rem; color: var(--mid); font-weight: 300; }
-  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; }
-  .step { padding: 3rem; border-right: 1px solid rgba(0,0,0,0.06); transition: background 0.4s ease; }
-  .step:last-child { border-right: none; }
-  .step:hover { background: var(--off-white); }
-  .step-num { font-family: 'Cormorant Garamond', serif; font-size: 4rem; font-weight: 300; color: rgba(0,0,0,0.06); line-height: 1; margin-bottom: 2rem; }
-  .step-title { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: 1.6rem; margin-bottom: 1rem; color: var(--black); }
-  .step-body { font-size: 0.85rem; line-height: 1.8; color: var(--mid); }
+/* ROADMAP */
+.roadmap-section{}
+.rm-list{display:flex;flex-direction:column;gap:0;margin-top:64px;border:1px solid var(--line)}
+.rm-item{display:flex;gap:32px;padding:32px 36px;border-bottom:1px solid var(--line);position:relative;transition:background .2s}
+.rm-item:last-child{border:none}
+.rm-item:hover{background:var(--bg1)}
+.rm-dot{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:.72rem;font-weight:600;flex-shrink:0;margin-top:2px}
+.rm-dot.done{background:var(--green-dim);border:1px solid rgba(0,232,135,.4);color:var(--green)}
+.rm-dot.active{background:var(--accent-dim);border:1px solid rgba(0,212,255,.4);color:var(--accent);animation:glow 2s ease infinite}
+.rm-dot.pending{background:var(--bg2);border:1px solid var(--line2);color:var(--text3)}
+.rm-phase{font-family:var(--mono);font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text3);margin-bottom:6px}
+.rm-title{font-size:1rem;font-weight:600;color:var(--text);margin-bottom:8px}
+.rm-body{font-size:.83rem;color:var(--text2);line-height:1.75;max-width:640px}
+.rm-tag{display:inline-block;margin-top:12px;font-family:var(--mono);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;padding:3px 10px;border-radius:2px;border:1px solid}
+.tag-done{border-color:rgba(0,232,135,.3);color:var(--green)}
+.tag-active{border-color:rgba(0,212,255,.3);color:var(--accent)}
+.tag-pending{border-color:var(--line2);color:var(--text3)}
 
-  /* ── DARK ASSETS ── */
-  .dark-section { background: var(--black); padding: 10rem 3rem; position: relative; overflow: hidden; }
-  .dark-inner { max-width: 1400px; margin: 0 auto; position: relative; z-index: 2; }
-  .dark-headline { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(2.5rem, 5vw, 4.5rem); line-height: 1.15; color: var(--white); max-width: 800px; margin-bottom: 6rem; }
-  .dark-headline em { font-style: italic; opacity: 0.4; }
-  .token-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: rgba(255,255,255,0.05); margin-bottom: 6rem; }
-  .token-item { background: var(--black); padding: 2rem; transition: background 0.3s ease; }
-  .token-item:hover { background: rgba(255,255,255,0.04); }
-  .token-tier { font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.25); margin-bottom: 0.75rem; }
-  .token-name { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 300; color: var(--white); }
-  .dark-tagline { font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.3); border-top: 1px solid rgba(255,255,255,0.06); padding-top: 3rem; }
+/* MANIFESTO */
+.manifesto-section{text-align:center;padding:120px 0;border-top:1px solid var(--line)}
+.manifesto-quote{font-family:var(--serif);font-size:clamp(2rem,5vw,4rem);line-height:1.2;color:var(--text);max-width:800px;margin:0 auto 32px;font-style:italic}
+.manifesto-attr{font-family:var(--mono);font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;color:var(--text3)}
+.manifesto-ctas{display:flex;gap:16px;justify-content:center;margin-top:48px;flex-wrap:wrap}
 
-  /* ── VCLM SECTION ── */
-  .vclm-section { padding: 10rem 3rem; max-width: 1400px; margin: 0 auto; }
-  .vclm-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8rem; align-items: center; }
-  .vclm-headline { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(2rem, 3vw, 2.8rem); line-height: 1.25; margin-bottom: 3rem; }
-  .vclm-headline em { font-style: italic; color: var(--mid); }
-  .vclm-body { font-size: 0.9rem; line-height: 1.9; color: var(--mid); margin-bottom: 2rem; }
-  .vclm-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 4rem; border-top: 1px solid rgba(0,0,0,0.06); padding-top: 3rem; }
-  .vclm-stat-num { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: 2.2rem; color: var(--black); }
-  .vclm-stat-label { font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--mid); margin-top: 0.3rem; }
-  .decay-visual { position: relative; height: 400px; display: flex; align-items: flex-end; gap: 6px; padding: 2rem; background: var(--off-white); }
-  .decay-bar { flex: 1; background: var(--black); opacity: 0.15; transition: opacity 0.3s; position: relative; }
-  .decay-bar:hover { opacity: 0.6; }
-  .decay-bar::after { content: attr(data-year); position: absolute; bottom: -1.5rem; left: 50%; transform: translateX(-50%); font-size: 0.55rem; color: var(--mid); white-space: nowrap; }
-  .decay-label { position: absolute; top: 1rem; left: 2rem; font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--mid); }
+/* FOOTER */
+footer{border-top:1px solid var(--line);padding:48px 0 36px;background:var(--bg1)}
+.footer-inner{display:flex;justify-content:space-between;align-items:flex-start;gap:40px;flex-wrap:wrap}
+.footer-logo{font-family:var(--serif);font-size:1.1rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text2);margin-bottom:8px}
+.footer-tagline{font-size:.78rem;color:var(--text3)}
+.footer-links{display:flex;gap:40px;flex-wrap:wrap}
+.footer-col{}
+.footer-col-title{font-family:var(--mono);font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--text3);margin-bottom:14px}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.footer-col a{font-size:.82rem;color:var(--text2);transition:color .2s}
+.footer-col a:hover{color:var(--text)}
+.footer-bottom{margin-top:48px;padding-top:24px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.footer-copy{font-size:.75rem;color:var(--text3)}
+.footer-legal{font-size:.72rem;color:var(--text4);max-width:480px;text-align:right;line-height:1.5}
 
-  /* ── TRIAL SECTION ── */
-  .trial-section { background: var(--off-white); padding: 8rem 3rem; }
-  .trial-inner { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 8rem; align-items: center; }
-  .trial-phone { background: var(--black); border-radius: 2rem; padding: 2rem; aspect-ratio: 9/16; max-width: 280px; display: flex; flex-direction: column; justify-content: center; gap: 1.5rem; position: relative; overflow: hidden; box-shadow: 0 40px 80px rgba(0,0,0,0.2); }
-  .phone-orb { position: absolute; width: 200px; height: 200px; background: #00d4ff; filter: blur(80px); opacity: 0.15; top: -50px; right: -50px; animation: orbFloat 6s ease-in-out infinite; }
-  .phone-label { font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.3); }
-  .phone-amount { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; font-weight: 300; color: var(--white); border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 1rem; }
-  .phone-row { display: flex; justify-content: space-between; align-items: center; }
-  .phone-row-label { font-size: 0.65rem; color: rgba(255,255,255,0.3); letter-spacing: 0.05em; }
-  .phone-row-value { font-size: 0.75rem; color: rgba(255,255,255,0.7); }
-  .phone-btn { margin-top: 0.5rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 0.5rem; padding: 1rem; text-align: center; font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.4); cursor: pointer; transition: all 0.3s; }
-  .phone-btn:hover { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.8); }
-  .phone-btn-primary { background: white; color: var(--black); font-weight: 400; opacity: 0.9; position: relative; }
-  .phone-btn-primary::after { content: ''; position: absolute; inset: 0; border-radius: 0.5rem; background: white; opacity: 0; animation: pulseBtn 2s ease-in-out infinite; }
-  @keyframes pulseBtn { 0%,100% { opacity: 0; transform: scale(1); } 50% { opacity: 0.15; transform: scale(1.02); } }
-  .trial-headline { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(2rem, 3vw, 2.8rem); line-height: 1.2; margin-bottom: 2rem; }
-  .trial-body { font-size: 0.9rem; line-height: 1.9; color: var(--mid); margin-bottom: 2rem; }
-
-  /* ── CHAINS ── */
-  .chains-section { padding: 8rem 3rem; max-width: 1400px; margin: 0 auto; }
-  .chains-header { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-bottom: 6rem; }
-  .chains-headline { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(2rem, 3vw, 2.8rem); line-height: 1.2; }
-  .chains-body { font-size: 0.9rem; line-height: 1.9; color: var(--mid); padding-top: 0.5rem; }
-  .chain-list { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; border-top: 1px solid rgba(0,0,0,0.06); }
-  .chain-item { padding: 2rem 1.5rem; border-right: 1px solid rgba(0,0,0,0.06); border-bottom: 1px solid rgba(0,0,0,0.06); transition: background 0.3s; }
-  .chain-item:hover { background: var(--off-white); }
-  .chain-item:nth-child(5n) { border-right: none; }
-  .chain-name { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 300; color: var(--black); }
-  .chain-status { font-size: 0.55rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--mid); margin-top: 0.3rem; }
-  .chain-status.live { color: #2d6a4f; }
-
-  /* ── VALIDATORS ── */
-  .validators-section { padding: 10rem 3rem; background: var(--white); }
-  .validators-inner { max-width: 1400px; margin: 0 auto; }
-  .validators-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start; margin-bottom: 6rem; }
-  .validators-headline { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(2rem, 3vw, 2.8rem); line-height: 1.2; }
-  .validators-headline em { font-style: italic; color: var(--mid); }
-  .validators-body { font-size: 0.9rem; line-height: 1.9; color: var(--mid); padding-top: 0.5rem; }
-  .validator-tiers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-top: 1px solid rgba(0,0,0,0.06); }
-  .validator-tier { padding: 3rem; border-right: 1px solid rgba(0,0,0,0.06); transition: background 0.4s ease; }
-  .validator-tier:last-child { border-right: none; }
-  .validator-tier:hover { background: var(--off-white); }
-  .validator-tier-archon { background: var(--black); }
-  .validator-tier-archon:hover { background: #111; }
-  .tier-number { font-family: 'Cormorant Garamond', serif; font-size: 4rem; font-weight: 300; color: rgba(0,0,0,0.06); line-height: 1; margin-bottom: 1rem; }
-  .validator-tier-archon .tier-number { color: rgba(255,255,255,0.06); }
-  .tier-name { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: 2rem; color: var(--black); margin-bottom: 0.3rem; }
-  .validator-tier-archon .tier-name { color: var(--white); }
-  .tier-stake { font-size: 0.75rem; letter-spacing: 0.1em; color: var(--mid); margin-bottom: 1.5rem; }
-  .validator-tier-archon .tier-stake { color: rgba(255,255,255,0.4); }
-  .tier-divider { width: 100%; height: 1px; background: rgba(0,0,0,0.06); margin-bottom: 1.5rem; }
-  .validator-tier-archon .tier-divider { background: rgba(255,255,255,0.08); }
-  .tier-detail { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem; }
-  .tier-detail-label { font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mid); }
-  .validator-tier-archon .tier-detail-label { color: rgba(255,255,255,0.3); }
-  .tier-detail-value { font-size: 0.75rem; color: var(--black); font-weight: 400; }
-  .validator-tier-archon .tier-detail-value { color: rgba(255,255,255,0.8); }
-  .tier-desc { font-size: 0.8rem; line-height: 1.8; color: var(--mid); margin-top: 1.5rem; border-top: 1px solid rgba(0,0,0,0.06); padding-top: 1.5rem; }
-  .validator-tier-archon .tier-desc { color: rgba(255,255,255,0.35); border-top-color: rgba(255,255,255,0.08); }
-  .validators-cta { display: flex; flex-direction: column; gap: 1rem; margin-top: 4rem; border-top: 1px solid rgba(0,0,0,0.06); padding-top: 3rem; }
-  .validators-link { font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--black); text-decoration: none; font-weight: 400; transition: opacity 0.3s; }
-  .validators-link:hover { opacity: 0.5; }
-  .validators-footnote { font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--mid); margin-top: 0; }
-
-  /* ── MANIFESTO ── */
-  .manifesto { padding: 12rem 3rem; background: var(--black); text-align: center; position: relative; overflow: hidden; }
-  .manifesto-inner { position: relative; z-index: 2; max-width: 900px; margin: 0 auto; }
-  .manifesto-label { font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase; color: rgba(255,255,255,0.25); margin-bottom: 3rem; }
-  .manifesto-text { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(1.8rem, 4vw, 3.5rem); line-height: 1.3; color: var(--white); margin-bottom: 4rem; }
-  .manifesto-text em { font-style: italic; opacity: 0.4; }
-  .manifesto-rules { display: flex; justify-content: center; gap: 4rem; flex-wrap: wrap; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 3rem; }
-  .rule { font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.3); }
-
-  /* ── FOOTER ── */
-  footer { padding: 4rem 3rem; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(0,0,0,0.06); }
-  .footer-logo { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: 1rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--black); text-decoration: none; }
-  .footer-links { display: flex; gap: 2.5rem; list-style: none; }
-  .footer-links a { font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mid); text-decoration: none; transition: color 0.3s; }
-  .footer-links a:hover { color: var(--black); }
-  .footer-copy { font-size: 0.65rem; color: var(--mid); letter-spacing: 0.05em; }
-
-  /* ── ROADMAP ── */
-  .roadmap-section { padding: 10rem 3rem; max-width: 1400px; margin: 0 auto; }
-  .roadmap-list { display: flex; flex-direction: column; gap: 0; margin-top: 4rem; }
-  .rm-item { display: grid; grid-template-columns: 3rem 1fr; gap: 2.5rem; align-items: start; padding: 3rem 0; border-top: 1px solid rgba(0,0,0,0.06); }
-  .rm-dot { width: 2rem; height: 2rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.65rem; font-weight: 400; flex-shrink: 0; margin-top: 0.3rem; }
-  .rm-dot.done { background: var(--black); color: var(--white); }
-  .rm-dot.active { background: var(--black); color: var(--white); outline: 3px solid rgba(0,0,0,0.15); outline-offset: 3px; }
-  .rm-dot.pending { background: transparent; border: 1px solid rgba(0,0,0,0.15); color: var(--mid); }
-  .rm-phase { font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--mid); margin-bottom: 0.5rem; }
-  .rm-title { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: 1.6rem; color: var(--black); margin-bottom: 0.75rem; line-height: 1.2; }
-  .rm-body { font-size: 0.85rem; line-height: 1.8; color: var(--mid); max-width: 700px; }
-  .rm-tag { display: inline-block; font-size: 0.55rem; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.3rem 0.8rem; margin-top: 1rem; }
-  .tag-done { background: var(--black); color: var(--white); }
-  .tag-active { background: rgba(0,0,0,0.06); color: var(--black); }
-  .tag-pending { border: 1px solid rgba(0,0,0,0.12); color: var(--mid); }
-
-  /* ── REVEAL ── */
-  .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.9s ease, transform 0.9s ease; }
-  .reveal.visible { opacity: 1; transform: translateY(0); }
-  .reveal-delay-1 { transition-delay: 0.1s; }
-  .reveal-delay-2 { transition-delay: 0.2s; }
-  .reveal-delay-3 { transition-delay: 0.3s; }
-
-  /* ── RESPONSIVE ── */
-  @media (max-width: 900px) {
-    nav { padding: 1.5rem; }
-    .nav-links { display: none; }
-    .hero-stats { display: none; }
-    .hero-chart-wrap { display: none; }
-    .hero-definition { display: none; }
-    .intro, .vclm-grid, .trial-inner, .chains-header, .etymology-inner { grid-template-columns: 1fr; gap: 3rem; }
-    .steps { grid-template-columns: 1fr; }
-    .step { border-right: none; border-bottom: 1px solid rgba(0,0,0,0.06); }
-    .validator-tiers { grid-template-columns: 1fr; }
-    .validator-tier { border-right: none; border-bottom: 1px solid rgba(0,0,0,0.06); }
-    .validators-intro { grid-template-columns: 1fr; gap: 2rem; }
-    .token-grid { grid-template-columns: repeat(2, 1fr); }
-    .chain-list { grid-template-columns: repeat(2, 1fr); }
-    .charts-strip { grid-template-columns: 1fr; }
-    footer { flex-direction: column; gap: 2rem; text-align: center; }
-    .footer-links { flex-wrap: wrap; justify-content: center; }
-    .trial-phone { max-width: 100%; }
-    .decay-visual { height: 250px; }
-    .etymology-left { position: static; }
-  }
+@media(max-width:900px){
+  :root{--gutter:20px}
+  .hero-stats{grid-template-columns:repeat(3,1fr)}
+  .how-grid{grid-template-columns:1fr}
+  .trial-inner,.vclm-grid,.assets-intro,.validators-inner{grid-template-columns:1fr;gap:40px}
+  .tier-grid{grid-template-columns:1fr}
+  .chains-grid{grid-template-columns:repeat(2,1fr)}
+  .treasury-grid{grid-template-columns:1fr}
+  .rm-item{padding:24px 20px;gap:20px}
+  .nav-links{display:none}
+  .nav-mobile-toggle{display:block}
+  .footer-inner{flex-direction:column}
+  .footer-links{gap:24px}
+  .footer-bottom{flex-direction:column;text-align:center}
+  .footer-legal{text-align:center}
+}
 </style>
 </head>
 <body>
-
-<div class="cursor" id="cursor"></div>
+<div class="wrap">
 
 <!-- NAV -->
-<nav>
-  <a href="#" class="nav-logo">Vinculum</a>
+<nav id="main-nav">
+  <a href="index.html" class="nav-logo">Vinculum</a>
   <ul class="nav-links">
-    <li><a href="#etymology">Origin</a></li>
-    <li><a href="#protocol">Protocol</a></li>
+    <li><a href="#how">How It Works</a></li>
     <li><a href="#vclm">$VCLM</a></li>
-    <li><a href="calculator.html">Calculator</a></li>
     <li><a href="#chains">Chains</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="vision.html">Vision</a></li>
     <li><a href="guardians.html">Council</a></li>
-    <li><a href="#" style="opacity:0.4">Launch — Soon</a></li>
+    <li><a href="calculator.html">Calculator</a></li>
+    <li><a href="staking.html" class="nav-cta">⬡ Stake Now</a></li>
   </ul>
+  <button class="nav-mobile-toggle" onclick="toggleMobileNav()" aria-label="Menu">☰</button>
 </nav>
+<div class="nav-mobile-menu" id="mobile-menu">
+  <a href="#how" onclick="closeMobileNav()">How It Works</a>
+  <a href="#vclm" onclick="closeMobileNav()">$VCLM</a>
+  <a href="#chains" onclick="closeMobileNav()">Chains</a>
+  <a href="#roadmap" onclick="closeMobileNav()">Roadmap</a>
+  <a href="vision.html">Vision</a>
+  <a href="guardians.html">Council</a>
+  <a href="calculator.html">Calculator</a>
+  <a href="staking.html" class="nav-cta">⬡ Stake Now</a>
+</div>
 
-<!-- ── PAGE 1: HERO ── -->
+<!-- HERO -->
 <section class="hero">
-  <div class="hero-bg"></div>
-  <div class="orb orb-1"></div>
-  <div class="orb orb-2"></div>
-  <div class="orb orb-3"></div>
-  <div class="hero-grid"></div>
-
-  <!-- Sparkline chart over grid -->
-  <div class="hero-chart-wrap">
-    <canvas id="heroSparkline"></canvas>
-  </div>
-
-  <!-- Live stats left side -->
-  <div class="hero-stats">
-    <div class="live-stat">
-      <span class="live-stat-label">$VCLM in existence</span>
-      <span class="live-stat-value" id="vclmCounter">0</span>
-      <span class="live-indicator"><span class="live-dot"></span>Live on mainnet</span>
+  <div class="container">
+    <div class="hero-eyebrow reveal">Built on Base · Powered by Axelar ITS</div>
+    <h1 class="hero-title reveal">Proof of behavior,<br/><em>not proof of capital.</em></h1>
+    <p class="hero-sub reveal">Lock any token. Earn VCLM. Get your principal back. A commitment vault protocol where governance rights are earned through action — never bought, never airdropped, never premined.</p>
+    <div class="hero-actions reveal">
+      <a href="staking.html" class="btn btn-primary">⬡ Try the Demo</a>
+      <a href="#how" class="btn btn-outline">How It Works</a>
     </div>
-    <div class="live-stat">
-      <span class="live-stat-label">Committed wallets</span>
-      <span class="live-stat-value" id="walletCounter">0</span>
-      <span class="live-indicator"><span class="live-dot"></span>Growing</span>
+    <div class="hero-stats reveal">
+      <div class="hero-stat"><div class="hero-stat-val">10B</div><div class="hero-stat-label">VCLM Hard Cap</div></div>
+      <div class="hero-stat"><div class="hero-stat-val">95%</div><div class="hero-stat-label">Principal Returned</div></div>
+      <div class="hero-stat"><div class="hero-stat-val">100%</div><div class="hero-stat-label">Community Earned</div></div>
     </div>
-  </div>
-
-  <!-- Definition bottom right -->
-  <div class="hero-definition">
-    <div class="def-word">
-      vinculum
-      <span class="def-pos">n. Latin</span>
-    </div>
-    <p class="def-text">
-      <em>"bond," "chain," or "link"</em> — a binding element that connects separate components into a unified structure.
-    </p>
-  </div>
-
-  <div class="hero-content">
-    <p class="hero-eyebrow">Vinculum Protocol — Base Network — Axelar ITS</p>
-    <h1 class="hero-title">
-      Commitment<br>
-      <em>is the</em><br>
-      currency.
-    </h1>
-    <p class="hero-sub">Lock any approved token. Earn $VCLM. Cannot be bought — only earned.</p>
-  </div>
-
-  <div class="hero-scroll">
-    <div class="scroll-line"></div>
-    <span>Scroll</span>
   </div>
 </section>
 
-<!-- ── PAGE 2: ETYMOLOGY ── -->
-<section class="etymology" id="etymology">
-  <div class="etymology-inner">
-    <div class="etymology-left reveal">
-      <p class="etym-label">Origin of the name</p>
-      <div class="etym-word">Vinculum</div>
-      <p class="etym-origin">Latin · Classical · n.</p>
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker-inner" id="ticker"></div>
+</div>
+
+<!-- HOW IT WORKS -->
+<section id="how" class="how-section">
+  <div class="container">
+    <div class="section-label reveal">How It Works</div>
+    <h2 class="section-title reveal">Three steps. No tricks.</h2>
+    <p class="section-body reveal">Vinculum is a commitment vault protocol. You lock assets, the protocol mints VCLM proportional to your commitment, and your principal comes back at maturity.</p>
+    <div class="how-grid reveal">
+      <div class="how-card">
+        <span class="how-num">01</span>
+        <div class="how-title">Lock Your Assets</div>
+        <p class="how-body">Choose any supported token and a commitment duration — from 7 days (trial) up to 730 days. Your assets are held in a VaultManager smart contract on their native chain. They never bridge. They never move.</p>
+        <span class="how-tag accent">Non-custodial</span>
+      </div>
+      <div class="how-card">
+        <span class="how-num">02</span>
+        <div class="how-title">Earn $VCLM</div>
+        <p class="how-body">The protocol mints VCLM proportional to your commitment value, duration, and asset tier. 10 VCLM per dollar at launch — decaying 20% per year. Early commitment earns the most, forever.</p>
+        <span class="how-tag accent">Proof of commitment</span>
+      </div>
+      <div class="how-card">
+        <span class="how-num">03</span>
+        <div class="how-title">Reclaim Principal</div>
+        <p class="how-body">At maturity, 95% of your committed value returns. The remaining 5% enters the protocol treasury permanently — split 82/12/6 across Core Reserve, Dev Fund, and Ecosystem Growth. No one receives it.</p>
+        <span class="how-tag green">95% returned</span>
+      </div>
     </div>
+  </div>
+</section>
 
-    <div class="etymology-right">
-      <div class="etym-block reveal">
-        <p class="etym-block-label">Definition</p>
-        <p class="etym-block-text">
-          <em>"bond," "chain," or "link"</em> — refers to a binding element that connects separate components into a unified structure.
-        </p>
+<!-- TRIAL VAULT -->
+<section class="trial-section">
+  <div class="container">
+    <div class="trial-inner">
+      <div>
+        <div class="section-label reveal">The Trial Vault</div>
+        <h2 class="section-title reveal">Try it before you commit.</h2>
+        <p class="section-body reveal">The 7-day trial vault lets you experience the protocol risk-free. At day 7, you decide. Continue into a standard vault — or exit with 97.5% of your principal returned. No surprise fees. No lock-in.</p>
+        <p class="section-body reveal" style="margin-top:16px;">If you continue: the remaining 2.5% joins the initial 2.5% in the treasury. If you exit: only 2.5% is retained. Either way, VCLM is prorated to your actual time committed.</p>
       </div>
-
-      <div class="etym-block reveal reveal-delay-1">
-        <p class="etym-block-label">Historical usage</p>
-        <p class="etym-block-text">
-          Historically, the term described a physical fastening or chain used to hold parts together, ensuring stability through connection. In a broader sense, it represents <em>a commitment that links independent actors into a coordinated whole.</em>
-        </p>
-      </div>
-
-      <div class="etym-block reveal reveal-delay-2">
-        <p class="etym-block-label">Within this protocol</p>
-        <p class="etym-block-text">
-          Within the context of Vinculum Protocol, the term describes a decentralized mechanism through which participants voluntarily bind assets, commitments, and incentives into a shared network that grows stronger through collective participation.
-        </p>
-        <p class="etym-block-text" style="margin-top:1.5rem; font-size: clamp(1rem,1.5vw,1.2rem); color: var(--mid);">
-          In essence, Vinculum represents <em>the chain of commitment</em> that transforms independent participants into a unified economic system.
-        </p>
-      </div>
-
-      <!-- Live charts -->
-      <div class="etym-block reveal reveal-delay-3">
-        <p class="etym-block-label">Protocol activity</p>
-        <div class="charts-strip">
-          <div class="chart-card">
-            <div class="chart-card-label">$VCLM minted over time</div>
-            <div class="chart-card-value" id="vclmChartVal">0 VCLM</div>
-            <div class="chart-canvas-wrap" style="position:relative;">
-              <canvas id="vclmChart"></canvas>
-              <div class="chart-prelaunch-badge">Live after launch</div>
-            </div>
+      <div class="trial-visual reveal">
+        <div class="trial-box">
+          <div class="trial-row"><span class="trial-label">Asset</span><span class="trial-val">ETH</span></div>
+          <div class="trial-row"><span class="trial-label">Committed</span><span class="trial-val">$500.00</span></div>
+          <div class="trial-row"><span class="trial-label">Duration</span><span class="trial-val amber">7 Days (Trial)</span></div>
+          <div class="trial-row"><span class="trial-label">VCLM Earned</span><span class="trial-val green">~233 VCLM</span></div>
+          <div>
+            <div class="trial-progress"><div class="trial-progress-fill"></div></div>
+            <div class="trial-progress-label"><span>Day 0</span><span>Day 7</span></div>
           </div>
-          <div class="chart-card">
-            <div class="chart-card-label">Committed wallets over time</div>
-            <div class="chart-card-value" id="walletChartVal">0 wallets</div>
-            <div class="chart-canvas-wrap" style="position:relative;">
-              <canvas id="walletChart"></canvas>
-              <div class="chart-prelaunch-badge">Live after launch</div>
-            </div>
+          <div class="trial-decision">
+            <div class="trial-btn continue">Continue →<br/><span style="font-size:.6rem;opacity:.7">Full vault, more VCLM</span></div>
+            <div class="trial-btn exit">Exit<br/><span style="font-size:.6rem;opacity:.7">97.5% returned</span></div>
           </div>
         </div>
       </div>
-
     </div>
-  </div>
-</section>
-
-<!-- INTRO -->
-<section class="intro" id="protocol">
-  <div class="intro-left reveal">
-    <p class="intro-label">About the Protocol</p>
-    <h2 class="intro-headline">
-      DeFi has always rewarded<br>
-      <em>capital over conviction.</em><br>
-      Vinculum changes that.
-    </h2>
-  </div>
-  <div class="intro-right reveal reveal-delay-2">
-    <p class="intro-body">Vinculum is a commitment vault protocol built on Base. Lock your tokens for a defined period and earn $VCLM — the protocol's native token. It governs. It stakes. It earns fee revenue. And it cannot be purchased, pre-allocated, or airdropped. The only path to $VCLM is through commitment.</p>
-    <p class="intro-body">Not even the team holds $VCLM. We stake to earn it just like you.</p>
-    <div class="intro-stat"><span class="stat-number">16</span><span class="stat-label">Approved assets at launch</span></div>
-    <div class="intro-stat"><span class="stat-number">93</span><span class="stat-label">Tests passing</span></div>
-    <div class="intro-stat"><span class="stat-number">10B</span><span class="stat-label">Hard supply cap — immutable</span></div>
-  </div>
-</section>
-
-<div class="full-divider"></div>
-
-<!-- HOW IT WORKS -->
-<section class="how" id="how">
-  <div class="section-header reveal">
-    <span class="section-label">How it works</span>
-    <span class="section-count">Three steps</span>
-  </div>
-  <div class="steps">
-    <div class="step reveal">
-      <div class="step-num">01</div>
-      <h3 class="step-title">Choose your asset</h3>
-      <p class="step-body">Select from 16 approved tokens across Tier A, B, and C. ETH, USDC, SHIB, XRP, TigerOG, WKC, and more. Each tier carries its own quality multiplier in the minting formula.</p>
-    </div>
-    <div class="step reveal reveal-delay-2">
-      <div class="step-num">02</div>
-      <h3 class="step-title">Commit your duration</h3>
-      <p class="step-body">Choose 30, 90, 180, 365, or 730 days. Longer commitments multiply your $VCLM reward — up to 3× for a two-year vault. Not ready? Start with a 7-day trial vault first.</p>
-    </div>
-    <div class="step reveal reveal-delay-3">
-      <div class="step-num">03</div>
-      <h3 class="step-title">Earn $VCLM</h3>
-      <p class="step-body">$VCLM is minted to your wallet at vault entry. The emission rate decays 1.667% every month — permanently. The longer you wait to start, the less you earn when you do.</p>
-    </div>
-  </div>
-</section>
-
-<!-- DARK ASSETS -->
-<section class="dark-section">
-  <div class="orb orb-1" style="opacity:0.08"></div>
-  <div class="orb orb-2" style="opacity:0.08"></div>
-  <div class="dark-inner">
-    <h2 class="dark-headline reveal">
-      Sixteen assets.<br>
-      <em>Every community</em><br>
-      approaching from<br>
-      a different direction.
-    </h2>
-    <div class="token-grid reveal">
-      <div class="token-item"><div class="token-tier">Tier A — 1.00×</div><div class="token-name">ETH</div></div>
-      <div class="token-item"><div class="token-tier">Tier A — 1.00×</div><div class="token-name">USDC</div></div>
-      <div class="token-item"><div class="token-tier">Tier A — 1.00×</div><div class="token-name">USDT</div></div>
-      <div class="token-item"><div class="token-tier">Tier A — 1.00×</div><div class="token-name">RLUSD</div></div>
-      <div class="token-item"><div class="token-tier">Tier A — 1.00×</div><div class="token-name">BASE</div></div>
-      <div class="token-item"><div class="token-tier">Tier A — 1.00×</div><div class="token-name">XRP</div></div>
-      <div class="token-item"><div class="token-tier">Tier A — 1.00×</div><div class="token-name">XLM</div></div>
-      <div class="token-item"><div class="token-tier">Tier A — 1.00×</div><div class="token-name">XDC</div></div>
-      <div class="token-item"><div class="token-tier">Tier B — 0.85×</div><div class="token-name">SHIB</div></div>
-      <div class="token-item"><div class="token-tier">Tier B — 0.85×</div><div class="token-name">LUNC</div></div>
-      <div class="token-item"><div class="token-tier">Tier B — 0.85×</div><div class="token-name">VOLT</div></div>
-      <div class="token-item"><div class="token-tier">Tier B — 0.85×</div><div class="token-name">WKC</div></div>
-      <div class="token-item"><div class="token-tier">Tier B — 0.85×</div><div class="token-name">KEKEC</div></div>
-      <div class="token-item"><div class="token-tier">Tier C — 0.70×</div><div class="token-name">TigerOG</div></div>
-      <div class="token-item"><div class="token-tier">Tier C — 0.70×</div><div class="token-name">LionOG</div></div>
-      <div class="token-item"><div class="token-tier">Tier C — 0.70×</div><div class="token-name">FrogOG</div></div>
-    </div>
-    <p class="dark-tagline reveal">New assets added through governance — $VCLM holders decide</p>
   </div>
 </section>
 
 <!-- VCLM -->
-<section class="vclm-section" id="vclm">
-  <div class="vclm-grid">
-    <div class="reveal">
-      <p class="intro-label">The Token</p>
-      <h2 class="vclm-headline">$VCLM is not a<br>governance token.<br><em>It is the only token.</em></h2>
-      <p class="vclm-body">It governs the protocol. It powers the Governance Council tiers. It earns fee revenue after the minting era. It appreciates through permanent scarcity. There is no other token. There is no main token coming later. This is it.</p>
-      <p class="vclm-body">No presale. No premine. No VC allocation. No insider round. Every $VCLM that will ever exist was minted by someone who committed real value and waited.</p>
-      <p class="vclm-body">The emission rate decays 1.667% every single month from day one. No floor. No ceiling. The longer you wait to start, the less you earn when you do. Early believers are mathematically privileged forever.</p>
-      <p class="vclm-body">Hard cap: 10,000,000,000 VCLM. Immutable. No governance can ever change it.</p>
-      <div class="vclm-stats">
-        <div><div class="vclm-stat-num">10B</div><div class="vclm-stat-label">Hard supply cap</div></div>
-        <div><div class="vclm-stat-num">1.667%</div><div class="vclm-stat-label">Monthly decay rate</div></div>
-        <div><div class="vclm-stat-num">3×</div><div class="vclm-stat-label">Max commitment multiplier</div></div>
-        <div><div class="vclm-stat-num">$0.10</div><div class="vclm-stat-label">= 1 VCLM at launch</div></div>
+<section id="vclm" class="vclm-section">
+  <div class="container">
+    <div class="section-label reveal">$VCLM Token</div>
+    <h2 class="section-title reveal">The protocol's only token.<br/>Earned. Never bought.</h2>
+    <div class="vclm-grid">
+      <div>
+        <div class="vclm-props reveal">
+          <div class="prop-item">
+            <div class="prop-icon">🔒</div>
+            <div><div class="prop-title">No Presale. No Premine.</div><div class="prop-body">Every VCLM ever minted was earned through commitment. Not the founders. Not the team. Not early investors. The supply is 100% community-earned — permanently and immutably.</div></div>
+          </div>
+          <div class="prop-item">
+            <div class="prop-icon">🗳️</div>
+            <div><div class="prop-title">Governance Rights</div><div class="prop-body">VCLM holders vote on protocol parameters, new vault assets, and treasury deployment. Three governance tiers — Trustees, Stewards, and Council Members — with increasing authority and responsibility.</div></div>
+          </div>
+          <div class="prop-item">
+            <div class="prop-icon">🌐</div>
+            <div><div class="prop-title">Interchain Native</div><div class="prop-body">Built on Axelar ITS from day one. One unified VCLM supply across all chains — not fragmented bridged tokens. Committed assets never leave their native chain.</div></div>
+          </div>
+          <div class="prop-item">
+            <div class="prop-icon">📉</div>
+            <div><div class="prop-title">Emission Decay</div><div class="prop-body">Emission decreases 20% per year, floored at 10% of original rate. The longer you wait to start, the less you earn when you do. Early commitment is permanently advantaged.</div></div>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="reveal reveal-delay-2">
-      <div class="decay-visual">
-        <span class="decay-label">Emission rate over time</span>
-        <div class="decay-bar" style="height:100%" data-year="Y1"></div>
-        <div class="decay-bar" style="height:82%" data-year="Y2"></div>
-        <div class="decay-bar" style="height:66%" data-year="Y3"></div>
-        <div class="decay-bar" style="height:54%" data-year="Y4"></div>
-        <div class="decay-bar" style="height:44%" data-year="Y5"></div>
-        <div class="decay-bar" style="height:36%" data-year="Y6"></div>
-        <div class="decay-bar" style="height:29%" data-year="Y7"></div>
-        <div class="decay-bar" style="height:24%" data-year="Y8"></div>
-        <div class="decay-bar" style="height:19%" data-year="Y9"></div>
-        <div class="decay-bar" style="height:13%" data-year="Y10"></div>
-        <div class="decay-bar" style="height:7%" data-year="Y15"></div>
-        <div class="decay-bar" style="height:2%" data-year="Y20"></div>
+      <div class="reveal">
+        <div class="emit-card">
+          <div class="emit-header"><div class="emit-title">Emission Rate Over Time</div><div class="emit-chip">10 VCLM / $1 Today</div></div>
+          <div class="emit-sub">VCLM minted per $1 · 20% annual decay · floor at 1.0</div>
+          <div class="emit-bars" id="emit-bars"></div>
+          <div class="emit-years" id="emit-years"></div>
+        </div>
+        <div class="mult-table">
+          <div class="mult-row"><span class="mult-dur">7 Days (Trial)</span><span class="mult-val">1.00×</span></div>
+          <div class="mult-row"><span class="mult-dur">30 Days</span><span class="mult-val">1.00×</span></div>
+          <div class="mult-row"><span class="mult-dur">90 Days</span><span class="mult-val good">1.25×</span></div>
+          <div class="mult-row"><span class="mult-dur">180 Days</span><span class="mult-val good">1.50×</span></div>
+          <div class="mult-row"><span class="mult-dur">365 Days</span><span class="mult-val good">2.00×</span></div>
+          <div class="mult-row"><span class="mult-dur">730 Days</span><span class="mult-val best">3.00× ★</span></div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<div class="full-divider"></div>
-
-<!-- TRIAL -->
-<section class="trial-section">
-  <div class="trial-inner">
-    <div class="trial-phone reveal">
-      <div class="phone-orb"></div>
+<!-- ASSETS -->
+<section class="assets-section">
+  <div class="container">
+    <div class="assets-intro">
       <div>
-        <div class="phone-label">Test deposit</div>
-        <div class="phone-amount">$1.00</div>
+        <div class="section-label reveal">Supported Assets</div>
+        <h2 class="section-title reveal">Every committed holder has a home.</h2>
+        <p class="section-body reveal">Vinculum is not built for two tokens. It is built for any token worth committing, on any chain worth building on. SHIB and LUNC are the first — not the ceiling. Governance adds more.</p>
       </div>
-      <div>
-        <div class="phone-row"><span class="phone-row-label">Asset</span><span class="phone-row-value">TigerOG</span></div>
-        <div class="phone-row" style="margin-top:0.5rem"><span class="phone-row-label">Duration</span><span class="phone-row-value">7-day trial</span></div>
-        <div class="phone-row" style="margin-top:0.5rem"><span class="phone-row-label">Est. VCLM</span><span class="phone-row-value">~7 VCLM</span></div>
+      <div class="reveal" style="padding-top:8px;">
+        <p class="section-body">Assets are organized into tiers that determine the VCLM multiplier applied to your commitment. Tier A assets earn the highest multiplier. New assets and tier assignments are governed by VCLM holders.</p>
       </div>
-      <div class="phone-btn">Send $1 test deposit first</div>
-      <div class="phone-btn phone-btn-primary">Commit full amount →</div>
     </div>
-    <div class="reveal reveal-delay-2">
-      <p class="intro-label">Before you commit</p>
-      <h2 class="trial-headline">Send $1 first.<br>Verify everything works.<br>Then commit with confidence.</h2>
-      <p class="trial-body">One tap away from... "and it's gone." We built something for that moment.</p>
-      <p class="trial-body">Every Vinculum vault lets you send a micro test deposit through the exact same contract, the exact same flow. Watch the VCLM arrive in your wallet. Check the transaction on Basescan yourself. Then decide.</p>
-      <p class="trial-body">No trust required. Verify first.</p>
+    <div class="tier-grid reveal">
+      <div class="tier-col">
+        <div class="tier-label a">Tier A — Full Rate</div>
+        <div class="tier-mult">1.00×</div>
+        <div class="token-list">
+          <div class="token-item"><div class="token-dot a"></div>ETH</div>
+          <div class="token-item"><div class="token-dot a"></div>USDC</div>
+          <div class="token-item"><div class="token-dot a"></div>USDT</div>
+          <div class="token-item"><div class="token-dot a"></div>XDC</div>
+          <div class="token-item"><div class="token-dot a"></div>XRP (via Axelar)</div>
+          <div class="token-item"><div class="token-dot a"></div>XLM (via Axelar)</div>
+          <div class="token-more">+ more via governance</div>
+        </div>
+      </div>
+      <div class="tier-col">
+        <div class="tier-label b">Tier B — Community</div>
+        <div class="tier-mult">0.85×</div>
+        <div class="token-list">
+          <div class="token-item"><div class="token-dot b"></div>VOLT INU</div>
+          <div class="token-item"><div class="token-dot b"></div>WKC</div>
+          <div class="token-item"><div class="token-dot b"></div>TigerOG</div>
+          <div class="token-item"><div class="token-dot b"></div>LionOG</div>
+          <div class="token-item"><div class="token-dot b"></div>FrogOG</div>
+          <div class="token-item"><div class="token-dot b"></div>KEKEC</div>
+          <div class="token-more">+ more via governance</div>
+        </div>
+      </div>
+      <div class="tier-col">
+        <div class="tier-label c">Tier C — Extended</div>
+        <div class="tier-mult">0.70×</div>
+        <div class="token-list">
+          <div class="token-item"><div class="token-dot c"></div>SHIB</div>
+          <div class="token-item"><div class="token-dot c"></div>LUNC</div>
+          <div class="token-more">+ more via governance</div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- CHAINS -->
-<section class="chains-section" id="chains">
-  <div class="chains-header reveal">
-    <h2 class="chains-headline">One token.<br>Every chain.</h2>
-    <p class="chains-body">Vinculum is built on Axelar Interchain Token Service from day one. $VCLM earned on Ethereum is the same token as $VCLM earned on Base. One unified supply. One governance weight. Regardless of which chain you committed from. This is not a bridge. This is interchain native.</p>
-  </div>
-  <div class="chain-list reveal">
-    <div class="chain-item"><div class="chain-name">Base</div><div class="chain-status live">Home chain</div></div>
-    <div class="chain-item"><div class="chain-name">Ethereum</div><div class="chain-status">Via Axelar ITS</div></div>
-    <div class="chain-item"><div class="chain-name">BNB Chain</div><div class="chain-status">Via Axelar ITS</div></div>
-    <div class="chain-item"><div class="chain-name">Arbitrum</div><div class="chain-status">Via Axelar ITS</div></div>
-    <div class="chain-item"><div class="chain-name">Optimism</div><div class="chain-status">Via Axelar ITS</div></div>
-    <div class="chain-item"><div class="chain-name">Avalanche</div><div class="chain-status">Via Axelar ITS</div></div>
-    <div class="chain-item"><div class="chain-name">Polygon</div><div class="chain-status">Via Axelar ITS</div></div>
-    <div class="chain-item"><div class="chain-name">Solana</div><div class="chain-status">Roadmap</div></div>
-    <div class="chain-item"><div class="chain-name">XRPL EVM</div><div class="chain-status">Via Axelar ITS</div></div>
-    <div class="chain-item"><div class="chain-name">XDC Network</div><div class="chain-status">Via Axelar ITS</div></div>
+<section id="chains" class="chains-section">
+  <div class="container">
+    <div class="section-label reveal">Multi-Chain Architecture</div>
+    <h2 class="section-title reveal">Assets stay. VCLM travels.</h2>
+    <p class="section-body reveal">Vinculum uses Axelar Interchain Token Service. Committed assets remain locked on their native chain in spoke VaultManager contracts. Only VCLM mint instructions cross chains — giving you unified governance from any network.</p>
+    <div class="chains-grid reveal">
+      <div class="chain-card"><div class="chain-name">Base</div><div class="chain-role">Hub Chain</div><div class="chain-tag hub">Canonical Home</div></div>
+      <div class="chain-card"><div class="chain-name">Ethereum</div><div class="chain-role">Spoke Chain</div><div class="chain-tag spoke">ETH · USDC · USDT · SHIB</div></div>
+      <div class="chain-card"><div class="chain-name">BNB Chain</div><div class="chain-role">Spoke Chain</div><div class="chain-tag spoke">Via Governance</div></div>
+      <div class="chain-card"><div class="chain-name">XRPL EVM</div><div class="chain-role">Spoke Chain</div><div class="chain-tag spoke">XRP · Roadmap</div></div>
+      <div class="chain-card"><div class="chain-name">XDC Network</div><div class="chain-role">Spoke Chain</div><div class="chain-tag spoke">XDC · Roadmap</div></div>
+      <div class="chain-card"><div class="chain-name">More Chains</div><div class="chain-role">Governance Directed</div><div class="chain-tag spoke">VCLM Vote Required</div></div>
+    </div>
   </div>
 </section>
 
-<!-- GOVERNANCE STEWARDS TEASER -->
+<!-- COUNCIL -->
 <section class="validators-section" id="council">
-  <div class="validators-inner">
-    <div class="section-header reveal">
-      <span class="section-label">Governance Council</span>
-      <span class="section-count">Three tiers</span>
-    </div>
-    <div class="validators-intro reveal">
-      <h2 class="validators-headline">Not validators.<br><em>Something more important.</em></h2>
-      <p class="validators-body">Vinculum does not have validators in the traditional sense. Base handles the chain. What we have instead are Governance Council members — Stewards, Trustees, and Council Members — whose responsibility is to ensure this protocol never goes quiet, never drifts, and is always ready to react, propose, and improve. The chain keeps the contracts alive. The Council keeps the protocol alive.</p>
-    </div>
-    <div class="validator-tiers">
-      <div class="validator-tier reveal">
-        <div class="tier-number">01</div>
-        <div class="tier-name">Steward</div>
-        <div class="tier-stake">1,000 $VCLM minimum</div>
-        <div class="tier-divider"></div>
-        <p class="tier-desc">The entry point. Stake your commitment. Earn epoch rewards. Participate in governance. Unlimited seats.</p>
+  <div class="container">
+    <div class="validators-inner">
+      <div>
+        <div class="section-label reveal">Governance Council</div>
+        <h2 class="validators-title reveal">The protocol doesn't run itself. The Council runs the protocol.</h2>
+        <p class="validators-body reveal">Vinculum does not have validators in the traditional sense. Base handles the chain. What we have instead are Governance Council members — Trustees, Stewards, and Council Members — whose responsibility is to ensure this protocol never goes quiet, never drifts, and is always ready to react, propose, and improve. The chain keeps the contracts alive. The Council keeps the protocol alive.</p>
+        <a href="guardians.html" class="validators-link reveal">Learn about becoming a Council Member →</a>
       </div>
-      <div class="validator-tier reveal reveal-delay-2">
-        <div class="tier-number">02</div>
-        <div class="tier-name">Trustee</div>
-        <div class="tier-stake">10,000 $VCLM minimum</div>
-        <div class="tier-divider"></div>
-        <p class="tier-desc">Enhanced rewards. 1.5× voting weight. Active governance participation expected. Unlimited seats.</p>
-      </div>
-      <div class="validator-tier validator-tier-archon reveal reveal-delay-3">
-        <div class="tier-number">03</div>
-        <div class="tier-name">Council Member</div>
-        <div class="tier-stake">30,000 $VCLM minimum</div>
-        <div class="tier-divider"></div>
-        <p class="tier-desc">The founding council. 180-day lock. 2.0× voting weight. First in line for fee revenue. 21 seats. Hard cap. Forever.</p>
+      <div class="tier-cards reveal">
+        <div class="tier-card">
+          <div class="tc-left"><div class="tc-name">Trustee</div><div class="tc-req">1,000 VCLM minimum · Standard proposals · 4% quorum</div></div>
+          <div class="tc-right"><div class="tc-pool">20%</div><div class="tc-label">Reward Pool</div></div>
+        </div>
+        <div class="tier-card">
+          <div class="tc-left"><div class="tc-name">Steward</div><div class="tc-req">10,000 VCLM minimum · Treasury proposals · 10% quorum</div></div>
+          <div class="tc-right"><div class="tc-pool">35%</div><div class="tc-label">Reward Pool</div></div>
+        </div>
+        <div class="tier-card">
+          <div class="tc-left"><div class="tc-name">Council Member</div><div class="tc-req">30,000 VCLM minimum · Constitutional proposals · 20% quorum</div><div class="tc-badge cap">21 seats maximum, forever</div></div>
+          <div class="tc-right"><div class="tc-pool">45%</div><div class="tc-label">Reward Pool</div></div>
+        </div>
       </div>
     </div>
-    <div class="validators-cta reveal">
-      <a href="guardians.html" class="validators-link">Learn about becoming a Council Member →</a>
-      <p class="validators-footnote">Not appointed. Not purchased. Earned — by committing $VCLM and waiting.</p>
+  </div>
+</section>
+
+<!-- TREASURY -->
+<section class="treasury-section">
+  <div class="container">
+    <div class="section-label reveal">Protocol Treasury</div>
+    <h2 class="section-title reveal">Every vault feeds the protocol.<br/>Nobody feeds themselves.</h2>
+    <p class="section-body reveal">The 5% entry fee from every vault commitment splits atomically at the smart contract level. No individual receives treasury funds. Deployment of treasury assets is decided by governance vote of VCLM holders.</p>
+    <div class="treasury-grid reveal">
+      <div class="pool-card"><div class="pool-pct">82%</div><div class="pool-name">Core Reserve</div><p class="pool-body">The long-term security fund of the protocol. Held in the treasury and governed by the Governance Council. Used for audits, protocol security, and long-term stability.</p><div class="pool-bar"><div class="pool-fill core"></div></div></div>
+      <div class="pool-card"><div class="pool-pct">12%</div><div class="pool-name">Dev Fund</div><p class="pool-body">Sustained development of the protocol. Controlled by the founding team during the pre-transition period. Transfers to governance control after the three milestone transition is complete.</p><div class="pool-bar"><div class="pool-fill dev"></div></div></div>
+      <div class="pool-card"><div class="pool-pct">6%</div><div class="pool-name">Ecosystem Growth</div><p class="pool-body">Exchange listings, liquidity pools, partnerships, and community programs. Deployed by governance vote. Every use of these funds requires a successful Steward-tier proposal.</p><div class="pool-bar"><div class="pool-fill eco"></div></div></div>
     </div>
   </div>
 </section>
 
 <!-- ROADMAP -->
-<section class="roadmap-section" id="roadmap">
-  <div class="section-header reveal">
-    <span class="section-label">Where We Are</span>
-    <span class="section-count">Built. Being hardened.</span>
-  </div>
-  <div class="roadmap-list">
-
-    <div class="rm-item reveal">
-      <div class="rm-dot done">1</div>
-      <div>
-        <div class="rm-phase">Complete</div>
-        <div class="rm-title">Protocol Designed & Contracts Written</div>
-        <p class="rm-body">All seven core contracts written. 93 tests passing. VaultManager, VinculumToken, AssetRegistry, ValidatorStaking, VinculumGovernor, and both oracle adapters. Wyoming LLC formed. EIN issued.</p>
-        <span class="rm-tag tag-done">Done</span>
-      </div>
+<section id="roadmap" class="roadmap-section">
+  <div class="container">
+    <div class="section-label reveal">Roadmap</div>
+    <h2 class="section-title reveal">Built in public. Honest milestones.</h2>
+    <p class="section-body reveal">No vague promises. No moving goalposts. Here is exactly where we are and where we are going — updated as milestones are reached.</p>
+    <div class="rm-list">
+      <div class="rm-item reveal"><div class="rm-dot done">✓</div><div><div class="rm-phase">Complete</div><div class="rm-title">Protocol Design & Specification</div><p class="rm-body">Vault mechanics, VCLM tokenomics, governance tiers, treasury split, trial vault logic, emission decay, cross-chain architecture via Axelar ITS — fully specified and documented.</p><span class="rm-tag tag-done">Done</span></div></div>
+      <div class="rm-item reveal"><div class="rm-dot done">✓</div><div><div class="rm-phase">Complete</div><div class="rm-title">Legal Entity Formation</div><p class="rm-body">Vinculum Protocol DAO LLC formed in Wyoming under W.S. § 17-31-101. EIN obtained. Operating agreement executed. The protocol has legal standing before the first contract is deployed.</p><span class="rm-tag tag-done">Done</span></div></div>
+      <div class="rm-item reveal"><div class="rm-dot active">3</div><div><div class="rm-phase">In Progress</div><div class="rm-title">Smart Contract Development & Audit</div><p class="rm-body">VaultManager, VinculumToken (Axelar ITS), VinculumGovernor, AssetRegistry, and oracle adapter contracts. Full test suite. Independent security audit before any mainnet deployment.</p><span class="rm-tag tag-active">Active</span></div></div>
+      <div class="rm-item reveal"><div class="rm-dot pending">4</div><div><div class="rm-phase">Coming</div><div class="rm-title">Testnet Deployment & Live Governance Dashboard</div><p class="rm-body">Full protocol deployed to Base Sepolia. Live Governance Dashboard showing Council seat availability, queue positions, and tier occupancy in real time. Community testing begins.</p><span class="rm-tag tag-pending">Month 3–4</span></div></div>
+      <div class="rm-item reveal"><div class="rm-dot pending">5</div><div><div class="rm-phase">Coming</div><div class="rm-title">Mainnet Launch on Base</div><p class="rm-body">Audited contracts deployed to Base mainnet. First commitment vaults open. The 21-seat maximum enforced on-chain. First on-chain proposals. The protocol belongs to the people who committed to it.</p><span class="rm-tag tag-pending">Month 5–6</span></div></div>
+      <div class="rm-item reveal"><div class="rm-dot pending">6</div><div><div class="rm-phase">Coming</div><div class="rm-title">Axelar ITS + Multi-Chain Expansion</div><p class="rm-body">VCLM registered as a canonical Axelar Interchain Token. VaultManager deployed on BNB Chain and Ethereum. One unified VCLM supply across all chains. Base remains the canonical home chain.</p><span class="rm-tag tag-pending">Month 6–8</span></div></div>
+      <div class="rm-item reveal"><div class="rm-dot pending">7</div><div><div class="rm-phase">Future</div><div class="rm-title">XRPL EVM, XDC & Further Chain Expansion</div><p class="rm-body">Spoke contracts deployed to XRPL EVM Sidechain and XDC Network. Additional chains added through governance vote as the protocol grows across communities.</p><span class="rm-tag tag-pending">Governance directed</span></div></div>
     </div>
-
-    <div class="rm-item reveal">
-      <div class="rm-dot active">2</div>
-      <div>
-        <div class="rm-phase">In Progress</div>
-        <div class="rm-title">Security Audit</div>
-        <p class="rm-body">Full independent audit of all protocol contracts. No mainnet deployment until the audit is complete and findings are resolved. Funding being secured now.</p>
-        <span class="rm-tag tag-active">Active</span>
-      </div>
-    </div>
-
-    <div class="rm-item reveal">
-      <div class="rm-dot pending">3</div>
-      <div>
-        <div class="rm-phase">Coming</div>
-        <div class="rm-title">Mainnet Launch on Base</div>
-        <p class="rm-body">All 16 approved assets live. Commitment vaults open. First $VCLM earned by the people who were here from the start — at the highest emission rate this protocol will ever have.</p>
-        <span class="rm-tag tag-pending">Post-audit</span>
-      </div>
-    </div>
-
-    <div class="rm-item reveal">
-      <div class="rm-dot pending">4</div>
-      <div>
-        <div class="rm-phase">Coming</div>
-        <div class="rm-title">Governance Council Live + Live Dashboard</div>
-        <p class="rm-body">VinculumGovernor activated. The Governance Council dashboard launches — showing live seat availability across all three tiers in real time. Steward, Trustee, and Council Member positions displayed publicly. Open seats are visible, clickable, and stakeable directly from the UI. Queue visibility for Council Member seats. The 21-seat maximum enforced on-chain. First on-chain proposals. The protocol belongs to the people who committed to it.</p>
-        <span class="rm-tag tag-pending">Month 5–6</span>
-      </div>
-    </div>
-
-    <div class="rm-item reveal">
-      <div class="rm-dot pending">5</div>
-      <div>
-        <div class="rm-phase">Coming</div>
-        <div class="rm-title">Axelar ITS + Multi-Chain Expansion</div>
-        <p class="rm-body">VCLM registered as a canonical Axelar Interchain Token. VaultManager deployed on BNB Chain and Ethereum. One unified VCLM supply across all chains. Base remains the canonical home chain.</p>
-        <span class="rm-tag tag-pending">Month 6–8</span>
-      </div>
-    </div>
-
-    <div class="rm-item reveal">
-      <div class="rm-dot pending">6</div>
-      <div>
-        <div class="rm-phase">Future</div>
-        <div class="rm-title">XRPL EVM, XDC & Further Chain Expansion</div>
-        <p class="rm-body">Spoke contracts deployed to XRPL EVM Sidechain and XDC Network. Additional chains added through governance vote as the protocol grows across communities.</p>
-        <span class="rm-tag tag-pending">Governance directed</span>
-      </div>
-    </div>
-
   </div>
 </section>
 
 <!-- MANIFESTO -->
-<section class="manifesto">
-  <div class="orb orb-1" style="opacity:0.06"></div>
-  <div class="orb orb-2" style="opacity:0.06"></div>
-  <div class="manifesto-inner">
-    <p class="manifesto-label">The Vinculum Manifesto</p>
-    <p class="manifesto-text reveal">
-      Capital gets you started.<br>
-      <em>Commitment</em> gets you $VCLM.<br>
-      The longer you wait to start,<br>
-      <em>the less you earn when you do.</em>
-    </p>
-    <div class="manifesto-rules reveal">
-      <span class="rule">No presale</span>
-      <span class="rule">No premine</span>
-      <span class="rule">No VC allocation</span>
-      <span class="rule">Not even the team</span>
-      <span class="rule">Only earned</span>
+<section class="manifesto-section">
+  <div class="container">
+    <p class="manifesto-quote reveal">"The era of buying your way into governance is over."</p>
+    <div class="manifesto-attr reveal">Vinculum Protocol — Proof of Behavior</div>
+    <div class="manifesto-ctas reveal">
+      <a href="staking.html" class="btn btn-primary">⬡ Try the Staking Demo</a>
+      <a href="https://twitter.com/VinculumDefi" target="_blank" class="btn btn-outline">Follow @VinculumDefi</a>
     </div>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <a href="#" class="footer-logo">Vinculum Protocol</a>
-  <ul class="footer-links">
-    <li><a href="https://github.com/VinculumDefi/vinculum-protocol" target="_blank">GitHub</a></li>
-    <li><a href="https://twitter.com/VinculumDefi" target="_blank">@VinculumDefi</a></li>
-    <li><a href="vision.html">Vision</a></li>
-    <li><a href="guardians.html">Council</a></li>
-    <li><a href="calculator.html">Calculator</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#">Whitepaper — Soon</a></li>
-    <li><a href="#">Launch — Soon</a></li>
-  </ul>
-  <span class="footer-copy">© 2026 Vinculum Protocol DAO LLC</span>
+  <div class="container">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-logo">Vinculum Protocol</div>
+        <div class="footer-tagline">Proof of behavior, not proof of capital.</div>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <div class="footer-col-title">Protocol</div>
+          <ul>
+            <li><a href="#how">How It Works</a></li>
+            <li><a href="#vclm">$VCLM Token</a></li>
+            <li><a href="#chains">Chains</a></li>
+            <li><a href="#roadmap">Roadmap</a></li>
+            <li><a href="staking.html">⬡ Staking Demo</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Governance</div>
+          <ul>
+            <li><a href="guardians.html">Council</a></li>
+            <li><a href="calculator.html">Calculator</a></li>
+            <li><a href="vision.html">Vision</a></li>
+            <li><a href="#">Whitepaper — Soon</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Community</div>
+          <ul>
+            <li><a href="https://twitter.com/VinculumDefi" target="_blank">X / Twitter</a></li>
+            <li><a href="https://github.com/VinculumDefi" target="_blank">GitHub</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2026 Vinculum Protocol DAO LLC · Wyoming</div>
+      <div class="footer-legal">$VCLM is a governance token earned through protocol participation. This is not an investment product. No yield is guaranteed. Participation involves smart contract risk.</div>
+    </div>
+  </div>
 </footer>
 
+</div><!-- /wrap -->
+
 <script>
-// ── CURSOR ──
-const cursor = document.getElementById('cursor');
-let isLight = false;
-document.addEventListener('mousemove', e => {
-  cursor.style.left = e.clientX + 'px';
-  cursor.style.top = e.clientY + 'px';
-  // detect dark sections
-  const el = document.elementFromPoint(e.clientX, e.clientY);
-  const inDark = el && el.closest('.dark-section, .hero, .manifesto');
-  if (inDark && !isLight) { cursor.classList.add('light'); isLight = true; }
-  else if (!inDark && isLight) { cursor.classList.remove('light'); isLight = false; }
-});
-document.querySelectorAll('a, button, .step, .token-item, .chain-item, .phone-btn, .decay-bar').forEach(el => {
-  el.addEventListener('mouseenter', () => cursor.classList.add('hovering'));
-  el.addEventListener('mouseleave', () => cursor.classList.remove('hovering'));
+// Nav scroll
+window.addEventListener('scroll',()=>{
+  document.getElementById('main-nav').classList.toggle('scrolled',window.scrollY>20);
 });
 
-// ── SCROLL REVEAL ──
-const reveals = document.querySelectorAll('.reveal');
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
-}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
-reveals.forEach(el => observer.observe(el));
+// Mobile nav
+function toggleMobileNav(){document.getElementById('mobile-menu').classList.toggle('open');}
+function closeMobileNav(){document.getElementById('mobile-menu').classList.remove('open');}
 
-// ── LIVE COUNTERS (pre-launch: show 0, animate to 0 for now) ──
-// Once mainnet is live, replace these with actual RPC calls
-function animateCounter(el, target, duration=2000, decimals=0) {
-  const start = performance.now();
-  const startVal = 0;
-  function tick(now) {
-    const progress = Math.min((now - start) / duration, 1);
-    const eased = 1 - Math.pow(1 - progress, 3);
-    const val = startVal + (target - startVal) * eased;
-    el.textContent = decimals > 0 
-      ? val.toFixed(decimals) 
-      : Math.floor(val).toLocaleString();
-    if (progress < 1) requestAnimationFrame(tick);
-  }
-  requestAnimationFrame(tick);
+// Reveal on scroll
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target);}});
+},{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+// Ticker
+const items=['Commitment Vaults','No Presale','No Premine','No Airdrop','Proof of Behavior','Built on Base','Axelar ITS','VCLM Earned Only','21 Council Seats','82/12/6 Treasury','Wyoming DAO LLC'];
+const ticker=document.getElementById('ticker');
+[...items,...items].forEach(t=>{
+  const el=document.createElement('div');
+  el.className='ticker-item';
+  el.innerHTML=`<span>◆</span>${t}`;
+  ticker.appendChild(el);
+});
+
+// Emission chart
+const bars=document.getElementById('emit-bars');
+const years=document.getElementById('emit-years');
+for(let i=0;i<10;i++){
+  const rate=Math.max(10*Math.pow(0.8,i),1);
+  const pct=(rate/10)*100;
+  const b=document.createElement('div');
+  b.className='emit-bar';
+  b.style.cssText=`height:${pct}%;background:${i===0?'var(--accent)':i<4?'var(--accent)':'var(--line2)'};opacity:${Math.max(1-i*.08,.3)};`;
+  bars.appendChild(b);
+  const y=document.createElement('div');
+  y.className='emit-year';
+  y.textContent='Y'+i;
+  years.appendChild(y);
 }
-
-// Pre-launch: show 0. After mainnet, replace 0 with real values from contract
-const vclmTarget = 0;  // Replace with: await contract.totalSupply()
-const walletTarget = 0; // Replace with: await contract.totalVaults() unique addresses
-
-// Animate when hero is visible (immediately on load)
-window.addEventListener('load', () => {
-  setTimeout(() => {
-    animateCounter(document.getElementById('vclmCounter'), vclmTarget);
-    animateCounter(document.getElementById('walletCounter'), walletTarget);
-    // Chart value labels
-    document.getElementById('vclmChartVal').textContent = vclmTarget === 0 ? '— Pre-launch' : vclmTarget.toLocaleString() + ' VCLM';
-    document.getElementById('walletChartVal').textContent = walletTarget === 0 ? '— Pre-launch' : walletTarget.toLocaleString() + ' wallets';
-  }, 1400);
-});
-
-// ── SPARKLINE HELPER ──
-function drawSparkline(canvas, data, color, filled=false) {
-  const ctx = canvas.getContext('2d');
-  const dpr = window.devicePixelRatio || 1;
-  canvas.width = canvas.offsetWidth * dpr;
-  canvas.height = canvas.offsetHeight * dpr;
-  ctx.scale(dpr, dpr);
-  const w = canvas.offsetWidth;
-  const h = canvas.offsetHeight;
-  const max = Math.max(...data);
-  const min = Math.min(...data);
-  const range = max - min || 1;
-  const pts = data.map((v, i) => ({
-    x: (i / (data.length - 1)) * w,
-    y: h - ((v - min) / range) * h * 0.8 - h * 0.1
-  }));
-  ctx.beginPath();
-  ctx.moveTo(pts[0].x, pts[0].y);
-  for (let i = 1; i < pts.length; i++) {
-    const cp1x = (pts[i-1].x + pts[i].x) / 2;
-    ctx.bezierCurveTo(cp1x, pts[i-1].y, cp1x, pts[i].y, pts[i].x, pts[i].y);
-  }
-  if (filled) {
-    ctx.lineTo(w, h); ctx.lineTo(0, h); ctx.closePath();
-    const grad = ctx.createLinearGradient(0, 0, 0, h);
-    grad.addColorStop(0, color + '30');
-    grad.addColorStop(1, color + '00');
-    ctx.fillStyle = grad;
-    ctx.fill();
-    ctx.beginPath();
-    ctx.moveTo(pts[0].x, pts[0].y);
-    for (let i = 1; i < pts.length; i++) {
-      const cp1x = (pts[i-1].x + pts[i].x) / 2;
-      ctx.bezierCurveTo(cp1x, pts[i-1].y, cp1x, pts[i].y, pts[i].x, pts[i].y);
-    }
-  }
-  ctx.strokeStyle = color;
-  ctx.lineWidth = 1.5;
-  ctx.stroke();
-}
-
-// ── HERO SPARKLINE (over grid background) ──
-function drawHeroSparkline() {
-  const canvas = document.getElementById('heroSparkline');
-  if (!canvas) return;
-  const ctx = canvas.getContext('2d');
-  const dpr = window.devicePixelRatio || 1;
-  canvas.width = canvas.offsetWidth * dpr;
-  canvas.height = canvas.offsetHeight * dpr;
-  ctx.scale(dpr, dpr);
-  const w = canvas.offsetWidth;
-  const h = canvas.offsetHeight;
-
-  // Generate two smooth curves — VCLM total and wallets
-  // Pre-launch: flat line at bottom. Post-launch: replace with real data.
-  const pts1 = Array.from({length: 40}, (_, i) => ({ x: (i / 39) * w, y: h * 0.85 }));
-  const pts2 = Array.from({length: 40}, (_, i) => ({ x: (i / 39) * w, y: h * 0.75 }));
-
-  // Draw VCLM line
-  ctx.beginPath();
-  ctx.moveTo(pts1[0].x, pts1[0].y);
-  for (let i = 1; i < pts1.length; i++) {
-    const cpx = (pts1[i-1].x + pts1[i].x) / 2;
-    ctx.bezierCurveTo(cpx, pts1[i-1].y, cpx, pts1[i].y, pts1[i].x, pts1[i].y);
-  }
-  ctx.strokeStyle = 'rgba(0,212,255,0.3)';
-  ctx.lineWidth = 1;
-  ctx.stroke();
-
-  // Draw wallet line
-  ctx.beginPath();
-  ctx.moveTo(pts2[0].x, pts2[0].y);
-  for (let i = 1; i < pts2.length; i++) {
-    const cpx = (pts2[i-1].x + pts2[i].x) / 2;
-    ctx.bezierCurveTo(cpx, pts2[i-1].y, cpx, pts2[i].y, pts2[i].x, pts2[i].y);
-  }
-  ctx.strokeStyle = 'rgba(0,232,135,0.2)';
-  ctx.lineWidth = 1;
-  ctx.stroke();
-
-  // Labels
-  ctx.fillStyle = 'rgba(0,212,255,0.35)';
-  ctx.font = `${10 * dpr}px DM Sans`;
-  ctx.fillText('$VCLM minted', 16 / dpr, (h * 0.85 - 8) / dpr);
-  ctx.fillStyle = 'rgba(0,232,135,0.3)';
-  ctx.fillText('Committed wallets', 16 / dpr, (h * 0.75 - 8) / dpr);
-}
-
-// ── SMALL CHARTS in etymology section ──
-function drawSmallCharts() {
-  const vclmCanvas = document.getElementById('vclmChart');
-  const walletCanvas = document.getElementById('walletChart');
-  if (!vclmCanvas || !walletCanvas) return;
-
-  // Sample data — illustrative growth curve, semi-transparent
-  // Replace with real on-chain event data after mainnet launch
-  const vclmSample = [0, 120, 380, 800, 1600, 3200, 5800, 9200, 13500, 18000, 23000, 28500, 34000];
-  const walletSample = [0, 8, 22, 45, 90, 160, 240, 340, 460, 590, 720, 860, 1000];
-
-  function drawSampleChart(canvas, data, strokeColor, fillColor) {
-    const dpr = window.devicePixelRatio || 1;
-    canvas.width = canvas.offsetWidth * dpr;
-    canvas.height = canvas.offsetHeight * dpr;
-    const ctx = canvas.getContext('2d');
-    ctx.scale(dpr, dpr);
-    const w = canvas.offsetWidth;
-    const h = canvas.offsetHeight;
-    const max = Math.max(...data);
-    const pts = data.map((v, i) => ({
-      x: (i / (data.length - 1)) * w,
-      y: h - (v / max) * h * 0.75 - h * 0.1
-    }));
-
-    // Filled area
-    ctx.beginPath();
-    ctx.moveTo(pts[0].x, pts[0].y);
-    for (let i = 1; i < pts.length; i++) {
-      const cpx = (pts[i-1].x + pts[i].x) / 2;
-      ctx.bezierCurveTo(cpx, pts[i-1].y, cpx, pts[i].y, pts[i].x, pts[i].y);
-    }
-    ctx.lineTo(w, h); ctx.lineTo(0, h); ctx.closePath();
-    const grad = ctx.createLinearGradient(0, 0, 0, h);
-    grad.addColorStop(0, fillColor);
-    grad.addColorStop(1, 'rgba(0,0,0,0)');
-    ctx.fillStyle = grad;
-    ctx.fill();
-
-    // Line
-    ctx.beginPath();
-    ctx.moveTo(pts[0].x, pts[0].y);
-    for (let i = 1; i < pts.length; i++) {
-      const cpx = (pts[i-1].x + pts[i].x) / 2;
-      ctx.bezierCurveTo(cpx, pts[i-1].y, cpx, pts[i].y, pts[i].x, pts[i].y);
-    }
-    ctx.strokeStyle = strokeColor;
-    ctx.lineWidth = 1.5;
-    ctx.stroke();
-
-    // End dot
-    const last = pts[pts.length - 1];
-    ctx.beginPath();
-    ctx.arc(last.x, last.y, 3, 0, Math.PI * 2);
-    ctx.fillStyle = strokeColor;
-    ctx.fill();
-  }
-
-  setTimeout(() => {
-    drawSampleChart(vclmCanvas,  vclmSample,  'rgba(10,10,10,0.25)', 'rgba(10,10,10,0.06)');
-    drawSampleChart(walletCanvas, walletSample, 'rgba(10,10,10,0.25)', 'rgba(10,10,10,0.06)');
-  }, 100);
-}
-
-window.addEventListener('load', () => {
-  drawHeroSparkline();
-  drawSmallCharts();
-});
-
-window.addEventListener('resize', () => {
-  drawHeroSparkline();
-  drawSmallCharts();
-});
 </script>
 </body>
 </html>
