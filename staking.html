@@ -1,546 +1,626 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vinculum Protocol — Staking</title>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="description" content="Vinculum Protocol — Staking Demo. Commit assets. Earn VCLM. Proof of behavior, not proof of capital."/>
+<title>Vinculum Protocol — Staking Demo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist+Mono:wght@300;400;500;600&family=Geist:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <style>
-:root{--bg:#080e1a;--surface:#0d1626;--surface2:#111e33;--border:#1e2f4a;--border2:#253650;--accent:#3d8bff;--accent2:#5ba3ff;--green:#22c97a;--amber:#f59e0b;--red:#ef4444;--vclm:#6ee7f7;--text:#e8eef8;--text2:#8899b4;--text3:#4a6080;}
-*{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden;}
-body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(61,139,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(61,139,255,.03) 1px,transparent 1px);background-size:40px 40px;pointer-events:none;z-index:0;}
-.topbar{display:flex;align-items:center;justify-content:space-between;padding:0 28px;height:64px;border-bottom:1px solid var(--border);background:rgba(8,14,26,.96);backdrop-filter:blur(12px);position:sticky;top:0;z-index:100;}
-.logo{display:flex;align-items:center;gap:10px;font-family:'Syne',sans-serif;font-weight:800;font-size:17px;letter-spacing:.05em;color:var(--text);text-decoration:none;}
-.logo-mark{width:32px;height:32px;background:linear-gradient(135deg,var(--accent),var(--vclm));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;color:var(--bg);}
-.topbar-right{display:flex;align-items:center;gap:12px;}
-.chain-badge{display:flex;align-items:center;gap:6px;padding:6px 12px;background:var(--surface2);border:1px solid var(--border);border-radius:20px;font-size:13px;color:var(--text2);font-family:'DM Mono',monospace;}
-.chain-dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 8px var(--green);}
-.connect-btn{padding:8px 18px;background:linear-gradient(135deg,var(--accent),#2a6fd4);border:none;border-radius:8px;color:#fff;font-family:'DM Sans',sans-serif;font-weight:600;font-size:14px;cursor:pointer;transition:all .2s;}
-.connect-btn:hover{opacity:.85;}
-.nav-tabs{display:flex;gap:2px;padding:0 28px;background:var(--surface);border-bottom:1px solid var(--border);overflow-x:auto;}
-.nav-tab{padding:14px 22px;font-size:14px;font-weight:500;color:var(--text2);cursor:pointer;border-bottom:2px solid transparent;transition:all .2s;white-space:nowrap;}
-.nav-tab:hover{color:var(--text);}
-.nav-tab.active{color:var(--accent);border-bottom-color:var(--accent);}
-.main{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:32px 24px;}
-.screen{display:none;}.screen.active{display:block;}
-.card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:24px;}
-.card-sm{background:var(--surface2);border:1px solid var(--border);border-radius:12px;padding:16px;}
-.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
-.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
-.field-label{font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--text2);margin-bottom:8px;}
-.token-input{width:100%;background:var(--surface2);border:1px solid var(--border2);border-radius:10px;padding:14px 60px 14px 16px;font-size:22px;font-family:'DM Mono',monospace;color:var(--text);outline:none;transition:border-color .2s;}
-.token-input:focus{border-color:var(--accent);}
-.input-wrap{position:relative;}
-.token-label{position:absolute;right:14px;top:50%;transform:translateY(-50%);font-size:13px;font-weight:600;color:var(--text2);}
-.input-note{font-size:12px;color:var(--text3);margin-top:6px;}
-.asset-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(88px,1fr));gap:8px;margin-bottom:4px;}
-.asset-btn{padding:10px 8px;background:var(--surface2);border:1.5px solid var(--border);border-radius:10px;cursor:pointer;text-align:center;transition:all .2s;}
-.asset-btn:hover{border-color:var(--border2);}
-.asset-btn.selected{border-color:var(--accent);background:rgba(61,139,255,.08);}
-.asset-icon{font-size:20px;margin-bottom:3px;}
-.asset-name{font-size:11px;font-weight:600;color:var(--text);}
-.asset-tier{font-size:10px;color:var(--text3);}
-.dur-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;}
-.dur-btn{padding:10px 6px;background:var(--surface2);border:1.5px solid var(--border);border-radius:10px;cursor:pointer;text-align:center;transition:all .2s;}
-.dur-btn:hover{border-color:var(--border2);}
-.dur-btn.selected{border-color:var(--accent);background:rgba(61,139,255,.08);}
-.dur-btn.trial-btn{border-color:rgba(245,158,11,.4);}
-.dur-btn.trial-btn.selected{border-color:var(--amber);background:rgba(245,158,11,.1);}
-.dur-days{font-size:13px;font-weight:700;font-family:'Syne',sans-serif;color:var(--text);}
-.dur-mult{font-size:11px;color:var(--text2);}
-.dur-tag{font-size:9px;font-weight:700;letter-spacing:.04em;color:var(--amber);margin-top:2px;}
-.estimate-box{background:rgba(61,139,255,.05);border:1px solid rgba(61,139,255,.15);border-radius:12px;padding:20px;}
-.estimate-row{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--border);}
-.estimate-row:last-child{border-bottom:none;}
-.estimate-label{font-size:13px;color:var(--text2);}
-.estimate-val{font-size:14px;font-weight:600;font-family:'DM Mono',monospace;color:var(--text);}
-.estimate-val.vclm{color:var(--vclm);}
-.estimate-val.green{color:var(--green);}
-.estimate-val.amber{color:var(--amber);}
-.btn-primary{width:100%;padding:16px;background:linear-gradient(135deg,var(--accent),#2a6fd4);border:none;border-radius:12px;color:#fff;font-family:'Syne',sans-serif;font-weight:700;font-size:16px;cursor:pointer;transition:all .2s;margin-top:16px;letter-spacing:.02em;}
-.btn-primary:hover{opacity:.88;}
-.btn-secondary{padding:8px 16px;background:transparent;border:1px solid var(--border2);border-radius:8px;color:var(--text2);font-size:13px;font-weight:500;cursor:pointer;transition:all .2s;}
-.btn-secondary:hover{border-color:var(--accent);color:var(--accent);}
-.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:24px;}
-.stat-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:18px 20px;}
-.stat-val{font-size:24px;font-weight:700;font-family:'DM Mono',monospace;color:var(--text);margin-bottom:4px;}
-.stat-val.vclm{color:var(--vclm);}
-.stat-val.green{color:var(--green);}
-.stat-label{font-size:12px;color:var(--text2);}
-.vault-list{display:flex;flex-direction:column;gap:12px;}
-.vault-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:20px 24px;display:grid;grid-template-columns:auto 1fr auto auto;gap:16px;align-items:center;}
-.vault-icon{font-size:28px;}
-.vault-name{font-size:15px;font-weight:600;color:var(--text);margin-bottom:2px;}
-.vault-meta{font-size:12px;color:var(--text2);}
-.vault-progress-bar{height:4px;background:var(--border);border-radius:2px;overflow:hidden;margin-top:6px;}
-.vault-progress-fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--vclm));border-radius:2px;}
-.vault-vclm-val{font-size:18px;font-weight:700;font-family:'DM Mono',monospace;color:var(--vclm);}
-.vault-vclm-label{font-size:11px;color:var(--text3);}
-.badge{display:inline-block;padding:4px 10px;border-radius:20px;font-size:11px;font-weight:600;}
-.badge-active{background:rgba(34,201,122,.12);color:var(--green);}
-.badge-trial{background:rgba(245,158,11,.12);color:var(--amber);}
-.fault-hero{background:linear-gradient(135deg,rgba(239,68,68,.07),rgba(8,14,26,0));border:1px solid rgba(239,68,68,.2);border-radius:16px;padding:28px 32px;margin-bottom:28px;}
-.fault-hero-title{font-family:'Syne',sans-serif;font-weight:800;font-size:22px;color:var(--text);margin-bottom:8px;}
-.fault-hero-sub{font-size:14px;color:var(--text2);line-height:1.7;max-width:640px;}
-.fault-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:24px;}
-.fault-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:22px;}
-.fault-card-title{font-size:12px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--text2);margin-bottom:16px;}
-.scenario-item{padding:12px 14px;background:var(--surface2);border:1.5px solid var(--border);border-radius:10px;cursor:pointer;transition:all .2s;margin-bottom:8px;}
-.scenario-item:last-child{margin-bottom:0;}
-.scenario-item:hover{border-color:var(--border2);}
-.scenario-item.active-s{border-color:var(--red);background:rgba(239,68,68,.06);}
-.scenario-title{font-size:13px;font-weight:600;color:var(--text);margin-bottom:2px;}
-.scenario-desc{font-size:11px;color:var(--text2);}
-.run-btn{width:100%;padding:12px;background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.3);border-radius:10px;color:#fc8181;font-family:'Syne',sans-serif;font-weight:700;font-size:14px;cursor:pointer;margin-top:16px;transition:all .2s;}
-.run-btn:hover{background:rgba(239,68,68,.18);}
-.run-btn:disabled{opacity:.45;cursor:default;}
-.fault-event{display:flex;gap:14px;padding:12px 0;position:relative;}
-.fault-event:not(:last-child)::after{content:'';position:absolute;left:14px;top:34px;bottom:0;width:1px;background:var(--border);}
-.fault-dot{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0;border:2px solid var(--border);}
-.fd-detected{background:rgba(239,68,68,.15);border-color:var(--red);}
-.fd-paused{background:rgba(245,158,11,.15);border-color:var(--amber);}
-.fd-resolved{background:rgba(34,201,122,.15);border-color:var(--green);}
-.fd-safe{background:rgba(61,139,255,.15);border-color:var(--accent);}
-.fault-event-label{font-size:13px;font-weight:600;color:var(--text);margin-bottom:2px;}
-.fault-event-detail{font-size:12px;color:var(--text2);line-height:1.5;}
-.fault-outcome{margin-top:16px;padding:14px;border-radius:10px;}
-.fo-safe{background:rgba(34,201,122,.06);border:1px solid rgba(34,201,122,.2);}
-.fo-warning{background:rgba(245,158,11,.06);border:1px solid rgba(245,158,11,.2);}
-.outcome-title{font-size:12px;font-weight:700;margin-bottom:4px;}
-.outcome-detail{font-size:12px;color:var(--text2);line-height:1.5;}
-.red-dot{width:8px;height:8px;border-radius:50%;background:var(--red);box-shadow:0 0 8px var(--red);animation:pulse 1.5s infinite;display:inline-block;}
-@keyframes pulse{0%,100%{opacity:1;}50%{opacity:.3;}}
-.pill{display:inline-flex;align-items:center;gap:5px;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:600;}
-.pill-blue{background:rgba(61,139,255,.12);color:var(--accent2);}
-.pill-green{background:rgba(34,201,122,.12);color:var(--green);}
-.pill-amber{background:rgba(245,158,11,.12);color:var(--amber);}
-.flex-between{display:flex;align-items:center;justify-content:space-between;}
-.flex-center{display:flex;align-items:center;}
-.gap-8{gap:8px;}
-.mt-8{margin-top:8px;}.mt-12{margin-top:12px;}.mt-16{margin-top:16px;}.mt-24{margin-top:24px;}
-.mb-8{margin-bottom:8px;}.mb-16{margin-bottom:16px;}
-.section-title{font-family:'Syne',sans-serif;font-weight:800;font-size:20px;margin-bottom:4px;}
-.section-sub{font-size:13px;color:var(--text2);margin-bottom:24px;}
-.mult-row{display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:var(--surface2);border-radius:8px;margin-bottom:6px;}
-.mult-row:last-child{margin-bottom:0;}
-@media(max-width:768px){
-  .grid-2,.fault-grid{grid-template-columns:1fr;}
-  .stats-row{grid-template-columns:repeat(2,1fr);}
-  .grid-3{grid-template-columns:1fr;}
-  .dur-grid{grid-template-columns:repeat(3,1fr);}
-  .vault-card{grid-template-columns:auto 1fr;grid-template-rows:auto auto;}
-  .vault-card>div:nth-child(3),.vault-card>div:nth-child(4){grid-column:2;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+a{color:inherit;text-decoration:none}
+button{cursor:pointer;font-family:inherit}
+:root{
+  --bg:#060a10;--bg1:#090e17;--bg2:#0c121e;--bg3:#101828;
+  --line:#1a2640;--line2:#243352;--line3:#2e4168;
+  --text:#dde8f8;--text2:#8099bb;--text3:#3d5478;--text4:#1e2f48;
+  --accent:#00d4ff;--accent-dim:rgba(0,212,255,.08);
+  --green:#00e887;--green-dim:rgba(0,232,135,.08);
+  --amber:#ffb84d;--purple:#a855f7;--purple-dim:rgba(168,85,247,.08);
+  --red:#ef4444;
+  --serif:'Instrument Serif',serif;--mono:'Geist Mono',monospace;--sans:'Geist',sans-serif;
+  --max:1120px;--gutter:32px;
+}
+body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;background-image:linear-gradient(rgba(0,212,255,.012) 1px,transparent 1px),linear-gradient(90deg,rgba(0,212,255,.012) 1px,transparent 1px);background-size:60px 60px}
+body::after{content:'';position:fixed;top:0;left:0;right:0;height:500px;z-index:0;pointer-events:none;background:radial-gradient(ellipse 80% 60% at 50% -10%,rgba(0,212,255,.06),transparent)}
+.wrap{position:relative;z-index:1}
+.container{max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes glow{0%,100%{box-shadow:0 0 20px rgba(0,212,255,.2)}50%{box-shadow:0 0 40px rgba(0,212,255,.5)}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+@keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.reveal{opacity:0;transform:translateY(32px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:none}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content:space-between;align-items:center;padding:0 var(--gutter);height:64px;border-bottom:1px solid transparent;transition:background .3s,border-color .3s;backdrop-filter:blur(0)}
+nav.scrolled{background:rgba(6,10,16,.92);border-color:var(--line);backdrop-filter:blur(16px)}
+.nav-logo{font-family:var(--serif);font-size:1.15rem;letter-spacing:.12em;color:var(--text);text-transform:uppercase}
+.nav-links{display:flex;gap:2rem;list-style:none;align-items:center}
+.nav-links a{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--text2);transition:color .2s}
+.nav-links a:hover{color:var(--text)}
+.nav-links a.active{color:var(--accent)}
+.nav-mobile-toggle{display:none;background:none;border:none;color:var(--text);font-size:1.4rem;padding:8px}
+.nav-mobile-menu{display:none;position:fixed;top:64px;left:0;right:0;background:rgba(6,10,16,.98);border-bottom:1px solid var(--line);z-index:199;padding:24px var(--gutter);flex-direction:column;gap:20px}
+.nav-mobile-menu.open{display:flex}
+.nav-mobile-menu a{font-size:.9rem;letter-spacing:.06em;text-transform:uppercase;color:var(--text2);padding:8px 0;border-bottom:1px solid var(--line)}
+
+/* TICKER */
+.ticker-wrap{border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;padding:14px 0;background:var(--bg1)}
+.ticker-inner{display:flex;width:max-content;animation:ticker 30s linear infinite}
+.ticker-item{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);padding:0 48px;white-space:nowrap}
+.ticker-item span{color:var(--accent);margin-right:16px}
+
+/* PAGE HERO */
+.page-hero{padding:120px var(--gutter) 64px;border-bottom:1px solid var(--line)}
+.page-eyebrow{font-family:var(--mono);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:24px;display:flex;align-items:center;gap:12px;animation:fadeIn 1s ease both}
+.page-eyebrow::before{content:'';width:40px;height:1px;background:var(--accent)}
+.page-title{font-family:var(--serif);font-size:clamp(2.5rem,5vw,4.5rem);line-height:1.05;color:var(--text);margin-bottom:20px;animation:fadeUp .9s ease both .1s}
+.page-title em{font-style:italic;color:var(--accent)}
+.page-sub{font-size:1rem;color:var(--text2);max-width:520px;line-height:1.8;animation:fadeUp .9s ease both .2s}
+
+/* TAB NAV */
+.tab-nav{border-bottom:1px solid var(--line);background:var(--bg1);position:sticky;top:64px;z-index:100}
+.tab-nav-inner{display:flex;gap:0;overflow-x:auto}
+.tab-btn{padding:18px 28px;font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);background:none;border:none;border-bottom:2px solid transparent;cursor:pointer;transition:all .2s;white-space:nowrap}
+.tab-btn:hover{color:var(--text2)}
+.tab-btn.active{color:var(--accent);border-bottom-color:var(--accent)}
+
+/* SECTIONS */
+.tab-panel{display:none;padding:80px 0}
+.tab-panel.active{display:block}
+.section-label{font-family:var(--mono);font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
+.section-title{font-family:var(--serif);font-size:clamp(1.8rem,3.5vw,2.8rem);line-height:1.15;color:var(--text);margin-bottom:20px}
+.section-body{font-size:.95rem;color:var(--text2);line-height:1.85;max-width:600px}
+
+/* CARDS */
+.card{background:var(--bg1);border:1px solid var(--line);border-radius:4px;padding:28px}
+.card-sm{background:var(--bg2);border:1px solid var(--line);border-radius:4px;padding:20px}
+.card-label{font-family:var(--mono);font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--text3);margin-bottom:14px}
+
+/* GRID */
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line)}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line)}
+.grid-col{background:var(--bg);padding:32px 28px}
+
+/* ASSET SELECTOR */
+.asset-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(90px,1fr));gap:8px}
+.asset-btn{padding:12px 8px;background:var(--bg2);border:1px solid var(--line);border-radius:4px;cursor:pointer;text-align:center;transition:all .2s}
+.asset-btn:hover{border-color:var(--line2)}
+.asset-btn.selected{border-color:var(--accent);background:var(--accent-dim)}
+.asset-icon{font-size:18px;margin-bottom:4px}
+.asset-name{font-family:var(--mono);font-size:.7rem;letter-spacing:.06em;color:var(--text)}
+.asset-tier{font-family:var(--mono);font-size:.6rem;color:var(--text3);margin-top:2px}
+
+/* DURATION */
+.dur-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:8px}
+.dur-btn{padding:12px 6px;background:var(--bg2);border:1px solid var(--line);border-radius:4px;cursor:pointer;text-align:center;transition:all .2s}
+.dur-btn:hover{border-color:var(--line2)}
+.dur-btn.selected{border-color:var(--accent);background:var(--accent-dim)}
+.dur-btn.trial-opt{border-color:rgba(255,184,77,.3)}
+.dur-btn.trial-opt.selected{border-color:var(--amber);background:rgba(255,184,77,.08)}
+.dur-days{font-family:var(--serif);font-size:1.1rem;color:var(--text)}
+.dur-mult{font-family:var(--mono);font-size:.65rem;color:var(--text2);margin-top:2px}
+.dur-tag{font-family:var(--mono);font-size:.55rem;letter-spacing:.08em;text-transform:uppercase;color:var(--amber);margin-top:3px}
+
+/* INPUT */
+.field-label{font-family:var(--mono);font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--text3);margin-bottom:10px}
+.amount-wrap{position:relative}
+.amount-input{width:100%;background:var(--bg2);border:1px solid var(--line2);border-radius:4px;padding:16px 60px 16px 18px;font-size:1.6rem;font-family:var(--mono);color:var(--text);outline:none;transition:border-color .2s}
+.amount-input:focus{border-color:var(--accent)}
+.amount-ticker{position:absolute;right:16px;top:50%;transform:translateY(-50%);font-family:var(--mono);font-size:.75rem;color:var(--text2)}
+.input-note{font-family:var(--mono);font-size:.62rem;color:var(--text3);margin-top:8px;letter-spacing:.04em}
+
+/* ESTIMATE */
+.estimate-box{background:var(--bg2);border:1px solid var(--line);border-radius:4px;overflow:hidden}
+.estimate-row{display:flex;justify-content:space-between;align-items:center;padding:14px 20px;border-bottom:1px solid var(--line)}
+.estimate-row:last-child{border:none;padding:18px 20px;background:var(--accent-dim)}
+.est-label{font-family:var(--mono);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--text3)}
+.est-val{font-family:var(--mono);font-size:.9rem;color:var(--text)}
+.est-val.green{color:var(--green)}
+.est-val.amber{color:var(--amber)}
+.est-val.accent{color:var(--accent);font-size:1.4rem}
+
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:4px;font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;font-weight:500;transition:all .25s;border:none;cursor:pointer;font-family:var(--sans)}
+.btn-primary{background:var(--accent);color:#000}
+.btn-primary:hover{background:#00c4ef;transform:translateY(-1px)}
+.btn-outline{border:1px solid var(--line2);color:var(--text2);background:none}
+.btn-outline:hover{border-color:var(--accent);color:var(--accent)}
+.btn-full{width:100%;justify-content:center;margin-top:20px}
+.btn-green{background:rgba(0,232,135,.1);border:1px solid rgba(0,232,135,.3);color:var(--green);padding:10px 18px;font-size:.75rem}
+.btn-green:hover{background:rgba(0,232,135,.18)}
+
+/* VAULT CARDS */
+.vault-list{display:flex;flex-direction:column;gap:1px;background:var(--line);border:1px solid var(--line)}
+.vault-item{background:var(--bg1);padding:24px 28px;display:grid;grid-template-columns:auto 1fr auto auto;gap:20px;align-items:center;transition:background .2s}
+.vault-item:hover{background:var(--bg2)}
+.vault-icon{font-size:24px}
+.vault-name{font-size:.95rem;font-weight:600;color:var(--text);margin-bottom:3px}
+.vault-meta{font-family:var(--mono);font-size:.65rem;color:var(--text3);letter-spacing:.04em}
+.vault-bar{height:3px;background:var(--line);border-radius:1px;overflow:hidden;margin-top:10px}
+.vault-bar-fill{height:100%;border-radius:1px;background:linear-gradient(90deg,var(--accent),rgba(0,212,255,.4))}
+.vault-vclm{text-align:right}
+.vault-vclm-val{font-family:var(--mono);font-size:1.1rem;color:var(--accent)}
+.vault-vclm-label{font-family:var(--mono);font-size:.6rem;color:var(--text3);letter-spacing:.06em;text-transform:uppercase;margin-top:2px}
+.vault-status{text-align:right}
+.tag{display:inline-block;font-family:var(--mono);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;padding:3px 10px;border-radius:2px;border:1px solid}
+.tag-active{border-color:rgba(0,232,135,.3);color:var(--green);background:var(--green-dim)}
+.tag-trial{border-color:rgba(255,184,77,.3);color:var(--amber);background:rgba(255,184,77,.06)}
+
+/* STATS */
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-bottom:40px}
+.stat-cell{background:var(--bg1);padding:24px 20px}
+.stat-val{font-family:var(--mono);font-size:1.6rem;color:var(--text);margin-bottom:4px}
+.stat-val.accent{color:var(--accent)}
+.stat-val.green{color:var(--green)}
+.stat-label{font-family:var(--mono);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text3)}
+
+/* FAULT */
+.fault-hero-box{background:var(--bg1);border:1px solid rgba(239,68,68,.2);border-radius:4px;padding:32px;margin-bottom:40px}
+.fault-hero-title{font-family:var(--serif);font-size:clamp(1.5rem,3vw,2.2rem);color:var(--text);margin-bottom:12px}
+.fault-hero-body{font-size:.9rem;color:var(--text2);line-height:1.8;max-width:640px}
+.scenario-list{display:flex;flex-direction:column;gap:8px}
+.scenario-item{padding:14px 18px;background:var(--bg2);border:1px solid var(--line);border-radius:4px;cursor:pointer;transition:all .2s}
+.scenario-item:hover{border-color:var(--line2)}
+.scenario-item.active-s{border-color:rgba(239,68,68,.4);background:rgba(239,68,68,.05)}
+.scenario-title{font-size:.88rem;font-weight:600;color:var(--text);margin-bottom:3px}
+.scenario-desc{font-family:var(--mono);font-size:.65rem;color:var(--text3)}
+.run-btn{width:100%;margin-top:16px;padding:14px;background:rgba(239,68,68,.08);border:1px solid rgba(239,68,68,.25);border-radius:4px;color:#fc8181;font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:all .2s}
+.run-btn:hover{background:rgba(239,68,68,.15)}
+.run-btn:disabled{opacity:.4;cursor:default}
+.fault-output{background:var(--bg2);border:1px solid var(--line);border-radius:4px;padding:24px;min-height:200px}
+.fault-output-empty{font-family:var(--mono);font-size:.72rem;color:var(--text3);text-align:center;padding:40px 0;letter-spacing:.08em;text-transform:uppercase}
+.fault-event{display:flex;gap:16px;padding:14px 0;position:relative}
+.fault-event:not(:last-child)::after{content:'';position:absolute;left:13px;top:32px;bottom:0;width:1px;background:var(--line)}
+.fault-dot{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;flex-shrink:0;border:1px solid var(--line)}
+.fd-detected{background:rgba(239,68,68,.12);border-color:rgba(239,68,68,.4)}
+.fd-paused{background:rgba(255,184,77,.12);border-color:rgba(255,184,77,.4)}
+.fd-safe{background:var(--accent-dim);border-color:rgba(0,212,255,.4)}
+.fd-resolved{background:var(--green-dim);border-color:rgba(0,232,135,.4)}
+.fault-event-label{font-size:.85rem;font-weight:600;color:var(--text);margin-bottom:3px}
+.fault-event-detail{font-family:var(--mono);font-size:.65rem;color:var(--text3);line-height:1.6}
+.fault-outcome{margin-top:16px;padding:16px;border-radius:4px;border:1px solid}
+.fo-safe{border-color:rgba(0,232,135,.2);background:var(--green-dim)}
+.fo-warning{border-color:rgba(255,184,77,.2);background:rgba(255,184,77,.05)}
+.outcome-title{font-size:.82rem;font-weight:600;margin-bottom:6px}
+.outcome-detail{font-family:var(--mono);font-size:.65rem;color:var(--text2);line-height:1.6}
+.live-dot{width:7px;height:7px;border-radius:50%;background:#ef4444;box-shadow:0 0 8px #ef4444;animation:pulse 1.5s infinite;display:inline-block;margin-right:6px}
+
+/* VCLM PAGE */
+.prop-item{padding:24px 0;border-bottom:1px solid var(--line);display:flex;gap:20px;align-items:flex-start}
+.prop-item:first-child{padding-top:0}
+.prop-icon{width:36px;height:36px;border:1px solid var(--line2);border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:.9rem;flex-shrink:0;background:var(--bg2)}
+.prop-title{font-size:.9rem;font-weight:600;color:var(--text);margin-bottom:4px}
+.prop-body{font-size:.82rem;color:var(--text2);line-height:1.7}
+.emit-bars{display:flex;gap:6px;align-items:flex-end;height:100px}
+.emit-bar{flex:1;border-radius:2px 2px 0 0;min-width:0}
+.emit-years{display:flex;gap:6px;margin-top:6px}
+.emit-year{flex:1;text-align:center;font-family:var(--mono);font-size:.6rem;color:var(--text4)}
+.mult-table{border:1px solid var(--line);border-radius:4px;overflow:hidden;margin-top:24px}
+.mult-row{display:flex;justify-content:space-between;align-items:center;padding:12px 18px;border-bottom:1px solid var(--line);font-size:.82rem}
+.mult-row:last-child{border:none}
+.mult-dur{color:var(--text2)}
+.mult-val{font-family:var(--mono);color:var(--text)}
+.mult-val.good{color:var(--green)}
+.mult-val.best{color:var(--accent)}
+.pool-bar{height:3px;background:var(--line);border-radius:1px;margin-top:20px;overflow:hidden}
+.pool-fill{height:100%;border-radius:1px}
+.pool-fill.core{width:82%;background:var(--accent)}
+.pool-fill.dev{width:12%;background:var(--green)}
+.pool-fill.eco{width:6%;background:var(--purple)}
+
+/* FOOTER */
+footer{border-top:1px solid var(--line);padding:48px 0 36px;background:var(--bg1)}
+.footer-inner{display:flex;justify-content:space-between;align-items:flex-start;gap:40px;flex-wrap:wrap}
+.footer-logo{font-family:var(--serif);font-size:1.1rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text2);margin-bottom:8px}
+.footer-tagline{font-size:.78rem;color:var(--text3)}
+.footer-links{display:flex;gap:40px;flex-wrap:wrap}
+.footer-col-title{font-family:var(--mono);font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--text3);margin-bottom:14px}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.footer-col a{font-size:.82rem;color:var(--text2);transition:color .2s}
+.footer-col a:hover{color:var(--text)}
+.footer-bottom{margin-top:48px;padding-top:24px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.footer-copy{font-size:.75rem;color:var(--text3)}
+.footer-legal{font-size:.72rem;color:var(--text4);max-width:480px;text-align:right;line-height:1.5}
+
+@media(max-width:900px){
+  :root{--gutter:20px}
+  .dur-grid{grid-template-columns:repeat(3,1fr)}
+  .stats-grid{grid-template-columns:repeat(2,1fr)}
+  .grid-2,.grid-3{grid-template-columns:1fr}
+  .vault-item{grid-template-columns:auto 1fr;grid-template-rows:auto auto}
+  .vault-item>div:nth-child(3),.vault-item>div:nth-child(4){grid-column:2}
+  .nav-links{display:none}
+  .nav-mobile-toggle{display:block}
+  .footer-inner{flex-direction:column}
+  .footer-bottom{flex-direction:column;text-align:center}
+  .footer-legal{text-align:center}
 }
 </style>
 </head>
 <body>
+<div class="wrap">
 
-<div class="topbar">
-  <div class="logo">
-    <div class="logo-mark">V</div>
-    VINCULUM
-  </div>
-  <div class="topbar-right">
-    <div class="chain-badge"><div class="chain-dot"></div> Base Mainnet</div>
-    <button class="connect-btn" id="wallet-btn" onclick="toggleWallet()">Connect Wallet</button>
+<nav id="main-nav">
+  <a href="index.html" class="nav-logo">Vinculum</a>
+  <ul class="nav-links">
+    <li><a href="index.html#how">How It Works</a></li>
+    <li><a href="index.html#vclm">$VCLM</a></li>
+    <li><a href="index.html#chains">Chains</a></li>
+    <li><a href="index.html#roadmap">Roadmap</a></li>
+    <li><a href="vision.html">Vision</a></li>
+    <li><a href="guardians.html">Council</a></li>
+    <li><a href="calculator.html">Calculator</a></li>
+    <li><a href="staking.html" class="active">Staking Demo</a></li>
+  </ul>
+  <button class="nav-mobile-toggle" onclick="toggleMobileNav()" aria-label="Menu">☰</button>
+</nav>
+<div class="nav-mobile-menu" id="mobile-menu">
+  <a href="index.html#how" onclick="closeMobileNav()">How It Works</a>
+  <a href="index.html#vclm" onclick="closeMobileNav()">$VCLM</a>
+  <a href="index.html#chains" onclick="closeMobileNav()">Chains</a>
+  <a href="index.html#roadmap" onclick="closeMobileNav()">Roadmap</a>
+  <a href="vision.html">Vision</a>
+  <a href="guardians.html">Council</a>
+  <a href="calculator.html">Calculator</a>
+  <a href="staking.html">Staking Demo</a>
+</div>
+
+<div class="page-hero container">
+  <div class="page-eyebrow">Interactive Demo · No Wallet Required</div>
+  <h1 class="page-title">Commit assets.<br/><em>Earn $VCLM.</em></h1>
+  <p class="page-sub">Experience the Vinculum commitment vault protocol. Choose an asset, set a duration, and see exactly what you earn. All figures are live calculations — no real transactions.</p>
+</div>
+
+<div class="ticker-wrap">
+  <div class="ticker-inner" id="ticker"></div>
+</div>
+
+<div class="tab-nav">
+  <div class="tab-nav-inner">
+    <button class="tab-btn active" onclick="showTab('commit',this)">⬡ Commit Assets</button>
+    <button class="tab-btn" onclick="showTab('vaults',this)">◈ My Vaults</button>
+    <button class="tab-btn" onclick="showTab('fault',this)">⚠ Fault Mechanism</button>
+    <button class="tab-btn" onclick="showTab('vclm',this)">◎ $VCLM Token</button>
   </div>
 </div>
 
-<div class="nav-tabs">
-  <div class="nav-tab active" onclick="showScreen('vault-entry',this)">⬡ Commit Assets</div>
-  <div class="nav-tab" onclick="showScreen('my-vaults',this)">◈ My Vaults</div>
-  <div class="nav-tab" onclick="showScreen('fault',this)">⚠ Fault Mechanism</div>
-  <div class="nav-tab" onclick="showScreen('vclm',this)">◎ $VCLM</div>
-</div>
+<!-- ── COMMIT ── -->
+<div class="tab-panel active" id="tab-commit">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;">
+      <div style="display:flex;flex-direction:column;gap:24px;">
 
-<div class="main">
-
-<!-- VAULT ENTRY -->
-<div class="screen active" id="screen-vault-entry">
-  <div class="section-title">Commit Assets. Earn $VCLM.</div>
-  <div class="section-sub">Lock assets in a commitment vault. Receive VCLM for the duration. Your principal returns at maturity.</div>
-  <div class="grid-2">
-    <div style="display:flex;flex-direction:column;gap:20px;">
-      <div class="card">
-        <div class="field-label">Select Asset</div>
-        <div class="asset-grid">
-          <div class="asset-btn selected" data-asset="ETH" data-tier="A" data-mult="1.00" onclick="selectAsset(this)"><div class="asset-icon">⟠</div><div class="asset-name">ETH</div><div class="asset-tier">Tier A · 1.00×</div></div>
-          <div class="asset-btn" data-asset="USDC" data-tier="A" data-mult="1.00" onclick="selectAsset(this)"><div class="asset-icon">◈</div><div class="asset-name">USDC</div><div class="asset-tier">Tier A · 1.00×</div></div>
-          <div class="asset-btn" data-asset="USDT" data-tier="A" data-mult="1.00" onclick="selectAsset(this)"><div class="asset-icon">💵</div><div class="asset-name">USDT</div><div class="asset-tier">Tier A · 1.00×</div></div>
-          <div class="asset-btn" data-asset="XDC" data-tier="A" data-mult="1.00" onclick="selectAsset(this)"><div class="asset-icon">✦</div><div class="asset-name">XDC</div><div class="asset-tier">Tier A · 1.00×</div></div>
-          <div class="asset-btn" data-asset="VOLT" data-tier="B" data-mult="0.85" onclick="selectAsset(this)"><div class="asset-icon">⚡</div><div class="asset-name">VOLT</div><div class="asset-tier">Tier B · 0.85×</div></div>
-          <div class="asset-btn" data-asset="WKC" data-tier="B" data-mult="0.85" onclick="selectAsset(this)"><div class="asset-icon">🔗</div><div class="asset-name">WKC</div><div class="asset-tier">Tier B · 0.85×</div></div>
-          <div class="asset-btn" data-asset="KEKEC" data-tier="B" data-mult="0.85" onclick="selectAsset(this)"><div class="asset-icon">🐸</div><div class="asset-name">KEKEC</div><div class="asset-tier">Tier B · 0.85×</div></div>
-          <div class="asset-btn" data-asset="SHIB" data-tier="C" data-mult="0.70" onclick="selectAsset(this)"><div class="asset-icon">🐕</div><div class="asset-name">SHIB</div><div class="asset-tier">Tier C · 0.70×</div></div>
-          <div class="asset-btn" data-asset="LUNC" data-tier="C" data-mult="0.70" onclick="selectAsset(this)"><div class="asset-icon">🌙</div><div class="asset-name">LUNC</div><div class="asset-tier">Tier C · 0.70×</div></div>
-          <div class="asset-btn" data-asset="TigerOG" data-tier="B" data-mult="0.85" onclick="selectAsset(this)"><div class="asset-icon">🐯</div><div class="asset-name">TigerOG</div><div class="asset-tier">Tier B · 0.85×</div></div>
-          <div class="asset-btn" data-asset="LionOG" data-tier="B" data-mult="0.85" onclick="selectAsset(this)"><div class="asset-icon">🦁</div><div class="asset-name">LionOG</div><div class="asset-tier">Tier B · 0.85×</div></div>
-          <div class="asset-btn" data-asset="FrogOG" data-tier="B" data-mult="0.85" onclick="selectAsset(this)"><div class="asset-icon">🐸</div><div class="asset-name">FrogOG</div><div class="asset-tier">Tier B · 0.85×</div></div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="field-label">Commitment Amount (USD Value)</div>
-        <div class="input-wrap">
-          <input class="token-input" type="number" id="amount-input" value="100" min="1" oninput="updateEstimate()">
-          <div class="token-label" id="asset-label">ETH</div>
-        </div>
-        <div class="input-note">Minimum $10 · 5% enters protocol treasury at commitment · 95% returns at maturity</div>
-      </div>
-      <div class="card">
-        <div class="field-label">Commitment Duration</div>
-        <div class="dur-grid">
-          <div class="dur-btn trial-btn selected" data-days="7" data-mult="1.00" onclick="selectDuration(this)"><div class="dur-days">7d</div><div class="dur-mult">1.00×</div><div class="dur-tag">TRIAL</div></div>
-          <div class="dur-btn" data-days="30" data-mult="1.00" onclick="selectDuration(this)"><div class="dur-days">30d</div><div class="dur-mult">1.00×</div></div>
-          <div class="dur-btn" data-days="90" data-mult="1.25" onclick="selectDuration(this)"><div class="dur-days">90d</div><div class="dur-mult">1.25×</div></div>
-          <div class="dur-btn" data-days="180" data-mult="1.50" onclick="selectDuration(this)"><div class="dur-days">180d</div><div class="dur-mult">1.50×</div></div>
-          <div class="dur-btn" data-days="365" data-mult="2.00" onclick="selectDuration(this)"><div class="dur-days">365d</div><div class="dur-mult">2.00×</div></div>
-          <div class="dur-btn" data-days="730" data-mult="3.00" onclick="selectDuration(this)"><div class="dur-days">730d</div><div class="dur-mult">3.00×★</div></div>
-        </div>
-      </div>
-    </div>
-
-    <div style="display:flex;flex-direction:column;gap:20px;">
-      <div class="card">
-        <div class="flex-between mb-8"><div style="font-family:'Syne',sans-serif;font-weight:700;font-size:15px;">Estimated Yield</div><div class="pill pill-blue" id="trial-pill">7-Day Trial</div></div>
-        <div class="estimate-box">
-          <div class="estimate-row"><div class="estimate-label">Committed Value</div><div class="estimate-val" id="est-committed">$100.00</div></div>
-          <div class="estimate-row"><div class="estimate-label">Protocol Fee (5%)</div><div class="estimate-val amber" id="est-fee">−$5.00</div></div>
-          <div class="estimate-row"><div class="estimate-label">Principal Return</div><div class="estimate-val green" id="est-return">$95.00</div></div>
-          <div class="estimate-row"><div class="estimate-label">Asset Tier Multiplier</div><div class="estimate-val" id="est-tier">1.00× (Tier A)</div></div>
-          <div class="estimate-row"><div class="estimate-label">Duration Multiplier</div><div class="estimate-val" id="est-dur">1.00× (7 days)</div></div>
-          <div class="estimate-row"><div class="estimate-label">Base Emission Rate</div><div class="estimate-val">10 VCLM per $1</div></div>
-          <div class="estimate-row" style="padding-top:14px;border-top:1px solid var(--border2);">
-            <div class="estimate-label" style="font-weight:700;color:var(--vclm);font-size:14px;">$VCLM You Earn</div>
-            <div class="estimate-val vclm" id="est-vclm" style="font-size:24px;">1,000</div>
+        <div class="card">
+          <div class="card-label">Select Asset</div>
+          <div class="asset-grid">
+            <div class="asset-btn selected" data-asset="ETH" data-tier="A" data-mult="1.00" onclick="selectAsset(this)"><div class="asset-icon">⟠</div><div class="asset-name">ETH</div><div class="asset-tier">Tier A · 1.00×</div></div>
+            <div class="asset-btn" data-asset="USDC" data-tier="A" data-mult="1.00" onclick="selectAsset(this)"><div class="asset-icon">◈</div><div class="asset-name">USDC</div><div class="asset-tier">Tier A · 1.00×</div></div>
+            <div class="asset-btn" data-asset="USDT" data-tier="A" data-mult="1.00" onclick="selectAsset(this)"><div class="asset-icon">💵</div><div class="asset-name">USDT</div><div class="asset-tier">Tier A · 1.00×</div></div>
+            <div class="asset-btn" data-asset="XDC" data-tier="A" data-mult="1.00" onclick="selectAsset(this)"><div class="asset-icon">✦</div><div class="asset-name">XDC</div><div class="asset-tier">Tier A · 1.00×</div></div>
+            <div class="asset-btn" data-asset="VOLT" data-tier="B" data-mult="0.85" onclick="selectAsset(this)"><div class="asset-icon">⚡</div><div class="asset-name">VOLT</div><div class="asset-tier">Tier B · 0.85×</div></div>
+            <div class="asset-btn" data-asset="WKC" data-tier="B" data-mult="0.85" onclick="selectAsset(this)"><div class="asset-icon">🔗</div><div class="asset-name">WKC</div><div class="asset-tier">Tier B · 0.85×</div></div>
+            <div class="asset-btn" data-asset="KEKEC" data-tier="B" data-mult="0.85" onclick="selectAsset(this)"><div class="asset-icon">🐸</div><div class="asset-name">KEKEC</div><div class="asset-tier">Tier B · 0.85×</div></div>
+            <div class="asset-btn" data-asset="TigerOG" data-tier="B" data-mult="0.85" onclick="selectAsset(this)"><div class="asset-icon">🐯</div><div class="asset-name">TigerOG</div><div class="asset-tier">Tier B · 0.85×</div></div>
+            <div class="asset-btn" data-asset="LionOG" data-tier="B" data-mult="0.85" onclick="selectAsset(this)"><div class="asset-icon">🦁</div><div class="asset-name">LionOG</div><div class="asset-tier">Tier B · 0.85×</div></div>
+            <div class="asset-btn" data-asset="FrogOG" data-tier="B" data-mult="0.85" onclick="selectAsset(this)"><div class="asset-icon">🐸</div><div class="asset-name">FrogOG</div><div class="asset-tier">Tier B · 0.85×</div></div>
+            <div class="asset-btn" data-asset="SHIB" data-tier="C" data-mult="0.70" onclick="selectAsset(this)"><div class="asset-icon">🐕</div><div class="asset-name">SHIB</div><div class="asset-tier">Tier C · 0.70×</div></div>
+            <div class="asset-btn" data-asset="LUNC" data-tier="C" data-mult="0.70" onclick="selectAsset(this)"><div class="asset-icon">🌙</div><div class="asset-name">LUNC</div><div class="asset-tier">Tier C · 0.70×</div></div>
           </div>
         </div>
-        <div class="card-sm mt-16" id="trial-note-box">
-          <div class="flex-between mb-8"><div style="font-size:12px;color:var(--text2);">Trial Vault</div><div class="pill pill-amber">How It Works</div></div>
-          <div style="font-size:12px;color:var(--text2);line-height:1.65;" id="trial-note">At day 7, you choose: <strong style="color:var(--text);">Continue</strong> (pay remaining 2.5% fee, enter standard vault) or <strong style="color:var(--text);">Exit</strong> (2.5% retained, 97.5% returned). VCLM prorated to duration.</div>
+
+        <div class="card">
+          <div class="card-label">Commitment Amount (USD Value)</div>
+          <div class="amount-wrap">
+            <input class="amount-input" type="number" id="amount-input" value="100" min="1" oninput="updateEstimate()"/>
+            <div class="amount-ticker" id="asset-ticker">ETH</div>
+          </div>
+          <div class="input-note">Minimum $10 · 5% enters protocol treasury at commitment · 95% returns at maturity</div>
         </div>
-        <button class="btn-primary" id="commit-btn" onclick="simulateCommit()">Commit Assets → Earn $VCLM</button>
-        <div style="text-align:center;margin-top:10px;font-size:11px;color:var(--text3);">Demo mode · No real transactions · Wallet not required</div>
+
+        <div class="card">
+          <div class="card-label">Commitment Duration</div>
+          <div class="dur-grid">
+            <div class="dur-btn trial-opt selected" data-days="7" data-mult="1.00" onclick="selectDur(this)"><div class="dur-days">7d</div><div class="dur-mult">1.00×</div><div class="dur-tag">Trial</div></div>
+            <div class="dur-btn" data-days="30" data-mult="1.00" onclick="selectDur(this)"><div class="dur-days">30d</div><div class="dur-mult">1.00×</div></div>
+            <div class="dur-btn" data-days="90" data-mult="1.25" onclick="selectDur(this)"><div class="dur-days">90d</div><div class="dur-mult">1.25×</div></div>
+            <div class="dur-btn" data-days="180" data-mult="1.50" onclick="selectDur(this)"><div class="dur-days">180d</div><div class="dur-mult">1.50×</div></div>
+            <div class="dur-btn" data-days="365" data-mult="2.00" onclick="selectDur(this)"><div class="dur-days">365d</div><div class="dur-mult">2.00×</div></div>
+            <div class="dur-btn" data-days="730" data-mult="3.00" onclick="selectDur(this)"><div class="dur-days">730d</div><div class="dur-mult">3.00×★</div></div>
+          </div>
+        </div>
+
       </div>
-      <div class="card-sm" style="border-color:rgba(34,201,122,.2);">
-        <div class="flex-between mb-8"><div style="font-size:12px;font-weight:700;color:var(--green);">WITHDRAWALS NEVER PAUSED</div><div class="pill pill-green">Protected</div></div>
-        <div style="font-size:12px;color:var(--text2);line-height:1.6;">Even during a fault event, your principal is always withdrawable. The protocol can pause new deposits — never exits. Your assets are never trapped.</div>
+
+      <div style="display:flex;flex-direction:column;gap:24px;">
+
+        <div class="card">
+          <div class="card-label">Estimated Yield</div>
+          <div class="estimate-box">
+            <div class="estimate-row"><div class="est-label">Committed Value</div><div class="est-val" id="est-committed">$100.00</div></div>
+            <div class="estimate-row"><div class="est-label">Protocol Fee (5%)</div><div class="est-val amber" id="est-fee">−$5.00</div></div>
+            <div class="estimate-row"><div class="est-label">Principal Return</div><div class="est-val green" id="est-return">$95.00</div></div>
+            <div class="estimate-row"><div class="est-label">Asset Tier Multiplier</div><div class="est-val" id="est-tier">1.00× (Tier A)</div></div>
+            <div class="estimate-row"><div class="est-label">Duration Multiplier</div><div class="est-val" id="est-dur">1.00× (7 days)</div></div>
+            <div class="estimate-row"><div class="est-label">Base Emission Rate</div><div class="est-val">10 VCLM / $1</div></div>
+            <div class="estimate-row"><div class="est-label" style="color:var(--accent);">$VCLM You Earn</div><div class="est-val accent" id="est-vclm">1,000</div></div>
+          </div>
+          <button class="btn btn-primary btn-full" id="commit-btn" onclick="simulateCommit()">Commit Assets → Earn $VCLM</button>
+          <div style="text-align:center;margin-top:10px;font-family:var(--mono);font-size:.6rem;color:var(--text3);letter-spacing:.08em;text-transform:uppercase;">Demo mode · No real transactions</div>
+        </div>
+
+        <div id="trial-note-card" class="card-sm">
+          <div style="font-family:var(--mono);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);margin-bottom:10px;">Trial Vault</div>
+          <div style="font-size:.82rem;color:var(--text2);line-height:1.7;">At day 7, you choose: <strong style="color:var(--text);">Continue</strong> — pay the remaining 2.5% and enter a standard vault — or <strong style="color:var(--text);">Exit</strong> with 97.5% of your principal returned. VCLM prorated to time committed.</div>
+        </div>
+
+        <div class="card-sm" style="border-color:rgba(0,232,135,.2);">
+          <div style="font-family:var(--mono);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--green);margin-bottom:10px;">Withdrawals Never Paused</div>
+          <div style="font-size:.82rem;color:var(--text2);line-height:1.7;">Even during a fault event, your principal is always withdrawable. The protocol can pause new deposits — never exits. Your assets are never trapped.</div>
+        </div>
+
       </div>
     </div>
   </div>
 </div>
 
-<!-- MY VAULTS -->
-<div class="screen" id="screen-my-vaults">
-  <div class="section-title">My Vaults</div>
-  <div class="section-sub">Your active commitment positions across all chains.</div>
-  <div class="stats-row">
-    <div class="stat-card"><div class="stat-val">$1,240</div><div class="stat-label">Total Committed</div></div>
-    <div class="stat-card"><div class="stat-val vclm">18,450</div><div class="stat-label">Total $VCLM Earned</div></div>
-    <div class="stat-card"><div class="stat-val">4</div><div class="stat-label">Active Vaults</div></div>
-    <div class="stat-card"><div class="stat-val green">$1,178</div><div class="stat-label">Projected Return</div></div>
+<!-- ── MY VAULTS ── -->
+<div class="tab-panel" id="tab-vaults">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-cell"><div class="stat-val">$1,240</div><div class="stat-label">Total Committed</div></div>
+      <div class="stat-cell"><div class="stat-val accent">18,450</div><div class="stat-label">Total $VCLM Earned</div></div>
+      <div class="stat-cell"><div class="stat-val">4</div><div class="stat-label">Active Vaults</div></div>
+      <div class="stat-cell"><div class="stat-val green">$1,178</div><div class="stat-label">Projected Return</div></div>
+    </div>
+    <div class="vault-list">
+      <div class="vault-item">
+        <div class="vault-icon">⟠</div>
+        <div><div class="vault-name">ETH · 365-Day Vault</div><div class="vault-meta">Started Mar 1, 2026 · Matures Mar 1, 2027 · Tier A · 2.00×</div><div style="font-family:var(--mono);font-size:.62rem;color:var(--text3);margin-top:6px;margin-bottom:3px;">17 days elapsed · 348 remaining</div><div class="vault-bar"><div class="vault-bar-fill" style="width:5%"></div></div></div>
+        <div class="vault-vclm"><div class="vault-vclm-val">6,000</div><div class="vault-vclm-label">VCLM at maturity</div><div style="font-family:var(--mono);font-size:.6rem;color:var(--text3);margin-top:4px;">$300 committed</div></div>
+        <div class="vault-status"><div class="tag tag-active">Active</div><div style="font-family:var(--mono);font-size:.65rem;color:var(--text3);margin-top:6px;">$285 return</div></div>
+      </div>
+      <div class="vault-item">
+        <div class="vault-icon">🐕</div>
+        <div><div class="vault-name">SHIB · 180-Day Vault</div><div class="vault-meta">Started Feb 15, 2026 · Matures Aug 14, 2026 · Tier C · 1.50×</div><div style="font-family:var(--mono);font-size:.62rem;color:var(--text3);margin-top:6px;margin-bottom:3px;">31 days elapsed · 149 remaining</div><div class="vault-bar"><div class="vault-bar-fill" style="width:17%"></div></div></div>
+        <div class="vault-vclm"><div class="vault-vclm-val">7,875</div><div class="vault-vclm-label">VCLM at maturity</div><div style="font-family:var(--mono);font-size:.6rem;color:var(--text3);margin-top:4px;">$750 committed</div></div>
+        <div class="vault-status"><div class="tag tag-active">Active</div><div style="font-family:var(--mono);font-size:.65rem;color:var(--text3);margin-top:6px;">$712.50 return</div></div>
+      </div>
+      <div class="vault-item">
+        <div class="vault-icon">🌙</div>
+        <div><div class="vault-name">LUNC · 90-Day Vault</div><div class="vault-meta">Started Mar 10, 2026 · Matures Jun 8, 2026 · Tier C · 1.25×</div><div style="font-family:var(--mono);font-size:.62rem;color:var(--text3);margin-top:6px;margin-bottom:3px;">8 days elapsed · 82 remaining</div><div class="vault-bar"><div class="vault-bar-fill" style="width:9%"></div></div></div>
+        <div class="vault-vclm"><div class="vault-vclm-val">875</div><div class="vault-vclm-label">VCLM at maturity</div><div style="font-family:var(--mono);font-size:.6rem;color:var(--text3);margin-top:4px;">$100 committed</div></div>
+        <div class="vault-status"><div class="tag tag-active">Active</div><div style="font-family:var(--mono);font-size:.65rem;color:var(--text3);margin-top:6px;">$95 return</div></div>
+      </div>
+      <div class="vault-item" style="border-left:2px solid rgba(255,184,77,.4);">
+        <div class="vault-icon">⚡</div>
+        <div><div class="vault-name">VOLT · Trial Vault</div><div class="vault-meta">Started Mar 15, 2026 · Trial ends Mar 22, 2026 · Decision required</div><div style="font-family:var(--mono);font-size:.62rem;color:var(--amber);margin-top:6px;margin-bottom:3px;">3 days elapsed · 4 days to decide</div><div class="vault-bar"><div class="vault-bar-fill" style="width:43%;background:linear-gradient(90deg,var(--amber),rgba(255,184,77,.4))"></div></div></div>
+        <div class="vault-vclm"><div class="vault-vclm-val" style="color:var(--amber);">~233</div><div class="vault-vclm-label">VCLM if trial only</div><div style="font-family:var(--mono);font-size:.6rem;color:var(--text3);margin-top:4px;">$90 committed</div></div>
+        <div class="vault-status"><div class="tag tag-trial">Trial</div><div style="display:flex;flex-direction:column;gap:6px;margin-top:8px;"><button class="btn btn-green">Continue →</button><button class="btn btn-outline" style="padding:8px 14px;font-size:.72rem;">Exit</button></div></div>
+      </div>
+    </div>
   </div>
-  <div class="vault-list">
-    <div class="vault-card">
-      <div class="vault-icon">⟠</div>
-      <div>
-        <div class="vault-name">ETH · 365-Day Vault</div>
-        <div class="vault-meta">Started Mar 1, 2026 · Matures Mar 1, 2027 · Tier A · 2.00×</div>
-        <div style="font-size:11px;color:var(--text3);margin-top:6px;margin-bottom:3px;">17 days elapsed · 348 remaining</div>
-        <div class="vault-progress-bar"><div class="vault-progress-fill" style="width:5%"></div></div>
-      </div>
-      <div style="text-align:right;"><div class="vault-vclm-val">6,000</div><div class="vault-vclm-label">VCLM at maturity</div><div style="font-size:11px;color:var(--text3);margin-top:2px;">$300 committed</div></div>
-      <div style="text-align:right;"><div class="badge badge-active">Active</div><div style="font-size:11px;color:var(--text3);margin-top:6px;">$285 return</div></div>
+</div>
+
+<!-- ── FAULT ── -->
+<div class="tab-panel" id="tab-fault">
+  <div class="container">
+    <div class="fault-hero-box">
+      <div class="fault-hero-title">The Fault Mechanism</div>
+      <p class="fault-hero-body">When an anomaly is detected — oracle failure, bridge exploit, or contract alert — new deposits can be paused by governance. <strong style="color:var(--text);">Withdrawals can never be paused under any circumstance.</strong> Your principal is always accessible, always withdrawable, no matter what.</p>
     </div>
-    <div class="vault-card">
-      <div class="vault-icon">🐕</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-bottom:40px;">
       <div>
-        <div class="vault-name">SHIB · 180-Day Vault</div>
-        <div class="vault-meta">Started Feb 15, 2026 · Matures Aug 14, 2026 · Tier C · 1.50×</div>
-        <div style="font-size:11px;color:var(--text3);margin-top:6px;margin-bottom:3px;">31 days elapsed · 149 remaining</div>
-        <div class="vault-progress-bar"><div class="vault-progress-fill" style="width:17%"></div></div>
+        <div class="card-label">Simulate a Fault Scenario</div>
+        <div class="scenario-list">
+          <div class="scenario-item active-s" data-s="oracle" onclick="selectScenario(this)"><div class="scenario-title">Oracle Price Feed Failure</div><div class="scenario-desc">Chainlink / Pyth feed returns stale or unresponsive data</div></div>
+          <div class="scenario-item" data-s="bridge" onclick="selectScenario(this)"><div class="scenario-title">Axelar Bridge Anomaly</div><div class="scenario-desc">Cross-chain message delay or unexpected ITS minting detected</div></div>
+          <div class="scenario-item" data-s="contract" onclick="selectScenario(this)"><div class="scenario-title">Smart Contract Alert</div><div class="scenario-desc">Reentrancy attempt or unusual deposit pattern flagged</div></div>
+          <div class="scenario-item" data-s="governance" onclick="selectScenario(this)"><div class="scenario-title">Emergency Governance Vote</div><div class="scenario-desc">Council Member tier calls emergency pause — 20% quorum required</div></div>
+        </div>
+        <button class="run-btn" id="run-btn" onclick="runFaultSim()">▶ Run Fault Simulation</button>
       </div>
-      <div style="text-align:right;"><div class="vault-vclm-val">7,875</div><div class="vault-vclm-label">VCLM at maturity</div><div style="font-size:11px;color:var(--text3);margin-top:2px;">$750 committed</div></div>
-      <div style="text-align:right;"><div class="badge badge-active">Active</div><div style="font-size:11px;color:var(--text3);margin-top:6px;">$712.50 return</div></div>
+      <div>
+        <div class="card-label">Simulation Output</div>
+        <div class="fault-output" id="fault-output">
+          <div class="fault-output-empty">Select a scenario and click run</div>
+        </div>
+      </div>
     </div>
-    <div class="vault-card">
-      <div class="vault-icon">🌙</div>
-      <div>
-        <div class="vault-name">LUNC · 90-Day Vault</div>
-        <div class="vault-meta">Started Mar 10, 2026 · Matures Jun 8, 2026 · Tier C · 1.25×</div>
-        <div style="font-size:11px;color:var(--text3);margin-top:6px;margin-bottom:3px;">8 days elapsed · 82 remaining</div>
-        <div class="vault-progress-bar"><div class="vault-progress-fill" style="width:9%"></div></div>
-      </div>
-      <div style="text-align:right;"><div class="vault-vclm-val">875</div><div class="vault-vclm-label">VCLM at maturity</div><div style="font-size:11px;color:var(--text3);margin-top:2px;">$100 committed</div></div>
-      <div style="text-align:right;"><div class="badge badge-active">Active</div><div style="font-size:11px;color:var(--text3);margin-top:6px;">$95 return</div></div>
+    <div class="grid-3" style="border:1px solid var(--line);">
+      <div class="grid-col"><div style="font-size:1.4rem;margin-bottom:12px;">🚫</div><div style="font-size:.9rem;font-weight:600;color:var(--text);margin-bottom:8px;">Deposits Paused</div><div style="font-size:.82rem;color:var(--text2);line-height:1.7;">When a fault is active, no new vault commitments can be created. Disabled at the smart contract level — not just the frontend.</div></div>
+      <div class="grid-col" style="border-color:rgba(0,232,135,.2);"><div style="font-size:1.4rem;margin-bottom:12px;">✅</div><div style="font-size:.9rem;font-weight:600;color:var(--green);margin-bottom:8px;">Withdrawals Always Open</div><div style="font-size:.82rem;color:var(--text2);line-height:1.7;">Exit functions are immutable and always accessible. No governance vote or emergency power can ever block a withdrawal.</div></div>
+      <div class="grid-col"><div style="font-size:1.4rem;margin-bottom:12px;">🗳️</div><div style="font-size:.9rem;font-weight:600;color:var(--text);margin-bottom:8px;">Governance Resolves</div><div style="font-size:.82rem;color:var(--text2);line-height:1.7;">Only a governance vote by qualified $VCLM holders can lift a pause. Every action is on-chain and fully auditable.</div></div>
     </div>
-    <div class="vault-card" style="border-color:rgba(245,158,11,.25);">
-      <div class="vault-icon">⚡</div>
+  </div>
+</div>
+
+<!-- ── VCLM ── -->
+<div class="tab-panel" id="tab-vclm">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;">
       <div>
-        <div class="vault-name">VOLT · Trial Vault</div>
-        <div class="vault-meta">Started Mar 15, 2026 · Trial ends Mar 22, 2026 · Decision required</div>
-        <div style="font-size:11px;color:var(--amber);margin-top:6px;margin-bottom:3px;">3 days elapsed · 4 days to decide</div>
-        <div class="vault-progress-bar"><div class="vault-progress-fill" style="width:43%;background:linear-gradient(90deg,var(--amber),#fcd34d)"></div></div>
+        <div class="section-label">$VCLM Token</div>
+        <h2 class="section-title">The protocol's only token.<br/><em>Earned. Never bought.</em></h2>
+        <div style="display:flex;flex-direction:column;">
+          <div class="prop-item"><div class="prop-icon">🔒</div><div><div class="prop-title">No Presale. No Premine.</div><div class="prop-body">Every VCLM ever minted was earned through commitment. Not the founders. Not the team. Not early investors. 100% community-earned — permanently and immutably.</div></div></div>
+          <div class="prop-item"><div class="prop-icon">🗳️</div><div><div class="prop-title">Governance Rights</div><div class="prop-body">VCLM holders vote on protocol parameters, new vault assets, and treasury deployment. Three tiers — Trustees, Stewards, and Council Members — with increasing authority.</div></div></div>
+          <div class="prop-item"><div class="prop-icon">🌐</div><div><div class="prop-title">Interchain Native</div><div class="prop-body">Built on Axelar ITS from day one. One unified VCLM supply across all chains — not fragmented bridged tokens. Committed assets never leave their native chain.</div></div></div>
+          <div class="prop-item"><div class="prop-icon">📉</div><div><div class="prop-title">Emission Decay</div><div class="prop-body">Emission decreases 20% per year, floored at 10% of original rate. The longer you wait to start, the less you earn when you do.</div></div></div>
+        </div>
       </div>
-      <div style="text-align:right;"><div class="vault-vclm-val" style="color:var(--amber);">~233</div><div class="vault-vclm-label">VCLM if trial only</div><div style="font-size:11px;color:var(--text3);margin-top:2px;">$90 committed</div></div>
-      <div style="text-align:right;">
-        <div class="badge badge-trial">Trial</div>
-        <div style="display:flex;flex-direction:column;gap:4px;margin-top:8px;">
-          <button class="btn-secondary" style="font-size:11px;padding:5px 12px;border-color:var(--green);color:var(--green);">Continue →</button>
-          <button class="btn-secondary" style="font-size:11px;padding:5px 12px;">Exit</button>
+      <div>
+        <div class="card" style="margin-bottom:24px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;"><div style="font-size:.85rem;font-weight:600;color:var(--text);">Emission Rate Over Time</div><div style="font-family:var(--mono);font-size:.65rem;padding:3px 10px;background:var(--accent-dim);border:1px solid rgba(0,212,255,.2);color:var(--accent);border-radius:2px;">10 VCLM / $1 Today</div></div>
+          <div style="font-family:var(--mono);font-size:.65rem;color:var(--text3);margin-bottom:20px;">20% annual decay · floor at 1.0 VCLM per $1</div>
+          <div class="emit-bars" id="emit-bars"></div>
+          <div class="emit-years" id="emit-years"></div>
+        </div>
+        <div class="mult-table">
+          <div class="mult-row"><span class="mult-dur">7 Days (Trial)</span><span class="mult-val">1.00×</span></div>
+          <div class="mult-row"><span class="mult-dur">30 Days</span><span class="mult-val">1.00×</span></div>
+          <div class="mult-row"><span class="mult-dur">90 Days</span><span class="mult-val good">1.25×</span></div>
+          <div class="mult-row"><span class="mult-dur">180 Days</span><span class="mult-val good">1.50×</span></div>
+          <div class="mult-row"><span class="mult-dur">365 Days</span><span class="mult-val good">2.00×</span></div>
+          <div class="mult-row"><span class="mult-dur">730 Days</span><span class="mult-val best">3.00× ★</span></div>
+        </div>
+        <div class="card" style="margin-top:24px;">
+          <div class="card-label">Protocol Treasury Split</div>
+          <div style="display:flex;flex-direction:column;gap:14px;">
+            <div><div style="display:flex;justify-content:space-between;font-size:.82rem;margin-bottom:6px;"><span>Core Reserve</span><span style="font-family:var(--mono);color:var(--accent);">82%</span></div><div class="pool-bar"><div class="pool-fill core"></div></div></div>
+            <div><div style="display:flex;justify-content:space-between;font-size:.82rem;margin-bottom:6px;"><span>Dev Fund</span><span style="font-family:var(--mono);color:var(--green);">12%</span></div><div class="pool-bar"><div class="pool-fill dev"></div></div></div>
+            <div><div style="display:flex;justify-content:space-between;font-size:.82rem;margin-bottom:6px;"><span>Ecosystem Growth</span><span style="font-family:var(--mono);color:var(--purple);">6%</span></div><div class="pool-bar"><div class="pool-fill eco"></div></div></div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- FAULT MECHANISM -->
-<div class="screen" id="screen-fault">
-  <div class="fault-hero">
-    <div class="fault-hero-title">⚠ Fault Mechanism</div>
-    <div class="fault-hero-sub">The Vinculum Protocol includes a guardian fault detection system. When an anomaly is detected — oracle failure, bridge exploit, or contract alert — new deposits can be paused by governance. <strong style="color:var(--text);">Withdrawals can never be paused under any circumstance.</strong> Your principal is always accessible.</div>
-  </div>
-  <div class="fault-grid">
-    <div class="fault-card">
-      <div class="fault-card-title">Select a Fault Scenario</div>
-      <div class="scenario-item active-s" data-s="oracle" onclick="selectScenario(this)"><div class="scenario-title">Oracle Price Feed Failure</div><div class="scenario-desc">Chainlink / Pyth feed returns stale or unresponsive data</div></div>
-      <div class="scenario-item" data-s="bridge" onclick="selectScenario(this)"><div class="scenario-title">Axelar Bridge Anomaly</div><div class="scenario-desc">Cross-chain message delay or unexpected ITS minting detected</div></div>
-      <div class="scenario-item" data-s="contract" onclick="selectScenario(this)"><div class="scenario-title">Smart Contract Alert</div><div class="scenario-desc">Reentrancy attempt or unusual deposit pattern flagged</div></div>
-      <div class="scenario-item" data-s="governance" onclick="selectScenario(this)"><div class="scenario-title">Emergency Governance Vote</div><div class="scenario-desc">Council Member tier calls emergency pause — 20% quorum required</div></div>
-      <button class="run-btn" id="run-btn" onclick="runFaultSim()">▶ Run Fault Simulation</button>
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div><div class="footer-logo">Vinculum Protocol</div><div class="footer-tagline">Proof of behavior, not proof of capital.</div></div>
+      <div class="footer-links">
+        <div class="footer-col"><div class="footer-col-title">Protocol</div><ul><li><a href="index.html#how">How It Works</a></li><li><a href="index.html#vclm">$VCLM Token</a></li><li><a href="index.html#chains">Chains</a></li><li><a href="index.html#roadmap">Roadmap</a></li></ul></div>
+        <div class="footer-col"><div class="footer-col-title">Governance</div><ul><li><a href="guardians.html">Council</a></li><li><a href="calculator.html">Calculator</a></li><li><a href="vision.html">Vision</a></li><li><a href="#">Whitepaper — Soon</a></li></ul></div>
+        <div class="footer-col"><div class="footer-col-title">Community</div><ul><li><a href="https://twitter.com/VinculumDefi" target="_blank">X / Twitter</a></li><li><a href="https://github.com/VinculumDefi" target="_blank">GitHub</a></li></ul></div>
+      </div>
     </div>
-    <div class="fault-card" id="fault-output">
-      <div class="fault-card-title">Simulation Output</div>
-      <div style="color:var(--text2);font-size:13px;padding:30px 0;text-align:center;opacity:.6;">Select a scenario and click Run</div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2026 Vinculum Protocol DAO LLC · Wyoming</div>
+      <div class="footer-legal">$VCLM is a governance token earned through protocol participation. This is not an investment product. No yield is guaranteed. Participation involves smart contract risk.</div>
     </div>
   </div>
-  <div class="grid-3">
-    <div class="card-sm"><div class="flex-center gap-8 mb-8"><div style="font-size:20px;">🚫</div><div style="font-size:13px;font-weight:700;">Deposits Paused</div></div><div style="font-size:12px;color:var(--text2);line-height:1.6;">When a fault is active, no new vault commitments can be created. Disabled at the smart contract level.</div></div>
-    <div class="card-sm" style="border-color:rgba(34,201,122,.25);"><div class="flex-center gap-8 mb-8"><div style="font-size:20px;">✅</div><div style="font-size:13px;font-weight:700;color:var(--green);">Withdrawals Always Open</div></div><div style="font-size:12px;color:var(--text2);line-height:1.6;">Exit functions are <strong style="color:var(--green);">immutable and always accessible.</strong> No governance vote, emergency power, or fault state can ever block a withdrawal.</div></div>
-    <div class="card-sm"><div class="flex-center gap-8 mb-8"><div style="font-size:20px;">🗳️</div><div style="font-size:13px;font-weight:700;">Governance Resolves</div></div><div style="font-size:12px;color:var(--text2);line-height:1.6;">Only a governance vote by qualified $VCLM holders can lift a pause. Every action is on-chain and auditable.</div></div>
-  </div>
+</footer>
+
 </div>
-
-<!-- VCLM -->
-<div class="screen" id="screen-vclm">
-  <div class="section-title">$VCLM Token</div>
-  <div class="section-sub">The protocol's only token. Earned exclusively through commitment. Never sold. Never premined. Not even by the founders.</div>
-  <div class="grid-2">
-    <div style="display:flex;flex-direction:column;gap:16px;">
-      <div class="card">
-        <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:15px;margin-bottom:14px;">Duration Multipliers</div>
-        <div class="mult-row"><span style="font-size:13px;">7 Days (Trial)</span><span style="font-size:13px;font-family:'DM Mono',monospace;color:var(--text2);">1.00×</span></div>
-        <div class="mult-row"><span style="font-size:13px;">30 Days</span><span style="font-size:13px;font-family:'DM Mono',monospace;color:var(--text2);">1.00×</span></div>
-        <div class="mult-row"><span style="font-size:13px;">90 Days</span><span style="font-size:13px;font-family:'DM Mono',monospace;color:var(--green);">1.25×</span></div>
-        <div class="mult-row"><span style="font-size:13px;">180 Days</span><span style="font-size:13px;font-family:'DM Mono',monospace;color:var(--green);">1.50×</span></div>
-        <div class="mult-row"><span style="font-size:13px;">365 Days</span><span style="font-size:13px;font-family:'DM Mono',monospace;color:var(--accent);">2.00×</span></div>
-        <div class="mult-row" style="background:rgba(61,139,255,.07);border:1px solid rgba(61,139,255,.15);"><span style="font-size:13px;font-weight:600;">730 Days ★ Best Rate</span><span style="font-size:14px;font-family:'DM Mono',monospace;color:var(--vclm);font-weight:700;">3.00×</span></div>
-      </div>
-      <div class="card">
-        <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:15px;margin-bottom:14px;">Asset Tier Multipliers</div>
-        <div class="mult-row"><div><span style="font-size:13px;font-weight:600;">Tier A</span><span style="font-size:11px;color:var(--text3);margin-left:8px;">ETH · USDC · USDT · XDC · XRP · XLM</span></div><span style="font-size:13px;font-family:'DM Mono',monospace;color:var(--green);">1.00×</span></div>
-        <div class="mult-row"><div><span style="font-size:13px;font-weight:600;">Tier B</span><span style="font-size:11px;color:var(--text3);margin-left:8px;">VOLT · WKC · TigerOG · LionOG · FrogOG · KEKEC</span></div><span style="font-size:13px;font-family:'DM Mono',monospace;color:var(--amber);">0.85×</span></div>
-        <div class="mult-row"><div><span style="font-size:13px;font-weight:600;">Tier C</span><span style="font-size:11px;color:var(--text3);margin-left:8px;">SHIB · LUNC · community tokens</span></div><span style="font-size:13px;font-family:'DM Mono',monospace;color:var(--text2);">0.70×</span></div>
-      </div>
-    </div>
-    <div style="display:flex;flex-direction:column;gap:16px;">
-      <div class="card">
-        <div class="flex-between mb-8"><div style="font-family:'Syne',sans-serif;font-weight:700;font-size:15px;">Emission Decay</div><div class="pill pill-blue">10 VCLM/$1 Today</div></div>
-        <div style="font-size:12px;color:var(--text2);margin-bottom:16px;">20% annual decay · Floor at 1.0 VCLM per $1. Early commitment earns significantly more.</div>
-        <div style="display:flex;gap:6px;align-items:flex-end;height:110px;" id="emit-bars"></div>
-        <div style="display:flex;gap:6px;margin-top:5px;" id="emit-labels"></div>
-      </div>
-      <div class="card">
-        <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:15px;margin-bottom:14px;">Protocol Treasury Split</div>
-        <div style="font-size:12px;color:var(--text2);margin-bottom:14px;">Every 5% entry fee splits atomically on every deposit.</div>
-        <div style="margin-bottom:10px;"><div class="flex-between mb-8" style="font-size:12px;"><span>Core Reserve</span><span style="color:var(--accent);font-weight:700;">82%</span></div><div style="height:8px;background:var(--border);border-radius:4px;"><div style="width:82%;height:100%;background:var(--accent);border-radius:4px;"></div></div></div>
-        <div style="margin-bottom:10px;"><div class="flex-between mb-8" style="font-size:12px;"><span>Dev Fund</span><span style="color:var(--green);font-weight:700;">12%</span></div><div style="height:8px;background:var(--border);border-radius:4px;"><div style="width:12%;height:100%;background:var(--green);border-radius:4px;"></div></div></div>
-        <div><div class="flex-between mb-8" style="font-size:12px;"><span>Ecosystem Growth</span><span style="color:var(--vclm);font-weight:700;">6%</span></div><div style="height:8px;background:var(--border);border-radius:4px;"><div style="width:6%;height:100%;background:var(--vclm);border-radius:4px;"></div></div></div>
-        <div style="font-size:11px;color:var(--text3);margin-top:12px;">No individual receives treasury funds. Deployment decided by governance vote.</div>
-      </div>
-      <div class="card-sm" style="border-color:rgba(110,231,247,.2);">
-        <div class="flex-center gap-8 mb-8"><div style="font-size:18px;">🔒</div><div style="font-size:13px;font-weight:700;color:var(--vclm);">No Presale · No Premine · No Airdrop</div></div>
-        <div style="font-size:12px;color:var(--text2);line-height:1.65;">Every $VCLM ever minted was earned through commitment. Not the founders. Not early investors. Not the team. The supply is 100% community-earned.</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-</div><!-- /main -->
-
 <script>
-// State
-let selAsset = {asset:'ETH',tier:'A',mult:1.00};
-let selDur = {days:7,mult:1.00};
-let curScenario = 'oracle';
-let simRunning = false;
-
 // Nav
-function showScreen(id, tab) {
-  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
-  document.querySelectorAll('.nav-tab').forEach(t=>t.classList.remove('active'));
-  document.getElementById('screen-'+id).classList.add('active');
-  tab.classList.add('active');
+window.addEventListener('scroll',()=>{document.getElementById('main-nav').classList.toggle('scrolled',window.scrollY>20);});
+function toggleMobileNav(){document.getElementById('mobile-menu').classList.toggle('open');}
+function closeMobileNav(){document.getElementById('mobile-menu').classList.remove('open');}
+
+// Reveal
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});},{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+// Ticker
+const tickerItems=['Commitment Vaults','No Presale','No Premine','No Airdrop','Proof of Behavior','Built on Base','Axelar ITS','VCLM Earned Only','21 Council Seats','82/12/6 Treasury','Wyoming DAO LLC'];
+const ticker=document.getElementById('ticker');
+[...tickerItems,...tickerItems].forEach(t=>{const el=document.createElement('div');el.className='ticker-item';el.innerHTML=`<span>◆</span>${t}`;ticker.appendChild(el);});
+
+// Tabs
+function showTab(id,btn){
+  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('tab-'+id).classList.add('active');
+  btn.classList.add('active');
 }
 
-// Wallet
-function toggleWallet() {
-  const btn = document.getElementById('wallet-btn');
-  if(btn.textContent==='Connect Wallet'){
-    btn.textContent='0x3F…a9B4';
-    btn.style.cssText='background:rgba(34,201,122,.12);border:1px solid rgba(34,201,122,.3);color:#22c97a;padding:8px 18px;border-radius:8px;font-weight:600;font-size:14px;cursor:pointer;';
-  } else {
-    btn.textContent='Connect Wallet';
-    btn.style.cssText='';
-  }
-}
+// State
+let selAsset={asset:'ETH',tier:'A',mult:1.00};
+let selDur={days:7,mult:1.00};
 
-// Asset
-function selectAsset(el) {
+function selectAsset(el){
   document.querySelectorAll('.asset-btn').forEach(b=>b.classList.remove('selected'));
   el.classList.add('selected');
   selAsset={asset:el.dataset.asset,tier:el.dataset.tier,mult:parseFloat(el.dataset.mult)};
-  document.getElementById('asset-label').textContent=el.dataset.asset;
+  document.getElementById('asset-ticker').textContent=el.dataset.asset;
   updateEstimate();
 }
-
-// Duration
-function selectDuration(el) {
+function selectDur(el){
   document.querySelectorAll('.dur-btn').forEach(b=>b.classList.remove('selected'));
   el.classList.add('selected');
   selDur={days:parseInt(el.dataset.days),mult:parseFloat(el.dataset.mult)};
-  const pill=document.getElementById('trial-pill');
-  const note=document.getElementById('trial-note-box');
-  if(selDur.days===7){pill.style.display='';note.style.display='';}
-  else{pill.style.display='none';note.style.display='none';}
+  document.getElementById('trial-note-card').style.display=selDur.days===7?'':'none';
   updateEstimate();
 }
-
-// Estimate
 function updateEstimate(){
   const amt=parseFloat(document.getElementById('amount-input').value)||0;
-  const fee=amt*0.05, ret=amt*0.95;
-  const vclm=Math.round(amt*10*selAsset.mult*selDur.mult);
   document.getElementById('est-committed').textContent='$'+amt.toFixed(2);
-  document.getElementById('est-fee').textContent='−$'+fee.toFixed(2);
-  document.getElementById('est-return').textContent='$'+ret.toFixed(2);
+  document.getElementById('est-fee').textContent='−$'+(amt*.05).toFixed(2);
+  document.getElementById('est-return').textContent='$'+(amt*.95).toFixed(2);
   document.getElementById('est-tier').textContent=selAsset.mult+'× (Tier '+selAsset.tier+')';
   document.getElementById('est-dur').textContent=selDur.mult+'× ('+selDur.days+' days)';
-  document.getElementById('est-vclm').textContent=vclm.toLocaleString();
+  document.getElementById('est-vclm').textContent=Math.round(amt*10*selAsset.mult*selDur.mult).toLocaleString();
 }
-
-// Commit
 function simulateCommit(){
   const btn=document.getElementById('commit-btn');
   btn.textContent='⟳ Processing…';btn.disabled=true;
-  setTimeout(()=>{
-    btn.textContent='✓ Vault Created!';btn.style.background='linear-gradient(135deg,#1a9b5e,#22c97a)';
-    setTimeout(()=>{btn.textContent='Commit Assets → Earn $VCLM';btn.style.background='';btn.disabled=false;},2500);
-  },1400);
+  setTimeout(()=>{btn.textContent='✓ Vault Created!';btn.style.background='var(--green)';btn.style.color='#000';
+  setTimeout(()=>{btn.textContent='Commit Assets → Earn $VCLM';btn.style.background='';btn.style.color='';btn.disabled=false;},2500);},1400);
 }
 
 // Emission chart
-function buildEmitChart(){
-  const barsEl=document.getElementById('emit-bars');
-  const labelsEl=document.getElementById('emit-labels');
-  if(!barsEl)return;
-  const years=[0,1,2,3,4,5,6,7,8,9];
-  const rates=years.map(y=>Math.max(10*Math.pow(0.8,y),1));
-  barsEl.innerHTML='';labelsEl.innerHTML='';
-  years.forEach((y,i)=>{
-    const pct=(rates[i]/10)*100;
-    const clr=i===0?'var(--vclm)':i<3?'var(--accent)':i<6?'var(--text2)':'var(--text3)';
-    const bar=document.createElement('div');
-    bar.style.cssText=`flex:1;background:${clr};border-radius:4px 4px 0 0;height:${pct}%;opacity:${i===0?1:.75};transition:height .3s;`;
-    bar.title=`Year ${y}: ${rates[i].toFixed(1)} VCLM/$1`;
-    barsEl.appendChild(bar);
-    const lbl=document.createElement('div');
-    lbl.style.cssText='flex:1;text-align:center;font-size:9px;color:var(--text3);';
-    lbl.textContent='Y'+y;
-    labelsEl.appendChild(lbl);
-  });
+const barsEl=document.getElementById('emit-bars');
+const yearsEl=document.getElementById('emit-years');
+for(let i=0;i<10;i++){
+  const rate=Math.max(10*Math.pow(0.8,i),1);
+  const pct=(rate/10)*100;
+  const b=document.createElement('div');b.className='emit-bar';
+  b.style.cssText=`height:${pct}%;background:${i<4?'var(--accent)':'var(--line2)'};opacity:${Math.max(1-i*.09,.3)};`;
+  barsEl.appendChild(b);
+  const y=document.createElement('div');y.className='emit-year';y.textContent='Y'+i;yearsEl.appendChild(y);
 }
 
 // Fault scenarios
-const SCENARIOS = {
-  oracle:{
-    events:[
-      {cls:'fd-detected',icon:'⚡',label:'Anomaly Detected',detail:'AssetRegistry detects Chainlink feed returning stale data (>30 min). Auto-revoke triggered for affected asset.'},
-      {cls:'fd-paused',icon:'🔒',label:'Deposit Pause Initiated',detail:'Council Member submits emergency proposal. 20% quorum required. Pause takes effect within 1 block.'},
-      {cls:'fd-safe',icon:'✅',label:'Withdrawals Confirmed Open',detail:'Exit functions verified callable by all vault holders. No user principal at risk.'},
-      {cls:'fd-resolved',icon:'🗳️',label:'Governance Resolution',detail:'Oracle replaced via governance vote. New feed verified by 3-oracle median. Deposit pause lifted.'}
-    ],
-    outcome:{cls:'fo-safe',title:'✅ Deposits Paused · Withdrawals Open · No User Funds At Risk',titleColor:'var(--green)',detail:'The fault detection system correctly isolated the bad oracle. Existing vault holders experienced zero disruption. Deposits resumed after governance approved the replacement feed.'}
-  },
-  bridge:{
-    events:[
-      {cls:'fd-detected',icon:'⚡',label:'ITS Minting Anomaly Flagged',detail:'Monitoring detects unexpected VCLM minting not matching a vault deposit on the Base spoke.'},
-      {cls:'fd-paused',icon:'🔒',label:'Emergency Pause Activated',detail:'Cross-chain deposit acceptance paused on all non-Base spokes. Base deposits remain open.'},
-      {cls:'fd-safe',icon:'✅',label:'Withdrawal Integrity Confirmed',detail:'VaultManager confirms all commitments verifiable on-chain. Principal balances intact. Exit flow confirmed.'},
-      {cls:'fd-resolved',icon:'🗳️',label:'Axelar Investigation Complete',detail:'Root cause: message duplication. Axelar confirms fix. Governance votes to restore cross-chain deposits.'}
-    ],
-    outcome:{cls:'fo-safe',title:'✅ Cross-Chain Paused · Base Open · Principal Safe',titleColor:'var(--green)',detail:'The selective pause allowed Base deposits to continue while the bridge issue was investigated. No user funds were lost or at risk at any point.'}
-  },
-  contract:{
-    events:[
-      {cls:'fd-detected',icon:'🚨',label:'Reentrancy Attempt Detected',detail:'OpenZeppelin ReentrancyGuard blocks an attempted reentrancy on the VaultManager withdraw function.'},
-      {cls:'fd-safe',icon:'✅',label:'Attack Blocked at Contract Level',detail:'Guard prevents execution. No state changed. No funds moved. Transaction reverts cleanly.'},
-      {cls:'fd-paused',icon:'🔒',label:'Precautionary Deposit Pause',detail:'Council Member proposes 24-hour pause while security team reviews the attack vector.'},
-      {cls:'fd-resolved',icon:'🗳️',label:'All Clear — Pause Lifted',detail:'Security review confirms contract behavior correct. ReentrancyGuard functioned as designed. Deposits resume.'}
-    ],
-    outcome:{cls:'fo-safe',title:'✅ Attack Blocked · No Funds Lost · Pause Lifted After Review',titleColor:'var(--green)',detail:"The protocol's built-in reentrancy protection handled the attack automatically. The precautionary pause allowed a thorough review before resuming normal operations."}
-  },
-  governance:{
-    events:[
-      {cls:'fd-detected',icon:'🗳️',label:'Emergency Proposal Submitted',detail:'A Council Member (30,000 VCLM staked) submits an emergency pause citing suspicious deposit volume spike.'},
-      {cls:'fd-paused',icon:'🔒',label:'20% Quorum Reached',detail:'Constitutional-tier proposal reaches 20% of total $VCLM supply. Pause activates on-chain automatically.'},
-      {cls:'fd-safe',icon:'✅',label:'Users Notified',detail:'On-chain event emitted. Frontend displays fault state. All vault holders can exit at any time.'},
-      {cls:'fd-resolved',icon:'🗳️',label:'Investigation Complete',detail:'Volume spike traced to legitimate whale commitment. Governance votes to lift pause. Deposits resume within 6 hours.'}
-    ],
-    outcome:{cls:'fo-warning',title:'⚠ Pause Was Precautionary · No Exploit Found · Rapid Resolution',titleColor:'var(--amber)',detail:'The governance fault mechanism worked as designed — giving the community the ability to pause and investigate without endangering user funds. Resolved in under 6 hours.'}
-  }
+const SCENARIOS={
+  oracle:{events:[
+    {cls:'fd-detected',icon:'⚡',label:'Anomaly Detected',detail:'AssetRegistry detects Chainlink feed returning stale data (>30 min). Auto-revoke triggered for affected asset.'},
+    {cls:'fd-paused',icon:'🔒',label:'Deposit Pause Initiated',detail:'Council Member submits emergency proposal. 20% quorum required. Pause takes effect within 1 block.'},
+    {cls:'fd-safe',icon:'✅',label:'Withdrawals Confirmed Open',detail:'Exit functions verified callable by all vault holders. No user principal at risk.'},
+    {cls:'fd-resolved',icon:'🗳️',label:'Governance Resolution',detail:'Oracle replaced via governance vote. New feed verified by 3-oracle median. Deposit pause lifted.'}
+  ],outcome:{cls:'fo-safe',title:'✅ Deposits Paused · Withdrawals Open · No User Funds At Risk',titleColor:'var(--green)',detail:'The fault detection system isolated the bad oracle. Existing vault holders experienced zero disruption. Deposits resumed after governance approved the replacement feed.'}},
+  bridge:{events:[
+    {cls:'fd-detected',icon:'⚡',label:'ITS Minting Anomaly Flagged',detail:'Monitoring detects unexpected VCLM minting not matching a vault deposit on the Base spoke.'},
+    {cls:'fd-paused',icon:'🔒',label:'Emergency Pause Activated',detail:'Cross-chain deposit acceptance paused on all non-Base spokes. Base deposits remain open.'},
+    {cls:'fd-safe',icon:'✅',label:'Withdrawal Integrity Confirmed',detail:'VaultManager confirms all commitments verifiable on-chain. Principal balances intact.'},
+    {cls:'fd-resolved',icon:'🗳️',label:'Investigation Complete',detail:'Root cause: message duplication. Axelar confirms fix. Governance votes to restore cross-chain deposits.'}
+  ],outcome:{cls:'fo-safe',title:'✅ Cross-Chain Paused · Base Open · Principal Safe',titleColor:'var(--green)',detail:'The selective pause allowed Base deposits to continue while the bridge issue was investigated. No user funds were lost at any point.'}},
+  contract:{events:[
+    {cls:'fd-detected',icon:'🚨',label:'Reentrancy Attempt Detected',detail:'OpenZeppelin ReentrancyGuard blocks an attempted reentrancy on the VaultManager withdraw function.'},
+    {cls:'fd-safe',icon:'✅',label:'Attack Blocked at Contract Level',detail:'Guard prevents execution. No state changed. No funds moved. Transaction reverts cleanly.'},
+    {cls:'fd-paused',icon:'🔒',label:'Precautionary Deposit Pause',detail:'Council Member proposes 24-hour pause while security team reviews the attack vector.'},
+    {cls:'fd-resolved',icon:'🗳️',label:'All Clear — Pause Lifted',detail:'Security review confirms contract behavior correct. ReentrancyGuard functioned as designed.'}
+  ],outcome:{cls:'fo-safe',title:'✅ Attack Blocked · No Funds Lost · Pause Lifted After Review',titleColor:'var(--green)',detail:"The protocol's built-in reentrancy protection handled the attack automatically. Precautionary pause allowed thorough review before resuming."}},
+  governance:{events:[
+    {cls:'fd-detected',icon:'🗳️',label:'Emergency Proposal Submitted',detail:'A Council Member (30,000 VCLM staked) submits an emergency pause citing suspicious deposit volume spike.'},
+    {cls:'fd-paused',icon:'🔒',label:'20% Quorum Reached',detail:'Constitutional-tier proposal reaches 20% of total $VCLM supply. Pause activates on-chain automatically.'},
+    {cls:'fd-safe',icon:'✅',label:'Users Notified',detail:'On-chain event emitted. Frontend displays fault state. All vault holders can exit at any time.'},
+    {cls:'fd-resolved',icon:'🗳️',label:'Investigation Complete',detail:'Volume spike traced to legitimate whale commitment. Governance votes to lift pause. Deposits resume within 6 hours.'}
+  ],outcome:{cls:'fo-warning',title:'⚠ Pause Was Precautionary · No Exploit Found · Rapid Resolution',titleColor:'var(--amber)',detail:'The governance fault mechanism worked as designed — giving the community the ability to pause and investigate without endangering user funds.'}}
 };
 
+let curScenario='oracle';
 function selectScenario(el){
   document.querySelectorAll('.scenario-item').forEach(i=>i.classList.remove('active-s'));
-  el.classList.add('active-s');
-  curScenario=el.dataset.s;
-  document.getElementById('fault-output').innerHTML='<div class="fault-card-title">Simulation Output</div><div style="color:var(--text2);font-size:13px;padding:30px 0;text-align:center;opacity:.6;">Click ▶ Run Fault Simulation</div>';
-  const btn=document.getElementById('run-btn');
-  btn.disabled=false;btn.textContent='▶ Run Fault Simulation';
+  el.classList.add('active-s');curScenario=el.dataset.s;
+  document.getElementById('fault-output').innerHTML='<div class="fault-output-empty">Click ▶ Run Fault Simulation</div>';
+  const btn=document.getElementById('run-btn');btn.disabled=false;btn.textContent='▶ Run Fault Simulation';
 }
-
 function runFaultSim(){
-  if(simRunning)return;
-  simRunning=true;
-  const btn=document.getElementById('run-btn');
-  btn.disabled=true;btn.textContent='⟳ Simulating…';
+  const btn=document.getElementById('run-btn');btn.disabled=true;btn.textContent='⟳ Simulating…';
   const s=SCENARIOS[curScenario];
-  const out=document.getElementById('fault-output');
   setTimeout(()=>{
-    const evHTML=s.events.map(e=>`
-      <div class="fault-event">
-        <div class="fault-dot ${e.cls}">${e.icon}</div>
-        <div><div class="fault-event-label">${e.label}</div><div class="fault-event-detail">${e.detail}</div></div>
-      </div>`).join('');
-    out.innerHTML=`
-      <div class="flex-between mb-8">
-        <div class="fault-card-title">Simulation Output</div>
-        <div class="flex-center gap-8"><div class="red-dot"></div><span style="font-size:11px;color:var(--text2);">LIVE SIM</span></div>
+    const evHTML=s.events.map(e=>`<div class="fault-event"><div class="fault-dot ${e.cls}">${e.icon}</div><div><div class="fault-event-label">${e.label}</div><div class="fault-event-detail">${e.detail}</div></div></div>`).join('');
+    document.getElementById('fault-output').innerHTML=`
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:16px;font-family:var(--mono);font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);">
+        <div class="live-dot"></div>Live Simulation
       </div>
-      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:12px;padding:18px;">
-        ${evHTML}
-        <div class="fault-outcome ${s.outcome.cls}">
-          <div class="outcome-title" style="color:${s.outcome.titleColor};">${s.outcome.title}</div>
-          <div class="outcome-detail">${s.outcome.detail}</div>
-        </div>
+      ${evHTML}
+      <div class="fault-outcome ${s.outcome.cls}">
+        <div class="outcome-title" style="color:${s.outcome.titleColor};">${s.outcome.title}</div>
+        <div class="outcome-detail">${s.outcome.detail}</div>
       </div>`;
-    btn.textContent='↺ Run Again';btn.disabled=false;simRunning=false;
+    btn.textContent='↺ Run Again';btn.disabled=false;
   },1300);
 }
-
-buildEmitChart();
-updateEstimate();
 </script>
 </body>
 </html>
