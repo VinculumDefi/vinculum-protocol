@@ -8,259 +8,71 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=DM+Sans:wght@200;300;400&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --white: #fafaf8;
-    --off-white: #f4f3ef;
-    --black: #0a0a0a;
-    --mid: #6b6b65;
-    --blue-glow: #00d4ff;
-  }
+  :root { --white: #fafaf8; --off-white: #f4f3ef; --black: #0a0a0a; --mid: #6b6b65; --blue-glow: #00d4ff; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
-  body {
-    background: var(--white);
-    color: var(--black);
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 300;
-    overflow-x: hidden;
-    cursor: none;
-  }
-
-  /* ── CURSOR ── */
-  .cursor {
-    width: 8px; height: 8px;
-    background: var(--black);
-    border-radius: 50%;
-    position: fixed; top: 0; left: 0;
-    pointer-events: none; z-index: 9999;
-    transition: transform 0.15s ease, width 0.3s ease, height 0.3s ease, background 0.3s ease;
-    transform: translate(-50%, -50%);
-  }
+  body { background: var(--white); color: var(--black); font-family: 'DM Sans', sans-serif; font-weight: 300; overflow-x: hidden; cursor: none; }
+  .cursor { width: 8px; height: 8px; background: var(--black); border-radius: 50%; position: fixed; top: 0; left: 0; pointer-events: none; z-index: 9999; transition: transform 0.15s ease, width 0.3s ease, height 0.3s ease, background 0.3s ease; transform: translate(-50%, -50%); }
   .cursor.hovering { width: 40px; height: 40px; background: transparent; border: 1px solid var(--black); }
   .cursor.light { background: white; }
   .cursor.light.hovering { border-color: white; background: transparent; }
-
-  /* ── NAV ── */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0;
-    z-index: 100;
-    display: flex; justify-content: space-between; align-items: center;
-    padding: 2rem 3rem;
-    mix-blend-mode: difference;
-  }
-  .nav-logo {
-    font-family: 'Cormorant Garamond', serif; font-weight: 300;
-    font-size: 1.1rem; letter-spacing: 0.15em;
-    color: var(--white); text-decoration: none; text-transform: uppercase;
-  }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 2rem 3rem; mix-blend-mode: difference; }
+  .nav-logo { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: 1.1rem; letter-spacing: 0.15em; color: var(--white); text-decoration: none; text-transform: uppercase; }
   .nav-links { display: flex; gap: 3rem; list-style: none; }
-  .nav-links a {
-    font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase;
-    color: var(--white); text-decoration: none; opacity: 0.8; transition: opacity 0.3s;
-  }
+  .nav-links a { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--white); text-decoration: none; opacity: 0.8; transition: opacity 0.3s; }
   .nav-links a:hover { opacity: 1; }
-
-  /* ── HERO ── */
-  .hero {
-    position: relative; height: 100vh; width: 100%;
-    overflow: hidden; background: var(--black);
-  }
-  .hero-bg {
-    position: absolute; inset: 0;
-    background: linear-gradient(135deg, #060a10 0%, #0d1b2a 40%, #1a1a2e 70%, #060a10 100%);
-  }
-  .orb {
-    position: absolute; border-radius: 50%;
-    filter: blur(80px); opacity: 0.15;
-    animation: orbFloat 12s ease-in-out infinite;
-  }
+  .hero { position: relative; height: 100vh; width: 100%; overflow: hidden; background: var(--black); }
+  .hero-bg { position: absolute; inset: 0; background: linear-gradient(135deg, #060a10 0%, #0d1b2a 40%, #1a1a2e 70%, #060a10 100%); }
+  .orb { position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.15; animation: orbFloat 12s ease-in-out infinite; }
   .orb-1 { width: 600px; height: 600px; background: #00d4ff; top: -100px; left: -100px; animation-delay: 0s; }
   .orb-2 { width: 400px; height: 400px; background: #0066ff; bottom: -50px; right: 10%; animation-delay: -4s; }
   .orb-3 { width: 300px; height: 300px; background: #00e887; top: 40%; left: 50%; animation-delay: -8s; }
-  @keyframes orbFloat {
-    0%,100% { transform: translate(0,0) scale(1); }
-    33% { transform: translate(30px,-40px) scale(1.05); }
-    66% { transform: translate(-20px,20px) scale(0.95); }
-  }
-  .hero-grid {
-    position: absolute; inset: 0;
-    background-image:
-      linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-    background-size: 80px 80px;
-    animation: gridDrift 20s linear infinite;
-  }
+  @keyframes orbFloat { 0%,100% { transform: translate(0,0) scale(1); } 33% { transform: translate(30px,-40px) scale(1.05); } 66% { transform: translate(-20px,20px) scale(0.95); } }
+  .hero-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px); background-size: 80px 80px; animation: gridDrift 20s linear infinite; }
   @keyframes gridDrift { 0% { transform: translateY(0); } 100% { transform: translateY(80px); } }
-
-  /* Hero content */
-  .hero-content {
-    position: relative; z-index: 10; height: 100%;
-    display: flex; flex-direction: column; justify-content: flex-end;
-    padding: 0 3rem 4rem;
-  }
-  .hero-eyebrow {
-    font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
-    color: rgba(255,255,255,0.4); margin-bottom: 1rem;
-    animation: fadeUp 1.2s ease forwards; animation-delay: 0.3s; opacity: 0;
-  }
-  .hero-title {
-    font-family: 'Cormorant Garamond', serif; font-weight: 300;
-    font-size: clamp(3.5rem, 8vw, 7rem); line-height: 1.0;
-    color: var(--white); margin-bottom: 1.5rem;
-    animation: fadeUp 1.2s ease forwards; animation-delay: 0.5s; opacity: 0;
-  }
+  .hero-content { position: relative; z-index: 10; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; padding: 0 3rem 4rem; }
+  .hero-eyebrow { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 1rem; animation: fadeUp 1.2s ease forwards; animation-delay: 0.3s; opacity: 0; }
+  .hero-title { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(3.5rem, 8vw, 7rem); line-height: 1.0; color: var(--white); margin-bottom: 1.5rem; animation: fadeUp 1.2s ease forwards; animation-delay: 0.5s; opacity: 0; }
   .hero-title em { font-style: italic; opacity: 0.5; }
-  .hero-sub {
-    font-size: 0.75rem; letter-spacing: 0.1em; color: rgba(255,255,255,0.35);
-    text-transform: uppercase; margin-bottom: 2rem;
-    animation: fadeUp 1.2s ease forwards; animation-delay: 0.8s; opacity: 0;
-  }
-
-  /* ── HERO DEFINITION OVERLAY ── */
-  .hero-definition {
-    position: absolute; bottom: 4rem; right: 3rem;
-    max-width: 320px; z-index: 10;
-    animation: fadeUp 1.4s ease forwards; animation-delay: 1s; opacity: 0;
-  }
-  .def-word {
-    font-family: 'Cormorant Garamond', serif; font-style: italic;
-    font-size: 1.1rem; color: rgba(255,255,255,0.9);
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-    padding-bottom: 0.5rem; margin-bottom: 0.75rem;
-    display: flex; align-items: baseline; gap: 0.5rem;
-  }
-  .def-pos {
-    font-size: 0.55rem; letter-spacing: 0.1em; text-transform: uppercase;
-    color: rgba(255,255,255,0.3); font-style: normal; font-family: 'DM Sans', sans-serif;
-  }
-  .def-text {
-    font-size: 0.72rem; line-height: 1.7; color: rgba(255,255,255,0.35);
-    font-style: normal; font-family: 'DM Sans', sans-serif;
-  }
+  .hero-sub { font-size: 0.75rem; letter-spacing: 0.1em; color: rgba(255,255,255,0.35); text-transform: uppercase; margin-bottom: 2rem; animation: fadeUp 1.2s ease forwards; animation-delay: 0.8s; opacity: 0; }
+  .hero-definition { position: absolute; bottom: 4rem; right: 3rem; max-width: 320px; z-index: 10; animation: fadeUp 1.4s ease forwards; animation-delay: 1s; opacity: 0; }
+  .def-word { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.1rem; color: rgba(255,255,255,0.9); border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.5rem; margin-bottom: 0.75rem; display: flex; align-items: baseline; gap: 0.5rem; }
+  .def-pos { font-size: 0.55rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.3); font-style: normal; font-family: 'DM Sans', sans-serif; }
+  .def-text { font-size: 0.72rem; line-height: 1.7; color: rgba(255,255,255,0.35); font-style: normal; font-family: 'DM Sans', sans-serif; }
   .def-text em { font-style: italic; color: rgba(255,255,255,0.5); }
-
-  /* ── LIVE STATS OVERLAY ON HERO ── */
-  .hero-stats {
-    position: absolute; top: 50%; left: 3rem;
-    transform: translateY(-50%);
-    z-index: 10; display: flex; flex-direction: column; gap: 2rem;
-    animation: fadeUp 1.4s ease forwards; animation-delay: 1.2s; opacity: 0;
-  }
-  .live-stat {
-    display: flex; flex-direction: column; gap: 0.3rem;
-  }
-  .live-stat-label {
-    font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase;
-    color: rgba(255,255,255,0.25);
-  }
-  .live-stat-value {
-    font-family: 'Cormorant Garamond', serif; font-weight: 300;
-    font-size: 1.8rem; color: rgba(255,255,255,0.8); line-height: 1;
-  }
-  .live-indicator {
-    display: flex; align-items: center; gap: 0.4rem;
-    font-size: 0.55rem; letter-spacing: 0.1em; text-transform: uppercase;
-    color: rgba(0,212,255,0.6); margin-top: 0.2rem;
-  }
-  .live-dot {
-    width: 5px; height: 5px; background: #00d4ff; border-radius: 50%;
-    animation: livePulse 2s ease-in-out infinite;
-  }
+  .hero-stats { position: absolute; top: 50%; left: 3rem; transform: translateY(-50%); z-index: 10; display: flex; flex-direction: column; gap: 2rem; animation: fadeUp 1.4s ease forwards; animation-delay: 1.2s; opacity: 0; }
+  .live-stat { display: flex; flex-direction: column; gap: 0.3rem; }
+  .live-stat-label { font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.25); }
+  .live-stat-value { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: 1.8rem; color: rgba(255,255,255,0.8); line-height: 1; }
+  .live-indicator { display: flex; align-items: center; gap: 0.4rem; font-size: 0.55rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(0,212,255,0.6); margin-top: 0.2rem; }
+  .live-dot { width: 5px; height: 5px; background: #00d4ff; border-radius: 50%; animation: livePulse 2s ease-in-out infinite; }
   @keyframes livePulse { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.4; transform: scale(0.7); } }
-
-  /* Mini sparkline canvas on hero */
-  .hero-chart-wrap {
-    position: absolute; bottom: 0; left: 0; right: 0;
-    height: 120px; z-index: 5; pointer-events: none;
-  }
+  .hero-chart-wrap { position: absolute; bottom: 0; left: 0; right: 0; height: 120px; z-index: 5; pointer-events: none; }
   #heroSparkline { width: 100%; height: 100%; }
-
-  .hero-scroll {
-    position: absolute; bottom: 3rem; left: 50%; transform: translateX(-50%);
-    display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
-    color: rgba(255,255,255,0.2); font-size: 0.6rem; letter-spacing: 0.15em;
-    text-transform: uppercase;
-    animation: fadeUp 1.2s ease forwards; animation-delay: 1.5s; opacity: 0;
-    z-index: 10;
-  }
-  .scroll-line {
-    width: 1px; height: 50px; background: rgba(255,255,255,0.15);
-    position: relative; overflow: hidden;
-  }
-  .scroll-line::after {
-    content: ''; position: absolute; top: -100%; left: 0;
-    width: 100%; height: 100%; background: rgba(255,255,255,0.5);
-    animation: scrollDrop 2s ease infinite;
-  }
+  .hero-scroll { position: absolute; bottom: 3rem; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 0.5rem; color: rgba(255,255,255,0.2); font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; animation: fadeUp 1.2s ease forwards; animation-delay: 1.5s; opacity: 0; z-index: 10; }
+  .scroll-line { width: 1px; height: 50px; background: rgba(255,255,255,0.15); position: relative; overflow: hidden; }
+  .scroll-line::after { content: ''; position: absolute; top: -100%; left: 0; width: 100%; height: 100%; background: rgba(255,255,255,0.5); animation: scrollDrop 2s ease infinite; }
   @keyframes scrollDrop { 0% { top: -100%; } 100% { top: 100%; } }
   @keyframes fadeUp { 0% { opacity: 0; transform: translateY(30px); } 100% { opacity: 1; transform: translateY(0); } }
-
-  /* ── ETYMOLOGY SECTION (Page 2) ── */
-  .etymology {
-    padding: 8rem 3rem;
-    background: var(--off-white);
-    position: relative; overflow: hidden;
-  }
-  .etymology-inner {
-    max-width: 1400px; margin: 0 auto;
-    display: grid; grid-template-columns: 1fr 2fr; gap: 8rem; align-items: start;
-  }
+  .etymology { padding: 8rem 3rem; background: var(--off-white); position: relative; overflow: hidden; }
+  .etymology-inner { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 1fr 2fr; gap: 8rem; align-items: start; }
   .etymology-left { position: sticky; top: 8rem; }
-  .etym-label {
-    font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase;
-    color: var(--mid); margin-bottom: 1.5rem;
-  }
-  .etym-word {
-    font-family: 'Cormorant Garamond', serif; font-weight: 300; font-style: italic;
-    font-size: clamp(3rem, 5vw, 4.5rem); color: var(--black); line-height: 1;
-    margin-bottom: 0.5rem;
-  }
-  .etym-origin {
-    font-size: 0.65rem; letter-spacing: 0.1em; color: var(--mid);
-  }
+  .etym-label { font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--mid); margin-bottom: 1.5rem; }
+  .etym-word { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-style: italic; font-size: clamp(3rem, 5vw, 4.5rem); color: var(--black); line-height: 1; margin-bottom: 0.5rem; }
+  .etym-origin { font-size: 0.65rem; letter-spacing: 0.1em; color: var(--mid); }
   .etymology-right { display: flex; flex-direction: column; gap: 4rem; }
   .etym-block { border-top: 1px solid rgba(0,0,0,0.06); padding-top: 2.5rem; }
-  .etym-block-label {
-    font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase;
-    color: var(--mid); margin-bottom: 1.2rem;
-  }
-  .etym-block-text {
-    font-family: 'Cormorant Garamond', serif; font-weight: 300;
-    font-size: clamp(1.2rem, 1.8vw, 1.5rem); line-height: 1.7; color: var(--black);
-  }
+  .etym-block-label { font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--mid); margin-bottom: 1.2rem; }
+  .etym-block-text { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(1.2rem, 1.8vw, 1.5rem); line-height: 1.7; color: var(--black); }
   .etym-block-text em { font-style: italic; color: var(--mid); }
-
-  /* Charts section within etymology */
-  .charts-strip {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;
-    margin-top: 2rem;
-  }
-  .chart-card {
-    background: white; padding: 2rem;
-    border: 1px solid rgba(0,0,0,0.06);
-  }
-  .chart-card-label {
-    font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase;
-    color: var(--mid); margin-bottom: 0.5rem;
-  }
-  .chart-card-value {
-    font-family: 'Cormorant Garamond', serif; font-weight: 300;
-    font-size: 1.6rem; color: var(--black); margin-bottom: 1.5rem;
-    line-height: 1;
-  }
+  .charts-strip { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 2rem; }
+  .chart-card { background: white; padding: 2rem; border: 1px solid rgba(0,0,0,0.06); }
+  .chart-card-label { font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--mid); margin-bottom: 0.5rem; }
+  .chart-card-value { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: 1.6rem; color: var(--black); margin-bottom: 1.5rem; line-height: 1; }
   .chart-canvas-wrap { position: relative; height: 100px; }
   .chart-canvas-wrap canvas { width: 100% !important; height: 100% !important; }
-  .chart-prelaunch-badge {
-    position: absolute; bottom: 6px; right: 0;
-    font-size: 0.55rem; letter-spacing: 0.15em; text-transform: uppercase;
-    color: var(--mid); opacity: 0.6;
-  }
-
-  /* ── INTRO ── */
-  .intro {
-    padding: 10rem 3rem; max-width: 1400px; margin: 0 auto;
-    display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start;
-  }
+  .chart-prelaunch-badge { position: absolute; bottom: 6px; right: 0; font-size: 0.55rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--mid); opacity: 0.6; }
+  .intro { padding: 10rem 3rem; max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start; }
   .intro-label { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--mid); margin-bottom: 2rem; }
   .intro-headline { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(2rem, 3.5vw, 3rem); line-height: 1.2; color: var(--black); }
   .intro-headline em { font-style: italic; color: var(--mid); }
@@ -270,8 +82,6 @@
   .stat-number { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: 3rem; color: var(--black); line-height: 1; }
   .stat-label { font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--mid); margin-top: 0.5rem; }
   .full-divider { width: 100%; height: 1px; background: rgba(0,0,0,0.06); }
-
-  /* ── HOW IT WORKS ── */
   .how { padding: 10rem 3rem; max-width: 1400px; margin: 0 auto; }
   .section-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6rem; border-bottom: 1px solid rgba(0,0,0,0.06); padding-bottom: 2rem; }
   .section-label { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--mid); }
@@ -283,8 +93,6 @@
   .step-num { font-family: 'Cormorant Garamond', serif; font-size: 4rem; font-weight: 300; color: rgba(0,0,0,0.06); line-height: 1; margin-bottom: 2rem; }
   .step-title { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: 1.6rem; margin-bottom: 1rem; color: var(--black); }
   .step-body { font-size: 0.85rem; line-height: 1.8; color: var(--mid); }
-
-  /* ── DARK ASSETS ── */
   .dark-section { background: var(--black); padding: 10rem 3rem; position: relative; overflow: hidden; }
   .dark-inner { max-width: 1400px; margin: 0 auto; position: relative; z-index: 2; }
   .dark-headline { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(2.5rem, 5vw, 4.5rem); line-height: 1.15; color: var(--white); max-width: 800px; margin-bottom: 6rem; }
@@ -295,8 +103,6 @@
   .token-tier { font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.25); margin-bottom: 0.75rem; }
   .token-name { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 300; color: var(--white); }
   .dark-tagline { font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.3); border-top: 1px solid rgba(255,255,255,0.06); padding-top: 3rem; }
-
-  /* ── VCLM SECTION ── */
   .vclm-section { padding: 10rem 3rem; max-width: 1400px; margin: 0 auto; }
   .vclm-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8rem; align-items: center; }
   .vclm-headline { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(2rem, 3vw, 2.8rem); line-height: 1.25; margin-bottom: 3rem; }
@@ -310,8 +116,6 @@
   .decay-bar:hover { opacity: 0.6; }
   .decay-bar::after { content: attr(data-year); position: absolute; bottom: -1.5rem; left: 50%; transform: translateX(-50%); font-size: 0.55rem; color: var(--mid); white-space: nowrap; }
   .decay-label { position: absolute; top: 1rem; left: 2rem; font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--mid); }
-
-  /* ── TRIAL SECTION ── */
   .trial-section { background: var(--off-white); padding: 8rem 3rem; }
   .trial-inner { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 8rem; align-items: center; }
   .trial-phone { background: var(--black); border-radius: 2rem; padding: 2rem; aspect-ratio: 9/16; max-width: 280px; display: flex; flex-direction: column; justify-content: center; gap: 1.5rem; position: relative; overflow: hidden; box-shadow: 0 40px 80px rgba(0,0,0,0.2); }
@@ -328,8 +132,6 @@
   @keyframes pulseBtn { 0%,100% { opacity: 0; transform: scale(1); } 50% { opacity: 0.15; transform: scale(1.02); } }
   .trial-headline { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(2rem, 3vw, 2.8rem); line-height: 1.2; margin-bottom: 2rem; }
   .trial-body { font-size: 0.9rem; line-height: 1.9; color: var(--mid); margin-bottom: 2rem; }
-
-  /* ── CHAINS ── */
   .chains-section { padding: 8rem 3rem; max-width: 1400px; margin: 0 auto; }
   .chains-header { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-bottom: 6rem; }
   .chains-headline { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(2rem, 3vw, 2.8rem); line-height: 1.2; }
@@ -341,8 +143,6 @@
   .chain-name { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 300; color: var(--black); }
   .chain-status { font-size: 0.55rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--mid); margin-top: 0.3rem; }
   .chain-status.live { color: #2d6a4f; }
-
-  /* ── VALIDATORS ── */
   .validators-section { padding: 10rem 3rem; background: var(--white); }
   .validators-inner { max-width: 1400px; margin: 0 auto; }
   .validators-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start; margin-bottom: 6rem; }
@@ -363,19 +163,12 @@
   .validator-tier-archon .tier-stake { color: rgba(255,255,255,0.4); }
   .tier-divider { width: 100%; height: 1px; background: rgba(0,0,0,0.06); margin-bottom: 1.5rem; }
   .validator-tier-archon .tier-divider { background: rgba(255,255,255,0.08); }
-  .tier-detail { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem; }
-  .tier-detail-label { font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mid); }
-  .validator-tier-archon .tier-detail-label { color: rgba(255,255,255,0.3); }
-  .tier-detail-value { font-size: 0.75rem; color: var(--black); font-weight: 400; }
-  .validator-tier-archon .tier-detail-value { color: rgba(255,255,255,0.8); }
-  .tier-desc { font-size: 0.8rem; line-height: 1.8; color: var(--mid); margin-top: 1.5rem; border-top: 1px solid rgba(0,0,0,0.06); padding-top: 1.5rem; }
-  .validator-tier-archon .tier-desc { color: rgba(255,255,255,0.35); border-top-color: rgba(255,255,255,0.08); }
+  .tier-desc { font-size: 0.8rem; line-height: 1.8; color: var(--mid); margin-top: 0; border-top: none; padding-top: 0; }
+  .validator-tier-archon .tier-desc { color: rgba(255,255,255,0.35); }
   .validators-cta { display: flex; flex-direction: column; gap: 1rem; margin-top: 4rem; border-top: 1px solid rgba(0,0,0,0.06); padding-top: 3rem; }
   .validators-link { font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--black); text-decoration: none; font-weight: 400; transition: opacity 0.3s; }
   .validators-link:hover { opacity: 0.5; }
   .validators-footnote { font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--mid); margin-top: 0; }
-
-  /* ── MANIFESTO ── */
   .manifesto { padding: 12rem 3rem; background: var(--black); text-align: center; position: relative; overflow: hidden; }
   .manifesto-inner { position: relative; z-index: 2; max-width: 900px; margin: 0 auto; }
   .manifesto-label { font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase; color: rgba(255,255,255,0.25); margin-bottom: 3rem; }
@@ -383,23 +176,17 @@
   .manifesto-text em { font-style: italic; opacity: 0.4; }
   .manifesto-rules { display: flex; justify-content: center; gap: 4rem; flex-wrap: wrap; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 3rem; }
   .rule { font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.3); }
-
-  /* ── FOOTER ── */
   footer { padding: 4rem 3rem; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(0,0,0,0.06); }
   .footer-logo { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: 1rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--black); text-decoration: none; }
   .footer-links { display: flex; gap: 2.5rem; list-style: none; }
   .footer-links a { font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mid); text-decoration: none; transition: color 0.3s; }
   .footer-links a:hover { color: var(--black); }
   .footer-copy { font-size: 0.65rem; color: var(--mid); letter-spacing: 0.05em; }
-
-  /* ── REVEAL ── */
   .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.9s ease, transform 0.9s ease; }
   .reveal.visible { opacity: 1; transform: translateY(0); }
   .reveal-delay-1 { transition-delay: 0.1s; }
   .reveal-delay-2 { transition-delay: 0.2s; }
   .reveal-delay-3 { transition-delay: 0.3s; }
-
-  /* ── RESPONSIVE ── */
   @media (max-width: 900px) {
     nav { padding: 1.5rem; }
     .nav-links { display: none; }
@@ -424,10 +211,7 @@
 </style>
 </head>
 <body>
-
 <div class="cursor" id="cursor"></div>
-
-<!-- NAV -->
 <nav>
   <a href="#" class="nav-logo">Vinculum</a>
   <ul class="nav-links">
@@ -441,21 +225,13 @@
     <li><a href="#" style="opacity:0.4">Launch — Soon</a></li>
   </ul>
 </nav>
-
-<!-- ── PAGE 1: HERO ── -->
 <section class="hero">
   <div class="hero-bg"></div>
   <div class="orb orb-1"></div>
   <div class="orb orb-2"></div>
   <div class="orb orb-3"></div>
   <div class="hero-grid"></div>
-
-  <!-- Sparkline chart over grid -->
-  <div class="hero-chart-wrap">
-    <canvas id="heroSparkline"></canvas>
-  </div>
-
-  <!-- Live stats left side -->
+  <div class="hero-chart-wrap"><canvas id="heroSparkline"></canvas></div>
   <div class="hero-stats">
     <div class="live-stat">
       <span class="live-stat-label">$VCLM in existence</span>
@@ -468,35 +244,17 @@
       <span class="live-indicator"><span class="live-dot"></span>Growing</span>
     </div>
   </div>
-
-  <!-- Definition bottom right -->
   <div class="hero-definition">
-    <div class="def-word">
-      vinculum
-      <span class="def-pos">n. Latin</span>
-    </div>
-    <p class="def-text">
-      <em>"bond," "chain," or "link"</em> — a binding element that connects separate components into a unified structure.
-    </p>
+    <div class="def-word">vinculum <span class="def-pos">n. Latin</span></div>
+    <p class="def-text"><em>"bond," "chain," or "link"</em> — a binding element that connects separate components into a unified structure.</p>
   </div>
-
   <div class="hero-content">
     <p class="hero-eyebrow">Vinculum Protocol — Base Network — Axelar ITS</p>
-    <h1 class="hero-title">
-      Commitment<br>
-      <em>is the</em><br>
-      currency.
-    </h1>
+    <h1 class="hero-title">Commitment<br><em>is the</em><br>currency.</h1>
     <p class="hero-sub">Lock any approved token. Earn $VCLM. Cannot be bought — only earned.</p>
   </div>
-
-  <div class="hero-scroll">
-    <div class="scroll-line"></div>
-    <span>Scroll</span>
-  </div>
+  <div class="hero-scroll"><div class="scroll-line"></div><span>Scroll</span></div>
 </section>
-
-<!-- ── PAGE 2: ETYMOLOGY ── -->
 <section class="etymology" id="etymology">
   <div class="etymology-inner">
     <div class="etymology-left reveal">
@@ -504,33 +262,20 @@
       <div class="etym-word">Vinculum</div>
       <p class="etym-origin">Latin · Classical · n.</p>
     </div>
-
     <div class="etymology-right">
       <div class="etym-block reveal">
         <p class="etym-block-label">Definition</p>
-        <p class="etym-block-text">
-          <em>"bond," "chain," or "link"</em> — refers to a binding element that connects separate components into a unified structure.
-        </p>
+        <p class="etym-block-text"><em>"bond," "chain," or "link"</em> — refers to a binding element that connects separate components into a unified structure.</p>
       </div>
-
       <div class="etym-block reveal reveal-delay-1">
         <p class="etym-block-label">Historical usage</p>
-        <p class="etym-block-text">
-          Historically, the term described a physical fastening or chain used to hold parts together, ensuring stability through connection. In a broader sense, it represents <em>a commitment that links independent actors into a coordinated whole.</em>
-        </p>
+        <p class="etym-block-text">Historically, the term described a physical fastening or chain used to hold parts together, ensuring stability through connection. In a broader sense, it represents <em>a commitment that links independent actors into a coordinated whole.</em></p>
       </div>
-
       <div class="etym-block reveal reveal-delay-2">
         <p class="etym-block-label">Within this protocol</p>
-        <p class="etym-block-text">
-          Within the context of Vinculum Protocol, the term describes a decentralized mechanism through which participants voluntarily bind assets, commitments, and incentives into a shared network that grows stronger through collective participation.
-        </p>
-        <p class="etym-block-text" style="margin-top:1.5rem; font-size: clamp(1rem,1.5vw,1.2rem); color: var(--mid);">
-          In essence, Vinculum represents <em>the chain of commitment</em> that transforms independent participants into a unified economic system.
-        </p>
+        <p class="etym-block-text">Within the context of Vinculum Protocol, the term describes a decentralized mechanism through which participants voluntarily bind assets, commitments, and incentives into a shared network that grows stronger through collective participation.</p>
+        <p class="etym-block-text" style="margin-top:1.5rem; font-size: clamp(1rem,1.5vw,1.2rem); color: var(--mid);">In essence, Vinculum represents <em>the chain of commitment</em> that transforms independent participants into a unified economic system.</p>
       </div>
-
-      <!-- Live charts -->
       <div class="etym-block reveal reveal-delay-3">
         <p class="etym-block-label">Protocol activity</p>
         <div class="charts-strip">
@@ -552,20 +297,13 @@
           </div>
         </div>
       </div>
-
     </div>
   </div>
 </section>
-
-<!-- INTRO -->
 <section class="intro" id="protocol">
   <div class="intro-left reveal">
     <p class="intro-label">About the Protocol</p>
-    <h2 class="intro-headline">
-      DeFi has always rewarded<br>
-      <em>capital over conviction.</em><br>
-      Vinculum changes that.
-    </h2>
+    <h2 class="intro-headline">DeFi has always rewarded<br><em>capital over conviction.</em><br>Vinculum changes that.</h2>
   </div>
   <div class="intro-right reveal reveal-delay-2">
     <p class="intro-body">Vinculum is a commitment vault protocol built on Base. Lock your tokens for a defined period and earn $VCLM — the protocol's native token. It governs. It stakes. It earns fee revenue. And it cannot be purchased, pre-allocated, or airdropped. The only path to $VCLM is through commitment.</p>
@@ -575,10 +313,7 @@
     <div class="intro-stat"><span class="stat-number">10B</span><span class="stat-label">Hard supply cap — immutable</span></div>
   </div>
 </section>
-
 <div class="full-divider"></div>
-
-<!-- HOW IT WORKS -->
 <section class="how" id="how">
   <div class="section-header reveal">
     <span class="section-label">How it works</span>
@@ -602,18 +337,11 @@
     </div>
   </div>
 </section>
-
-<!-- DARK ASSETS -->
 <section class="dark-section">
   <div class="orb orb-1" style="opacity:0.08"></div>
   <div class="orb orb-2" style="opacity:0.08"></div>
   <div class="dark-inner">
-    <h2 class="dark-headline reveal">
-      Sixteen assets.<br>
-      <em>Every community</em><br>
-      approaching from<br>
-      a different direction.
-    </h2>
+    <h2 class="dark-headline reveal">Sixteen assets.<br><em>Every community</em><br>approaching from<br>a different direction.</h2>
     <div class="token-grid reveal">
       <div class="token-item"><div class="token-tier">Tier A — 1.00×</div><div class="token-name">ETH</div></div>
       <div class="token-item"><div class="token-tier">Tier A — 1.00×</div><div class="token-name">USDC</div></div>
@@ -635,14 +363,12 @@
     <p class="dark-tagline reveal">New assets added through governance — $VCLM holders decide</p>
   </div>
 </section>
-
-<!-- VCLM -->
 <section class="vclm-section" id="vclm">
   <div class="vclm-grid">
     <div class="reveal">
       <p class="intro-label">The Token</p>
       <h2 class="vclm-headline">$VCLM is not a<br>governance token.<br><em>It is the only token.</em></h2>
-      <p class="vclm-body">It governs the protocol. It powers the validator tiers. It earns fee revenue after the minting era. It appreciates through permanent scarcity. There is no other token. There is no main token coming later. This is it.</p>
+      <p class="vclm-body">It governs the protocol. It powers the Governance Steward tiers. It earns fee revenue after the minting era. It appreciates through permanent scarcity. There is no other token. There is no main token coming later. This is it.</p>
       <p class="vclm-body">No presale. No premine. No VC allocation. No insider round. Every $VCLM that will ever exist was minted by someone who committed real value and waited.</p>
       <p class="vclm-body">The emission rate decays 1.667% every single month from day one. No floor. No ceiling. The longer you wait to start, the less you earn when you do. Early believers are mathematically privileged forever.</p>
       <p class="vclm-body">Hard cap: 10,000,000,000 VCLM. Immutable. No governance can ever change it.</p>
@@ -672,10 +398,7 @@
     </div>
   </div>
 </section>
-
 <div class="full-divider"></div>
-
-<!-- TRIAL -->
 <section class="trial-section">
   <div class="trial-inner">
     <div class="trial-phone reveal">
@@ -701,8 +424,6 @@
     </div>
   </div>
 </section>
-
-<!-- CHAINS -->
 <section class="chains-section" id="chains">
   <div class="chains-header reveal">
     <h2 class="chains-headline">One token.<br>Every chain.</h2>
@@ -721,8 +442,6 @@
     <div class="chain-item"><div class="chain-name">XDC Network</div><div class="chain-status">Via Axelar ITS</div></div>
   </div>
 </section>
-
-<!-- GOVERNANCE STEWARDS TEASER -->
 <section class="validators-section" id="stewards">
   <div class="validators-inner">
     <div class="section-header reveal">
@@ -762,8 +481,6 @@
     </div>
   </div>
 </section>
-
-<!-- MANIFESTO -->
 <section class="manifesto">
   <div class="orb orb-1" style="opacity:0.06"></div>
   <div class="orb orb-2" style="opacity:0.06"></div>
@@ -784,8 +501,6 @@
     </div>
   </div>
 </section>
-
-<!-- FOOTER -->
 <footer>
   <a href="#" class="footer-logo">Vinculum Protocol</a>
   <ul class="footer-links">
@@ -799,15 +514,12 @@
   </ul>
   <span class="footer-copy">© 2026 Vinculum Protocol DAO LLC</span>
 </footer>
-
 <script>
-// ── CURSOR ──
 const cursor = document.getElementById('cursor');
 let isLight = false;
 document.addEventListener('mousemove', e => {
   cursor.style.left = e.clientX + 'px';
   cursor.style.top = e.clientY + 'px';
-  // detect dark sections
   const el = document.elementFromPoint(e.clientX, e.clientY);
   const inDark = el && el.closest('.dark-section, .hero, .manifesto');
   if (inDark && !isLight) { cursor.classList.add('light'); isLight = true; }
@@ -817,88 +529,34 @@ document.querySelectorAll('a, button, .step, .token-item, .chain-item, .phone-bt
   el.addEventListener('mouseenter', () => cursor.classList.add('hovering'));
   el.addEventListener('mouseleave', () => cursor.classList.remove('hovering'));
 });
-
-// ── SCROLL REVEAL ──
 const reveals = document.querySelectorAll('.reveal');
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
 }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
 reveals.forEach(el => observer.observe(el));
-
-// ── LIVE COUNTERS (pre-launch: show 0, animate to 0 for now) ──
-// Once mainnet is live, replace these with actual RPC calls
-function animateCounter(el, target, duration=2000, decimals=0) {
+function animateCounter(el, target, duration=2000) {
   const start = performance.now();
-  const startVal = 0;
   function tick(now) {
     const progress = Math.min((now - start) / duration, 1);
     const eased = 1 - Math.pow(1 - progress, 3);
-    const val = startVal + (target - startVal) * eased;
-    el.textContent = decimals > 0 
-      ? val.toFixed(decimals) 
-      : Math.floor(val).toLocaleString();
+    el.textContent = Math.floor(target * eased).toLocaleString();
     if (progress < 1) requestAnimationFrame(tick);
   }
   requestAnimationFrame(tick);
 }
-
-// Pre-launch: show 0. After mainnet, replace 0 with real values from contract
-const vclmTarget = 0;  // Replace with: await contract.totalSupply()
-const walletTarget = 0; // Replace with: await contract.totalVaults() unique addresses
-
-// Animate when hero is visible (immediately on load)
+const vclmTarget = 0;
+const walletTarget = 0;
 window.addEventListener('load', () => {
   setTimeout(() => {
     animateCounter(document.getElementById('vclmCounter'), vclmTarget);
     animateCounter(document.getElementById('walletCounter'), walletTarget);
-    // Chart value labels
-    document.getElementById('vclmChartVal').textContent = vclmTarget === 0 ? '— Pre-launch' : vclmTarget.toLocaleString() + ' VCLM';
-    document.getElementById('walletChartVal').textContent = walletTarget === 0 ? '— Pre-launch' : walletTarget.toLocaleString() + ' wallets';
+    document.getElementById('vclmChartVal').textContent = '— Pre-launch';
+    document.getElementById('walletChartVal').textContent = '— Pre-launch';
   }, 1400);
+  drawHeroSparkline();
+  drawSmallCharts();
 });
-
-// ── SPARKLINE HELPER ──
-function drawSparkline(canvas, data, color, filled=false) {
-  const ctx = canvas.getContext('2d');
-  const dpr = window.devicePixelRatio || 1;
-  canvas.width = canvas.offsetWidth * dpr;
-  canvas.height = canvas.offsetHeight * dpr;
-  ctx.scale(dpr, dpr);
-  const w = canvas.offsetWidth;
-  const h = canvas.offsetHeight;
-  const max = Math.max(...data);
-  const min = Math.min(...data);
-  const range = max - min || 1;
-  const pts = data.map((v, i) => ({
-    x: (i / (data.length - 1)) * w,
-    y: h - ((v - min) / range) * h * 0.8 - h * 0.1
-  }));
-  ctx.beginPath();
-  ctx.moveTo(pts[0].x, pts[0].y);
-  for (let i = 1; i < pts.length; i++) {
-    const cp1x = (pts[i-1].x + pts[i].x) / 2;
-    ctx.bezierCurveTo(cp1x, pts[i-1].y, cp1x, pts[i].y, pts[i].x, pts[i].y);
-  }
-  if (filled) {
-    ctx.lineTo(w, h); ctx.lineTo(0, h); ctx.closePath();
-    const grad = ctx.createLinearGradient(0, 0, 0, h);
-    grad.addColorStop(0, color + '30');
-    grad.addColorStop(1, color + '00');
-    ctx.fillStyle = grad;
-    ctx.fill();
-    ctx.beginPath();
-    ctx.moveTo(pts[0].x, pts[0].y);
-    for (let i = 1; i < pts.length; i++) {
-      const cp1x = (pts[i-1].x + pts[i].x) / 2;
-      ctx.bezierCurveTo(cp1x, pts[i-1].y, cp1x, pts[i].y, pts[i].x, pts[i].y);
-    }
-  }
-  ctx.strokeStyle = color;
-  ctx.lineWidth = 1.5;
-  ctx.stroke();
-}
-
-// ── HERO SPARKLINE (over grid background) ──
+window.addEventListener('resize', () => { drawHeroSparkline(); drawSmallCharts(); });
 function drawHeroSparkline() {
   const canvas = document.getElementById('heroSparkline');
   if (!canvas) return;
@@ -907,117 +565,51 @@ function drawHeroSparkline() {
   canvas.width = canvas.offsetWidth * dpr;
   canvas.height = canvas.offsetHeight * dpr;
   ctx.scale(dpr, dpr);
-  const w = canvas.offsetWidth;
-  const h = canvas.offsetHeight;
-
-  // Generate two smooth curves — VCLM total and wallets
-  // Pre-launch: flat line at bottom. Post-launch: replace with real data.
-  const pts1 = Array.from({length: 40}, (_, i) => ({ x: (i / 39) * w, y: h * 0.85 }));
-  const pts2 = Array.from({length: 40}, (_, i) => ({ x: (i / 39) * w, y: h * 0.75 }));
-
-  // Draw VCLM line
-  ctx.beginPath();
-  ctx.moveTo(pts1[0].x, pts1[0].y);
-  for (let i = 1; i < pts1.length; i++) {
-    const cpx = (pts1[i-1].x + pts1[i].x) / 2;
-    ctx.bezierCurveTo(cpx, pts1[i-1].y, cpx, pts1[i].y, pts1[i].x, pts1[i].y);
-  }
-  ctx.strokeStyle = 'rgba(0,212,255,0.3)';
-  ctx.lineWidth = 1;
-  ctx.stroke();
-
-  // Draw wallet line
-  ctx.beginPath();
-  ctx.moveTo(pts2[0].x, pts2[0].y);
-  for (let i = 1; i < pts2.length; i++) {
-    const cpx = (pts2[i-1].x + pts2[i].x) / 2;
-    ctx.bezierCurveTo(cpx, pts2[i-1].y, cpx, pts2[i].y, pts2[i].x, pts2[i].y);
-  }
-  ctx.strokeStyle = 'rgba(0,232,135,0.2)';
-  ctx.lineWidth = 1;
-  ctx.stroke();
-
-  // Labels
-  ctx.fillStyle = 'rgba(0,212,255,0.35)';
-  ctx.font = `${10 * dpr}px DM Sans`;
-  ctx.fillText('$VCLM minted', 16 / dpr, (h * 0.85 - 8) / dpr);
-  ctx.fillStyle = 'rgba(0,232,135,0.3)';
-  ctx.fillText('Committed wallets', 16 / dpr, (h * 0.75 - 8) / dpr);
+  const w = canvas.offsetWidth, h = canvas.offsetHeight;
+  const pts1 = Array.from({length:40},(_,i)=>({x:(i/39)*w,y:h*0.85}));
+  const pts2 = Array.from({length:40},(_,i)=>({x:(i/39)*w,y:h*0.75}));
+  ctx.beginPath(); ctx.moveTo(pts1[0].x,pts1[0].y);
+  for(let i=1;i<pts1.length;i++){const c=(pts1[i-1].x+pts1[i].x)/2;ctx.bezierCurveTo(c,pts1[i-1].y,c,pts1[i].y,pts1[i].x,pts1[i].y);}
+  ctx.strokeStyle='rgba(0,212,255,0.3)'; ctx.lineWidth=1; ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(pts2[0].x,pts2[0].y);
+  for(let i=1;i<pts2.length;i++){const c=(pts2[i-1].x+pts2[i].x)/2;ctx.bezierCurveTo(c,pts2[i-1].y,c,pts2[i].y,pts2[i].x,pts2[i].y);}
+  ctx.strokeStyle='rgba(0,232,135,0.2)'; ctx.lineWidth=1; ctx.stroke();
+  ctx.fillStyle='rgba(0,212,255,0.35)'; ctx.font=`${10*dpr}px DM Sans`;
+  ctx.fillText('$VCLM minted',16/dpr,(h*0.85-8)/dpr);
+  ctx.fillStyle='rgba(0,232,135,0.3)';
+  ctx.fillText('Committed wallets',16/dpr,(h*0.75-8)/dpr);
 }
-
-// ── SMALL CHARTS in etymology section ──
 function drawSmallCharts() {
   const vclmCanvas = document.getElementById('vclmChart');
   const walletCanvas = document.getElementById('walletChart');
-  if (!vclmCanvas || !walletCanvas) return;
-
-  // Sample data — illustrative growth curve, semi-transparent
-  // Replace with real on-chain event data after mainnet launch
-  const vclmSample = [0, 120, 380, 800, 1600, 3200, 5800, 9200, 13500, 18000, 23000, 28500, 34000];
-  const walletSample = [0, 8, 22, 45, 90, 160, 240, 340, 460, 590, 720, 860, 1000];
-
-  function drawSampleChart(canvas, data, strokeColor, fillColor) {
-    const dpr = window.devicePixelRatio || 1;
-    canvas.width = canvas.offsetWidth * dpr;
-    canvas.height = canvas.offsetHeight * dpr;
+  if (!vclmCanvas||!walletCanvas) return;
+  const vclmSample = [0,120,380,800,1600,3200,5800,9200,13500,18000,23000,28500,34000];
+  const walletSample = [0,8,22,45,90,160,240,340,460,590,720,860,1000];
+  function drawSampleChart(canvas,data,stroke,fill) {
+    const dpr = window.devicePixelRatio||1;
+    canvas.width = canvas.offsetWidth*dpr;
+    canvas.height = canvas.offsetHeight*dpr;
     const ctx = canvas.getContext('2d');
-    ctx.scale(dpr, dpr);
-    const w = canvas.offsetWidth;
-    const h = canvas.offsetHeight;
-    const max = Math.max(...data);
-    const pts = data.map((v, i) => ({
-      x: (i / (data.length - 1)) * w,
-      y: h - (v / max) * h * 0.75 - h * 0.1
-    }));
-
-    // Filled area
-    ctx.beginPath();
-    ctx.moveTo(pts[0].x, pts[0].y);
-    for (let i = 1; i < pts.length; i++) {
-      const cpx = (pts[i-1].x + pts[i].x) / 2;
-      ctx.bezierCurveTo(cpx, pts[i-1].y, cpx, pts[i].y, pts[i].x, pts[i].y);
-    }
-    ctx.lineTo(w, h); ctx.lineTo(0, h); ctx.closePath();
-    const grad = ctx.createLinearGradient(0, 0, 0, h);
-    grad.addColorStop(0, fillColor);
-    grad.addColorStop(1, 'rgba(0,0,0,0)');
-    ctx.fillStyle = grad;
-    ctx.fill();
-
-    // Line
-    ctx.beginPath();
-    ctx.moveTo(pts[0].x, pts[0].y);
-    for (let i = 1; i < pts.length; i++) {
-      const cpx = (pts[i-1].x + pts[i].x) / 2;
-      ctx.bezierCurveTo(cpx, pts[i-1].y, cpx, pts[i].y, pts[i].x, pts[i].y);
-    }
-    ctx.strokeStyle = strokeColor;
-    ctx.lineWidth = 1.5;
-    ctx.stroke();
-
-    // End dot
-    const last = pts[pts.length - 1];
-    ctx.beginPath();
-    ctx.arc(last.x, last.y, 3, 0, Math.PI * 2);
-    ctx.fillStyle = strokeColor;
-    ctx.fill();
+    ctx.scale(dpr,dpr);
+    const w=canvas.offsetWidth,h=canvas.offsetHeight;
+    const max=Math.max(...data);
+    const pts=data.map((v,i)=>({x:(i/(data.length-1))*w,y:h-(v/max)*h*0.75-h*0.1}));
+    ctx.beginPath(); ctx.moveTo(pts[0].x,pts[0].y);
+    for(let i=1;i<pts.length;i++){const c=(pts[i-1].x+pts[i].x)/2;ctx.bezierCurveTo(c,pts[i-1].y,c,pts[i].y,pts[i].x,pts[i].y);}
+    ctx.lineTo(w,h); ctx.lineTo(0,h); ctx.closePath();
+    const g=ctx.createLinearGradient(0,0,0,h); g.addColorStop(0,fill); g.addColorStop(1,'rgba(0,0,0,0)');
+    ctx.fillStyle=g; ctx.fill();
+    ctx.beginPath(); ctx.moveTo(pts[0].x,pts[0].y);
+    for(let i=1;i<pts.length;i++){const c=(pts[i-1].x+pts[i].x)/2;ctx.bezierCurveTo(c,pts[i-1].y,c,pts[i].y,pts[i].x,pts[i].y);}
+    ctx.strokeStyle=stroke; ctx.lineWidth=1.5; ctx.stroke();
+    const last=pts[pts.length-1];
+    ctx.beginPath(); ctx.arc(last.x,last.y,3,0,Math.PI*2); ctx.fillStyle=stroke; ctx.fill();
   }
-
-  setTimeout(() => {
-    drawSampleChart(vclmCanvas,  vclmSample,  'rgba(10,10,10,0.25)', 'rgba(10,10,10,0.06)');
-    drawSampleChart(walletCanvas, walletSample, 'rgba(10,10,10,0.25)', 'rgba(10,10,10,0.06)');
-  }, 100);
+  setTimeout(()=>{
+    drawSampleChart(vclmCanvas,vclmSample,'rgba(10,10,10,0.25)','rgba(10,10,10,0.06)');
+    drawSampleChart(walletCanvas,walletSample,'rgba(10,10,10,0.25)','rgba(10,10,10,0.06)');
+  },100);
 }
-
-window.addEventListener('load', () => {
-  drawHeroSparkline();
-  drawSmallCharts();
-});
-
-window.addEventListener('resize', () => {
-  drawHeroSparkline();
-  drawSmallCharts();
-});
 </script>
 </body>
 </html>
