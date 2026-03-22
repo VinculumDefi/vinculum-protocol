@@ -1,0 +1,938 @@
+<!--
+=============================================================
+  Vinculum Protocol — tokenomics.html
+=============================================================
+  Revision History:
+
+  v1.0 | March 21, 2026 | Founding Team
+  - Initial HTML conversion from tokenomics-rules.md v1.6
+  - Styled to match established Vinculum site design language
+  - Cormorant Garamond / DM Sans / dark navy / teal / gold
+
+=============================================================
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tokenomics Rules — Vinculum Protocol</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@200;300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black:   #0a0a0a;
+    --navy:    #060a10;
+    --bg:      #0d1318;
+    --bg2:     #111820;
+    --border:  rgba(255,255,255,0.07);
+    --border2: rgba(255,255,255,0.12);
+    --teal:    #00d4ff;
+    --gold:    #c9a84c;
+    --gold2:   #e8c96a;
+    --green:   #00e887;
+    --white:   #fafaf8;
+    --mid:     rgba(255,255,255,0.45);
+    --dim:     rgba(255,255,255,0.25);
+    --muted:   rgba(255,255,255,0.12);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--navy);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── CURSOR ── */
+  .cursor {
+    width: 8px; height: 8px;
+    background: var(--white);
+    border-radius: 50%;
+    position: fixed; top: 0; left: 0;
+    pointer-events: none; z-index: 9999;
+    transition: transform 0.15s ease, width 0.3s ease, height 0.3s ease;
+    transform: translate(-50%, -50%);
+  }
+  .cursor.hovering { width: 36px; height: 36px; background: transparent; border: 1px solid var(--white); }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 2rem 3rem;
+    background: linear-gradient(180deg, rgba(6,10,16,0.95) 0%, transparent 100%);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif; font-weight: 300;
+    font-size: 1.1rem; letter-spacing: 0.15em;
+    color: var(--white); text-decoration: none; text-transform: uppercase;
+  }
+  .nav-links { display: flex; gap: 3rem; list-style: none; }
+  .nav-links a {
+    font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--mid); text-decoration: none; transition: color 0.3s;
+  }
+  .nav-links a:hover { color: var(--white); }
+  .nav-version {
+    font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--gold); border: 1px solid rgba(201,168,76,0.3);
+    padding: 0.3rem 0.8rem;
+  }
+
+  /* ── PAGE WRAP ── */
+  .page {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 140px 3rem 80px;
+  }
+
+  /* ── PAGE HEADER ── */
+  .page-header {
+    margin-bottom: 64px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 48px;
+  }
+  .page-eyebrow {
+    font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--teal); margin-bottom: 1rem;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .page-eyebrow::before {
+    content: ''; width: 24px; height: 1px; background: var(--teal);
+  }
+  .page-title {
+    font-family: 'Cormorant Garamond', serif; font-weight: 300;
+    font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1.1;
+    color: var(--white); margin-bottom: 1rem;
+  }
+  .page-title em { font-style: italic; color: var(--teal); }
+  .page-subtitle {
+    font-size: 0.85rem; color: var(--mid); letter-spacing: 0.05em;
+  }
+
+  /* ── REVISION TABLE ── */
+  .revision-block {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--gold);
+    margin-bottom: 64px;
+    overflow: hidden;
+  }
+  .revision-header {
+    padding: 16px 24px;
+    border-bottom: 1px solid var(--border);
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .revision-label {
+    font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--gold);
+  }
+  .revision-current {
+    font-size: 0.65rem; letter-spacing: 0.1em;
+    color: var(--teal);
+    font-family: 'DM Sans', monospace;
+  }
+
+  /* ── TABLES ── */
+  .table-wrap { overflow-x: auto; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.8rem;
+  }
+  thead tr {
+    background: var(--bg2);
+    border-bottom: 1px solid var(--border2);
+  }
+  th {
+    padding: 12px 20px;
+    text-align: left;
+    font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--dim); font-weight: 400;
+    white-space: nowrap;
+  }
+  td {
+    padding: 14px 20px;
+    border-bottom: 1px solid var(--border);
+    color: var(--mid);
+    vertical-align: top;
+    line-height: 1.5;
+  }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: rgba(255,255,255,0.02); }
+  td:first-child { color: var(--gold); font-family: 'DM Sans', monospace; white-space: nowrap; }
+  td strong { color: var(--white); font-weight: 500; }
+
+  /* Multiplier tables — centered values */
+  .table-compact td:last-child { color: var(--teal); text-align: right; }
+  .table-compact td:first-child { color: var(--white); }
+
+  /* ── SECTIONS ── */
+  .section {
+    margin-bottom: 56px;
+    animation: fadeUp 0.4s ease both;
+  }
+  .section-header {
+    display: flex; align-items: baseline; gap: 16px;
+    margin-bottom: 28px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+  }
+  .section-number {
+    font-family: 'Cormorant Garamond', serif; font-style: italic;
+    font-size: 0.75rem; color: var(--teal); letter-spacing: 0.1em;
+    white-space: nowrap;
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif; font-weight: 300;
+    font-size: 1.6rem; color: var(--white); letter-spacing: 0.03em;
+  }
+
+  /* ── RULES ── */
+  .rule {
+    margin-bottom: 32px;
+    padding: 24px 28px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-left: 2px solid var(--border2);
+    position: relative;
+  }
+  .rule:hover { border-left-color: var(--teal); }
+  .rule-id {
+    font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--teal); margin-bottom: 8px;
+    font-family: 'DM Sans', monospace;
+  }
+  .rule-title {
+    font-family: 'Cormorant Garamond', serif; font-weight: 400;
+    font-size: 1.1rem; color: var(--white); margin-bottom: 12px;
+  }
+  .rule-body {
+    font-size: 0.85rem; color: var(--mid); line-height: 1.75;
+  }
+  .rule-body strong { color: var(--white); font-weight: 500; }
+  .rule-body em { color: var(--teal); font-style: normal; }
+
+  .rule.immutable { border-left-color: var(--gold); }
+  .rule.immutable .rule-id { color: var(--gold); }
+  .immutable-badge {
+    position: absolute; top: 16px; right: 16px;
+    font-size: 0.55rem; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--gold); border: 1px solid rgba(201,168,76,0.3);
+    padding: 2px 8px; background: rgba(201,168,76,0.05);
+  }
+
+  /* ── FORMULA BOX ── */
+  .formula {
+    background: var(--bg2);
+    border: 1px solid var(--border2);
+    border-left: 3px solid var(--teal);
+    padding: 20px 24px;
+    margin: 16px 0;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem;
+    color: var(--white);
+    line-height: 1.5;
+  }
+  .formula strong { color: var(--teal); }
+
+  /* ── EXAMPLE BOX ── */
+  .example {
+    background: rgba(0,232,135,0.04);
+    border: 1px solid rgba(0,232,135,0.12);
+    padding: 16px 20px;
+    margin: 16px 0;
+    font-size: 0.85rem;
+    color: var(--mid);
+  }
+  .example strong { color: #00e887; }
+
+  /* ── TIER BADGES ── */
+  .tier-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    margin: 16px 0;
+  }
+  .tier-cell {
+    background: var(--bg2);
+    padding: 16px 20px;
+  }
+  .tier-label {
+    font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .tier-label.a { color: var(--teal); }
+  .tier-label.b { color: var(--gold); }
+  .tier-label.c { color: var(--mid); }
+  .tier-mult {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem; font-weight: 300; line-height: 1;
+    margin-bottom: 8px;
+  }
+  .tier-assets {
+    font-size: 0.72rem; color: var(--dim); line-height: 1.6;
+  }
+
+  /* ── BULLET LISTS ── */
+  .rule-body ul {
+    list-style: none;
+    margin: 12px 0;
+  }
+  .rule-body ul li {
+    padding: 6px 0 6px 20px;
+    position: relative;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.85rem;
+    color: var(--mid);
+  }
+  .rule-body ul li:last-child { border-bottom: none; }
+  .rule-body ul li::before {
+    content: '→';
+    position: absolute; left: 0;
+    color: var(--teal); font-size: 0.7rem;
+  }
+
+  /* ── NUMBERED LIST ── */
+  .rule-body ol {
+    list-style: none;
+    counter-reset: rule-counter;
+    margin: 12px 0;
+  }
+  .rule-body ol li {
+    counter-increment: rule-counter;
+    padding: 10px 0 10px 36px;
+    position: relative;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.85rem;
+    color: var(--mid);
+  }
+  .rule-body ol li:last-child { border-bottom: none; }
+  .rule-body ol li::before {
+    content: counter(rule-counter);
+    position: absolute; left: 0;
+    width: 24px; height: 24px;
+    background: var(--bg2);
+    border: 1px solid var(--border2);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.65rem; color: var(--teal);
+    top: 10px;
+  }
+
+  /* ── DIVIDER ── */
+  .divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 48px 0;
+  }
+
+  /* ── PHILOSOPHY BOX ── */
+  .philosophy {
+    background: linear-gradient(135deg, rgba(0,212,255,0.04), rgba(201,168,76,0.04));
+    border: 1px solid var(--border2);
+    padding: 28px 32px;
+    margin: 16px 0;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.05rem;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.8;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 2rem 3rem;
+    display: flex; justify-content: space-between; align-items: center;
+    margin-top: 80px;
+  }
+  .footer-logo {
+    font-family: 'Cormorant Garamond', serif; font-weight: 300;
+    font-size: 1rem; letter-spacing: 0.15em;
+    color: var(--mid); text-transform: uppercase;
+  }
+  .footer-meta {
+    font-size: 0.65rem; letter-spacing: 0.1em;
+    color: var(--dim); text-align: right; line-height: 1.8;
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .section:nth-child(1) { animation-delay: 0.05s; }
+  .section:nth-child(2) { animation-delay: 0.10s; }
+  .section:nth-child(3) { animation-delay: 0.15s; }
+  .section:nth-child(4) { animation-delay: 0.20s; }
+  .section:nth-child(5) { animation-delay: 0.25s; }
+
+  @media (max-width: 640px) {
+    .page { padding: 120px 1.5rem 60px; }
+    nav { padding: 1.5rem; }
+    .nav-links { display: none; }
+    .tier-grid { grid-template-columns: 1fr; }
+    footer { flex-direction: column; gap: 1rem; text-align: center; }
+    .footer-meta { text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">Vinculum</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="tokenomics.html">Tokenomics</a></li>
+  </ul>
+  <div class="nav-version">v1.6 — Current</div>
+</nav>
+
+<div class="page">
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <div class="page-eyebrow">Vinculum Protocol DAO LLC</div>
+    <h1 class="page-title">Tokenomics <em>Rules</em></h1>
+    <div class="page-subtitle">Governing Rules for VCLM Token Issuance, Staking, and Rewards</div>
+  </div>
+
+  <!-- REVISION HISTORY -->
+  <div class="revision-block section">
+    <div class="revision-header">
+      <div class="revision-label">Revision History</div>
+      <div class="revision-current">Current Version: 1.6</div>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Version</th>
+            <th>Date</th>
+            <th>Summary of Changes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>1.0</td><td>March 2026</td><td>Initial draft — eligible assets, mint rules, supply controls, rewards, Protocol 2 conditions, enforcement</td></tr>
+          <tr><td>1.1</td><td>March 2026</td><td>Replaced ETH-specific tier with USD-denominated formula — added full mint formula, asset tiers, duration multipliers, emission decay, trial vault rules, treasury split, Protocol 2 threshold set at $100M</td></tr>
+          <tr><td>1.2</td><td>March 2026</td><td>Added Section 4A — Priority Queue including loyalty gate, dynamic fee formula, 5% hard cap, fee distribution split, conflict of interest protections</td></tr>
+          <tr><td>1.3</td><td>March 2026</td><td>Added Rule 6.2a — Protocol 2 vote time-lock; added Rule 7.5 — epoch cap voting conflict of interest cap at 1% voting weight</td></tr>
+          <tr><td>1.4</td><td>March 2026</td><td>Added Section 8 — Transparency Commitments including vault unlock calendar, CBR dashboard, volatile asset risk disclosure, queue depth visibility, and design philosophy on organic market behavior</td></tr>
+          <tr><td>1.5</td><td>March 21, 2026</td><td>Added AXL to Tier A approved collateral assets</td></tr>
+          <tr><td>1.6</td><td>March 21, 2026</td><td>Added BASE to Tier A approved collateral assets — confirmed total asset count at 17</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- SECTION 1 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-number">Section 01</div>
+      <div class="section-title">Eligible Staking Assets</div>
+    </div>
+
+    <div class="rule">
+      <div class="rule-id">Rule 1.1</div>
+      <div class="rule-title">Approved Collateral Only</div>
+      <div class="rule-body">
+        <p>Only externally sourced assets may be staked in the Vinculum Protocol. Assets are organized into quality tiers. The approved collateral list at launch is:</p>
+        <div class="tier-grid" style="margin-top:16px;">
+          <div class="tier-cell">
+            <div class="tier-label a">Tier A — 1.00×</div>
+            <div class="tier-mult" style="color:var(--teal);">1.00×</div>
+            <div class="tier-assets">ETH · USDC · USDT · RLUSD · XRP · XLM · XDC · AXL · BASE</div>
+          </div>
+          <div class="tier-cell">
+            <div class="tier-label b">Tier B — 0.85×</div>
+            <div class="tier-mult" style="color:var(--gold);">0.85×</div>
+            <div class="tier-assets">SHIB · LUNC · VOLT · WKC · KEKEC</div>
+          </div>
+          <div class="tier-cell">
+            <div class="tier-label c">Tier C — 0.70×</div>
+            <div class="tier-mult" style="color:var(--mid);">0.70×</div>
+            <div class="tier-assets">TigerOG · LionOG · FrogOG</div>
+          </div>
+        </div>
+        <p style="margin-top:14px;">Additional assets may be added or re-tiered by DAO governance vote. Tier assignments reflect liquidity, market capitalization, age, distribution, and oracle availability at the time of approval.</p>
+      </div>
+    </div>
+
+    <div class="rule immutable">
+      <div class="immutable-badge">Immutable</div>
+      <div class="rule-id">Rule 1.2</div>
+      <div class="rule-title">VCLM Is Not Stakeable</div>
+      <div class="rule-body">
+        <p><strong>VCLM tokens are permanently and technically excluded from the staking system in Protocol 1.</strong> A user may not stake VCLM in any form — locked, unlocked, vested, or unvested — to earn new VCLM rewards, mints, or any protocol incentive. This restriction is enforced at the smart contract level and cannot be overridden by policy alone. See Section 6 for conditions under which VCLM staking may become available in a future protocol.</p>
+      </div>
+    </div>
+
+    <div class="rule">
+      <div class="rule-id">Rule 1.3</div>
+      <div class="rule-title">No Derivative Staking</div>
+      <div class="rule-body">
+        <p>Wrapped versions of VCLM, synthetic VCLM, or any token whose value is primarily derived from VCLM shall also be ineligible for staking. The protocol's smart contracts shall enforce this at the contract level, not merely by policy.</p>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- SECTION 2 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-number">Section 02</div>
+      <div class="section-title">VCLM Mint Formula</div>
+    </div>
+
+    <div class="rule">
+      <div class="rule-id">Rule 2.1</div>
+      <div class="rule-title">Mint Trigger</div>
+      <div class="rule-body">A VCLM mint is triggered <strong>only</strong> when a user deposits an approved external collateral asset (Rule 1.1) into a qualifying commitment vault. No other action triggers a mint.</div>
+    </div>
+
+    <div class="rule">
+      <div class="rule-id">Rule 2.2</div>
+      <div class="rule-title">Mint Formula</div>
+      <div class="rule-body">
+        <p>The amount of VCLM minted is determined by the following formula:</p>
+        <div class="formula"><strong>VCLM Minted = (USD Value of Deposit) × Quality Multiplier × Commitment Duration Multiplier × Emission Factor</strong></div>
+        <p>The protocol calculates the USD value of any deposit using the asset's spot price at the exact moment of deposit. Users are responsible for calculating their own expected VCLM yield using the previewMint() function before committing. No specific deposit amount in any asset is guaranteed to produce a fixed VCLM output — the output is always a function of the four variables in the formula.</p>
+      </div>
+    </div>
+
+    <div class="rule">
+      <div class="rule-id">Rule 2.3</div>
+      <div class="rule-title">Quality Multiplier</div>
+      <div class="rule-body">
+        <p>The quality multiplier is assigned by asset tier as defined in Rule 1.1:</p>
+        <div class="table-wrap" style="margin-top:12px;">
+          <table class="table-compact">
+            <thead><tr><th>Tier</th><th style="text-align:right;">Multiplier</th></tr></thead>
+            <tbody>
+              <tr><td>Tier A</td><td>1.00×</td></tr>
+              <tr><td>Tier B</td><td>0.85×</td></tr>
+              <tr><td>Tier C</td><td>0.70×</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="rule">
+      <div class="rule-id">Rule 2.4</div>
+      <div class="rule-title">Commitment Duration Multiplier</div>
+      <div class="rule-body">
+        <p>The commitment duration multiplier rewards longer vault lock periods:</p>
+        <div class="table-wrap" style="margin-top:12px;">
+          <table class="table-compact">
+            <thead><tr><th>Duration</th><th style="text-align:right;">Multiplier</th></tr></thead>
+            <tbody>
+              <tr><td>Trial Vault — 7 Days</td><td>1.00×</td></tr>
+              <tr><td>30 Days</td><td>1.00×</td></tr>
+              <tr><td>90 Days</td><td>1.25×</td></tr>
+              <tr><td>180 Days</td><td>1.50×</td></tr>
+              <tr><td>365 Days</td><td>2.00×</td></tr>
+              <tr><td>730 Days</td><td>3.00×</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="rule">
+      <div class="rule-id">Rule 2.5</div>
+      <div class="rule-title">Emission Factor and Decay</div>
+      <div class="rule-body">
+        <p>The emission factor defines how many VCLM are minted per $1.00 USD of adjusted deposit value.</p>
+        <ul>
+          <li><strong>At launch:</strong> 10 VCLM per $1.00 USD (equivalent to $0.10 per VCLM)</li>
+          <li><strong>Decay rate:</strong> 20% per year, computed on-chain from the protocol deployment timestamp</li>
+          <li><strong>Floor:</strong> 1 VCLM per $1.00 USD — decay stops at this level permanently</li>
+          <li>The decay is automatic, irreversible, and cannot be paused or overridden by governance</li>
+        </ul>
+        <p style="margin-top:12px;">Early participants earn significantly more VCLM per dollar committed than later participants. This is by design.</p>
+      </div>
+    </div>
+
+    <div class="rule">
+      <div class="rule-id">Rule 2.6</div>
+      <div class="rule-title">Example Calculation</div>
+      <div class="rule-body">
+        <p>A user deposits $3,000 USD worth of SHIB (Tier C) into a 730-day vault in the protocol's first week:</p>
+        <div class="example">
+          <strong>$3,000 × 0.70 (Tier C) × 3.00 (730-day) × 10 (launch emission) = 63,000 VCLM</strong>
+        </div>
+        <p>The same deposit made one year later would yield less due to emission decay.</p>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- SECTION 3 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-number">Section 03</div>
+      <div class="section-title">Trial Vault Rules</div>
+    </div>
+
+    <div class="rule">
+      <div class="rule-id">Rule 3.1</div>
+      <div class="rule-title">Trial Vault Entry</div>
+      <div class="rule-body">Any approved asset may be deposited into a Trial Vault with a 7-day commitment period. A <strong>2.5% retention fee</strong> is applied at entry.</div>
+    </div>
+
+    <div class="rule">
+      <div class="rule-id">Rule 3.2</div>
+      <div class="rule-title">Trial Vault Exit</div>
+      <div class="rule-body">A user who exits the Trial Vault before the 7-day period ends receives <strong>97.5% of their principal back</strong> and retains all VCLM earned. The 2.5% retention is permanent and non-refundable.</div>
+    </div>
+
+    <div class="rule">
+      <div class="rule-id">Rule 3.3</div>
+      <div class="rule-title">Trial Vault Continuation</div>
+      <div class="rule-body">A user who continues from the Trial Vault into a standard vault incurs an additional 2.5% retention fee at continuation, for a total of <strong>5%</strong> — consistent with standard vault retention.</div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- SECTION 4 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-number">Section 04</div>
+      <div class="section-title">Supply Integrity Controls</div>
+    </div>
+
+    <div class="rule immutable">
+      <div class="immutable-badge">Immutable</div>
+      <div class="rule-id">Rule 4.1</div>
+      <div class="rule-title">Hard Maximum Supply</div>
+      <div class="rule-body">VCLM has a hard maximum supply cap of <strong>10,000,000,000 (ten billion) tokens.</strong> This cap is encoded in the VinculumToken smart contract and is immutable. No governance proposal, founder action, or other mechanism may increase this cap under any circumstances. Once the cap is reached, no further minting is possible regardless of collateral deposited.</div>
+    </div>
+
+    <div class="rule">
+      <div class="rule-id">Rule 4.2</div>
+      <div class="rule-title">Epoch Mint Cap</div>
+      <div class="rule-body">No more than <strong>10,000,000 VCLM</strong> (0.1% of maximum supply) may be minted in any 7-day epoch across all users combined. This is the recommended starting cap and may be adjusted by governance vote. If the epoch cap is reached before the epoch ends, new mint requests are queued and processed automatically at the start of the next epoch in the order they were received. See Section 4A for priority queue rules governing queue position advancement.</div>
+    </div>
+
+    <div class="rule">
+      <div class="rule-id">Rule 4.3</div>
+      <div class="rule-title">Collateral Backing Ratio</div>
+      <div class="rule-body">
+        <p>The protocol shall track a <strong>Collateral Backing Ratio (CBR)</strong> defined as:</p>
+        <div class="formula">CBR = Total External Collateral (USD value) ÷ Total VCLM in Circulation (USD value)</div>
+        <p>If the CBR falls below <strong>0.50</strong>, all new mints are automatically paused until the ratio recovers above the threshold.</p>
+      </div>
+    </div>
+
+    <div class="rule">
+      <div class="rule-id">Rule 4.4</div>
+      <div class="rule-title">Per-Asset Deposit Cap</div>
+      <div class="rule-body">Governance may set a maximum total deposit cap per approved asset to prevent any single asset from dominating the collateral pool. A cap of 0 means unlimited. Caps are adjustable by governance vote.</div>
+    </div>
+
+    <div class="rule">
+      <div class="rule-id">Rule 4.5</div>
+      <div class="rule-title">Treasury Split</div>
+      <div class="rule-body">
+        <p>At the time of each vault deposit, the protocol's 5% retention is atomically and permanently split as follows:</p>
+        <ul>
+          <li><strong>82%</strong> → Core Reserve Pool</li>
+          <li><strong>12%</strong> → Dev Fund (founder-controlled multisig)</li>
+          <li><strong>6%</strong> → Ecosystem Fund (governed by VCLM holders)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- SECTION 4A -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-number">Section 4A</div>
+      <div class="section-title">Priority Queue</div>
+    </div>
+
+    <div class="rule">
+      <div class="rule-id">Rule 4A.1</div>
+      <div class="rule-title">Queue Formation</div>
+      <div class="rule-body">When the epoch mint cap is reached before an epoch ends, all remaining mint requests enter a first-in-first-out queue. Standard queue positions are processed in the order received at the start of the next available epoch at no additional cost.</div>
+    </div>
+
+    <div class="rule">
+      <div class="rule-id">Rule 4A.2</div>
+      <div class="rule-title">Priority Queue Eligibility</div>
+      <div class="rule-body">Priority queue access is available <strong>only</strong> to wallets that have successfully completed at least one prior vault from inception to maturity within Vinculum Protocol. First-time wallets are ineligible for priority queue access regardless of deposit size. <strong>Loyalty is a prerequisite for speed.</strong></div>
+    </div>
+
+    <div class="rule">
+      <div class="rule-id">Rule 4A.3</div>
+      <div class="rule-title">Priority Queue Fee</div>
+      <div class="rule-body">
+        <p>Eligible wallets may pay a priority fee to advance their position. The fee is dynamic based on current queue depth:</p>
+        <div class="formula">Priority Fee = (Weeks of Queue Backlog) × 0.5% of Deposit Value</div>
+        <p><strong>Hard cap: 5.0% of deposit value regardless of queue length.</strong></p>
+        <div class="table-wrap" style="margin-top:16px;">
+          <table>
+            <thead><tr><th>Queue Backlog</th><th>Priority Fee</th><th>Fee on $10,000 Deposit</th></tr></thead>
+            <tbody>
+              <tr><td>No queue</td><td>0%</td><td>$0</td></tr>
+              <tr><td>2 weeks</td><td>1.0%</td><td>$100</td></tr>
+              <tr><td>4 weeks</td><td>2.0%</td><td>$200</td></tr>
+              <tr><td>6 weeks</td><td>3.0%</td><td>$300</td></tr>
+              <tr><td>8 weeks</td><td>4.0%</td><td>$400</td></tr>
+              <tr><td>10+ weeks</td><td>5.0% (cap)</td><td>$500</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="rule">
+      <div class="rule-id">Rule 4A.4</div>
+      <div class="rule-title">Priority Fee Distribution</div>
+      <div class="rule-body">
+        <p>Priority fees collected are split as follows:</p>
+        <ul>
+          <li><strong>50%</strong> → Core Reserve Pool</li>
+          <li><strong>50%</strong> → Ecosystem Fund (distributed to VCLM holders)</li>
+        </ul>
+        <p style="margin-top:10px;">Priority fees are never used for new VCLM minting and never flow to the Dev Fund.</p>
+      </div>
+    </div>
+
+    <div class="rule">
+      <div class="rule-id">Rule 4A.5</div>
+      <div class="rule-title">Priority Does Not Affect Mint Amount</div>
+      <div class="rule-body">Paying a priority fee advances queue position only. It does not increase, decrease, or otherwise affect the VCLM minted. The mint formula defined in Rule 2.2 applies identically to all positions regardless of priority status.</div>
+    </div>
+
+    <div class="rule">
+      <div class="rule-id">Rule 4A.6</div>
+      <div class="rule-title">One Priority Upgrade Per Deposit</div>
+      <div class="rule-body">A wallet may pay the priority fee once per vault deposit. Priority cannot be purchased multiple times for the same deposit. Among priority queue participants, order is still first-in-first-out.</div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- SECTION 5 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-number">Section 05</div>
+      <div class="section-title">Rewards for VCLM Holders</div>
+    </div>
+
+    <div class="rule">
+      <div class="rule-id">Rule 5.1</div>
+      <div class="rule-title">Revenue Share</div>
+      <div class="rule-body">VCLM holders are eligible to receive a proportional share of protocol revenue, including transaction fees, treasury yield, and partnership distributions.</div>
+    </div>
+
+    <div class="rule">
+      <div class="rule-id">Rule 5.2</div>
+      <div class="rule-title">Revenue Share Paid in External Assets</div>
+      <div class="rule-body">Revenue share distributions are paid in ETH, USDC, or other approved stablecoins — <strong>never in newly minted VCLM.</strong> This prevents reward compounding from inflating supply.</div>
+    </div>
+
+    <div class="rule">
+      <div class="rule-id">Rule 5.3</div>
+      <div class="rule-title">No Yield from Minting</div>
+      <div class="rule-body">VCLM minting is a one-time event triggered by a vault deposit. It is not an ongoing yield mechanism. Yield paid to collateral stakers comes exclusively from protocol revenue.</div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- SECTION 6 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-number">Section 06</div>
+      <div class="section-title">Protocol 2 and Future VCLM Staking</div>
+    </div>
+
+    <div class="rule immutable">
+      <div class="immutable-badge">Immutable</div>
+      <div class="rule-id">Rule 6.1</div>
+      <div class="rule-title">VCLM Staking Is Impossible in Protocol 1</div>
+      <div class="rule-body">VCLM staking is technically impossible within Protocol 1. It is not a policy restriction — it is a hard contract-level enforcement. No governance action can enable VCLM staking within Protocol 1.</div>
+    </div>
+
+    <div class="rule">
+      <div class="rule-id">Rule 6.2</div>
+      <div class="rule-title">Protocol 2 Activation Conditions</div>
+      <div class="rule-body">
+        <p>A second protocol in which VCLM may be staked may only be activated when <strong>all</strong> of the following conditions are simultaneously true:</p>
+        <ol>
+          <li>VCLM is actively listed and trading on at least one recognized external exchange</li>
+          <li>VCLM circulating market cap has exceeded <strong>$100,000,000 (one hundred million USD)</strong> and sustained that level for a minimum of 30 continuous days</li>
+          <li>Protocol 1 has been live for a minimum of <strong>12 continuous months</strong> with no critical security incidents</li>
+          <li>A DAO governance supermajority vote of <strong>&gt;66% approval</strong> passes with the required quorum</li>
+          <li>An independent third-party security audit of Protocol 2 has been completed and published</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="rule">
+      <div class="rule-id">Rule 6.2a</div>
+      <div class="rule-title">Protocol 2 Vote Time-Lock</div>
+      <div class="rule-body">Once all objective conditions in Rule 6.2 items 1 through 3 and 5 are simultaneously met and verified on-chain, the governance vote required by item 4 <strong>must open within 14 days</strong> and must remain open for the standard 14-day voting window. No governance bloc, wallet, or combination of wallets may delay, postpone, or prevent the vote from opening. This rule exists to prevent any actor from using governance position as a timing weapon to delay a price-moving event for personal trading advantage.</div>
+    </div>
+
+    <div class="rule">
+      <div class="rule-id">Rule 6.3</div>
+      <div class="rule-title">Protocol 2 Staking Rewards</div>
+      <div class="rule-body">VCLM staked in Protocol 2 earns <strong>protocol revenue share and governance weight only.</strong> It does not trigger new VCLM mints. The anti-inflation rules of Protocol 1 remain intact within Protocol 2.</div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- SECTION 7 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-number">Section 07</div>
+      <div class="section-title">Enforcement</div>
+    </div>
+
+    <div class="rule">
+      <div class="rule-id">Rule 7.1</div>
+      <div class="rule-title">Smart Contract Enforcement</div>
+      <div class="rule-body">Rules 1.2, 1.3, 2.1, 4.1, 4.2, 4.3, and 6.1 shall be enforced directly in the protocol's smart contracts. The contracts make violations technically impossible, not merely prohibited by policy.</div>
+    </div>
+
+    <div class="rule">
+      <div class="rule-id">Rule 7.2</div>
+      <div class="rule-title">Audit Requirement</div>
+      <div class="rule-body">Prior to mainnet launch, all staking and minting contracts must be audited by at least one independent third-party security firm. The audit report shall be published publicly.</div>
+    </div>
+
+    <div class="rule immutable">
+      <div class="immutable-badge">Immutable</div>
+      <div class="rule-id">Rule 7.3</div>
+      <div class="rule-title">Immutable Rules</div>
+      <div class="rule-body">
+        <p>The following rules are immutable and cannot be changed by any governance vote under any circumstance:</p>
+        <ul>
+          <li>Rule 1.2 — VCLM is not stakeable in Protocol 1</li>
+          <li>Rule 4.1 — Hard maximum supply cap of 10 billion</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="rule">
+      <div class="rule-id">Rule 7.4</div>
+      <div class="rule-title">Governance Amendment Process</div>
+      <div class="rule-body">
+        <p>All rules not listed in Rule 7.3 may be amended by a DAO governance vote requiring:</p>
+        <ul>
+          <li>Greater than 50% quorum of eligible voting power</li>
+          <li>Greater than 60% approval of votes cast</li>
+          <li>A 14-day public voting window</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="rule">
+      <div class="rule-id">Rule 7.5</div>
+      <div class="rule-title">Epoch Cap Voting Conflict of Interest</div>
+      <div class="rule-body">
+        <p>Proposals to adjust the epoch mint cap represent a direct financial conflict of interest for large VCLM holders. To mitigate this conflict the following restrictions apply to epoch cap votes specifically:</p>
+        <ul>
+          <li>Any wallet holding more than <strong>1% of total circulating VCLM supply</strong> has its voting weight on epoch cap proposals <strong>capped at 1%</strong> of total supply regardless of actual holdings</li>
+          <li>This cap cannot be circumvented by distributing holdings across multiple wallets</li>
+          <li>All other governance proposals are unaffected by this rule</li>
+          <li>This rule is itself amendable only by a governance vote in which the 1% cap applies</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- SECTION 8 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-number">Section 08</div>
+      <div class="section-title">Transparency Commitments</div>
+    </div>
+
+    <div class="philosophy">
+      Vinculum Protocol deliberately does not attempt to engineer out all forms of market turbulence, speculation, or organic price behavior. Every rule added to a protocol introduces new complexity, new edge cases, and new interactions that cannot be fully anticipated. Overcompensating for theoretical risks often creates more complicated and less understood risks in their place. The protocol therefore draws a clear distinction between behavior that is genuinely extractive or manipulative — which warrants a rule — and behavior that is simply markets operating as markets — which warrants transparency, not prohibition.
+    </div>
+
+    <div class="rule">
+      <div class="rule-id">Rule 8.1</div>
+      <div class="rule-title">Vault Unlock Calendar</div>
+      <div class="rule-body">The protocol shall publish and maintain a publicly accessible vault unlock calendar showing the approximate timeline of all major VCLM vesting events derivable from on-chain data. This calendar shall be updated continuously and shall be accessible without requiring a wallet connection or account.</div>
+    </div>
+
+    <div class="rule">
+      <div class="rule-id">Rule 8.2</div>
+      <div class="rule-title">Collateral Backing Ratio Dashboard</div>
+      <div class="rule-body">The Collateral Backing Ratio (CBR) shall be displayed publicly and in real time on the protocol's primary interface. Participants shall be able to see the current CBR, its 30-day trend, and the 0.50 threshold at which minting pauses. No participant should ever be surprised by a mint pause.</div>
+    </div>
+
+    <div class="rule">
+      <div class="rule-id">Rule 8.3</div>
+      <div class="rule-title">Volatile Asset Risk Disclosure</div>
+      <div class="rule-body">At the point of deposit for any Tier B or Tier C collateral asset, the protocol interface shall display a prominent disclosure stating that the asset is classified as volatile, that its USD value may decline significantly during the lock period, that the staker will receive the original nominal token amount at maturity regardless of price change, and that the 5% retention fee is non-refundable. The staker must affirmatively acknowledge this disclosure before the deposit transaction is submitted.</div>
+    </div>
+
+    <div class="rule">
+      <div class="rule-id">Rule 8.4</div>
+      <div class="rule-title">Per-Asset Deposit Cap Transparency</div>
+      <div class="rule-body">The current per-asset deposit cap for every approved collateral asset shall be publicly visible alongside the current total deposited for that asset. Participants shall be able to see how much remaining capacity exists for any given asset before committing a deposit.</div>
+    </div>
+
+    <div class="rule">
+      <div class="rule-id">Rule 8.5</div>
+      <div class="rule-title">Priority Queue Depth Visibility</div>
+      <div class="rule-body">The current queue depth, estimated wait time in epochs, and current priority fee rate shall be displayed publicly and in real time on the protocol interface. Participants shall have full information about queue conditions before deciding whether to pay a priority fee or wait.</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Vinculum Protocol</div>
+  <div class="footer-meta">
+    VCLM Tokenomics Rules · Version 1.6<br>
+    Vinculum Protocol DAO LLC · March 2026<br>
+    @VinculumDefi
+  </div>
+</footer>
+
+<script>
+const cursor = document.getElementById('cursor');
+document.addEventListener('mousemove', e => {
+  cursor.style.left = e.clientX + 'px';
+  cursor.style.top  = e.clientY + 'px';
+});
+document.querySelectorAll('a, .rule').forEach(el => {
+  el.addEventListener('mouseenter', () => cursor.classList.add('hovering'));
+  el.addEventListener('mouseleave', () => cursor.classList.remove('hovering'));
+});
+</script>
+
+</body>
+</html>
