@@ -1,0 +1,2580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vinculum Protocol — Asset Registry Dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  /* =============================================
+     DESIGN SYSTEM
+  ============================================= */
+  :root {
+    --bg-0: #080b10;
+    --bg-1: #0d1117;
+    --bg-2: #131920;
+    --bg-3: #1a2230;
+    --bg-4: #1e2a3d;
+    --border: #1f2e42;
+    --border-glow: #2a4060;
+
+    --text-primary: #d4e4f7;
+    --text-secondary: #7a9ab8;
+    --text-muted: #3a5570;
+    --text-accent: #5ab3ff;
+
+    --accent-blue: #3b82f6;
+    --accent-cyan: #22d3ee;
+    --accent-gold: #f0a400;
+    --accent-green: #22c55e;
+    --accent-red: #ef4444;
+    --accent-purple: #a78bfa;
+    --accent-orange: #fb923c;
+
+    --tier-a: #22d3ee;
+    --tier-b: #a78bfa;
+    --tier-c: #fb923c;
+
+    --font-mono: 'Space Mono', monospace;
+    --font-display: 'Syne', sans-serif;
+
+    --radius: 6px;
+    --radius-lg: 10px;
+    --transition: 180ms ease;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg-0);
+    color: var(--text-primary);
+    font-family: var(--font-display);
+    font-size: 14px;
+    line-height: 1.5;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ---- BACKGROUND GRID ---- */
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background-image:
+      linear-gradient(rgba(59,130,246,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(59,130,246,0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* =============================================
+     HEADER
+  ============================================= */
+  header {
+    position: relative; z-index: 10;
+    padding: 20px 32px 0;
+    border-bottom: 1px solid var(--border);
+    background: linear-gradient(180deg, rgba(13,17,23,0.98) 0%, rgba(8,11,16,0.95) 100%);
+    backdrop-filter: blur(12px);
+  }
+
+  .header-top {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding-bottom: 16px;
+  }
+
+  .logo-mark {
+    width: 38px; height: 38px;
+    background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-mono);
+    font-weight: 700;
+    font-size: 16px;
+    color: #fff;
+    flex-shrink: 0;
+    box-shadow: 0 0 20px rgba(59,130,246,0.3);
+  }
+
+  .logo-text {
+    display: flex; flex-direction: column; gap: 1px;
+  }
+
+  .logo-primary {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 18px;
+    letter-spacing: 0.04em;
+    color: var(--text-primary);
+  }
+
+  .logo-sub {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--text-muted);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .header-right {
+    margin-left: auto;
+    display: flex; align-items: center; gap: 12px;
+  }
+
+  .price-notice {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--accent-gold);
+    background: rgba(240,164,0,0.08);
+    border: 1px solid rgba(240,164,0,0.2);
+    padding: 6px 12px;
+    border-radius: var(--radius);
+    letter-spacing: 0.04em;
+    max-width: 440px;
+    line-height: 1.4;
+  }
+
+  .refresh-btn {
+    background: var(--bg-3);
+    border: 1px solid var(--border);
+    color: var(--text-accent);
+    padding: 8px 16px;
+    border-radius: var(--radius);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    cursor: pointer;
+    letter-spacing: 0.06em;
+    transition: var(--transition);
+    display: flex; align-items: center; gap: 6px;
+  }
+  .refresh-btn:hover {
+    background: var(--bg-4);
+    border-color: var(--accent-blue);
+    color: var(--accent-cyan);
+  }
+
+  /* =============================================
+     SUMMARY BAR
+  ============================================= */
+  .summary-bar {
+    display: flex;
+    gap: 0;
+    border-top: 1px solid var(--border);
+    margin-top: -1px;
+  }
+
+  .stat-pill {
+    flex: 1;
+    padding: 10px 16px;
+    border-right: 1px solid var(--border);
+    display: flex; flex-direction: column; gap: 2px;
+  }
+  .stat-pill:last-child { border-right: none; }
+
+  .stat-label {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    color: var(--text-muted);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .stat-value {
+    font-family: var(--font-mono);
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1;
+  }
+
+  .stat-value.cyan { color: var(--accent-cyan); }
+  .stat-value.blue { color: var(--accent-blue); }
+  .stat-value.gold { color: var(--accent-gold); }
+  .stat-value.purple { color: var(--accent-purple); }
+
+  /* =============================================
+     CONTROLS BAR
+  ============================================= */
+  .controls-wrap {
+    position: relative; z-index: 9;
+    padding: 14px 32px;
+    background: rgba(8,11,16,0.95);
+    border-bottom: 1px solid var(--border);
+    display: flex; gap: 10px; align-items: center; flex-wrap: wrap;
+  }
+
+  .search-wrap {
+    position: relative;
+    flex: 1; min-width: 220px; max-width: 340px;
+  }
+
+  .search-icon {
+    position: absolute; left: 10px; top: 50%; transform: translateY(-50%);
+    color: var(--text-muted); font-size: 13px; pointer-events: none;
+  }
+
+  input[type="text"], select {
+    background: var(--bg-2);
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    border-radius: var(--radius);
+    padding: 8px 10px;
+    transition: var(--transition);
+    outline: none;
+  }
+
+  input[type="text"] {
+    padding-left: 32px;
+    width: 100%;
+  }
+
+  input[type="text"]:focus, select:focus {
+    border-color: var(--accent-blue);
+    background: var(--bg-3);
+  }
+
+  select {
+    cursor: pointer;
+    padding: 8px 10px;
+    min-width: 120px;
+  }
+
+  select option { background: var(--bg-1); }
+
+  .controls-right {
+    margin-left: auto;
+    display: flex; gap: 8px; align-items: center;
+  }
+
+  .sort-label {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--text-muted);
+    letter-spacing: 0.08em;
+    white-space: nowrap;
+  }
+
+  /* =============================================
+     MAIN CONTENT
+  ============================================= */
+  main {
+    position: relative; z-index: 1;
+    padding: 0 32px 40px;
+  }
+
+  /* =============================================
+     TABLE
+  ============================================= */
+  .table-wrap {
+    overflow-x: auto;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    margin-top: 20px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 900px;
+  }
+
+  thead tr {
+    background: var(--bg-2);
+    border-bottom: 1px solid var(--border);
+  }
+
+  th {
+    padding: 10px 14px;
+    text-align: left;
+    font-family: var(--font-mono);
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    white-space: nowrap;
+    cursor: pointer;
+    user-select: none;
+    transition: var(--transition);
+  }
+  th:hover { color: var(--text-accent); }
+  th.sorted { color: var(--accent-cyan); }
+
+  th .sort-arrow { display: inline; margin-left: 4px; opacity: 0.4; }
+  th.sorted .sort-arrow { opacity: 1; }
+
+  tbody tr {
+    border-bottom: 1px solid rgba(31,46,66,0.5);
+    transition: background var(--transition);
+    cursor: pointer;
+  }
+
+  tbody tr:last-child { border-bottom: none; }
+
+  tbody tr:hover {
+    background: rgba(59,130,246,0.04);
+  }
+
+  td {
+    padding: 11px 14px;
+    vertical-align: middle;
+    white-space: nowrap;
+  }
+
+  /* ---- ASSET CELL ---- */
+  .asset-cell {
+    display: flex; align-items: center; gap: 10px;
+  }
+
+  .asset-icon {
+    width: 30px; height: 30px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--bg-3), var(--bg-4));
+    border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-mono);
+    font-size: 9px;
+    font-weight: 700;
+    color: var(--text-secondary);
+    flex-shrink: 0;
+    overflow: hidden;
+  }
+
+  .asset-icon img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+
+  .asset-name { font-weight: 600; font-size: 13px; color: var(--text-primary); }
+  .asset-symbol {
+    font-family: var(--font-mono); font-size: 10px;
+    color: var(--text-secondary); display: block; margin-top: 1px;
+  }
+
+  /* ---- BADGES ---- */
+  .badge {
+    display: inline-flex; align-items: center;
+    padding: 2px 7px;
+    border-radius: 3px;
+    font-family: var(--font-mono);
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .badge-tier-a { background: rgba(34,211,238,0.12); color: var(--tier-a); border: 1px solid rgba(34,211,238,0.2); }
+  .badge-tier-b { background: rgba(167,139,250,0.12); color: var(--tier-b); border: 1px solid rgba(167,139,250,0.2); }
+  .badge-tier-c { background: rgba(251,146,60,0.12); color: var(--tier-c); border: 1px solid rgba(251,146,60,0.2); }
+
+  .badge-active { background: rgba(34,197,94,0.1); color: var(--accent-green); border: 1px solid rgba(34,197,94,0.2); }
+  .badge-inactive { background: rgba(239,68,68,0.08); color: #ef4444; border: 1px solid rgba(239,68,68,0.15); }
+
+  .badge-chainlink { background: rgba(59,130,246,0.1); color: var(--accent-blue); border: 1px solid rgba(59,130,246,0.2); }
+  .badge-twap { background: rgba(240,164,0,0.1); color: var(--accent-gold); border: 1px solid rgba(240,164,0,0.2); }
+  .badge-mixed { background: rgba(167,139,250,0.1); color: var(--accent-purple); border: 1px solid rgba(167,139,250,0.2); }
+  .badge-tbd { background: rgba(122,154,184,0.08); color: var(--text-secondary); border: 1px solid rgba(122,154,184,0.15); }
+  .badge-community { background: rgba(251,146,60,0.1); color: var(--accent-orange); border: 1px solid rgba(251,146,60,0.2); }
+
+  /* ---- PRICE CELLS ---- */
+  .price-val {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--text-primary);
+  }
+
+  .price-loading {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--text-muted);
+    animation: pulse 1.4s ease-in-out infinite;
+  }
+
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+  .change-pos { color: var(--accent-green); font-family: var(--font-mono); font-size: 11px; }
+  .change-neg { color: var(--accent-red); font-family: var(--font-mono); font-size: 11px; }
+  .change-na { color: var(--text-muted); font-family: var(--font-mono); font-size: 11px; }
+
+  .contract-short {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--text-muted);
+  }
+
+  /* ---- ORACLE RISK ---- */
+  .risk-low { color: var(--accent-green); font-family: var(--font-mono); font-size: 10px; }
+  .risk-med { color: var(--accent-gold); font-family: var(--font-mono); font-size: 10px; }
+  .risk-high { color: var(--accent-red); font-family: var(--font-mono); font-size: 10px; }
+  .risk-na { color: var(--text-muted); font-family: var(--font-mono); font-size: 10px; }
+
+  /* ---- CHAIN BADGE ---- */
+  .chain-tag {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    color: var(--text-secondary);
+    background: var(--bg-3);
+    border: 1px solid var(--border);
+    padding: 2px 6px;
+    border-radius: 3px;
+  }
+
+  /* ---- ENABLED FLAG ---- */
+  .dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+  .dot-green { background: var(--accent-green); box-shadow: 0 0 6px rgba(34,197,94,0.5); }
+  .dot-red { background: #ef4444; }
+  .dot-gray { background: var(--text-muted); }
+
+  /* =============================================
+     EMPTY STATE
+  ============================================= */
+  .empty-state {
+    padding: 60px 20px;
+    text-align: center;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+  }
+
+  /* =============================================
+     MODAL
+  ============================================= */
+  .modal-overlay {
+    display: none;
+    position: fixed; inset: 0;
+    background: rgba(0,0,0,0.75);
+    backdrop-filter: blur(4px);
+    z-index: 1000;
+    align-items: flex-start;
+    justify-content: flex-end;
+  }
+  .modal-overlay.open { display: flex; }
+
+  .modal-panel {
+    width: 460px;
+    max-width: 95vw;
+    height: 100vh;
+    overflow-y: auto;
+    background: var(--bg-1);
+    border-left: 1px solid var(--border-glow);
+    padding: 28px 24px;
+    animation: slideIn 240ms ease;
+    position: relative;
+  }
+
+  @keyframes slideIn { from { transform: translateX(100%); opacity: 0; } to { transform: none; opacity: 1; } }
+
+  .modal-close {
+    position: absolute; top: 18px; right: 18px;
+    background: var(--bg-3);
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+    width: 30px; height: 30px;
+    border-radius: var(--radius);
+    cursor: pointer;
+    font-size: 16px;
+    display: flex; align-items: center; justify-content: center;
+    transition: var(--transition);
+  }
+  .modal-close:hover { color: var(--text-primary); border-color: var(--accent-blue); }
+
+  .modal-symbol-row {
+    display: flex; align-items: center; gap: 14px;
+    margin-bottom: 20px;
+  }
+
+  .modal-icon {
+    width: 48px; height: 48px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--bg-3), var(--bg-4));
+    border: 1px solid var(--border-glow);
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-mono); font-size: 12px; font-weight: 700;
+    color: var(--text-secondary); flex-shrink: 0;
+    overflow: hidden;
+  }
+  .modal-icon img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+
+  .modal-title { font-size: 22px; font-weight: 800; color: var(--text-primary); }
+  .modal-ticker {
+    font-family: var(--font-mono); font-size: 12px;
+    color: var(--text-secondary); margin-top: 2px;
+  }
+
+  .modal-section {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border);
+  }
+  .modal-section:last-child { border-bottom: none; }
+
+  .modal-section-title {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+  }
+
+  .modal-row {
+    display: flex; align-items: flex-start;
+    gap: 8px; margin-bottom: 8px;
+    flex-wrap: wrap;
+  }
+
+  .modal-key {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--text-muted);
+    min-width: 140px;
+    flex-shrink: 0;
+  }
+
+  .modal-val {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--text-primary);
+    word-break: break-all;
+  }
+
+  .rep-card {
+    background: var(--bg-2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 10px 12px;
+    margin-bottom: 8px;
+  }
+
+  .rep-chain-row {
+    display: flex; align-items: center; gap: 8px; margin-bottom: 6px;
+  }
+
+  .rep-chain-name {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--text-accent);
+    font-weight: 700;
+  }
+
+  .rep-field {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--text-muted);
+    margin-bottom: 2px;
+  }
+
+  .rep-field span {
+    color: var(--text-secondary);
+  }
+
+  /* ---- MARKET CARD in modal ---- */
+  .market-card {
+    background: var(--bg-2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 14px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+
+  .mkt-item-label { font-family: var(--font-mono); font-size: 9px; color: var(--text-muted); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 3px; }
+  .mkt-item-val { font-family: var(--font-mono); font-size: 15px; font-weight: 700; color: var(--text-primary); }
+
+  /* =============================================
+     STATUS BAR
+  ============================================= */
+  .status-bar {
+    display: flex; align-items: center; gap: 8px;
+    padding: 8px 32px;
+    background: rgba(8,11,16,0.9);
+    border-top: 1px solid var(--border);
+    position: fixed; bottom: 0; left: 0; right: 0;
+    z-index: 50;
+  }
+
+  .status-indicator {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--text-muted);
+    transition: var(--transition);
+  }
+  .status-indicator.loading { background: var(--accent-gold); animation: pulse 1s ease-in-out infinite; }
+  .status-indicator.ok { background: var(--accent-green); }
+  .status-indicator.error { background: var(--accent-red); }
+
+  .status-text {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--text-muted);
+  }
+
+  .status-right {
+    margin-left: auto;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--text-muted);
+  }
+
+  /* =============================================
+     SCROLLBAR
+  ============================================= */
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: var(--bg-0); }
+  ::-webkit-scrollbar-thumb { background: var(--bg-3); border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--bg-4); }
+
+  /* =============================================
+     RESULT COUNT
+  ============================================= */
+  .result-count {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--text-muted);
+    padding: 8px 32px 0;
+  }
+
+
+  /* =============================================
+     FILE:// WARNING BANNER
+  ============================================= */
+  .file-protocol-banner {
+    display: none; /* shown via JS when window.location.protocol === 'file:' */
+    background: rgba(240,164,0,0.10);
+    border-bottom: 1px solid rgba(240,164,0,0.30);
+    padding: 10px 32px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--accent-gold);
+    letter-spacing: 0.03em;
+    line-height: 1.6;
+  }
+  .file-protocol-banner strong { color: #ffd060; }
+
+  /* =============================================
+     HOSTING HELP NOTE (near status bar)
+  ============================================= */
+  .hosting-hint {
+    position: fixed; bottom: 36px; left: 0; right: 0;
+    z-index: 49;
+    padding: 5px 32px;
+    background: rgba(8,11,16,0.92);
+    border-top: 1px solid var(--border);
+    font-family: var(--font-mono);
+    font-size: 9px;
+    color: var(--text-muted);
+    letter-spacing: 0.06em;
+  }
+  .hosting-hint a { color: var(--text-muted); text-decoration: underline; }
+
+  /* bump main padding to clear both bars */
+  main { padding-bottom: 80px; }
+
+  /* =============================================
+     RESPONSIVE
+  ============================================= */
+  @media (max-width: 768px) {
+    header, .controls-wrap, main, .status-bar, .result-count { padding-left: 16px; padding-right: 16px; }
+    .summary-bar { flex-wrap: wrap; }
+    .stat-pill { flex: 1 0 33%; }
+    .price-notice { display: none; }
+    .modal-panel { width: 100%; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ======================== FILE:// WARNING ======================== -->
+<div class="file-protocol-banner" id="file-protocol-banner">
+  <strong>⚠ Local file detected.</strong>
+  This page is running as a <strong>file://</strong> URL. Live pricing API calls will be blocked by your browser's CORS policy.
+  Host this file over <strong>http/https</strong> for reliable price data
+  (e.g. GitHub Pages, Netlify, or <code>python -m http.server 8080</code> locally).
+</div>
+
+<!-- ======================== HEADER ======================== -->
+<header>
+  <div class="header-top">
+    <div class="logo-mark">V</div>
+    <div class="logo-text">
+      <div class="logo-primary">Vinculum Protocol</div>
+      <div class="logo-sub">Asset Registry // v2.6.1</div>
+    </div>
+    <div class="header-right">
+      <div class="price-notice">
+        ⚠ Displayed prices are market-data estimates for user reference.
+        Final protocol pricing is determined by protocol oracle / TWAP logic.
+      </div>
+      <button class="refresh-btn" onclick="fetchPrices()">
+        <span id="refresh-icon">↻</span> Refresh Prices
+      </button>
+    </div>
+  </div>
+  <div class="summary-bar" id="summary-bar">
+    <div class="stat-pill">
+      <span class="stat-label">Total Assets</span>
+      <span class="stat-value" id="stat-total">—</span>
+    </div>
+    <div class="stat-pill">
+      <span class="stat-label">Active</span>
+      <span class="stat-value cyan" id="stat-active">—</span>
+    </div>
+    <div class="stat-pill">
+      <span class="stat-label">Tier A</span>
+      <span class="stat-value blue" id="stat-tier-a">—</span>
+    </div>
+    <div class="stat-pill">
+      <span class="stat-label">Tier B</span>
+      <span class="stat-value purple" id="stat-tier-b">—</span>
+    </div>
+    <div class="stat-pill">
+      <span class="stat-label">Tier C</span>
+      <span class="stat-value gold" id="stat-tier-c">—</span>
+    </div>
+    <div class="stat-pill">
+      <span class="stat-label">Chainlink-Priced</span>
+      <span class="stat-value blue" id="stat-chainlink">—</span>
+    </div>
+    <div class="stat-pill">
+      <span class="stat-label">TWAP-Priced</span>
+      <span class="stat-value gold" id="stat-twap">—</span>
+    </div>
+    <div class="stat-pill">
+      <span class="stat-label">Verify Needed</span>
+      <span class="stat-value" id="stat-tbd" style="color:#7a9ab8">—</span>
+    </div>
+  </div>
+</header>
+
+<!-- ======================== CONTROLS ======================== -->
+<div class="controls-wrap">
+  <div class="search-wrap">
+    <span class="search-icon">🔍</span>
+    <input type="text" id="search-input" placeholder="Search name, symbol, contract..." oninput="applyFilters()">
+  </div>
+  <select id="filter-tier" onchange="applyFilters()">
+    <option value="">All Tiers</option>
+    <option value="A">Tier A</option>
+    <option value="B">Tier B</option>
+    <option value="C">Tier C</option>
+  </select>
+  <select id="filter-category" onchange="applyFilters()">
+    <option value="">All Categories</option>
+    <option value="L1">L1</option>
+    <option value="L2">L2</option>
+    <option value="Stablecoin">Stablecoin</option>
+    <option value="DeFi">DeFi</option>
+    <option value="Meme">Meme</option>
+    <option value="Exchange">Exchange</option>
+    <option value="Gaming">Gaming</option>
+    <option value="Infrastructure">Infrastructure</option>
+    <option value="Community">Community</option>
+    <option value="Privacy">Privacy</option>
+  </select>
+  <select id="filter-chain" onchange="applyFilters()">
+    <option value="">All Chains</option>
+    <option value="Ethereum">Ethereum</option>
+    <option value="Bitcoin">Bitcoin</option>
+    <option value="BNB Chain">BNB Chain</option>
+    <option value="Solana">Solana</option>
+    <option value="Base">Base</option>
+    <option value="Avalanche">Avalanche</option>
+    <option value="Polygon">Polygon</option>
+    <option value="Arbitrum">Arbitrum</option>
+    <option value="Optimism">Optimism</option>
+    <option value="Cosmos">Cosmos</option>
+    <option value="XRP Ledger">XRP Ledger</option>
+    <option value="Stellar">Stellar</option>
+    <option value="Tron">Tron</option>
+    <option value="Cardano">Cardano</option>
+    <option value="Monero">Monero</option>
+  </select>
+  <select id="filter-active" onchange="applyFilters()">
+    <option value="">All Status</option>
+    <option value="true">Active</option>
+    <option value="false">Inactive</option>
+  </select>
+  <select id="filter-source" onchange="applyFilters()">
+    <option value="">All Price Sources</option>
+    <option value="Chainlink">Chainlink</option>
+    <option value="TWAP">TWAP</option>
+    <option value="Mixed">Mixed</option>
+    <option value="TBD">TBD</option>
+  </select>
+  <div class="controls-right">
+    <span class="sort-label">Sort:</span>
+    <select id="sort-by" onchange="applyFilters()">
+      <option value="name">Name</option>
+      <option value="symbol">Symbol</option>
+      <option value="price">Price</option>
+      <option value="change24h">24h Change</option>
+      <option value="marketCap">Market Cap</option>
+      <option value="tier">Tier</option>
+    </select>
+    <select id="sort-dir" onchange="applyFilters()">
+      <option value="asc">↑ Asc</option>
+      <option value="desc">↓ Desc</option>
+    </select>
+  </div>
+</div>
+
+<!-- ======================== RESULT COUNT ======================== -->
+<div class="result-count" id="result-count"></div>
+
+<!-- ======================== MAIN ======================== -->
+<main>
+  <div class="table-wrap">
+    <table id="asset-table">
+      <thead>
+        <tr>
+          <th onclick="sortBy('name')">Asset <span class="sort-arrow">↕</span></th>
+          <th onclick="sortBy('tier')">Tier <span class="sort-arrow">↕</span></th>
+          <th>Category</th>
+          <th>Canon Chain</th>
+          <th onclick="sortBy('price')">Price <span class="sort-arrow">↕</span></th>
+          <th onclick="sortBy('change24h')">24h <span class="sort-arrow">↕</span></th>
+          <th onclick="sortBy('marketCap')">Mkt Cap <span class="sort-arrow">↕</span></th>
+          <th>Price Source</th>
+          <th>Oracle Risk</th>
+          <th>Status</th>
+          <th>Enabled</th>
+          <th>Contract</th>
+        </tr>
+      </thead>
+      <tbody id="table-body">
+        <tr><td colspan="12" class="empty-state">Loading asset registry…</td></tr>
+      </tbody>
+    </table>
+  </div>
+</main>
+
+<!-- ======================== MODAL ======================== -->
+<div class="modal-overlay" id="modal-overlay" onclick="closeModal(event)">
+  <div class="modal-panel" id="modal-panel">
+    <button class="modal-close" onclick="closeModalDirect()">✕</button>
+    <div id="modal-content"></div>
+  </div>
+</div>
+
+<!-- ======================== HOSTING HINT ======================== -->
+<div class="hosting-hint">
+  Best results when hosted on GitHub Pages, Netlify, or another web server. &nbsp;|&nbsp; Prices: CoinGecko (primary) → Dexscreener → CryptoCompare → cache
+</div>
+
+<!-- ======================== STATUS BAR ======================== -->
+<div class="status-bar">
+  <div class="status-indicator" id="status-dot"></div>
+  <span class="status-text" id="status-text">Initializing…</span>
+  <span class="status-right" id="status-right">CoinGecko Free API (no key)</span>
+</div>
+
+<script>
+// =====================================================
+// ASSET UNIVERSE DATA
+// =====================================================
+// Each asset has:
+//   name, symbol, coingecko_id, tier, category, active,
+//   price_source_type, oracle_risk_class, canonical_chain,
+//   notes, price_source_notes, oracle_notes, registry_notes,
+//   representations[] => { chain, contract_address, is_canonical,
+//     is_enabled, price_feed_address, twap_pair, liquidity_status, source_verified }
+
+const ASSETS = [
+  // ---- LAYER 1 / NATIVE ----
+  {
+    name:"Ethereum", symbol:"ETH", coingecko_id:"ethereum",
+    tier:"A", category:"L1", active:true,
+    price_source_type:"Chainlink", oracle_risk_class:"Low",
+    canonical_chain:"Ethereum",
+    notes:"Primary hub chain for Vinculum Protocol.", price_source_notes:"Chainlink ETH/USD, widely available.", oracle_notes:"Deepest oracle coverage of any asset.", registry_notes:"Base deployment chain.",
+    representations:[
+      {chain:"Ethereum", contract_address:"0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE", is_canonical:true, is_enabled:true, price_feed_address:"0x5f4eC3Df9cbd43714FE2740f5E3616155c5b8419", twap_pair:"ETH/USDC Uniswap V3", liquidity_status:"Deep", source_verified:true},
+      {chain:"Base", contract_address:"0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE", is_canonical:false, is_enabled:true, price_feed_address:"TBD", twap_pair:"", liquidity_status:"Deep", source_verified:true}
+    ]
+  },
+  {
+    name:"Bitcoin", symbol:"BTC", coingecko_id:"bitcoin",
+    tier:"A", category:"L1", active:true,
+    price_source_type:"Chainlink", oracle_risk_class:"Low",
+    canonical_chain:"Bitcoin",
+    notes:"Canonical BTC; represented via WBTC on EVM chains.", price_source_notes:"Chainlink BTC/USD.", oracle_notes:"Robust Chainlink coverage.", registry_notes:"Vault asset via WBTC wrapper.",
+    representations:[
+      {chain:"Bitcoin", contract_address:"Native", is_canonical:true, is_enabled:false, price_feed_address:"N/A", twap_pair:"", liquidity_status:"Deep", source_verified:true}
+    ]
+  },
+  {
+    name:"Wrapped Bitcoin", symbol:"WBTC", coingecko_id:"wrapped-bitcoin",
+    tier:"A", category:"L1", active:true,
+    price_source_type:"Chainlink", oracle_risk_class:"Low",
+    canonical_chain:"Ethereum",
+    notes:"ERC-20 representation of BTC. Primary BTC vault asset.", price_source_notes:"Chainlink WBTC/BTC + BTC/USD.", oracle_notes:"Custodial risk noted; pricing reliable.", registry_notes:"Preferred EVM entry for BTC exposure.",
+    representations:[
+      {chain:"Ethereum", contract_address:"0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599", is_canonical:true, is_enabled:true, price_feed_address:"0xdeb288F737066589598e9214E782fa5A8eD689e8", twap_pair:"", liquidity_status:"Deep", source_verified:true}
+    ]
+  },
+  {
+    name:"Solana", symbol:"SOL", coingecko_id:"solana",
+    tier:"A", category:"L1", active:true,
+    price_source_type:"Chainlink", oracle_risk_class:"Low",
+    canonical_chain:"Solana",
+    notes:"Top-5 L1 by market cap.", price_source_notes:"Chainlink SOL/USD available.", oracle_notes:"Good coverage.", registry_notes:"Multi-chain via Axelar ITS.",
+    representations:[
+      {chain:"Solana", contract_address:"Native", is_canonical:true, is_enabled:false, price_feed_address:"N/A", twap_pair:"", liquidity_status:"Deep", source_verified:true}
+    ]
+  },
+  {
+    name:"BNB", symbol:"BNB", coingecko_id:"binancecoin",
+    tier:"A", category:"L1", active:true,
+    price_source_type:"Chainlink", oracle_risk_class:"Low",
+    canonical_chain:"BNB Chain",
+    notes:"BNB Chain native asset.", price_source_notes:"Chainlink BNB/USD.", oracle_notes:"Well-covered.", registry_notes:"",
+    representations:[
+      {chain:"BNB Chain", contract_address:"Native", is_canonical:true, is_enabled:false, price_feed_address:"N/A", twap_pair:"", liquidity_status:"Deep", source_verified:true}
+    ]
+  },
+  {
+    name:"XRP", symbol:"XRP", coingecko_id:"ripple",
+    tier:"A", category:"L1", active:true,
+    price_source_type:"Chainlink", oracle_risk_class:"Low",
+    canonical_chain:"XRP Ledger",
+    notes:"Ripple XRP Ledger.", price_source_notes:"Chainlink XRP/USD.", oracle_notes:"Adequate.", registry_notes:"",
+    representations:[
+      {chain:"XRP Ledger", contract_address:"Native", is_canonical:true, is_enabled:false, price_feed_address:"N/A", twap_pair:"", liquidity_status:"Deep", source_verified:true}
+    ]
+  },
+  {
+    name:"Stellar", symbol:"XLM", coingecko_id:"stellar",
+    tier:"A", category:"L1", active:true,
+    price_source_type:"Chainlink", oracle_risk_class:"Low",
+    canonical_chain:"Stellar",
+    notes:"Stellar Lumens — low-cost payment network.", price_source_notes:"Chainlink XLM/USD.", oracle_notes:"Adequate.", registry_notes:"",
+    representations:[
+      {chain:"Stellar", contract_address:"Native", is_canonical:true, is_enabled:false, price_feed_address:"N/A", twap_pair:"", liquidity_status:"Medium", source_verified:true}
+    ]
+  },
+  {
+    name:"Avalanche", symbol:"AVAX", coingecko_id:"avalanche-2",
+    tier:"A", category:"L1", active:true,
+    price_source_type:"Chainlink", oracle_risk_class:"Low",
+    canonical_chain:"Avalanche",
+    notes:"Avalanche C-Chain native asset.", price_source_notes:"Chainlink AVAX/USD.", oracle_notes:"Good.", registry_notes:"",
+    representations:[
+      {chain:"Avalanche", contract_address:"Native", is_canonical:true, is_enabled:false, price_feed_address:"N/A", twap_pair:"", liquidity_status:"Deep", source_verified:true}
+    ]
+  },
+  {
+    name:"Cardano", symbol:"ADA", coingecko_id:"cardano",
+    tier:"A", category:"L1", active:true,
+    price_source_type:"Chainlink", oracle_risk_class:"Low",
+    canonical_chain:"Cardano",
+    notes:"", price_source_notes:"Chainlink ADA/USD.", oracle_notes:"", registry_notes:"",
+    representations:[
+      {chain:"Cardano", contract_address:"Native", is_canonical:true, is_enabled:false, price_feed_address:"N/A", twap_pair:"", liquidity_status:"Deep", source_verified:true}
+    ]
+  },
+  {
+    name:"Algorand", symbol:"ALGO", coingecko_id:"algorand",
+    tier:"B", category:"L1", active:true,
+    price_source_type:"Chainlink", oracle_risk_class:"Medium",
+    canonical_chain:"Algorand",
+    notes:"", price_source_notes:"Chainlink ALGO/USD.", oracle_notes:"", registry_notes:"",
+    representations:[
+      {chain:"Algorand", contract_address:"Native", is_canonical:true, is_enabled:false, price_feed_address:"N/A", twap_pair:"", liquidity_status:"Medium", source_verified:true}
+    ]
+  },
+  {
+    name:"Tron", symbol:"TRX", coingecko_id:"tron",
+    tier:"A", category:"L1", active:true,
+    price_source_type:"Chainlink", oracle_risk_class:"Low",
+    canonical_chain:"Tron",
+    notes:"", price_source_notes:"Chainlink TRX/USD.", oracle_notes:"", registry_notes:"",
+    representations:[
+      {chain:"Tron", contract_address:"Native", is_canonical:true, is_enabled:false, price_feed_address:"N/A", twap_pair:"", liquidity_status:"Deep", source_verified:true}
+    ]
+  },
+  {
+    name:"Polkadot", symbol:"DOT", coingecko_id:"polkadot",
+    tier:"A", category:"L1", active:true,
+    price_source_type:"Chainlink", oracle_risk_class:"Low",
+    canonical_chain:"Polkadot",
+    notes:"", price_source_notes:"Chainlink DOT/USD.", oracle_notes:"", registry_notes:"",
+    representations:[
+      {chain:"Polkadot", contract_address:"Native", is_canonical:true, is_enabled:false, price_feed_address:"N/A", twap_pair:"", liquidity_status:"Deep", source_verified:true}
+    ]
+  },
+  {
+    name:"Cosmos", symbol:"ATOM", coingecko_id:"cosmos",
+    tier:"A", category:"L1", active:true,
+    price_source_type:"Chainlink", oracle_risk_class:"Low",
+    canonical_chain:"Cosmos Hub",
+    notes:"", price_source_notes:"Chainlink ATOM/USD.", oracle_notes:"", registry_notes:"",
+    representations:[
+      {chain:"Cosmos Hub", contract_address:"Native", is_canonical:true, is_enabled:false, price_feed_address:"N/A", twap_pair:"", liquidity_status:"Deep", source_verified:true}
+    ]
+  },
+  {
+    name:"NEAR Protocol", symbol:"NEAR", coingecko_id:"near",
+    tier:"A", category:"L1", active:true,
+    price_source_type:"Chainlink", oracle_risk_class:"Low",
+    canonical_chain:"NEAR",
+    notes:"", price_source_notes:"Chainlink NEAR/USD.", oracle_notes:"", registry_notes:"",
+    representations:[
+      {chain:"NEAR", contract_address:"Native", is_canonical:true, is_enabled:false, price_feed_address:"N/A", twap_pair:"", liquidity_status:"Medium", source_verified:true}
+    ]
+  },
+  {
+    name:"Fantom", symbol:"FTM", coingecko_id:"fantom",
+    tier:"B", category:"L1", active:true,
+    price_source_type:"Chainlink", oracle_risk_class:"Medium",
+    canonical_chain:"Fantom",
+    notes:"Rebranding to Sonic (S).", price_source_notes:"Chainlink FTM/USD.", oracle_notes:"", registry_notes:"Monitor for rebranding.",
+    representations:[
+      {chain:"Fantom", contract_address:"Native", is_canonical:true, is_enabled:false, price_feed_address:"N/A", twap_pair:"", liquidity_status:"Medium", source_verified:true}
+    ]
+  },
+  {
+    name:"MultiversX", symbol:"EGLD", coingecko_id:"elrond-erd-2",
+    tier:"B", category:"L1", active:true,
+    price_source_type:"TBD", oracle_risk_class:"Medium",
+    canonical_chain:"MultiversX",
+    notes:"", price_source_notes:"TBD.", oracle_notes:"", registry_notes:"",
+    representations:[
+      {chain:"MultiversX", contract_address:"Native", is_canonical:true, is_enabled:false, price_feed_address:"TBD", twap_pair:"", liquidity_status:"Medium", source_verified:false}
+    ]
+  },
+  {
+    name:"Hedera", symbol:"HBAR", coingecko_id:"hedera-hashgraph",
+    tier:"B", category:"L1", active:true,
+    price_source_type:"Chainlink", oracle_risk_class:"Medium",
+    canonical_chain:"Hedera",
+    notes:"", price_source_notes:"Chainlink HBAR/USD.", oracle_notes:"", registry_notes:"",
+    representations:[
+      {chain:"Hedera", contract_address:"Native", is_canonical:true, is_enabled:false, price_feed_address:"TBD", twap_pair:"", liquidity_status:"Medium", source_verified:true}
+    ]
+  },
+  {
+    name:"Internet Computer", symbol:"ICP", coingecko_id:"internet-computer",
+    tier:"B", category:"L1", active:true,
+    price_source_type:"TBD", oracle_risk_class:"Medium",
+    canonical_chain:"ICP",
+    notes:"", price_source_notes:"TBD.", oracle_notes:"", registry_notes:"",
+    representations:[
+      {chain:"ICP", contract_address:"Native", is_canonical:true, is_enabled:false, price_feed_address:"TBD", twap_pair:"", liquidity_status:"Medium", source_verified:false}
+    ]
+  },
+  {
+    name:"Filecoin", symbol:"FIL", coingecko_id:"filecoin",
+    tier:"B", category:"L1", active:true,
+    price_source_type:"Chainlink", oracle_risk_class:"Medium",
+    canonical_chain:"Filecoin",
+    notes:"", price_source_notes:"Chainlink FIL/USD.", oracle_notes:"", registry_notes:"",
+    representations:[
+      {chain:"Filecoin", contract_address:"Native", is_canonical:true, is_enabled:false, price_feed_address:"TBD", twap_pair:"", liquidity_status:"Medium", source_verified:true}
+    ]
+  },
+  {
+    name:"VeChain", symbol:"VET", coingecko_id:"vechain",
+    tier:"B", category:"L1", active:true,
+    price_source_type:"TBD", oracle_risk_class:"Medium",
+    canonical_chain:"VeChain",
+    notes:"", price_source_notes:"TBD.", oracle_notes:"", registry_notes:"",
+    representations:[
+      {chain:"VeChain", contract_address:"Native", is_canonical:true, is_enabled:false, price_feed_address:"TBD", twap_pair:"", liquidity_status:"Low", source_verified:false}
+    ]
+  },
+  {
+    name:"Aptos", symbol:"APT", coingecko_id:"aptos",
+    tier:"A", category:"L1", active:true,
+    price_source_type:"Chainlink", oracle_risk_class:"Low",
+    canonical_chain:"Aptos",
+    notes:"Move-based L1.", price_source_notes:"Chainlink APT/USD.", oracle_notes:"", registry_notes:"",
+    representations:[
+      {chain:"Aptos", contract_address:"Native", is_canonical:true, is_enabled:false, price_feed_address:"TBD", twap_pair:"", liquidity_status:"Medium", source_verified:true}
+    ]
+  },
+  {
+    name:"Sui", symbol:"SUI", coingecko_id:"sui",
+    tier:"A", category:"L1", active:true,
+    price_source_type:"Chainlink", oracle_risk_class:"Low",
+    canonical_chain:"Sui",
+    notes:"Move-based L1.", price_source_notes:"Chainlink SUI/USD.", oracle_notes:"", registry_notes:"",
+    representations:[
+      {chain:"Sui", contract_address:"Native", is_canonical:true, is_enabled:false, price_feed_address:"TBD", twap_pair:"", liquidity_status:"Medium", source_verified:true}
+    ]
+  },
+  {
+    name:"Sei Network", symbol:"SEI", coingecko_id:"sei-network",
+    tier:"B", category:"L1", active:true,
+    price_source_type:"Chainlink", oracle_risk_class:"Medium",
+    canonical_chain:"Sei",
+    notes:"", price_source_notes:"Chainlink SEI/USD.", oracle_notes:"", registry_notes:"",
+    representations:[
+      {chain:"Sei", contract_address:"Native", is_canonical:true, is_enabled:false, price_feed_address:"TBD", twap_pair:"", liquidity_status:"Medium", source_verified:true}
+    ]
+  },
+  {
+    name:"Injective", symbol:"INJ", coingecko_id:"injective-protocol",
+    tier:"B", category:"L1", active:true,
+    price_source_type:"Chainlink", oracle_risk_class:"Medium",
+    canonical_chain:"Injective",
+    notes:"", price_source_notes:"Chainlink INJ/USD.", oracle_notes:"", registry_notes:"",
+    representations:[
+      {chain:"Injective", contract_address:"Native", is_canonical:true, is_enabled:false, price_feed_address:"TBD", twap_pair:"", liquidity_status:"Medium", source_verified:true}
+    ]
+  },
+  {
+    name:"Celestia", symbol:"TIA", coingecko_id:"celestia",
+    tier:"B", category:"Infrastructure", active:true,
+    price_source_type:"Chainlink", oracle_risk_class:"Medium",
+    canonical_chain:"Celestia",
+    notes:"Modular DA layer.", price_source_notes:"Chainlink TIA/USD.", oracle_notes:"", registry_notes:"",
+    representations:[
+      {chain:"Celestia", contract_address:"Native", is_canonical:true, is_enabled:false, price_feed_address:"TBD", twap_pair:"", liquidity_status:"Medium", source_verified:true}
+    ]
+  },
+  {
+    name:"XDC Network", symbol:"XDC", coingecko_id:"xdce-crowd-sale",
+    tier:"C", category:"L1", active:true,
+    price_source_type:"TBD", oracle_risk_class:"High",
+    canonical_chain:"XDC Network",
+    notes:"Trade finance focused L1.", price_source_notes:"TBD.", oracle_notes:"", registry_notes:"",
+    representations:[
+      {chain:"XDC Network", contract_address:"Native", is_canonical:true, is_enabled:false, price_feed_address:"TBD", twap_pair:"", liquidity_status:"Low", source_verified:false}
+    ]
+  },
+  {
+    name:"IOTA", symbol:"IOTA", coingecko_id:"iota",
+    tier:"C", category:"L1", active:true,
+    price_source_type:"TBD", oracle_risk_class:"High",
+    canonical_chain:"IOTA",
+    notes:"DAG-based.", price_source_notes:"TBD.", oracle_notes:"", registry_notes:"",
+    representations:[
+      {chain:"IOTA", contract_address:"Native", is_canonical:true, is_enabled:false, price_feed_address:"TBD", twap_pair:"", liquidity_status:"Low", source_verified:false}
+    ]
+  },
+  {
+    name:"Zilliqa", symbol:"ZIL", coingecko_id:"zilliqa",
+    tier:"C", category:"L1", active:true,
+    price_source_type:"TBD", oracle_risk_class:"High",
+    canonical_chain:"Zilliqa",
+    notes:"", price_source_notes:"TBD.", oracle_notes:"", registry_notes:"",
+    representations:[
+      {chain:"Zilliqa", contract_address:"Native", is_canonical:true, is_enabled:false, price_feed_address:"TBD", twap_pair:"", liquidity_status:"Low", source_verified:false}
+    ]
+  },
+  {
+    name:"Kava", symbol:"KAVA", coingecko_id:"kava",
+    tier:"C", category:"L1", active:true,
+    price_source_type:"Chainlink", oracle_risk_class:"Medium",
+    canonical_chain:"Kava",
+    notes:"", price_source_notes:"Chainlink KAVA/USD.", oracle_notes:"", registry_notes:"",
+    representations:[
+      {chain:"Kava", contract_address:"Native", is_canonical:true, is_enabled:false, price_feed_address:"TBD", twap_pair:"", liquidity_status:"Low", source_verified:true}
+    ]
+  },
+  {
+    name:"Tezos", symbol:"XTZ", coingecko_id:"tezos",
+    tier:"C", category:"L1", active:true,
+    price_source_type:"Chainlink", oracle_risk_class:"Medium",
+    canonical_chain:"Tezos",
+    notes:"", price_source_notes:"Chainlink XTZ/USD.", oracle_notes:"", registry_notes:"",
+    representations:[
+      {chain:"Tezos", contract_address:"Native", is_canonical:true, is_enabled:false, price_feed_address:"TBD", twap_pair:"", liquidity_status:"Low", source_verified:true}
+    ]
+  },
+  {
+    name:"EOS", symbol:"EOS", coingecko_id:"eos",
+    tier:"C", category:"L1", active:true,
+    price_source_type:"Chainlink", oracle_risk_class:"Medium",
+    canonical_chain:"EOS",
+    notes:"", price_source_notes:"Chainlink EOS/USD.", oracle_notes:"", registry_notes:"",
+    representations:[
+      {chain:"EOS", contract_address:"Native", is_canonical:true, is_enabled:false, price_feed_address:"TBD", twap_pair:"", liquidity_status:"Low", source_verified:true}
+    ]
+  },
+  {
+    name:"Flow", symbol:"FLOW", coingecko_id:"flow",
+    tier:"C", category:"L1", active:true,
+    price_source_type:"Chainlink", oracle_risk_class:"Medium",
+    canonical_chain:"Flow",
+    notes:"", price_source_notes:"Chainlink FLOW/USD.", oracle_notes:"", registry_notes:"",
+    representations:[
+      {chain:"Flow", contract_address:"Native", is_canonical:true, is_enabled:false, price_feed_address:"TBD", twap_pair:"", liquidity_status:"Low", source_verified:true}
+    ]
+  },
+  {
+    name:"Monero", symbol:"XMR", coingecko_id:"monero",
+    tier:"B", category:"Privacy", active:true,
+    price_source_type:"TBD", oracle_risk_class:"High",
+    canonical_chain:"Monero",
+    notes:"Privacy coin. On-chain oracle not available for EVM.", price_source_notes:"No Chainlink feed. CEX data only.", oracle_notes:"High oracle risk.", registry_notes:"Verify pathway.",
+    representations:[
+      {chain:"Monero", contract_address:"Native", is_canonical:true, is_enabled:false, price_feed_address:"TBD", twap_pair:"", liquidity_status:"Medium", source_verified:false}
+    ]
+  },
+  {
+    name:"Flare", symbol:"FLR", coingecko_id:"flare-networks",
+    tier:"C", category:"L1", active:true,
+    price_source_type:"TBD", oracle_risk_class:"High",
+    canonical_chain:"Flare",
+    notes:"", price_source_notes:"TBD.", oracle_notes:"", registry_notes:"",
+    representations:[
+      {chain:"Flare", contract_address:"Native", is_canonical:true, is_enabled:false, price_feed_address:"TBD", twap_pair:"", liquidity_status:"Low", source_verified:false}
+    ]
+  },
+  {
+    name:"Electroneum", symbol:"ETN", coingecko_id:"electroneum",
+    tier:"B", category:"L1", active:true,
+    price_source_type:"TBD", oracle_risk_class:"High",
+    canonical_chain:"Electroneum",
+    notes:"Tier B per registry spec.", price_source_notes:"TBD.", oracle_notes:"", registry_notes:"Preserve Tier B.",
+    representations:[
+      {chain:"Electroneum", contract_address:"Native", is_canonical:true, is_enabled:false, price_feed_address:"TBD", twap_pair:"", liquidity_status:"Low", source_verified:false}
+    ]
+  },
+
+  // ---- LAYER 2 ----
+  {
+    name:"Polygon", symbol:"MATIC", coingecko_id:"matic-network",
+    tier:"A", category:"L2", active:true,
+    price_source_type:"Chainlink", oracle_risk_class:"Low",
+    canonical_chain:"Polygon",
+    notes:"POL migration in progress.", price_source_notes:"Chainlink MATIC/USD.", oracle_notes:"", registry_notes:"",
+    representations:[
+      {chain:"Ethereum", contract_address:"0x7D1AfA7B718fb893dB30A3aBc0Cfc608AaCfeBB0", is_canonical:true, is_enabled:true, price_feed_address:"0x7bAC85A8a13A4BcD8abb3eB7d6b4d632c895a1c0", twap_pair:"", liquidity_status:"Deep", source_verified:true}
+    ]
+  },
+  {
+    name:"Arbitrum", symbol:"ARB", coingecko_id:"arbitrum",
+    tier:"A", category:"L2", active:true,
+    price_source_type:"Chainlink", oracle_risk_class:"Low",
+    canonical_chain:"Arbitrum",
+    notes:"", price_source_notes:"Chainlink ARB/USD.", oracle_notes:"", registry_notes:"",
+    representations:[
+      {chain:"Arbitrum", contract_address:"0x912CE59144191C1204E64559FE8253a0e49E6548", is_canonical:true, is_enabled:true, price_feed_address:"TBD", twap_pair:"", liquidity_status:"Deep", source_verified:true}
+    ]
+  },
+  {
+    name:"Optimism", symbol:"OP", coingecko_id:"optimism",
+    tier:"A", category:"L2", active:true,
+    price_source_type:"Chainlink", oracle_risk_class:"Low",
+    canonical_chain:"Optimism",
+    notes:"", price_source_notes:"Chainlink OP/USD.", oracle_notes:"", registry_notes:"",
+    representations:[
+      {chain:"Optimism", contract_address:"0x4200000000000000000000000000000000000042", is_canonical:true, is_enabled:true, price_feed_address:"TBD", twap_pair:"", liquidity_status:"Deep", source_verified:true}
+    ]
+  },
+
+  // ---- STABLECOINS ----
+  {
+    name:"USD Coin", symbol:"USDC", coingecko_id:"usd-coin",
+    tier:"A", category:"Stablecoin", active:true,
+    price_source_type:"Chainlink", oracle_risk_class:"Low",
+    canonical_chain:"Ethereum",
+    notes:"Circle-issued regulated stablecoin.", price_source_notes:"Chainlink USDC/USD.", oracle_notes:"Peg monitoring required.", registry_notes:"",
+    representations:[
+      {chain:"Ethereum", contract_address:"0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48", is_canonical:true, is_enabled:true, price_feed_address:"0x8fFfFfd4AfB6115b954Bd326cbe7B4BA576818f6", twap_pair:"", liquidity_status:"Deep", source_verified:true},
+      {chain:"Base", contract_address:"0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913", is_canonical:false, is_enabled:true, price_feed_address:"TBD", twap_pair:"", liquidity_status:"Deep", source_verified:true}
+    ]
+  },
+  {
+    name:"Tether", symbol:"USDT", coingecko_id:"tether",
+    tier:"A", category:"Stablecoin", active:true,
+    price_source_type:"Chainlink", oracle_risk_class:"Low",
+    canonical_chain:"Ethereum",
+    notes:"Largest stablecoin by market cap.", price_source_notes:"Chainlink USDT/USD.", oracle_notes:"Peg monitoring.", registry_notes:"",
+    representations:[
+      {chain:"Ethereum", contract_address:"0xdAC17F958D2ee523a2206206994597C13D831ec7", is_canonical:true, is_enabled:true, price_feed_address:"0x3E7d1eAB13ad0104d2750B8863b489D65364e32D", twap_pair:"", liquidity_status:"Deep", source_verified:true}
+    ]
+  },
+  {
+    name:"Dai", symbol:"DAI", coingecko_id:"dai",
+    tier:"A", category:"Stablecoin", active:true,
+    price_source_type:"Chainlink", oracle_risk_class:"Low",
+    canonical_chain:"Ethereum",
+    notes:"MakerDAO-issued decentralized stablecoin.", price_source_notes:"Chainlink DAI/USD.", oracle_notes:"", registry_notes:"",
+    representations:[
+      {chain:"Ethereum", contract_address:"0x6B175474E89094C44Da98b954EedeAC495271d0F", is_canonical:true, is_enabled:true, price_feed_address:"0xAed0c38402a5d19df6E4c03F4E2DceD6e29c1ee9", twap_pair:"", liquidity_status:"Deep", source_verified:true}
+    ]
+  },
+  {
+    name:"Ripple USD", symbol:"RLUSD", coingecko_id:"ripple-usd",
+    tier:"A", category:"Stablecoin", active:true,
+    price_source_type:"TBD", oracle_risk_class:"Medium",
+    canonical_chain:"XRP Ledger",
+    notes:"Ripple's regulated USD stablecoin.", price_source_notes:"TBD — no Chainlink feed yet.", oracle_notes:"", registry_notes:"",
+    representations:[
+      {chain:"XRP Ledger", contract_address:"Native", is_canonical:true, is_enabled:false, price_feed_address:"TBD", twap_pair:"", liquidity_status:"Medium", source_verified:false}
+    ]
+  },
+  {
+    name:"True USD", symbol:"TUSD", coingecko_id:"true-usd",
+    tier:"B", category:"Stablecoin", active:true,
+    price_source_type:"Chainlink", oracle_risk_class:"Medium",
+    canonical_chain:"Ethereum",
+    notes:"", price_source_notes:"Chainlink TUSD/USD.", oracle_notes:"", registry_notes:"",
+    representations:[
+      {chain:"Ethereum", contract_address:"0x0000000000085d4780B73119b644AE5ecd22b376", is_canonical:true, is_enabled:true, price_feed_address:"TBD", twap_pair:"", liquidity_status:"Low", source_verified:true}
+    ]
+  },
+  {
+    name:"Binance USD", symbol:"BUSD", coingecko_id:"binance-usd",
+    tier:"B", category:"Stablecoin", active:false,
+    price_source_type:"Chainlink", oracle_risk_class:"Medium",
+    canonical_chain:"BNB Chain",
+    notes:"Deprecated by Paxos/Binance. Not recommended for new vaults.", price_source_notes:"Chainlink BUSD/USD.", oracle_notes:"", registry_notes:"Inactive — deprecated.",
+    representations:[
+      {chain:"Ethereum", contract_address:"0x4Fabb145d64652a948d72533023f6E7A623C7C53", is_canonical:true, is_enabled:false, price_feed_address:"TBD", twap_pair:"", liquidity_status:"Low", source_verified:true}
+    ]
+  },
+  {
+    name:"Pax Dollar", symbol:"USDP", coingecko_id:"paxos-standard",
+    tier:"B", category:"Stablecoin", active:true,
+    price_source_type:"Chainlink", oracle_risk_class:"Medium",
+    canonical_chain:"Ethereum",
+    notes:"", price_source_notes:"Chainlink USDP/USD.", oracle_notes:"", registry_notes:"",
+    representations:[
+      {chain:"Ethereum", contract_address:"0x8E870D67F660D95d5be530380D0eC0bd388289E1", is_canonical:true, is_enabled:false, price_feed_address:"TBD", twap_pair:"", liquidity_status:"Low", source_verified:true}
+    ]
+  },
+  {
+    name:"Frax", symbol:"FRAX", coingecko_id:"frax",
+    tier:"B", category:"Stablecoin", active:true,
+    price_source_type:"Chainlink", oracle_risk_class:"Medium",
+    canonical_chain:"Ethereum",
+    notes:"Fractional-algorithmic stablecoin.", price_source_notes:"Chainlink FRAX/USD.", oracle_notes:"", registry_notes:"",
+    representations:[
+      {chain:"Ethereum", contract_address:"0x853d955aCEf822Db058eb8505911ED77F175b99e", is_canonical:true, is_enabled:false, price_feed_address:"TBD", twap_pair:"", liquidity_status:"Medium", source_verified:true}
+    ]
+  },
+  {
+    name:"PayPal USD", symbol:"PYUSD", coingecko_id:"paypal-usd",
+    tier:"A", category:"Stablecoin", active:true,
+    price_source_type:"TBD", oracle_risk_class:"Medium",
+    canonical_chain:"Ethereum",
+    notes:"PayPal-issued stablecoin.", price_source_notes:"TBD — Chainlink feed TBD.", oracle_notes:"", registry_notes:"",
+    representations:[
+      {chain:"Ethereum", contract_address:"0x6c3ea9036406852006290770BEdFcAbA0e23A0e8", is_canonical:true, is_enabled:false, price_feed_address:"TBD", twap_pair:"", liquidity_status:"Medium", source_verified:false}
+    ]
+  },
+  {
+    name:"Gemini Dollar", symbol:"GUSD", coingecko_id:"gemini-dollar",
+    tier:"B", category:"Stablecoin", active:true,
+    price_source_type:"Chainlink", oracle_risk_class:"Medium",
+    canonical_chain:"Ethereum",
+    notes:"Gemini-regulated stablecoin.", price_source_notes:"Chainlink GUSD/USD.", oracle_notes:"", registry_notes:"",
+    representations:[
+      {chain:"Ethereum", contract_address:"0x056Fd409E1d7A124BD7017459dFEa2F387b6d5Cd", is_canonical:true, is_enabled:false, price_feed_address:"TBD", twap_pair:"", liquidity_status:"Low", source_verified:true}
+    ]
+  },
+
+  // ---- DEFI ----
+  {
+    name:"Chainlink", symbol:"LINK", coingecko_id:"chainlink",
+    tier:"A", category:"Infrastructure", active:true,
+    price_source_type:"Chainlink", oracle_risk_class:"Low",
+    canonical_chain:"Ethereum",
+    notes:"Oracle infrastructure token.", price_source_notes:"Chainlink LINK/USD.", oracle_notes:"", registry_notes:"",
+    representations:[
+      {chain:"Ethereum", contract_address:"0x514910771AF9Ca656af840dff83E8264EcF986CA", is_canonical:true, is_enabled:true, price_feed_address:"0x2c1d072e956AFFC0D435Cb7AC38EF18d24d9127c", twap_pair:"", liquidity_status:"Deep", source_verified:true}
+    ]
+  },
+  {
+    name:"Axelar", symbol:"AXL", coingecko_id:"axelar",
+    tier:"A", category:"Infrastructure", active:true,
+    price_source_type:"TWAP", oracle_risk_class:"Medium",
+    canonical_chain:"Axelar",
+    notes:"Cross-chain messaging layer used by Vinculum.", price_source_notes:"TWAP via DEX pairs.", oracle_notes:"No Chainlink feed; use TWAP.", registry_notes:"Core infrastructure partner.",
+    representations:[
+      {chain:"Ethereum", contract_address:"0x467719aD09025FcC6cF6F8311755809d45a5E5f3", is_canonical:true, is_enabled:true, price_feed_address:"TBD", twap_pair:"AXL/USDC Uniswap", liquidity_status:"Medium", source_verified:true}
+    ]
+  },
+  {
+    name:"The Graph", symbol:"GRT", coingecko_id:"the-graph",
+    tier:"B", category:"Infrastructure", active:true,
+    price_source_type:"Chainlink", oracle_risk_class:"Medium",
+    canonical_chain:"Ethereum",
+    notes:"", price_source_notes:"Chainlink GRT/USD.", oracle_notes:"", registry_notes:"",
+    representations:[
+      {chain:"Ethereum", contract_address:"0xc944E90C64B2c07662A292be6244BDf05Cda44a7", is_canonical:true, is_enabled:true, price_feed_address:"TBD", twap_pair:"", liquidity_status:"Medium", source_verified:true}
+    ]
+  },
+  {
+    name:"Synthetix", symbol:"SNX", coingecko_id:"havven",
+    tier:"B", category:"DeFi", active:true,
+    price_source_type:"Chainlink", oracle_risk_class:"Medium",
+    canonical_chain:"Ethereum",
+    notes:"", price_source_notes:"Chainlink SNX/USD.", oracle_notes:"", registry_notes:"",
+    representations:[
+      {chain:"Ethereum", contract_address:"0xC011a73ee8576Fb46F5E1c5751cA3B9Fe0af2a6F", is_canonical:true, is_enabled:true, price_feed_address:"TBD", twap_pair:"", liquidity_status:"Medium", source_verified:true}
+    ]
+  },
+  {
+    name:"Uniswap", symbol:"UNI", coingecko_id:"uniswap",
+    tier:"A", category:"DeFi", active:true,
+    price_source_type:"Chainlink", oracle_risk_class:"Low",
+    canonical_chain:"Ethereum",
+    notes:"", price_source_notes:"Chainlink UNI/USD.", oracle_notes:"", registry_notes:"",
+    representations:[
+      {chain:"Ethereum", contract_address:"0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984", is_canonical:true, is_enabled:true, price_feed_address:"0x553303d460EE0afB37EdFf9bE42922D8FF63220e", twap_pair:"", liquidity_status:"Deep", source_verified:true}
+    ]
+  },
+  {
+    name:"Aave", symbol:"AAVE", coingecko_id:"aave",
+    tier:"A", category:"DeFi", active:true,
+    price_source_type:"Chainlink", oracle_risk_class:"Low",
+    canonical_chain:"Ethereum",
+    notes:"", price_source_notes:"Chainlink AAVE/USD.", oracle_notes:"", registry_notes:"",
+    representations:[
+      {chain:"Ethereum", contract_address:"0x7Fc66500c84A76Ad7e9c93437bFc5Ac33E2DDaE9", is_canonical:true, is_enabled:true, price_feed_address:"0x547a514d5e3769680Ce22B2361c10Ea13619e8a9", twap_pair:"", liquidity_status:"Deep", source_verified:true}
+    ]
+  },
+  {
+    name:"Compound", symbol:"COMP", coingecko_id:"compound-governance-token",
+    tier:"A", category:"DeFi", active:true,
+    price_source_type:"Chainlink", oracle_risk_class:"Low",
+    canonical_chain:"Ethereum",
+    notes:"", price_source_notes:"Chainlink COMP/USD.", oracle_notes:"", registry_notes:"",
+    representations:[
+      {chain:"Ethereum", contract_address:"0xc00e94Cb662C3520282E6f5717214004A7f26888", is_canonical:true, is_enabled:true, price_feed_address:"TBD", twap_pair:"", liquidity_status:"Deep", source_verified:true}
+    ]
+  },
+  {
+    name:"Maker", symbol:"MKR", coingecko_id:"maker",
+    tier:"A", category:"DeFi", active:true,
+    price_source_type:"Chainlink", oracle_risk_class:"Low",
+    canonical_chain:"Ethereum",
+    notes:"", price_source_notes:"Chainlink MKR/USD.", oracle_notes:"", registry_notes:"",
+    representations:[
+      {chain:"Ethereum", contract_address:"0x9f8F72aA9304c8B593d555F12eF6589cC3A579A2", is_canonical:true, is_enabled:true, price_feed_address:"TBD", twap_pair:"", liquidity_status:"Medium", source_verified:true}
+    ]
+  },
+  {
+    name:"Curve DAO Token", symbol:"CRV", coingecko_id:"curve-dao-token",
+    tier:"B", category:"DeFi", active:true,
+    price_source_type:"Chainlink", oracle_risk_class:"Medium",
+    canonical_chain:"Ethereum",
+    notes:"", price_source_notes:"Chainlink CRV/USD.", oracle_notes:"", registry_notes:"",
+    representations:[
+      {chain:"Ethereum", contract_address:"0xD533a949740bb3306d119CC777fa900bA034cd52", is_canonical:true, is_enabled:true, price_feed_address:"TBD", twap_pair:"", liquidity_status:"Deep", source_verified:true}
+    ]
+  },
+  {
+    name:"Lido DAO", symbol:"LDO", coingecko_id:"lido-dao",
+    tier:"B", category:"DeFi", active:true,
+    price_source_type:"Chainlink", oracle_risk_class:"Low",
+    canonical_chain:"Ethereum",
+    notes:"", price_source_notes:"Chainlink LDO/USD.", oracle_notes:"", registry_notes:"",
+    representations:[
+      {chain:"Ethereum", contract_address:"0x5A98FcBEA516Cf06857215779Fd812CA3beF1B32", is_canonical:true, is_enabled:true, price_feed_address:"TBD", twap_pair:"", liquidity_status:"Deep", source_verified:true}
+    ]
+  },
+  {
+    name:"SushiSwap", symbol:"SUSHI", coingecko_id:"sushi",
+    tier:"B", category:"DeFi", active:true,
+    price_source_type:"Chainlink", oracle_risk_class:"Medium",
+    canonical_chain:"Ethereum",
+    notes:"", price_source_notes:"Chainlink SUSHI/USD.", oracle_notes:"", registry_notes:"",
+    representations:[
+      {chain:"Ethereum", contract_address:"0x6B3595068778DD592e39A122f4f5a5cF09C90fE2", is_canonical:true, is_enabled:true, price_feed_address:"TBD", twap_pair:"", liquidity_status:"Medium", source_verified:true}
+    ]
+  },
+  {
+    name:"PancakeSwap", symbol:"CAKE", coingecko_id:"pancakeswap-token",
+    tier:"B", category:"DeFi", active:true,
+    price_source_type:"Chainlink", oracle_risk_class:"Medium",
+    canonical_chain:"BNB Chain",
+    notes:"", price_source_notes:"Chainlink CAKE/USD.", oracle_notes:"", registry_notes:"",
+    representations:[
+      {chain:"BNB Chain", contract_address:"0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82", is_canonical:true, is_enabled:false, price_feed_address:"TBD", twap_pair:"", liquidity_status:"Deep", source_verified:true}
+    ]
+  },
+  {
+    name:"Balancer", symbol:"BAL", coingecko_id:"balancer",
+    tier:"B", category:"DeFi", active:true,
+    price_source_type:"Chainlink", oracle_risk_class:"Medium",
+    canonical_chain:"Ethereum",
+    notes:"", price_source_notes:"Chainlink BAL/USD.", oracle_notes:"", registry_notes:"",
+    representations:[
+      {chain:"Ethereum", contract_address:"0xba100000625a3754423978a60c9317c58a424e3D", is_canonical:true, is_enabled:true, price_feed_address:"TBD", twap_pair:"", liquidity_status:"Medium", source_verified:true}
+    ]
+  },
+  {
+    name:"1inch Network", symbol:"1INCH", coingecko_id:"1inch",
+    tier:"B", category:"DeFi", active:true,
+    price_source_type:"Chainlink", oracle_risk_class:"Medium",
+    canonical_chain:"Ethereum",
+    notes:"", price_source_notes:"Chainlink 1INCH/USD.", oracle_notes:"", registry_notes:"",
+    representations:[
+      {chain:"Ethereum", contract_address:"0x111111111117dC0aa78b770fA6A738034120C302", is_canonical:true, is_enabled:true, price_feed_address:"TBD", twap_pair:"", liquidity_status:"Medium", source_verified:true}
+    ]
+  },
+  {
+    name:"THORChain", symbol:"RUNE", coingecko_id:"thorchain",
+    tier:"B", category:"DeFi", active:true,
+    price_source_type:"Chainlink", oracle_risk_class:"Medium",
+    canonical_chain:"THORChain",
+    notes:"", price_source_notes:"Chainlink RUNE/USD.", oracle_notes:"", registry_notes:"",
+    representations:[
+      {chain:"THORChain", contract_address:"Native", is_canonical:true, is_enabled:false, price_feed_address:"TBD", twap_pair:"", liquidity_status:"Medium", source_verified:true}
+    ]
+  },
+  {
+    name:"dYdX", symbol:"DYDX", coingecko_id:"dydx",
+    tier:"B", category:"DeFi", active:true,
+    price_source_type:"Chainlink", oracle_risk_class:"Medium",
+    canonical_chain:"dYdX Chain",
+    notes:"", price_source_notes:"Chainlink DYDX/USD.", oracle_notes:"", registry_notes:"",
+    representations:[
+      {chain:"Ethereum", contract_address:"0x92D6C1e31e14520e676a687F0a93788B716BEff5", is_canonical:true, is_enabled:true, price_feed_address:"TBD", twap_pair:"", liquidity_status:"Medium", source_verified:true}
+    ]
+  },
+  {
+    name:"GMX", symbol:"GMX", coingecko_id:"gmx",
+    tier:"B", category:"DeFi", active:true,
+    price_source_type:"Chainlink", oracle_risk_class:"Medium",
+    canonical_chain:"Arbitrum",
+    notes:"Perp DEX governance token.", price_source_notes:"Chainlink GMX/USD.", oracle_notes:"", registry_notes:"",
+    representations:[
+      {chain:"Arbitrum", contract_address:"0xfc5A1A6EB076a2C7aD06eD22C90d7E710E35ad0a", is_canonical:true, is_enabled:false, price_feed_address:"TBD", twap_pair:"", liquidity_status:"Medium", source_verified:true}
+    ]
+  },
+  {
+    name:"Pendle", symbol:"PENDLE", coingecko_id:"pendle",
+    tier:"B", category:"DeFi", active:true,
+    price_source_type:"TWAP", oracle_risk_class:"Medium",
+    canonical_chain:"Ethereum",
+    notes:"Yield tokenization protocol.", price_source_notes:"TWAP via Uniswap.", oracle_notes:"", registry_notes:"",
+    representations:[
+      {chain:"Ethereum", contract_address:"0x808507121B80c02388fAd14726482e061B8da827", is_canonical:true, is_enabled:false, price_feed_address:"TBD", twap_pair:"PENDLE/ETH Uniswap", liquidity_status:"Medium", source_verified:true}
+    ]
+  },
+  {
+    name:"Ankr", symbol:"ANKR", coingecko_id:"ankr",
+    tier:"C", category:"Infrastructure", active:true,
+    price_source_type:"Chainlink", oracle_risk_class:"Medium",
+    canonical_chain:"Ethereum",
+    notes:"", price_source_notes:"Chainlink ANKR/USD.", oracle_notes:"", registry_notes:"",
+    representations:[
+      {chain:"Ethereum", contract_address:"0x8290333ceF9e6D528dD5618Fb97a76f268f3EDD4", is_canonical:true, is_enabled:false, price_feed_address:"TBD", twap_pair:"", liquidity_status:"Low", source_verified:true}
+    ]
+  },
+  {
+    name:"API3", symbol:"API3", coingecko_id:"api3",
+    tier:"C", category:"Infrastructure", active:true,
+    price_source_type:"TWAP", oracle_risk_class:"Medium",
+    canonical_chain:"Ethereum",
+    notes:"Decentralized API network.", price_source_notes:"TWAP — no Chainlink.", oracle_notes:"", registry_notes:"",
+    representations:[
+      {chain:"Ethereum", contract_address:"0x0b38210ea11411557c13457D4dA7dC6ea731B88a", is_canonical:true, is_enabled:false, price_feed_address:"TBD", twap_pair:"API3/USDC Uniswap", liquidity_status:"Low", source_verified:true}
+    ]
+  },
+  {
+    name:"Band Protocol", symbol:"BAND", coingecko_id:"band-protocol",
+    tier:"C", category:"Infrastructure", active:true,
+    price_source_type:"Chainlink", oracle_risk_class:"Medium",
+    canonical_chain:"Ethereum",
+    notes:"", price_source_notes:"Chainlink BAND/USD.", oracle_notes:"", registry_notes:"",
+    representations:[
+      {chain:"Ethereum", contract_address:"0xBA11D00c5f74255f56a5E366F4F77f5A186d7f55", is_canonical:true, is_enabled:false, price_feed_address:"TBD", twap_pair:"", liquidity_status:"Low", source_verified:true}
+    ]
+  },
+  {
+    name:"Reserve Rights", symbol:"RSR", coingecko_id:"reserve-rights-token",
+    tier:"C", category:"DeFi", active:true,
+    price_source_type:"TWAP", oracle_risk_class:"Medium",
+    canonical_chain:"Ethereum",
+    notes:"", price_source_notes:"TWAP.", oracle_notes:"", registry_notes:"",
+    representations:[
+      {chain:"Ethereum", contract_address:"0x320623b8E4fF03373931769A31Fc52A4E78B5d70", is_canonical:true, is_enabled:false, price_feed_address:"TBD", twap_pair:"RSR/USDC Uniswap", liquidity_status:"Low", source_verified:false}
+    ]
+  },
+  {
+    name:"Amp", symbol:"AMP", coingecko_id:"amp-token",
+    tier:"C", category:"DeFi", active:true,
+    price_source_type:"TWAP", oracle_risk_class:"Medium",
+    canonical_chain:"Ethereum",
+    notes:"Collateral token.", price_source_notes:"TWAP.", oracle_notes:"", registry_notes:"",
+    representations:[
+      {chain:"Ethereum", contract_address:"0xfF20817765cB7f73d4bde2e66e067E58D11095C2", is_canonical:true, is_enabled:false, price_feed_address:"TBD", twap_pair:"", liquidity_status:"Low", source_verified:false}
+    ]
+  },
+
+  // ---- EXCHANGE TOKENS ----
+  {
+    name:"OKB", symbol:"OKB", coingecko_id:"okb",
+    tier:"B", category:"Exchange", active:true,
+    price_source_type:"Chainlink", oracle_risk_class:"Medium",
+    canonical_chain:"OKX Chain",
+    notes:"OKX Exchange token.", price_source_notes:"Chainlink OKB/USD.", oracle_notes:"", registry_notes:"",
+    representations:[
+      {chain:"Ethereum", contract_address:"0x75231F58b43240C9718Dd58B4967c5114342a86c", is_canonical:true, is_enabled:false, price_feed_address:"TBD", twap_pair:"", liquidity_status:"Medium", source_verified:true}
+    ]
+  },
+  {
+    name:"Cronos", symbol:"CRO", coingecko_id:"crypto-com-chain",
+    tier:"B", category:"Exchange", active:true,
+    price_source_type:"Chainlink", oracle_risk_class:"Medium",
+    canonical_chain:"Cronos",
+    notes:"Crypto.com exchange token.", price_source_notes:"Chainlink CRO/USD.", oracle_notes:"", registry_notes:"",
+    representations:[
+      {chain:"Ethereum", contract_address:"0xA0b73E1Ff0B80914AB6fe0444E65848C4C34450b", is_canonical:true, is_enabled:false, price_feed_address:"TBD", twap_pair:"", liquidity_status:"Medium", source_verified:true}
+    ]
+  },
+  {
+    name:"KuCoin Token", symbol:"KCS", coingecko_id:"kucoin-shares",
+    tier:"C", category:"Exchange", active:true,
+    price_source_type:"TBD", oracle_risk_class:"High",
+    canonical_chain:"KuCoin Community Chain",
+    notes:"KuCoin exchange token.", price_source_notes:"TBD.", oracle_notes:"", registry_notes:"",
+    representations:[
+      {chain:"KuCoin Community Chain", contract_address:"Native", is_canonical:true, is_enabled:false, price_feed_address:"TBD", twap_pair:"", liquidity_status:"Low", source_verified:false}
+    ]
+  },
+
+  // ---- MEME ----
+  {
+    name:"Dogecoin", symbol:"DOGE", coingecko_id:"dogecoin",
+    tier:"B", category:"Meme", active:true,
+    price_source_type:"Chainlink", oracle_risk_class:"Medium",
+    canonical_chain:"Dogecoin",
+    notes:"Original meme coin.", price_source_notes:"Chainlink DOGE/USD.", oracle_notes:"", registry_notes:"",
+    representations:[
+      {chain:"Dogecoin", contract_address:"Native", is_canonical:true, is_enabled:false, price_feed_address:"N/A", twap_pair:"", liquidity_status:"Deep", source_verified:true}
+    ]
+  },
+  {
+    name:"Shiba Inu", symbol:"SHIB", coingecko_id:"shiba-inu",
+    tier:"B", category:"Meme", active:true,
+    price_source_type:"Chainlink", oracle_risk_class:"Medium",
+    canonical_chain:"Ethereum",
+    notes:"", price_source_notes:"Chainlink SHIB/USD.", oracle_notes:"", registry_notes:"",
+    representations:[
+      {chain:"Ethereum", contract_address:"0x95aD61b0a150d79219dCF64E1E6Cc01f0B64C4cE", is_canonical:true, is_enabled:true, price_feed_address:"TBD", twap_pair:"", liquidity_status:"Deep", source_verified:true}
+    ]
+  },
+  {
+    name:"Pepe", symbol:"PEPE", coingecko_id:"pepe",
+    tier:"C", category:"Meme", active:true,
+    price_source_type:"TWAP", oracle_risk_class:"High",
+    canonical_chain:"Ethereum",
+    notes:"", price_source_notes:"TWAP via DEX.", oracle_notes:"High volatility.", registry_notes:"",
+    representations:[
+      {chain:"Ethereum", contract_address:"0x6982508145454Ce325dDbE47a25d4ec3d2311933", is_canonical:true, is_enabled:true, price_feed_address:"TBD", twap_pair:"PEPE/ETH Uniswap", liquidity_status:"Deep", source_verified:true}
+    ]
+  },
+  {
+    name:"Luna Classic", symbol:"LUNC", coingecko_id:"terra-luna",
+    tier:"C", category:"L1", active:true,
+    price_source_type:"TWAP", oracle_risk_class:"High",
+    canonical_chain:"Terra Classic",
+    notes:"LUNC community. Vinculum LUNC vault community target.", price_source_notes:"TWAP — limited Chainlink.", oracle_notes:"High risk; track carefully.", registry_notes:"Community vault asset.",
+    representations:[
+      {chain:"Terra Classic", contract_address:"Native", is_canonical:true, is_enabled:false, price_feed_address:"TBD", twap_pair:"LUNC/USDT", liquidity_status:"Medium", source_verified:false}
+    ]
+  },
+  {
+    name:"Blur", symbol:"BLUR", coingecko_id:"blur",
+    tier:"C", category:"DeFi", active:true,
+    price_source_type:"TWAP", oracle_risk_class:"High",
+    canonical_chain:"Ethereum",
+    notes:"NFT marketplace token.", price_source_notes:"TWAP.", oracle_notes:"", registry_notes:"",
+    representations:[
+      {chain:"Ethereum", contract_address:"0x5283D291DBCF85356A21bA090E6db59121208b44", is_canonical:true, is_enabled:false, price_feed_address:"TBD", twap_pair:"BLUR/USDC Uniswap", liquidity_status:"Medium", source_verified:true}
+    ]
+  },
+  {
+    name:"Magic", symbol:"MAGIC", coingecko_id:"magic",
+    tier:"C", category:"Gaming", active:true,
+    price_source_type:"TWAP", oracle_risk_class:"High",
+    canonical_chain:"Arbitrum",
+    notes:"Treasure DAO ecosystem token.", price_source_notes:"TWAP.", oracle_notes:"", registry_notes:"",
+    representations:[
+      {chain:"Arbitrum", contract_address:"0x539bdE0d7Dbd336b79148AA742883198BBF60342", is_canonical:true, is_enabled:false, price_feed_address:"TBD", twap_pair:"MAGIC/ETH Uniswap", liquidity_status:"Low", source_verified:true}
+    ]
+  },
+
+  // ---- GAMING / METAVERSE ----
+  {
+    name:"Chiliz", symbol:"CHZ", coingecko_id:"chiliz",
+    tier:"C", category:"Gaming", active:true,
+    price_source_type:"Chainlink", oracle_risk_class:"Medium",
+    canonical_chain:"Ethereum",
+    notes:"Sports fan token platform.", price_source_notes:"Chainlink CHZ/USD.", oracle_notes:"", registry_notes:"",
+    representations:[
+      {chain:"Ethereum", contract_address:"0x3506424F91fD33084466F402d5D97f05F8e3b4AF", is_canonical:true, is_enabled:false, price_feed_address:"TBD", twap_pair:"", liquidity_status:"Medium", source_verified:true}
+    ]
+  },
+  {
+    name:"Enjin Coin", symbol:"ENJ", coingecko_id:"enjincoin",
+    tier:"C", category:"Gaming", active:true,
+    price_source_type:"Chainlink", oracle_risk_class:"Medium",
+    canonical_chain:"Ethereum",
+    notes:"", price_source_notes:"Chainlink ENJ/USD.", oracle_notes:"", registry_notes:"",
+    representations:[
+      {chain:"Ethereum", contract_address:"0xF629cBd94d3791C9250152BD8dfBDF380E2a3B9c", is_canonical:true, is_enabled:false, price_feed_address:"TBD", twap_pair:"", liquidity_status:"Low", source_verified:true}
+    ]
+  },
+  {
+    name:"The Sandbox", symbol:"SAND", coingecko_id:"the-sandbox",
+    tier:"C", category:"Gaming", active:true,
+    price_source_type:"Chainlink", oracle_risk_class:"Medium",
+    canonical_chain:"Ethereum",
+    notes:"", price_source_notes:"Chainlink SAND/USD.", oracle_notes:"", registry_notes:"",
+    representations:[
+      {chain:"Ethereum", contract_address:"0x3845badAde8e6dFF049820680d1F14bD3903a5d0", is_canonical:true, is_enabled:false, price_feed_address:"TBD", twap_pair:"", liquidity_status:"Medium", source_verified:true}
+    ]
+  },
+  {
+    name:"Decentraland", symbol:"MANA", coingecko_id:"decentraland",
+    tier:"C", category:"Gaming", active:true,
+    price_source_type:"Chainlink", oracle_risk_class:"Medium",
+    canonical_chain:"Ethereum",
+    notes:"", price_source_notes:"Chainlink MANA/USD.", oracle_notes:"", registry_notes:"",
+    representations:[
+      {chain:"Ethereum", contract_address:"0x0F5D2fB29fb7d3CFeE444a200298f468908cC942", is_canonical:true, is_enabled:false, price_feed_address:"TBD", twap_pair:"", liquidity_status:"Medium", source_verified:true}
+    ]
+  },
+
+  // ---- COMMUNITY / OG TOKENS ----
+  {
+    name:"Onyxcoin", symbol:"XCN", coingecko_id:"onyxcoin",
+    tier:"B", category:"DeFi", active:true,
+    price_source_type:"TWAP", oracle_risk_class:"Medium",
+    canonical_chain:"Ethereum",
+    notes:"Tier B per registry spec.", price_source_notes:"TWAP via Uniswap.", oracle_notes:"", registry_notes:"Preserve Tier B.",
+    representations:[
+      {chain:"Ethereum", contract_address:"0xA2cd3D43c775978A96BdBf12d733D5A1ED94fb18", is_canonical:true, is_enabled:true, price_feed_address:"TBD", twap_pair:"XCN/ETH Uniswap", liquidity_status:"Low", source_verified:true}
+    ]
+  },
+  {
+    name:"Bone ShibaSwap", symbol:"BONE", coingecko_id:"bone-shibaswap",
+    tier:"B", category:"DeFi", active:true,
+    price_source_type:"TWAP", oracle_risk_class:"Medium",
+    canonical_chain:"Ethereum",
+    notes:"Tier B per registry spec.", price_source_notes:"TWAP via DEX.", oracle_notes:"", registry_notes:"Preserve Tier B.",
+    representations:[
+      {chain:"Ethereum", contract_address:"0x9813037ee2218799597d83D4a5B6F3b6778218d9", is_canonical:true, is_enabled:true, price_feed_address:"TBD", twap_pair:"BONE/ETH Uniswap", liquidity_status:"Low", source_verified:true}
+    ]
+  },
+  {
+    name:"Volt Inu", symbol:"VOLT", coingecko_id:"volt-inu-v2",
+    tier:"C", category:"Community", active:true,
+    price_source_type:"TWAP", oracle_risk_class:"High",
+    canonical_chain:"Ethereum",
+    notes:"", price_source_notes:"TWAP only — no Chainlink.", oracle_notes:"High risk.", registry_notes:"Verify CoinGecko ID.",
+    representations:[
+      {chain:"Ethereum", contract_address:"TBD", is_canonical:true, is_enabled:false, price_feed_address:"TBD", twap_pair:"", liquidity_status:"Low", source_verified:false}
+    ]
+  },
+  {
+    name:"KEKEC", symbol:"KEKEC", coingecko_id:"PLACEHOLDER_kekec",
+    tier:"C", category:"Community", active:true,
+    price_source_type:"TWAP", oracle_risk_class:"High",
+    canonical_chain:"TBD",
+    notes:"Community token. CoinGecko ID unverified.", price_source_notes:"TWAP only.", oracle_notes:"High risk.", registry_notes:"Verify chain and contract.",
+    representations:[
+      {chain:"TBD", contract_address:"TBD", is_canonical:true, is_enabled:false, price_feed_address:"TBD", twap_pair:"", liquidity_status:"Unknown", source_verified:false}
+    ]
+  },
+  {
+    name:"WifiCoin", symbol:"WKC", coingecko_id:"PLACEHOLDER_wkc",
+    tier:"C", category:"Community", active:true,
+    price_source_type:"TWAP", oracle_risk_class:"High",
+    canonical_chain:"TBD",
+    notes:"Community token. CoinGecko ID unverified.", price_source_notes:"TWAP only.", oracle_notes:"High risk.", registry_notes:"Verify chain and contract.",
+    representations:[
+      {chain:"TBD", contract_address:"TBD", is_canonical:true, is_enabled:false, price_feed_address:"TBD", twap_pair:"", liquidity_status:"Unknown", source_verified:false}
+    ]
+  },
+  // TigerOG, FrogOG, LionOG — Vinculum OG community tokens
+  {
+    name:"TigerOG", symbol:"TigerOG", coingecko_id:"PLACEHOLDER_tigerog",
+    tier:"C", category:"Community", active:true,
+    price_source_type:"TWAP", oracle_risk_class:"High",
+    canonical_chain:"Base",
+    notes:"Vinculum community OG token — TigerOG character. Axelar ITS multi-chain.", price_source_notes:"TWAP only — new token.", oracle_notes:"High risk — new token.", registry_notes:"Vinculum community ecosystem token.",
+    representations:[
+      {chain:"Base", contract_address:"TBD", is_canonical:true, is_enabled:false, price_feed_address:"TBD", twap_pair:"TigerOG/VCLM", liquidity_status:"TBD", source_verified:false}
+    ]
+  },
+  {
+    name:"FrogOG", symbol:"FrogOG", coingecko_id:"PLACEHOLDER_frogog",
+    tier:"C", category:"Community", active:true,
+    price_source_type:"TWAP", oracle_risk_class:"High",
+    canonical_chain:"Base",
+    notes:"Vinculum community OG token — FrogOG character.", price_source_notes:"TWAP only — new token.", oracle_notes:"High risk — new token.", registry_notes:"Vinculum community ecosystem token.",
+    representations:[
+      {chain:"Base", contract_address:"TBD", is_canonical:true, is_enabled:false, price_feed_address:"TBD", twap_pair:"FrogOG/VCLM", liquidity_status:"TBD", source_verified:false}
+    ]
+  },
+  {
+    name:"LionOG", symbol:"LionOG", coingecko_id:"PLACEHOLDER_lionog",
+    tier:"C", category:"Community", active:true,
+    price_source_type:"TWAP", oracle_risk_class:"High",
+    canonical_chain:"Base",
+    notes:"Vinculum community OG token — LionOG character.", price_source_notes:"TWAP only — new token.", oracle_notes:"High risk — new token.", registry_notes:"Vinculum community ecosystem token.",
+    representations:[
+      {chain:"Base", contract_address:"TBD", is_canonical:true, is_enabled:false, price_feed_address:"TBD", twap_pair:"LionOG/VCLM", liquidity_status:"TBD", source_verified:false}
+    ]
+  }
+];
+
+// =====================================================
+// COINGECKO ID MAP — maps symbol to CoinGecko ID
+// for batch fetch (valid IDs only)
+// =====================================================
+const VALID_COINGECKO_IDS = ASSETS
+  .filter(a => !a.coingecko_id.startsWith("PLACEHOLDER"))
+  .map(a => a.coingecko_id);
+
+
+// =====================================================
+// PROXY CONFIGURATION
+// =====================================================
+// If you have a backend proxy that fetches CoinGecko (or any source)
+// server-side and returns normalized JSON, set PRICE_PROXY_URL here.
+//
+// Expected proxy response shape:
+// {
+//   "ethereum":  { "price": 3200.12, "change24h": 1.24,  "marketCap": 384000000000 },
+//   "bitcoin":   { "price": 68450.00,"change24h": -0.42, "marketCap": 1340000000000 },
+//   ...
+// }
+// Keys must match the CoinGecko IDs used in the ASSETS array above.
+// Fields: price (number), change24h (number|null), marketCap (number|null)
+//
+// FREE PROXY OPTIONS (no backend needed):
+//   • Netlify Functions:  deploy a small serverless function, set URL below.
+//   • Cloudflare Workers: free tier, fetches CoinGecko server-side.
+//   • GitHub Actions:     scheduled workflow writes prices.json to your repo.
+//
+// Leave as the placeholder string to skip proxy and use direct CoinGecko + fallbacks.
+const PRICE_PROXY_URL = "https://YOUR-PROXY-URL-HERE";
+
+/** Returns true when a real proxy URL has been configured. */
+function proxyConfigured() {
+  return (
+    typeof PRICE_PROXY_URL === "string" &&
+    PRICE_PROXY_URL.length > 0 &&
+    !PRICE_PROXY_URL.includes("YOUR-PROXY-URL-HERE")
+  );
+}
+// =====================================================
+// RUNTIME STATE
+// =====================================================
+// priceData keyed by coingecko_id.
+// Each entry: { price, change24h, marketCap, price_source_resolved }
+//   price_source_resolved: "CoinGecko" | "Dexscreener" | "CryptoCompare" | "Cache" | "None"
+let priceData = {};
+let fetchAttempted = false; // true once full fetch pipeline finishes
+let sortKey = "name";
+let sortDir = "asc";
+let filtered = [...ASSETS];
+
+// Build a coingecko_id → symbol lookup for fallback calls
+const ID_TO_SYMBOL = {};
+ASSETS.forEach(a => {
+  if (!a.coingecko_id.startsWith("PLACEHOLDER")) {
+    ID_TO_SYMBOL[a.coingecko_id] = a.symbol;
+  }
+});
+
+// =====================================================
+// LOCALSTORAGE PRICE CACHE
+// =====================================================
+const CACHE_KEY    = "vinculum_price_cache_v2";
+const CACHE_TTL_MS = 10 * 60 * 1000; // 10 minutes — treat as fresh
+
+/** Persist priceData + timestamp to localStorage. */
+function savePriceCache(data) {
+  try {
+    localStorage.setItem(CACHE_KEY, JSON.stringify({ ts: Date.now(), data }));
+  } catch (e) { /* quota or private mode — ignore */ }
+}
+
+/**
+ * Load cached price data.
+ * Returns { data, ageMin, fresh } or null if nothing cached.
+ */
+function loadPriceCache() {
+  try {
+    const raw = localStorage.getItem(CACHE_KEY);
+    if (!raw) return null;
+    const { ts, data } = JSON.parse(raw);
+    const ageMin = Math.round((Date.now() - ts) / 60000);
+    const fresh  = (Date.now() - ts) < CACHE_TTL_MS;
+    return { data, ageMin, fresh };
+  } catch (e) {
+    return null;
+  }
+}
+
+// =====================================================
+// FETCH WITH TIMEOUT
+// =====================================================
+// FETCH WITH TIMEOUT
+// NOTE: Uses Promise.race() instead of AbortController.signal.
+// AbortSignal cannot be structured-cloned, which throws:
+// "Failed to execute 'postMessage' on 'Window': AbortSignal object could not be cloned"
+// in sandboxed/proxied fetch environments (e.g. iframe contexts).
+// Promise.race() gives identical timeout behaviour with no cloning issues.
+async function fetchWithTimeout(url, timeoutMs = 11000) {
+  const timeout = new Promise((_, reject) =>
+    setTimeout(() => reject(new Error(`Request timed out (${timeoutMs}ms)`)), timeoutMs)
+  );
+  return Promise.race([fetch(url), timeout]);
+}
+
+// =====================================================
+// FALLBACK SOURCE 1 — DEXSCREENER
+// =====================================================
+// Dexscreener is a public API with no key required.
+// We only call it for assets missing after CoinGecko.
+async function fetchDexscreenerPrice(symbol) {
+  try {
+    const res = await fetchWithTimeout(
+      `https://api.dexscreener.com/latest/dex/search/?q=${encodeURIComponent(symbol)}`,
+      9000
+    );
+    if (!res.ok) return null;
+    const data = await res.json();
+    if (!data.pairs || data.pairs.length === 0) return null;
+
+    // Pick the highest-liquidity pair for best price accuracy
+    const best = data.pairs
+      .filter(p => p.priceUsd && parseFloat(p.priceUsd) > 0)
+      .sort((a, b) => (b.liquidity?.usd || 0) - (a.liquidity?.usd || 0))[0];
+
+    if (!best) return null;
+    return {
+      price:     parseFloat(best.priceUsd),
+      change24h: best.priceChange?.h24 != null ? parseFloat(best.priceChange.h24) : null,
+      marketCap: best.fdv ?? null,
+      price_source_resolved: "Dexscreener"
+    };
+  } catch {
+    return null;
+  }
+}
+
+// =====================================================
+// FALLBACK SOURCE 2 — CRYPTOCOMPARE
+// =====================================================
+// CryptoCompare min-api requires no key for basic price calls.
+// Returns price only — no 24h change or market cap available without a key.
+async function fetchCryptoComparePrice(symbol) {
+  try {
+    const res = await fetchWithTimeout(
+      `https://min-api.cryptocompare.com/data/price?fsym=${encodeURIComponent(symbol)}&tsyms=USD`,
+      9000
+    );
+    if (!res.ok) return null;
+    const data = await res.json();
+    if (!data.USD || data.USD <= 0) return null;
+    return {
+      price:     data.USD,
+      change24h: null,  // not available without API key
+      marketCap: null,  // not available without API key
+      price_source_resolved: "CryptoCompare"
+    };
+  } catch {
+    return null;
+  }
+}
+
+// =====================================================
+// MAIN PRICE FETCH — MULTI-SOURCE PIPELINE
+// =====================================================
+// Priority order:
+//   0. Configured proxy (PRICE_PROXY_URL) — highest priority, skips CORS issues
+//   1. Direct CoinGecko batch — only if no proxy configured
+//   2. Dexscreener per-asset fallback — no key required
+//   3. CryptoCompare per-asset fallback — no key required
+//   4. localStorage cache — always merged last
+//   5. N/A — if everything above returns nothing
+//
+// NOTE: CoinMarketCap excluded — API key would be exposed in browser source.
+// Add CMC later via backend proxy only.
+
+async function fetchPrices() {
+  document.getElementById("refresh-icon").textContent = "⟳";
+
+  // ── Environment detection ──
+  const isFileProtocol = (window.location.protocol === "file:");
+
+  let proxyCount  = 0;
+  let cgSuccess   = false;
+  let cgCount     = 0;
+  let cgErrorMsg  = "";
+  let dexCount    = 0;
+  let ccCount     = 0;
+  let cacheCount  = 0;
+
+  // ─────────────────────────────────────────────────────────
+  // STAGE 0 — PROXY (primary when configured)
+  // ─────────────────────────────────────────────────────────
+  // Set PRICE_PROXY_URL at the top of this script to activate.
+  // The proxy should accept a GET request and return JSON shaped as:
+  //   { "coingecko-id": { price, change24h, marketCap }, ... }
+  // This completely bypasses browser CORS restrictions.
+  if (proxyConfigured()) {
+    setStatus("loading", "Fetching prices via proxy…");
+    try {
+      const res = await fetchWithTimeout(PRICE_PROXY_URL, 12000);
+      if (!res.ok) throw new Error(`Proxy HTTP ${res.status}`);
+      const json = await res.json();
+
+      // ── Normalize proxy response ──
+      // Each key should be a CoinGecko ID; each value: { price, change24h, marketCap }
+      for (const [id, vals] of Object.entries(json)) {
+        if (vals && typeof vals.price === "number") {
+          priceData[id] = {
+            price:     vals.price     ?? null,
+            change24h: vals.change24h ?? null,
+            marketCap: vals.marketCap ?? null,
+            price_source_resolved: "Proxy"
+          };
+          proxyCount++;
+        }
+      }
+      if (proxyCount > 0) {
+        savePriceCache(priceData);
+        setStatus("ok", `Live prices: Proxy — ${proxyCount} assets — ${new Date().toLocaleTimeString()}`);
+        fetchAttempted = true;
+        document.getElementById("refresh-icon").textContent = "↻";
+        renderTable(filtered);
+        return; // proxy fully succeeded — skip all other stages
+      }
+      // Proxy returned empty/malformed — fall through to CoinGecko
+      cgErrorMsg = "Proxy returned no usable data";
+    } catch (e) {
+      cgErrorMsg = `Proxy failed: ${e.message}`;
+      console.warn(cgErrorMsg);
+    }
+  }
+
+  // ─────────────────────────────────────────────────────────
+  // STAGE 1 — COINGECKO (direct, batched)
+  // ─────────────────────────────────────────────────────────
+  // Skipped automatically when running from file:// to avoid noisy CORS errors.
+  const batchSize = 40;
+  const allIds    = [...VALID_COINGECKO_IDS];
+  const batches   = [];
+  for (let i = 0; i < allIds.length; i += batchSize) {
+    batches.push(allIds.slice(i, i + batchSize));
+  }
+
+  if (isFileProtocol) {
+    cgErrorMsg = "file:// protocol — CORS blocks direct API calls";
+    console.warn("CoinGecko skipped:", cgErrorMsg);
+  } else {
+    setStatus("loading", `Fetching live prices — CoinGecko (${allIds.length} assets)…`);
+    try {
+      for (let b = 0; b < batches.length; b++) {
+        const url =
+          `https://api.coingecko.com/api/v3/simple/price` +
+          `?ids=${batches[b].join(",")}` +
+          `&vs_currencies=usd` +
+          `&include_24hr_change=true` +
+          `&include_market_cap=true`;
+
+        let res;
+        try {
+          res = await fetchWithTimeout(url, 12000);
+        } catch (fetchErr) {
+          cgErrorMsg = fetchErr.message.includes("timed out")
+            ? "CoinGecko timed out"
+            : "CoinGecko network error (CORS / offline)";
+          throw fetchErr;
+        }
+
+        if (!res.ok) {
+          cgErrorMsg = `CoinGecko HTTP ${res.status} (${res.statusText})`;
+          throw new Error(cgErrorMsg);
+        }
+
+        const json = await res.json();
+        for (const [id, vals] of Object.entries(json)) {
+          priceData[id] = {
+            price:     vals.usd            ?? null,
+            change24h: vals.usd_24h_change ?? null,
+            marketCap: vals.usd_market_cap ?? null,
+            price_source_resolved: "CoinGecko"
+          };
+          cgCount++;
+        }
+        if (b < batches.length - 1) await sleep(800); // rate-limit buffer
+      }
+      cgSuccess = true;
+    } catch (e) {
+      if (!cgErrorMsg) cgErrorMsg = e.message || "unknown error";
+      console.warn("CoinGecko failed:", cgErrorMsg);
+    }
+  }
+
+  // ─────────────────────────────────────────────────────────
+  // STAGES 2 & 3 — DEXSCREENER + CRYPTOCOMPARE per-asset fallbacks
+  // ─────────────────────────────────────────────────────────
+  // Called only for assets still missing after proxy / CoinGecko.
+  const missing = ASSETS.filter(a =>
+    !a.coingecko_id.startsWith("PLACEHOLDER") &&
+    (!priceData[a.coingecko_id] || priceData[a.coingecko_id].price === null)
+  );
+
+  if (missing.length > 0) {
+    setStatus("loading",
+      cgSuccess
+        ? `CoinGecko: ${cgCount} — running fallbacks for ${missing.length} assets…`
+        : `CoinGecko unavailable (${cgErrorMsg}) — trying Dexscreener / CryptoCompare…`
+    );
+
+    for (const asset of missing) {
+      const sym  = asset.symbol;
+      const cgId = asset.coingecko_id;
+
+      const dex = await fetchDexscreenerPrice(sym);
+      if (dex && dex.price > 0) {
+        priceData[cgId] = dex;
+        dexCount++;
+        await sleep(120);
+        continue;
+      }
+
+      const cc = await fetchCryptoComparePrice(sym);
+      if (cc && cc.price > 0) {
+        priceData[cgId] = cc;
+        ccCount++;
+        await sleep(120);
+      }
+    }
+  }
+
+  // ─────────────────────────────────────────────────────────
+  // STAGE 4 — LOCALSTORAGE CACHE (final fallback)
+  // ─────────────────────────────────────────────────────────
+  const cached = loadPriceCache();
+  if (cached) {
+    for (const [id, vals] of Object.entries(cached.data)) {
+      if (!priceData[id] || priceData[id].price === null) {
+        priceData[id] = { ...vals, price_source_resolved: "Cache" };
+        cacheCount++;
+      }
+    }
+  }
+
+  // Save merged result
+  savePriceCache(priceData);
+
+  // ── Build status message ──
+  const totalResolved = Object.values(priceData).filter(v => v.price !== null).length;
+  const parts = [];
+  if (cgCount)    parts.push(`CoinGecko: ${cgCount}`);
+  if (dexCount)   parts.push(`Dexscreener: ${dexCount}`);
+  if (ccCount)    parts.push(`CryptoCompare: ${ccCount}`);
+  if (cacheCount) parts.push(`Cache: ${cacheCount}`);
+
+  if (totalResolved === 0 && isFileProtocol) {
+    setStatus("error", "file:// detected — host over http/https for live prices");
+  } else if (totalResolved === 0) {
+    setStatus("error", `All sources failed — ${cgErrorMsg || "no data"} — showing N/A`);
+  } else if (!cgSuccess && dexCount === 0 && ccCount === 0 && cacheCount > 0) {
+    setStatus("error", `Offline mode: cached prices (${cached?.ageMin ?? "?"}min old)`);
+  } else if (!cgSuccess && (dexCount > 0 || ccCount > 0)) {
+    setStatus("error", `CoinGecko unavailable — fallback active (${parts.join(" / ")})`);
+  } else if (dexCount > 0 || ccCount > 0) {
+    setStatus("ok", `Live prices: ${parts.join(" / ")} — ${new Date().toLocaleTimeString()}`);
+  } else {
+    setStatus("ok", `Live prices: CoinGecko — ${cgCount} assets — ${new Date().toLocaleTimeString()}`);
+  }
+
+  fetchAttempted = true;
+  document.getElementById("refresh-icon").textContent = "↻";
+  renderTable(filtered);
+}
+
+function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
+
+// =====================================================
+// FORMAT HELPERS
+// =====================================================
+function fmtPrice(p) {
+  if (p === null || p === undefined) return "N/A";
+  if (p < 0.000001) return "$" + p.toExponential(3);
+  if (p < 0.01) return "$" + p.toFixed(8);
+  if (p < 1) return "$" + p.toFixed(6);
+  if (p < 100) return "$" + p.toFixed(4);
+  return "$" + p.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+}
+
+function fmtChange(c) {
+  if (c === null || c === undefined) return "N/A";
+  const sign = c >= 0 ? "+" : "";
+  return sign + c.toFixed(2) + "%";
+}
+
+function fmtMktCap(m) {
+  if (!m) return "N/A";
+  if (m >= 1e12) return "$" + (m / 1e12).toFixed(2) + "T";
+  if (m >= 1e9) return "$" + (m / 1e9).toFixed(2) + "B";
+  if (m >= 1e6) return "$" + (m / 1e6).toFixed(2) + "M";
+  return "$" + m.toLocaleString();
+}
+
+function shortAddr(addr) {
+  if (!addr || addr === "TBD" || addr === "Native" || addr === "N/A") return addr;
+  return addr.slice(0, 6) + "…" + addr.slice(-4);
+}
+
+function tierBadge(tier) {
+  const cls = { A: "badge-tier-a", B: "badge-tier-b", C: "badge-tier-c" }[tier] || "badge-tbd";
+  return `<span class="badge ${cls}">Tier ${tier}</span>`;
+}
+
+function sourceBadge(src) {
+  const cls = { Chainlink: "badge-chainlink", TWAP: "badge-twap", Mixed: "badge-mixed", TBD: "badge-tbd" }[src] || "badge-tbd";
+  return `<span class="badge ${cls}">${src}</span>`;
+}
+
+function riskClass(r) {
+  return { Low: "risk-low", Medium: "risk-med", High: "risk-high" }[r] || "risk-na";
+}
+
+// =====================================================
+// RENDER TABLE
+// =====================================================
+function renderTable(assets) {
+  const tbody = document.getElementById("table-body");
+  if (!assets.length) {
+    tbody.innerHTML = `<tr><td colspan="12" class="empty-state">No assets match the current filters.</td></tr>`;
+    document.getElementById("result-count").textContent = "0 assets found";
+    return;
+  }
+
+  document.getElementById("result-count").textContent =
+    `Showing ${assets.length} of ${ASSETS.length} assets`;
+
+  tbody.innerHTML = assets.map((asset, idx) => {
+    const pd = priceData[asset.coingecko_id] || {};
+    const price = pd.price ?? null;
+    const change = pd.change24h ?? null;
+    const mcap = pd.marketCap ?? null;
+
+    const isPlaceholder = asset.coingecko_id.startsWith("PLACEHOLDER");
+    // After fetchAttempted, never leave a spinning/dash state — show N/A cleanly
+    const priceCell = isPlaceholder
+      ? `<span class="change-na">N/A</span>`
+      : (price !== null
+          ? `<span class="price-val">${fmtPrice(price)}</span>`
+          : (fetchAttempted
+              ? `<span class="change-na">N/A</span>`
+              : `<span class="price-loading">—</span>`));
+    const changeCell = change !== null ? `<span class="${change >= 0 ? "change-pos" : "change-neg"}">${fmtChange(change)}</span>` : `<span class="change-na">N/A</span>`;
+    const mcapCell = `<span class="price-val">${fmtMktCap(mcap)}</span>`;
+
+    const canonical = asset.representations.find(r => r.is_canonical);
+    const contract = canonical?.contract_address || "TBD";
+
+    const statusBadge = asset.active
+      ? `<span class="badge badge-active">Active</span>`
+      : `<span class="badge badge-inactive">Inactive</span>`;
+
+    const enabledDot = canonical?.is_enabled
+      ? `<span class="dot dot-green" title="Enabled"></span>`
+      : `<span class="dot dot-gray" title="Not enabled"></span>`;
+
+    return `<tr onclick="openModal(${idx})" data-idx="${idx}">
+      <td>
+        <div class="asset-cell">
+          <div class="asset-icon" id="icon-${asset.symbol}">${asset.symbol.slice(0,4)}</div>
+          <div>
+            <div class="asset-name">${asset.name}</div>
+            <span class="asset-symbol">${asset.symbol}</span>
+          </div>
+        </div>
+      </td>
+      <td>${tierBadge(asset.tier)}</td>
+      <td><span class="chain-tag">${asset.category}</span></td>
+      <td><span class="chain-tag">${asset.canonical_chain}</span></td>
+      <td>${priceCell}</td>
+      <td>${changeCell}</td>
+      <td>${mcapCell}</td>
+      <td>${sourceBadge(asset.price_source_type)}</td>
+      <td><span class="${riskClass(asset.oracle_risk_class)}">${asset.oracle_risk_class}</span></td>
+      <td>${statusBadge}</td>
+      <td style="text-align:center">${enabledDot}</td>
+      <td><span class="contract-short" title="${contract}">${shortAddr(contract)}</span></td>
+    </tr>`;
+  }).join("");
+
+  updateSummary();
+  loadCoinIcons(assets);
+}
+
+// Load CoinGecko icons
+async function loadCoinIcons(assets) {
+  // Only load icons for valid CoinGecko IDs via simple price API thumbnail
+  // Use CoinGecko small image URLs (common well-known tokens)
+  const iconMap = {
+    "ethereum":"https://assets.coingecko.com/coins/images/279/small/ethereum.png",
+    "bitcoin":"https://assets.coingecko.com/coins/images/1/small/bitcoin.png",
+    "tether":"https://assets.coingecko.com/coins/images/325/small/Tether.png",
+    "usd-coin":"https://assets.coingecko.com/coins/images/6319/small/usdc.png",
+    "dai":"https://assets.coingecko.com/coins/images/9956/small/dai-multi-collateral-mcd.png",
+    "solana":"https://assets.coingecko.com/coins/images/4128/small/solana.png",
+    "binancecoin":"https://assets.coingecko.com/coins/images/825/small/bnb-icon2_2x.png",
+    "ripple":"https://assets.coingecko.com/coins/images/44/small/xrp-symbol-white-128.png",
+    "stellar":"https://assets.coingecko.com/coins/images/100/small/Stellar_symbol_black_RGB.png",
+    "cardano":"https://assets.coingecko.com/coins/images/975/small/cardano.png",
+    "polkadot":"https://assets.coingecko.com/coins/images/12171/small/polkadot.png",
+    "avalanche-2":"https://assets.coingecko.com/coins/images/12559/small/Avalanche_Circle_RedWhite_Trans.png",
+    "chainlink":"https://assets.coingecko.com/coins/images/877/small/chainlink-new-logo.png",
+    "uniswap":"https://assets.coingecko.com/coins/images/12504/small/uniswap-uni.png",
+    "aave":"https://assets.coingecko.com/coins/images/12645/small/AAVE.png",
+    "matic-network":"https://assets.coingecko.com/coins/images/4713/small/matic-token-icon.png",
+    "shiba-inu":"https://assets.coingecko.com/coins/images/11939/small/shiba.png",
+    "dogecoin":"https://assets.coingecko.com/coins/images/5/small/dogecoin.png",
+    "axelar":"https://assets.coingecko.com/coins/images/27277/small/V-65_xQ1_400x400.jpeg",
+    "optimism":"https://assets.coingecko.com/coins/images/25244/small/Optimism.png",
+    "arbitrum":"https://assets.coingecko.com/coins/images/16547/small/photo_2023-03-29_18.09.19.jpeg",
+    "wrapped-bitcoin":"https://assets.coingecko.com/coins/images/7598/small/wrapped_bitcoin_wbtc.png",
+    "maker":"https://assets.coingecko.com/coins/images/1364/small/Mark_Maker.png",
+    "compound-governance-token":"https://assets.coingecko.com/coins/images/10775/small/COMP.png",
+    "cosmos":"https://assets.coingecko.com/coins/images/1481/small/cosmos_hub.png",
+    "near":"https://assets.coingecko.com/coins/images/10365/small/near.jpg",
+    "aptos":"https://assets.coingecko.com/coins/images/26455/small/aptos_round.png",
+    "sui":"https://assets.coingecko.com/coins/images/26375/small/sui-ocean-square.png"
+  };
+
+  for (const asset of assets) {
+    const el = document.getElementById(`icon-${asset.symbol}`);
+    if (el && iconMap[asset.coingecko_id]) {
+      const img = document.createElement("img");
+      img.src = iconMap[asset.coingecko_id];
+      img.onerror = () => { img.remove(); };
+      el.innerHTML = "";
+      el.appendChild(img);
+    }
+  }
+}
+
+// =====================================================
+// SUMMARY BAR
+// =====================================================
+function updateSummary() {
+  document.getElementById("stat-total").textContent = ASSETS.length;
+  document.getElementById("stat-active").textContent = ASSETS.filter(a => a.active).length;
+  document.getElementById("stat-tier-a").textContent = ASSETS.filter(a => a.tier === "A").length;
+  document.getElementById("stat-tier-b").textContent = ASSETS.filter(a => a.tier === "B").length;
+  document.getElementById("stat-tier-c").textContent = ASSETS.filter(a => a.tier === "C").length;
+  document.getElementById("stat-chainlink").textContent = ASSETS.filter(a => a.price_source_type === "Chainlink").length;
+  document.getElementById("stat-twap").textContent = ASSETS.filter(a => a.price_source_type === "TWAP").length;
+  document.getElementById("stat-tbd").textContent = ASSETS.filter(a => a.price_source_type === "TBD").length;
+}
+
+// =====================================================
+// FILTER + SORT
+// =====================================================
+function applyFilters() {
+  const q = document.getElementById("search-input").value.toLowerCase();
+  const fTier = document.getElementById("filter-tier").value;
+  const fCat = document.getElementById("filter-category").value;
+  const fChain = document.getElementById("filter-chain").value;
+  const fActive = document.getElementById("filter-active").value;
+  const fSource = document.getElementById("filter-source").value;
+
+  filtered = ASSETS.filter(a => {
+    if (q) {
+      const allAddrs = a.representations.map(r => r.contract_address).join(" ").toLowerCase();
+      if (!a.name.toLowerCase().includes(q) && !a.symbol.toLowerCase().includes(q) && !allAddrs.includes(q)) return false;
+    }
+    if (fTier && a.tier !== fTier) return false;
+    if (fCat && a.category !== fCat) return false;
+    if (fChain && a.canonical_chain !== fChain) return false;
+    if (fActive && String(a.active) !== fActive) return false;
+    if (fSource && a.price_source_type !== fSource) return false;
+    return true;
+  });
+
+  const sk = document.getElementById("sort-by").value;
+  const sd = document.getElementById("sort-dir").value;
+
+  filtered.sort((a, b) => {
+    let av, bv;
+    if (sk === "price") {
+      av = priceData[a.coingecko_id]?.price ?? -1;
+      bv = priceData[b.coingecko_id]?.price ?? -1;
+    } else if (sk === "change24h") {
+      av = priceData[a.coingecko_id]?.change24h ?? -999;
+      bv = priceData[b.coingecko_id]?.change24h ?? -999;
+    } else if (sk === "marketCap") {
+      av = priceData[a.coingecko_id]?.marketCap ?? -1;
+      bv = priceData[b.coingecko_id]?.marketCap ?? -1;
+    } else if (sk === "tier") {
+      av = { A:1, B:2, C:3 }[a.tier] || 9;
+      bv = { A:1, B:2, C:3 }[b.tier] || 9;
+    } else {
+      av = (a[sk] || "").toString().toLowerCase();
+      bv = (b[sk] || "").toString().toLowerCase();
+    }
+    if (av < bv) return sd === "asc" ? -1 : 1;
+    if (av > bv) return sd === "asc" ? 1 : -1;
+    return 0;
+  });
+
+  renderTable(filtered);
+}
+
+function sortBy(key) {
+  document.getElementById("sort-by").value = key;
+  const dir = document.getElementById("sort-dir");
+  dir.value = dir.value === "asc" ? "desc" : "asc";
+  applyFilters();
+}
+
+// =====================================================
+// MODAL
+// =====================================================
+function openModal(idx) {
+  // Map from filtered index back to asset
+  const asset = filtered[idx];
+  if (!asset) return;
+
+  const pd = priceData[asset.coingecko_id] || {};
+  const price = pd.price ?? null;
+  const change = pd.change24h ?? null;
+  const mcap = pd.marketCap ?? null;
+  const isPlaceholder = asset.coingecko_id.startsWith("PLACEHOLDER");
+
+  const priceStr = isPlaceholder ? "N/A" : (price !== null ? fmtPrice(price) : (fetchAttempted ? "N/A" : "Loading…"));
+  const changeStr = change !== null ? fmtChange(change) : "N/A";
+  const changeClass = change !== null ? (change >= 0 ? "change-pos" : "change-neg") : "change-na";
+
+  document.getElementById("modal-content").innerHTML = `
+    <div class="modal-symbol-row">
+      <div class="modal-icon">${asset.symbol.slice(0,4)}</div>
+      <div>
+        <div class="modal-title">${asset.name}</div>
+        <div class="modal-ticker">${asset.symbol} &nbsp;·&nbsp; ${tierBadge(asset.tier)} &nbsp;·&nbsp; <span class="chain-tag">${asset.category}</span></div>
+      </div>
+    </div>
+
+    <div class="modal-section">
+      <div class="modal-section-title">Market Data (CoinGecko — Display Only)</div>
+      <div class="market-card">
+        <div>
+          <div class="mkt-item-label">Price (USD)</div>
+          <div class="mkt-item-val">${priceStr}</div>
+        </div>
+        <div>
+          <div class="mkt-item-label">24h Change</div>
+          <div class="mkt-item-val ${changeClass}">${changeStr}</div>
+        </div>
+        <div>
+          <div class="mkt-item-label">Market Cap</div>
+          <div class="mkt-item-val">${fmtMktCap(mcap)}</div>
+        </div>
+        <div>
+          <div class="mkt-item-label">CoinGecko ID</div>
+          <div class="mkt-item-val" style="font-size:11px">${isPlaceholder ? "⚠ Placeholder" : asset.coingecko_id}</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-section">
+      <div class="modal-section-title">Registry Details</div>
+      <div class="modal-row"><span class="modal-key">Canonical Chain</span><span class="modal-val">${asset.canonical_chain}</span></div>
+      <div class="modal-row"><span class="modal-key">Active Status</span><span class="modal-val">${asset.active ? "✅ Active" : "❌ Inactive"}</span></div>
+      <div class="modal-row"><span class="modal-key">Price Source</span><span class="modal-val">${sourceBadge(asset.price_source_type)}</span></div>
+      <div class="modal-row"><span class="modal-key">Oracle Risk</span><span class="modal-val"><span class="${riskClass(asset.oracle_risk_class)}">${asset.oracle_risk_class}</span></span></div>
+    </div>
+
+    ${asset.notes || asset.price_source_notes || asset.oracle_notes || asset.registry_notes ? `
+    <div class="modal-section">
+      <div class="modal-section-title">Notes</div>
+      ${asset.notes ? `<div class="modal-row"><span class="modal-key">General</span><span class="modal-val" style="white-space:normal">${asset.notes}</span></div>` : ""}
+      ${asset.price_source_notes ? `<div class="modal-row"><span class="modal-key">Price Source</span><span class="modal-val" style="white-space:normal">${asset.price_source_notes}</span></div>` : ""}
+      ${asset.oracle_notes ? `<div class="modal-row"><span class="modal-key">Oracle</span><span class="modal-val" style="white-space:normal">${asset.oracle_notes}</span></div>` : ""}
+      ${asset.registry_notes ? `<div class="modal-row"><span class="modal-key">Registry</span><span class="modal-val" style="white-space:normal">${asset.registry_notes}</span></div>` : ""}
+    </div>` : ""}
+
+    <div class="modal-section">
+      <div class="modal-section-title">Chain Representations (${asset.representations.length})</div>
+      ${asset.representations.map(rep => `
+        <div class="rep-card">
+          <div class="rep-chain-row">
+            <span class="rep-chain-name">${rep.chain}</span>
+            ${rep.is_canonical ? `<span class="badge badge-active" style="font-size:8px">Canonical</span>` : ""}
+            ${rep.is_enabled ? `<span class="badge badge-active" style="font-size:8px">Enabled</span>` : `<span class="badge badge-inactive" style="font-size:8px">Disabled</span>`}
+          </div>
+          <div class="rep-field">Contract: <span>${rep.contract_address}</span></div>
+          <div class="rep-field">Price Feed: <span>${rep.price_feed_address || "TBD"}</span></div>
+          ${rep.twap_pair ? `<div class="rep-field">TWAP Pair: <span>${rep.twap_pair}</span></div>` : ""}
+          <div class="rep-field">Liquidity: <span>${rep.liquidity_status}</span></div>
+          <div class="rep-field">Source Verified: <span>${rep.source_verified ? "✅ Yes" : "⚠ No"}</span></div>
+        </div>
+      `).join("")}
+    </div>
+  `;
+
+  document.getElementById("modal-overlay").classList.add("open");
+}
+
+function closeModal(e) {
+  if (e.target === document.getElementById("modal-overlay")) closeModalDirect();
+}
+function closeModalDirect() {
+  document.getElementById("modal-overlay").classList.remove("open");
+}
+
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape") closeModalDirect();
+});
+
+// =====================================================
+// STATUS
+// =====================================================
+function setStatus(state, msg) {
+  const dot = document.getElementById("status-dot");
+  const txt = document.getElementById("status-text");
+  dot.className = `status-indicator ${state}`;
+  txt.textContent = msg;
+}
+
+// =====================================================
+// INIT
+// =====================================================
+window.addEventListener("DOMContentLoaded", () => {
+  // Show file:// warning banner if opened directly from disk
+  if (window.location.protocol === "file:") {
+    const banner = document.getElementById("file-protocol-banner");
+    if (banner) banner.style.display = "block";
+  }
+
+  // Pre-populate from cache immediately so table isn't blank while live fetch runs
+  const cached = loadPriceCache();
+  if (cached) {
+    priceData = { ...cached.data };
+    setStatus("loading", `Cached prices loaded (${cached.ageMin}min old) — fetching live data…`);
+  } else {
+    setStatus("loading", "Fetching live prices…");
+  }
+
+  applyFilters();  // render immediately with whatever we have
+  updateSummary();
+  fetchPrices();   // full multi-source pipeline runs in background
+});
+</script>
+</body>
+</html>
