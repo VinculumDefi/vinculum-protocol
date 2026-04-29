@@ -728,8 +728,16 @@
     if (usd === undefined || usd === null) return null;
     if (usd >= 1000)  return "$" + usd.toLocaleString("en-US", { maximumFractionDigits: 2 });
     if (usd >= 1)     return "$" + usd.toFixed(4);
-    if (usd >= 0.001) return "$" + usd.toFixed(6);
-    return "$" + usd.toExponential(3);
+    // For values below 1, count leading zeros and show enough significant digits
+    // Never use exponents — always spell out every zero
+    const str = usd.toFixed(20);          // up to 20 decimal places
+    const match = str.match(/^0\.0*(\d)/); // count leading zeros after decimal
+    if (match) {
+      const leadingZeros = str.indexOf(match[1]) - 2; // zeros after decimal point
+      const decimals = leadingZeros + 6;               // show 6 significant digits past zeros
+      return "$" + usd.toFixed(Math.min(decimals, 20));
+    }
+    return "$" + usd.toFixed(8);
   }
 
   function formatChange(pct) {
