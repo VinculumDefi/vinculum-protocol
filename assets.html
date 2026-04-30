@@ -681,9 +681,9 @@
     ["dogwifcoin",                 "Dogwifhat",         "WIF",      "Solana",         "meme"],
     ["doginme",                    "Doginme",           "DOGINME",  "Base",           "meme"],
     ["bone-shibaswap",             "Bone ShibaSwap",    "BONE",     "Ethereum",       "meme"],
-    ["frog-og",                    "FrogOG",            "FrogOG",   "Ethereum",       "meme"],
+    ["frog-og",                    "FrogOG",            "FrogOG",   "BNB Chain",       "meme"],
     ["the-balkan-dwarf",           "Balkan Dwarf",      "KEKEC",    "Native",         "meme"],
-    ["lion-og",                    "LionOG",            "LionOG",   "Ethereum",       "meme"],
+    ["lion-og",                    "LionOG",            "LionOG",   "BNB Chain",       "meme"],
   ];
 
   const ALL_IDS = ASSETS.map(a => a[0]).join(",");
@@ -704,14 +704,42 @@
   const emptyState = document.getElementById("emptyState");
 
   // ── Fetch prices ─────────────────────────────────────────────────────────
+  // GeckoTerminal pool addresses for tokens not on CoinGecko coins API
+  const GECKO_TERMINAL_POOLS = {
+    "lion-og":  { network: "bsc", pool: "0x8d5103750a9ad07b8db6b21bd84d433d21fa8928", id: "lion-og"  },
+    "frog-og":  { network: "bsc", pool: "0x575c344853bc3d258b4c2d1e57b93aa26a457350", id: "frog-og"  },
+  };
+
+  async function fetchGeckoTerminalPrice(network, pool) {
+    const url = `https://api.geckoterminal.com/api/v2/networks/${network}/pools/${pool}`;
+    const res = await fetch(url, { headers: { "Accept": "application/json;version=20230302" } });
+    if (!res.ok) return null;
+    const data = await res.json();
+    const attrs = data?.data?.attributes;
+    if (!attrs) return null;
+    return {
+      usd:            parseFloat(attrs.base_token_price_usd) || null,
+      usd_24h_change: parseFloat(attrs.price_change_percentage?.h24) || null,
+    };
+  }
+
   async function fetchPrices() {
     pulseDot.className = "pulse-dot loading";
     updateLabel.textContent = "Fetching prices…";
     try {
+      // Main CoinGecko fetch
       const url = `https://api.coingecko.com/api/v3/simple/price?ids=${ALL_IDS}&vs_currencies=usd&include_24hr_change=true`;
       const res = await fetch(url);
       if (!res.ok) throw new Error("API error");
-      priceData     = await res.json();
+      priceData = await res.json();
+
+      // GeckoTerminal fetch for DEX-only tokens
+      const gtFetches = Object.values(GECKO_TERMINAL_POOLS).map(async ({ network, pool, id }) => {
+        const result = await fetchGeckoTerminalPrice(network, pool);
+        if (result) priceData[id] = result;
+      });
+      await Promise.allSettled(gtFetches);
+
       lastFetchTime = new Date();
       pulseDot.className = "pulse-dot";
       updateLabel.textContent = `Updated ${formatTime(lastFetchTime)}`;
