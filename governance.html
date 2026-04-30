@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Governance — Vinculum Protocol</title>
+  <meta name="description" content="Three tiers. Three tokens. Seats that scale with demand. Vinculum Protocol governance." />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=DM+Sans:wght@200;300;400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --white:     #fafaf8;
+      --off-white: #f4f3ef;
+      --black:     #0a0a0a;
+      --mid:       #6b6b65;
+      --accent:    #0a0a0a;
+      --blue:      #1a1a2e;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--white); color: var(--black);
+      font-family: 'DM Sans', sans-serif; font-weight: 300;
+      cursor: none; overflow-x: hidden;
+    }
+
+    #cursor {
+      width: 8px; height: 8px; background: var(--black);
+      border-radius: 50%; position: fixed; z-index: 9999;
+      pointer-events: none; transform: translate(-50%, -50%);
+      transition: width 0.3s, height 0.3s, background 0.3s, transform 0.15s;
+    }
+    #cursor.hovering { width: 40px; height: 40px; background: transparent; border: 1px solid var(--black); }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 2rem 3rem; mix-blend-mode: difference;
+    }
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif; font-weight: 300;
+      font-size: 1.1rem; letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--white); text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 3rem; list-style: none; }
+    .nav-links a {
+      font-family: 'DM Sans', sans-serif; font-size: 0.7rem;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--white); opacity: 0.8; text-decoration: none; transition: opacity 0.2s;
+    }
+    .nav-links a:hover { opacity: 1; }
+
+    /* ── Hero ────────────────────────────────────────────────────────────── */
+    .hero {
+      height: 100vh;
+      background: linear-gradient(135deg, #060a10 0%, #0d1b2a 40%, #1a1a2e 70%, #060a10 100%);
+      position: relative; overflow: hidden;
+      display: flex; align-items: flex-end; padding: 0 3rem 4rem;
+    }
+    .hero-grid {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 80px 80px; animation: gridDrift 20s linear infinite;
+    }
+    @keyframes gridDrift { from { transform: translateY(0); } to { transform: translateY(80px); } }
+    .orb { position: absolute; border-radius: 50%; filter: blur(80px); pointer-events: none; animation: orbFloat 12s ease-in-out infinite; }
+    .orb-1 { width:600px;height:600px;background:#00d4ff;opacity:0.15;top:-100px;left:-100px; }
+    .orb-2 { width:400px;height:400px;background:#0066ff;opacity:0.15;bottom:-50px;right:10%;animation-delay:-4s; }
+    .orb-3 { width:300px;height:300px;background:#00e887;opacity:0.15;top:40%;left:50%;animation-delay:-8s; }
+    @keyframes orbFloat {
+      0%   { transform: translate(0,0) scale(1); }
+      33%  { transform: translate(30px,-40px) scale(1.05); }
+      66%  { transform: translate(-20px,20px) scale(0.95); }
+      100% { transform: translate(0,0) scale(1); }
+    }
+    .hero-content { position: relative; z-index: 1; }
+    .hero-eyebrow {
+      font-family: 'DM Sans', sans-serif; font-size: 0.65rem;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: rgba(255,255,255,0.5); margin-bottom: 1.5rem;
+      opacity: 0; animation: fadeUp 1.2s ease 0.3s forwards;
+    }
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif; font-weight: 300;
+      font-size: clamp(3.5rem, 8vw, 7rem); line-height: 1.0;
+      color: var(--white); margin-bottom: 2rem;
+      opacity: 0; animation: fadeUp 1.2s ease 0.5s forwards;
+    }
+    .hero h1 em { font-style: italic; opacity: 0.6; }
+    .hero-subtitle {
+      font-family: 'DM Sans', sans-serif; font-size: 0.75rem;
+      letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.4);
+      opacity: 0; animation: fadeUp 1.2s ease 0.8s forwards;
+    }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+
+    .full-divider { height: 1px; background: rgba(0,0,0,0.06); }
+
+    /* ── Layout ──────────────────────────────────────────────────────────── */
+    .section { padding: 10rem 3rem; max-width: 1400px; margin: 0 auto; }
+    .section-header {
+      display: flex; align-items: baseline; justify-content: space-between;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+      padding-bottom: 2rem; margin-bottom: 6rem; flex-wrap: wrap; gap: 1rem;
+    }
+    .section-label {
+      font-family: 'DM Sans', sans-serif; font-size: 0.65rem;
+      letter-spacing: 0.2em; text-transform: uppercase; color: var(--mid);
+    }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start; }
+    .headline {
+      font-family: 'Cormorant Garamond', serif; font-weight: 300;
+      font-size: clamp(2rem, 3.5vw, 3rem); line-height: 1.2; color: var(--black);
+    }
+    .headline em { font-style: italic; color: var(--mid); }
+    .body-copy { font-family: 'DM Sans', sans-serif; font-size: 0.95rem; line-height: 1.9; color: var(--mid); }
+    .body-copy p + p { margin-top: 1.2rem; }
+
+    /* ── Tier cards ──────────────────────────────────────────────────────── */
+    .tiers { display: grid; grid-template-columns: repeat(3, 1fr); }
+    .tier-card {
+      padding: 3rem; border-right: 1px solid rgba(0,0,0,0.06); transition: background 0.3s;
+    }
+    .tier-card:last-child { border-right: none; }
+    .tier-card:hover { background: var(--off-white); }
+    .tier-num {
+      font-family: 'Cormorant Garamond', serif; font-size: 4rem;
+      font-weight: 300; color: rgba(0,0,0,0.06); line-height: 1; margin-bottom: 2rem;
+    }
+    .tier-badge {
+      font-family: 'DM Sans', sans-serif; font-size: 0.58rem;
+      letter-spacing: 0.2em; text-transform: uppercase; color: var(--mid); margin-bottom: 0.5rem;
+    }
+    .tier-title {
+      font-family: 'Cormorant Garamond', serif; font-weight: 300;
+      font-size: 1.8rem; color: var(--black); margin-bottom: 0.3rem;
+    }
+    .tier-token-name {
+      font-family: 'DM Sans', sans-serif; font-size: 0.65rem;
+      letter-spacing: 0.12em; text-transform: uppercase; color: var(--mid); margin-bottom: 2rem;
+    }
+    .tier-stats { margin-bottom: 2rem; }
+    .tier-stat { border-top: 1px solid rgba(0,0,0,0.06); padding: 0.75rem 0; }
+    .tier-stat:first-child { border-top: none; padding-top: 0; }
+    .tier-stat-label {
+      font-family: 'DM Sans', sans-serif; font-size: 0.58rem;
+      letter-spacing: 0.12em; text-transform: uppercase; color: var(--mid); margin-bottom: 0.2rem;
+    }
+    .tier-stat-value {
+      font-family: 'Cormorant Garamond', serif; font-weight: 300;
+      font-size: 1.25rem; color: var(--black);
+    }
+    .tier-desc {
+      font-family: 'DM Sans', sans-serif; font-size: 0.82rem; line-height: 1.8; color: var(--mid);
+    }
+    .tier-activation {
+      margin-top: 1.5rem; padding-top: 1.5rem;
+      border-top: 1px solid rgba(0,0,0,0.06);
+      font-family: 'DM Sans', sans-serif; font-size: 0.72rem;
+      line-height: 1.7; color: var(--mid);
+    }
+    .tier-activation strong {
+      font-family: 'DM Sans', sans-serif; font-weight: 400;
+      color: var(--black); font-size: 0.72rem;
+    }
+
+    /* ── Expansion section ───────────────────────────────────────────────── */
+    .expansion-grid { display: grid; grid-template-columns: repeat(3, 1fr); }
+    .expansion-item {
+      padding: 3rem; border-right: 1px solid rgba(0,0,0,0.06); transition: background 0.3s;
+    }
+    .expansion-item:last-child { border-right: none; }
+    .expansion-item:hover { background: var(--off-white); }
+    .expansion-num {
+      font-family: 'Cormorant Garamond', serif; font-size: 4rem;
+      font-weight: 300; color: rgba(0,0,0,0.06); line-height: 1; margin-bottom: 2rem;
+    }
+    .expansion-title {
+      font-family: 'Cormorant Garamond', serif; font-weight: 300;
+      font-size: 1.4rem; color: var(--black); margin-bottom: 1rem;
+    }
+    .expansion-body {
+      font-family: 'DM Sans', sans-serif; font-size: 0.85rem; line-height: 1.8; color: var(--mid);
+    }
+
+    /* ── Staking mechanics ───────────────────────────────────────────────── */
+    .mechanics-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+    .mechanics-col { padding: 3rem; border-right: 1px solid rgba(0,0,0,0.06); }
+    .mechanics-col:last-child { border-right: none; }
+    .mechanics-col-label {
+      font-family: 'DM Sans', sans-serif; font-size: 0.6rem;
+      letter-spacing: 0.2em; text-transform: uppercase; color: var(--mid);
+      padding-bottom: 1.5rem; margin-bottom: 2rem;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+    }
+    .mechanics-item { padding: 1rem 0; border-bottom: 1px solid rgba(0,0,0,0.06); }
+    .mechanics-item:last-child { border-bottom: none; }
+    .mechanics-item-title {
+      font-family: 'Cormorant Garamond', serif; font-weight: 300;
+      font-size: 1.1rem; color: var(--black); margin-bottom: 0.3rem;
+    }
+    .mechanics-item-desc {
+      font-family: 'DM Sans', sans-serif; font-size: 0.78rem; line-height: 1.7; color: var(--mid);
+    }
+
+    /* ── Immutable / Governable ──────────────────────────────────────────── */
+    .gov-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+    .gov-col { padding: 3rem; border-right: 1px solid rgba(0,0,0,0.06); }
+    .gov-col:last-child { border-right: none; }
+    .gov-col-label {
+      font-family: 'DM Sans', sans-serif; font-size: 0.6rem;
+      letter-spacing: 0.2em; text-transform: uppercase; color: var(--mid);
+      padding-bottom: 1.5rem; margin-bottom: 2rem;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+    }
+    .gov-item { padding: 1rem 0; border-bottom: 1px solid rgba(0,0,0,0.06); }
+    .gov-item:last-child { border-bottom: none; }
+    .gov-item-title {
+      font-family: 'Cormorant Garamond', serif; font-weight: 300;
+      font-size: 1.1rem; color: var(--black); margin-bottom: 0.3rem;
+    }
+    .gov-item-desc {
+      font-family: 'DM Sans', sans-serif; font-size: 0.78rem; line-height: 1.7; color: var(--mid);
+    }
+
+    /* ── Dark CTA ────────────────────────────────────────────────────────── */
+    .dark-section { background: var(--black); position: relative; overflow: hidden; }
+    .dark-orb { position: absolute; border-radius: 50%; filter: blur(80px); pointer-events: none; animation: orbFloat 12s ease-in-out infinite; }
+    .dark-orb-1 { width:500px;height:500px;background:#00d4ff;opacity:0.08;top:-100px;right:-100px; }
+    .dark-orb-2 { width:300px;height:300px;background:#00e887;opacity:0.06;bottom:0;left:20%;animation-delay:-6s; }
+    .dark-inner { position: relative; z-index: 1; padding: 10rem 3rem; max-width: 1400px; margin: 0 auto; }
+    .dark-headline {
+      font-family: 'Cormorant Garamond', serif; font-weight: 300;
+      font-size: clamp(2.5rem, 5vw, 4.5rem); line-height: 1.15;
+      color: var(--white); margin-bottom: 2rem;
+    }
+    .dark-headline em { font-style: italic; opacity: 0.4; }
+    .dark-body {
+      font-family: 'DM Sans', sans-serif; font-size: 0.9rem;
+      line-height: 1.9; color: rgba(255,255,255,0.5);
+      max-width: 600px; margin-bottom: 3rem;
+    }
+    .dark-link {
+      font-family: 'DM Sans', sans-serif; font-size: 0.75rem;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: rgba(255,255,255,0.6); text-decoration: none;
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+      padding-bottom: 2px; transition: color 0.2s;
+    }
+    .dark-link:hover { color: var(--white); }
+
+    /* ── Reveal ──────────────────────────────────────────────────────────── */
+    .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.9s ease, transform 0.9s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+    .reveal.delay-1 { transition-delay: 0.1s; }
+    .reveal.delay-2 { transition-delay: 0.2s; }
+    .reveal.delay-3 { transition-delay: 0.3s; }
+
+    /* ── Footer ──────────────────────────────────────────────────────────── */
+    footer {
+      border-top: 1px solid rgba(0,0,0,0.06); padding: 4rem 3rem;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 2rem; max-width: 1400px; margin: 0 auto;
+    }
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif; font-weight: 300;
+      font-size: 1rem; letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--black); text-decoration: none;
+    }
+    .footer-links { display: flex; gap: 2.5rem; list-style: none; flex-wrap: wrap; }
+    .footer-links a {
+      font-family: 'DM Sans', sans-serif; font-size: 0.65rem;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--mid); text-decoration: none; transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--black); }
+    .footer-copy { font-family: 'DM Sans', sans-serif; font-size: 0.65rem; letter-spacing: 0.05em; color: var(--mid); }
+
+    /* ── Responsive ──────────────────────────────────────────────────────── */
+    @media (max-width: 900px) {
+      nav { padding: 1.5rem; }
+      .nav-links { display: none; }
+      .section { padding: 6rem 1.5rem; }
+      .two-col, .gov-grid, .mechanics-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .gov-col, .mechanics-col { border-right: none; border-bottom: 1px solid rgba(0,0,0,0.06); padding: 2rem 0; }
+      .tiers, .expansion-grid { grid-template-columns: 1fr; }
+      .tier-card, .expansion-item { border-right: none; border-bottom: 1px solid rgba(0,0,0,0.06); }
+      .dark-inner { padding: 6rem 1.5rem; }
+      footer { flex-direction: column; gap: 1.5rem; text-align: center; padding: 3rem 1.5rem; }
+      .footer-links { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="cursor"></div>
+
+  <!-- ── Nav ─────────────────────────────────────────────────────────────── -->
+  <nav>
+    <a href="index.html" class="nav-logo">Vinculum</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Protocol</a></li>
+      <li><a href="assets.html">Assets</a></li>
+      <li><a href="governance.html">Governance</a></li>
+      <li><a href="vision.html">Vision</a></li>
+    </ul>
+  </nav>
+
+  <!-- ── Hero ────────────────────────────────────────────────────────────── -->
+  <section class="hero">
+    <div class="hero-grid"></div>
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Vinculum Protocol · Governance</p>
+      <h1>The chain keeps the<br />contracts alive.<br /><em>You keep the protocol alive.</em></h1>
+      <p class="hero-subtitle">Three tiers. Three tokens. Seats that scale with demand.</p>
+    </div>
+  </section>
+
+  <div class="full-divider"></div>
+
+  <!-- ── Why governance matters ──────────────────────────────────────────── -->
+  <section>
+    <div class="section">
+      <div class="section-header reveal">
+        <p class="section-label">Why governance matters</p>
+      </div>
+      <div class="two-col reveal delay-1">
+        <div>
+          <h2 class="headline">
+            Most protocols treat governance<br />
+            as <em>an afterthought.</em><br />
+            Vinculum is different.
+          </h2>
+        </div>
+        <div class="body-copy">
+          <p>Vinculum will be designed from the ground up to unite participants from entirely different blockchains — different assets, different communities, different cultures — into a single shared economic system. An ETH holder and a TigerOG holder and an XRP holder earning the same token. Participating in the same decisions. Building the same future.</p>
+          <p>That kind of convergence requires more than smart contracts. It requires people. Committed people who understand what is being built and who will show up — consistently, actively, thoughtfully — to keep the governance layer alive and capable of responding to whatever comes next.</p>
+          <p>Base will validate the chain. <strong>Token holders will validate the protocol's future.</strong></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="full-divider"></div>
+
+  <!-- ── Three Tiers ─────────────────────────────────────────────────────── -->
+  <section style="background: var(--off-white);">
+    <div class="section">
+      <div class="section-header reveal">
+        <p class="section-label">The Three Governance Tiers</p>
+        <p class="section-label">Tier 1 is the highest authority</p>
+      </div>
+
+      <div class="two-col reveal delay-1" style="margin-bottom: 6rem;">
+        <div>
+          <h2 class="headline">
+            Stake to participate.<br />
+            <em>Each tier unlocks</em><br />
+            at a different moment.
+          </h2>
+        </div>
+        <div class="body-copy">
+          <p>Each governance tier will be tied to one of the protocol's three tokens. To hold a seat, you stake the required amount for a 10-day lock period. Your tokens stay locked while your seat is active. When you are ready to leave, 95% of your staked tokens are returned — the 5% protocol fee is non-refundable.</p>
+          <p>Tiers do not all launch at the same time. Tier 3 will be active from day one. Tier 2 activates when the VCLM supply reaches 10,000,000 tokens. Tier 1 activates when the CHONX supply reaches 100,000,000 tokens.</p>
+          <p>Reward distributions are proportional to holdings within each tier. The protocol will distribute 50% of governance rewards to the VCLM tier, 30% to the CHONX tier, and 20% to the SYNTH tier.</p>
+        </div>
+      </div>
+
+      <div class="tiers reveal delay-2">
+
+        <!-- Tier 1 -->
+        <div class="tier-card">
+          <div class="tier-num">01</div>
+          <div class="tier-badge">Highest authority</div>
+          <div class="tier-title">Tier 1</div>
+          <div class="tier-token-name">SYNTH Token</div>
+          <div class="tier-stats">
+            <div class="tier-stat">
+              <div class="tier-stat-label">Stake required</div>
+              <div class="tier-stat-value">1 SYNTH</div>
+            </div>
+            <div class="tier-stat">
+              <div class="tier-stat-label">Voting weight</div>
+              <div class="tier-stat-value">7× per seat</div>
+            </div>
+            <div class="tier-stat">
+              <div class="tier-stat-label">Lock period</div>
+              <div class="tier-stat-value">10 days</div>
+            </div>
+            <div class="tier-stat">
+              <div class="tier-stat-label">Starting seats</div>
+              <div class="tier-stat-value">20 + inherited</div>
+            </div>
+            <div class="tier-stat">
+              <div class="tier-stat-label">Reward pool share</div>
+              <div class="tier-stat-value">20% of total</div>
+            </div>
+          </div>
+          <p class="tier-desc">The most exclusive tier. SYNTH can only come into existence when someone burns 1,000 VCLM and 10,000 CHONX. Every Tier 1 seat will therefore represent a permanent record of deep, compounded commitment to the protocol. A 7× voting weight reflects the cost of earning that seat.</p>
+          <div class="tier-activation">
+            <strong>Activation:</strong> Tier 1 will activate when the CHONX supply reaches 100,000,000 tokens. At activation, the starting seat count will inherit the expansion cycles already accumulated by the CHONX tier — so the longer the protocol runs before Tier 1 activates, the more seats it starts with.
+          </div>
+        </div>
+
+        <!-- Tier 2 -->
+        <div class="tier-card">
+          <div class="tier-num">02</div>
+          <div class="tier-badge">Broad participation</div>
+          <div class="tier-title">Tier 2</div>
+          <div class="tier-token-name">CHONX Token</div>
+          <div class="tier-stats">
+            <div class="tier-stat">
+              <div class="tier-stat-label">Stake required</div>
+              <div class="tier-stat-value">5,000 CHONX</div>
+            </div>
+            <div class="tier-stat">
+              <div class="tier-stat-label">Voting weight</div>
+              <div class="tier-stat-value">2.5× per seat</div>
+            </div>
+            <div class="tier-stat">
+              <div class="tier-stat-label">Lock period</div>
+              <div class="tier-stat-value">10 days</div>
+            </div>
+            <div class="tier-stat">
+              <div class="tier-stat-label">Starting seats</div>
+              <div class="tier-stat-value">50 + inherited</div>
+            </div>
+            <div class="tier-stat">
+              <div class="tier-stat-label">Reward pool share</div>
+              <div class="tier-stat-value">30% of total</div>
+            </div>
+          </div>
+          <p class="tier-desc">The participation tier. CHONX will be a high-volume token with a 100 billion hard cap, making governance broadly accessible while still requiring a real commitment to hold a seat. 2.5× voting weight reflects the meaningful stake behind each seat.</p>
+          <div class="tier-activation">
+            <strong>Activation:</strong> Tier 2 will activate when the VCLM supply reaches 10,000,000 tokens. At activation, the starting seat count will inherit the expansion cycles already accumulated by the VCLM tier. The earlier the protocol grows, the more seats Tier 2 starts with when it launches.
+          </div>
+        </div>
+
+        <!-- Tier 3 -->
+        <div class="tier-card">
+          <div class="tier-num">03</div>
+          <div class="tier-badge">Active from day one</div>
+          <div class="tier-title">Tier 3</div>
+          <div class="tier-token-name">VCLM Token</div>
+          <div class="tier-stats">
+            <div class="tier-stat">
+              <div class="tier-stat-label">Stake required</div>
+              <div class="tier-stat-value">1,000 VCLM</div>
+            </div>
+            <div class="tier-stat">
+              <div class="tier-stat-label">Voting weight</div>
+              <div class="tier-stat-value">1× per seat</div>
+            </div>
+            <div class="tier-stat">
+              <div class="tier-stat-label">Lock period</div>
+              <div class="tier-stat-value">10 days</div>
+            </div>
+            <div class="tier-stat">
+              <div class="tier-stat-label">Starting seats</div>
+              <div class="tier-stat-value">100</div>
+            </div>
+            <div class="tier-stat">
+              <div class="tier-stat-label">Reward pool share</div>
+              <div class="tier-stat-value">50% of total</div>
+            </div>
+          </div>
+          <p class="tier-desc">The foundation of governance. Tier 3 will be active from the moment the protocol launches. VCLM holders who stake will receive a 1.5× participation weight advantage over equivalent stakes in other tokens — a deliberate incentive to acquire and hold VCLM long-term. Epoch rewards accrue to all active seats.</p>
+          <div class="tier-activation">
+            <strong>Active at launch.</strong> The first 100 VCLM governance seats will be available from day one — going to the earliest participants in the protocol. These are the people who were here first, at the highest emission rate VCLM will ever have.
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="full-divider"></div>
+
+  <!-- ── Seat Expansion ──────────────────────────────────────────────────── -->
+  <section>
+    <div class="section">
+      <div class="section-header reveal">
+        <p class="section-label">Seat expansion</p>
+        <p class="section-label">Scales with the protocol</p>
+      </div>
+      <div class="two-col reveal delay-1" style="margin-bottom: 6rem;">
+        <div>
+          <h2 class="headline">
+            Seats are not fixed.<br />
+            <em>They grow</em><br />
+            when the tier fills.
+          </h2>
+        </div>
+        <div class="body-copy">
+          <p>When every seat in a tier is filled, the protocol does not turn new participants away. At the next epoch boundary — every 10 days — the protocol will automatically expand that tier's seat capacity by 10%.</p>
+          <p>100 seats becomes 110. 110 becomes 121. 121 becomes 133. The expansion compounds with each cycle, allowing governance to grow proportionally with the protocol's adoption.</p>
+          <p>Expansion only happens when a tier is fully filled. If seats are available, there is no expansion. This ensures scarcity is real — governance access is earned by demand, not handed out freely.</p>
+        </div>
+      </div>
+      <div class="expansion-grid reveal delay-2">
+        <div class="expansion-item">
+          <div class="expansion-num">01</div>
+          <h3 class="expansion-title">Tier fills completely</h3>
+          <p class="expansion-body">Every seat in the tier is occupied by an active stake. The protocol detects that the tier is fully filled. No new participants can enter until expansion occurs.</p>
+        </div>
+        <div class="expansion-item">
+          <div class="expansion-num">02</div>
+          <h3 class="expansion-title">Epoch boundary triggers</h3>
+          <p class="expansion-body">Every 10 days, the EpochOperationsManager processes the current epoch. If a tier is filled, it triggers a seat expansion. The 10-day epoch cycle is the heartbeat of protocol governance.</p>
+        </div>
+        <div class="expansion-item">
+          <div class="expansion-num">03</div>
+          <h3 class="expansion-title">10% more seats added</h3>
+          <p class="expansion-body">The seat count increases by exactly 10%, rounded up. New seats become immediately available. The process repeats whenever the tier fills again — compounding indefinitely as the protocol grows.</p>
+        </div>
+      </div>
+      <p style="font-family:'DM Sans',sans-serif;font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--mid);border-top:1px solid rgba(0,0,0,0.06);padding-top:3rem;margin-top:0;" class="reveal delay-3">
+        Inherited expansion · When Tier 2 activates, it inherits the number of expansion cycles already completed by Tier 1 — applied to its own starting seat count. Tier 1 inherits from Tier 2 in the same way. The later a tier activates, the more seats it starts with.
+      </p>
+    </div>
+  </section>
+
+  <div class="full-divider"></div>
+
+  <!-- ── Staking mechanics ────────────────────────────────────────────────── -->
+  <section style="background: var(--off-white);">
+    <div class="section">
+      <div class="section-header reveal">
+        <p class="section-label">How staking works</p>
+        <p class="section-label">Simple. Fair. Yours to control.</p>
+      </div>
+      <div class="mechanics-grid reveal delay-1">
+        <div class="mechanics-col">
+          <div class="mechanics-col-label">Entering a governance seat</div>
+          <div class="mechanics-item">
+            <div class="mechanics-item-title">Stake once</div>
+            <div class="mechanics-item-desc">Commit the required tokens for your chosen tier. The 10-day lock begins immediately. Your seat becomes active and your voting weight is live.</div>
+          </div>
+          <div class="mechanics-item">
+            <div class="mechanics-item-title">5% protocol fee at entry</div>
+            <div class="mechanics-item-desc">A 5% fee is taken from your staked tokens at the moment of staking. This fee goes to the protocol treasury and is non-refundable. You will receive 95% of your tokens back when you exit.</div>
+          </div>
+          <div class="mechanics-item">
+            <div class="mechanics-item-title">Epoch rewards accrue</div>
+            <div class="mechanics-item-desc">Your share of the governance reward pool will accrue every epoch for as long as your seat is active. Rewards are distributed proportionally to your holdings within your tier.</div>
+          </div>
+          <div class="mechanics-item">
+            <div class="mechanics-item-title">Vote on proposals</div>
+            <div class="mechanics-item-desc">Active seat holders will be able to vote on governance proposals. Votes are weighted by your tier's voting weight. One active seat equals one voting unit multiplied by your tier's weight.</div>
+          </div>
+        </div>
+        <div class="mechanics-col">
+          <div class="mechanics-col-label">Exiting a governance seat</div>
+          <div class="mechanics-item">
+            <div class="mechanics-item-title">Exit any time after 10 days</div>
+            <div class="mechanics-item-desc">Once the initial 10-day lock period expires, you may exit your seat at any time. There is no ongoing lock commitment after the initial period ends.</div>
+          </div>
+          <div class="mechanics-item">
+            <div class="mechanics-item-title">95% of staked tokens returned</div>
+            <div class="mechanics-item-desc">The 5% protocol entry fee is non-refundable. The remaining 95% of your original staked tokens will be returned to your wallet when you exit.</div>
+          </div>
+          <div class="mechanics-item">
+            <div class="mechanics-item-title">Seat becomes available</div>
+            <div class="mechanics-item-desc">Exiting releases your seat. It becomes immediately available for the next participant. Your governance weight is removed the moment you exit.</div>
+          </div>
+          <div class="mechanics-item">
+            <div class="mechanics-item-title">Re-entry is always possible</div>
+            <div class="mechanics-item-desc">Exiting a seat does not prevent you from re-entering. As long as seats are available in the tier and you hold the required tokens, you may stake again at any time.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="full-divider"></div>
+
+  <!-- ── Immutable vs Governable ──────────────────────────────────────────── -->
+  <section>
+    <div class="section">
+      <div class="section-header reveal">
+        <p class="section-label">What governance controls</p>
+        <p class="section-label">And what it cannot touch</p>
+      </div>
+      <div class="two-col reveal delay-1" style="margin-bottom: 6rem;">
+        <div>
+          <h2 class="headline">
+            Some things are<br />
+            written in stone.<br />
+            <em>Everything else</em><br />
+            is yours to decide.
+          </h2>
+        </div>
+        <div class="body-copy">
+          <p>Certain parameters in Vinculum Protocol will be immutable — locked in the smart contracts and unreachable by any governance action, admin key, or upgrade mechanism. They are enforced by code alone.</p>
+          <p>Everything else will be governed by token holders through on-chain proposals. This is where the Governance Council does its real work — deliberating on the direction of a protocol designed to last decades.</p>
+        </div>
+      </div>
+      <div class="gov-grid reveal delay-2">
+        <div class="gov-col">
+          <div class="gov-col-label">Immutable — no governance vote can ever change these</div>
+          <div class="gov-item">
+            <div class="gov-item-title">10 billion VCLM hard cap</div>
+            <div class="gov-item-desc">No governance vote can ever increase the VCLM supply ceiling. Written as a constant in the token contract. Enforced on every mint.</div>
+          </div>
+          <div class="gov-item">
+            <div class="gov-item-title">100 billion CHONX hard cap</div>
+            <div class="gov-item-desc">Same enforcement. No vote, no admin action, no upgrade can increase the CHONX ceiling.</div>
+          </div>
+          <div class="gov-item">
+            <div class="gov-item-title">10 million SYNTH hard cap</div>
+            <div class="gov-item-desc">The scarcest token has the strictest cap. Immutable by design.</div>
+          </div>
+          <div class="gov-item">
+            <div class="gov-item-title">No presale, no premine, no insider allocation</div>
+            <div class="gov-item-desc">The founding principle is permanent. There is no minting path that bypasses commitment vaults for VCLM.</div>
+          </div>
+          <div class="gov-item">
+            <div class="gov-item-title">Decay direction</div>
+            <div class="gov-item-desc">The emission rate can only decrease. The 1.667% monthly decay is a floor — it will never go up.</div>
+          </div>
+          <div class="gov-item">
+            <div class="gov-item-title">SYNTH burn formula</div>
+            <div class="gov-item-desc">1,000 VCLM and 10,000 CHONX per SYNTH. This ratio is fixed in the contract and cannot be changed.</div>
+          </div>
+        </div>
+        <div class="gov-col">
+          <div class="gov-col-label">Governable — decided by token holders through proposals</div>
+          <div class="gov-item">
+            <div class="gov-item-title">Asset registry</div>
+            <div class="gov-item-desc">Which tokens will be approved for commitment vaults. New assets can be proposed, reviewed, and added by governance vote.</div>
+          </div>
+          <div class="gov-item">
+            <div class="gov-item-title">Protocol fee rates</div>
+            <div class="gov-item-desc">The vault entry fee percentage within defined limits. Governance decides how this balance evolves over time.</div>
+          </div>
+          <div class="gov-item">
+            <div class="gov-item-title">Treasury allocation</div>
+            <div class="gov-item-desc">How the Core Reserve funds are deployed. Grants, development, ecosystem growth — decided by the people who earned their seats.</div>
+          </div>
+          <div class="gov-item">
+            <div class="gov-item-title">Chain expansion</div>
+            <div class="gov-item-desc">Which new blockchains Vinculum deploys to. Every new chain brings a new community. Governance decides when and where.</div>
+          </div>
+          <div class="gov-item">
+            <div class="gov-item-title">Governance tier parameters</div>
+            <div class="gov-item-desc">Stake thresholds, lock periods, and reward splits within the tiers — adjustable through governance as the protocol matures.</div>
+          </div>
+          <div class="gov-item">
+            <div class="gov-item-title">Protocol partnerships</div>
+            <div class="gov-item-desc">Strategic decisions about ecosystem integrations, exchange listings, and protocol growth. Decided by the community that built it.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA ──────────────────────────────────────────────────────────────── -->
+  <div class="dark-section">
+    <div class="dark-orb dark-orb-1"></div>
+    <div class="dark-orb dark-orb-2"></div>
+    <div class="dark-inner">
+      <h2 class="dark-headline reveal">
+        The first 100 governance seats<br />
+        will go to the people<br />
+        <em>who were here first.</em>
+      </h2>
+      <p class="dark-body reveal delay-1">
+        Tier 3 will be active from day one. The first 100 VCLM governance seats will be available the moment the protocol launches — going to the earliest participants, at the highest emission rate VCLM will ever have. There is no application. There is no selection. Earn your VCLM, stake it, and the seat is yours.
+      </p>
+      <a href="index.html" class="dark-link reveal delay-2">Start with the protocol →</a>
+    </div>
+  </div>
+
+  <!-- ── Footer ───────────────────────────────────────────────────────────── -->
+  <footer>
+    <a href="index.html" class="footer-logo">Vinculum Protocol</a>
+    <ul class="footer-links">
+      <li><a href="https://github.com/VinculumDefi/vinculum-protocol">GitHub</a></li>
+      <li><a href="https://twitter.com/VinculumDefi">@VinculumDefi</a></li>
+      <li><a href="index.html">Protocol</a></li>
+      <li><a href="assets.html">Assets</a></li>
+      <li><a href="vision.html">Vision</a></li>
+    </ul>
+    <p class="footer-copy">© 2026 Vinculum Protocol DAO LLC</p>
+  </footer>
+
+  <script>
+    const cursor = document.getElementById('cursor');
+    document.addEventListener('mousemove', e => {
+      cursor.style.left = e.clientX + 'px';
+      cursor.style.top  = e.clientY + 'px';
+    });
+    document.querySelectorAll('a, button, .tier-card, .expansion-item, .how-item').forEach(el => {
+      el.addEventListener('mouseenter', () => cursor.classList.add('hovering'));
+      el.addEventListener('mouseleave', () => cursor.classList.remove('hovering'));
+    });
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
