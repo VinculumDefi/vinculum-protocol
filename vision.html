@@ -11,7 +11,7 @@
   :root { --white: #fafaf8; --off-white: #f4f3ef; --black: #0a0a0a; --mid: #6b6b65; --blue-glow: #00d4ff; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
-  body { background: var(--white); color: var(--black); font-family: 'DM Sans', sans-serif; font-weight: 300; overflow-x: hidden; cursor: none; }
+  body { background: var(--white); color: var(--black); font-family: "DM Sans", sans-serif; font-weight: 300; overflow-x: hidden; cursor: none; }
   .cursor { width: 8px; height: 8px; background: var(--black); border-radius: 50%; position: fixed; top: 0; left: 0; pointer-events: none; z-index: 9999; transition: transform 0.15s ease, width 0.3s ease, height 0.3s ease, background 0.3s ease; transform: translate(-50%, -50%); }
   .cursor.hovering { width: 40px; height: 40px; background: transparent; border: 1px solid var(--black); }
   .cursor.light { background: white; }
@@ -19,7 +19,7 @@
 
   /* NAV */
   nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 2rem 3rem; mix-blend-mode: difference; }
-  .nav-logo { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: 1.1rem; letter-spacing: 0.15em; color: var(--white); text-decoration: none; text-transform: uppercase; }
+  .nav-logo { font-family: "Cormorant Garamond", serif; font-weight: 300; font-size: 1.1rem; letter-spacing: 0.15em; color: var(--white); text-decoration: none; text-transform: uppercase; }
   .nav-back { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--white); text-decoration: none; opacity: 0.6; transition: opacity 0.3s; }
   .nav-back:hover { opacity: 1; }
 
@@ -44,77 +44,91 @@
   .hero-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px); background-size: 80px 80px; animation: gridDrift 20s linear infinite; }
   .hero-content { position: relative; z-index: 10; }
   .hero-eyebrow { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 1.5rem; animation: fadeUp 1s ease forwards; animation-delay: 0.3s; opacity: 0; }
-  .hero-title { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(3.5rem, 8vw, 7rem); line-height: 1.0; color: var(--white); margin-bottom: 2rem; animation: fadeUp 1s ease forwards; animation-delay: 0.5s; opacity: 0; }
+  .hero-title { font-family: "Cormorant Garamond", serif; font-weight: 300; font-size: clamp(3.5rem, 8vw, 7rem); line-height: 1.0; color: var(--white); margin-bottom: 2rem; animation: fadeUp 1s ease forwards; animation-delay: 0.5s; opacity: 0; }
   .hero-title em { font-style: italic; opacity: 0.45; }
   .hero-sub { font-size: 0.8rem; letter-spacing: 0.05em; color: rgba(255,255,255,0.3); animation: fadeUp 1s ease forwards; animation-delay: 0.8s; opacity: 0; max-width: 650px; line-height: 1.9; }
 
-  /* OPENING STATEMENT */
+  /* OPENING */
   .opening { padding: 10rem 3rem; max-width: 1000px; margin: 0 auto; text-align: center; }
-  .opening-text { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(1.8rem, 3.5vw, 3rem); line-height: 1.4; color: var(--black); margin-bottom: 3rem; }
+  .opening-text { font-family: "Cormorant Garamond", serif; font-weight: 300; font-size: clamp(1.8rem, 3.5vw, 3rem); line-height: 1.4; color: var(--black); margin-bottom: 3rem; }
   .opening-text em { font-style: italic; color: var(--mid); }
   .opening-sub { font-size: 0.9rem; line-height: 1.9; color: var(--mid); max-width: 700px; margin: 0 auto; }
 
-  /* PROBLEM SECTION */
+  /* PROBLEM */
   .problem { background: var(--off-white); padding: 10rem 3rem; }
   .problem-inner { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 8rem; align-items: start; }
-  .problem-headline { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(2rem, 3vw, 2.8rem); line-height: 1.2; }
+  .problem-headline { font-family: "Cormorant Garamond", serif; font-weight: 300; font-size: clamp(2rem, 3vw, 2.8rem); line-height: 1.2; }
   .problem-headline em { font-style: italic; color: var(--mid); }
   .problem-right { padding-top: 0.5rem; }
   .problem-body { font-size: 0.95rem; line-height: 1.9; color: var(--mid); margin-bottom: 2rem; }
   .problem-body strong { color: var(--black); font-weight: 400; }
 
-  /* THE SHIFT — DARK */
+  /* THE SHIFT */
   .shift { background: var(--black); padding: 10rem 3rem; position: relative; overflow: hidden; }
   .shift-orb-1 { position: absolute; width: 600px; height: 600px; background: #00d4ff; border-radius: 50%; filter: blur(100px); opacity: 0.07; top: -100px; right: -100px; animation: orbFloat 15s ease-in-out infinite; }
   .shift-orb-2 { position: absolute; width: 400px; height: 400px; background: #00e887; border-radius: 50%; filter: blur(80px); opacity: 0.06; bottom: -50px; left: 5%; animation: orbFloat 12s ease-in-out infinite; animation-delay: -6s; }
   .shift-inner { max-width: 1400px; margin: 0 auto; position: relative; z-index: 2; }
   .shift-label { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.25); margin-bottom: 3rem; }
-  .shift-headline { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(2.5rem, 5vw, 4.5rem); line-height: 1.15; color: var(--white); max-width: 900px; margin-bottom: 5rem; }
+  .shift-headline { font-family: "Cormorant Garamond", serif; font-weight: 300; font-size: clamp(2.5rem, 5vw, 4.5rem); line-height: 1.15; color: var(--white); max-width: 900px; margin-bottom: 5rem; }
   .shift-headline em { font-style: italic; opacity: 0.4; }
   .shift-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(255,255,255,0.05); margin-bottom: 6rem; }
   .shift-item { background: var(--black); padding: 3rem; transition: background 0.3s; }
   .shift-item:hover { background: rgba(255,255,255,0.03); }
   .shift-item-label { font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.25); margin-bottom: 1rem; }
-  .shift-item-title { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 300; color: var(--white); margin-bottom: 1rem; line-height: 1.2; }
+  .shift-item-title { font-family: "Cormorant Garamond", serif; font-size: 1.5rem; font-weight: 300; color: var(--white); margin-bottom: 1rem; line-height: 1.2; }
   .shift-item-body { font-size: 0.8rem; line-height: 1.8; color: rgba(255,255,255,0.35); }
-  .shift-statement { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(1.5rem, 2.5vw, 2.2rem); line-height: 1.5; color: rgba(255,255,255,0.7); border-top: 1px solid rgba(255,255,255,0.06); padding-top: 4rem; }
+  .shift-statement { font-family: "Cormorant Garamond", serif; font-weight: 300; font-size: clamp(1.5rem, 2.5vw, 2.2rem); line-height: 1.5; color: rgba(255,255,255,0.7); border-top: 1px solid rgba(255,255,255,0.06); padding-top: 4rem; }
   .shift-statement em { font-style: italic; color: rgba(255,255,255,0.3); }
 
-  /* THE SUIT */
-  .suit { padding: 10rem 3rem; max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 8rem; align-items: center; }
-  .suit-headline { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(2rem, 3vw, 2.8rem); line-height: 1.2; }
-  .suit-headline em { font-style: italic; color: var(--mid); }
-  .suit-right {}
-  .suit-body { font-size: 0.95rem; line-height: 1.9; color: var(--mid); margin-bottom: 2rem; }
-  .suit-body strong { color: var(--black); font-weight: 400; }
-  .suit-pullquote { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(1.3rem, 2vw, 1.8rem); line-height: 1.4; color: var(--black); border-left: 2px solid rgba(0,0,0,0.1); padding-left: 2rem; margin: 3rem 0; }
-  .suit-pullquote em { font-style: italic; color: var(--mid); }
+  /* THREE TOKENS */
+  .tokens { background: var(--off-white); padding: 10rem 3rem; }
+  .tokens-inner { max-width: 1400px; margin: 0 auto; }
+  .tokens-headline { font-family: "Cormorant Garamond", serif; font-weight: 300; font-size: clamp(2rem, 3.5vw, 3rem); line-height: 1.2; max-width: 800px; margin-bottom: 4rem; }
+  .tokens-headline em { font-style: italic; color: var(--mid); }
+  .tokens-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-top: 1px solid rgba(0,0,0,0.06); }
+  .token-item { padding: 3rem; border-right: 1px solid rgba(0,0,0,0.06); }
+  .token-item:last-child { border-right: none; }
+  .token-ticker { font-family: "Cormorant Garamond", serif; font-size: 3.5rem; font-weight: 300; line-height: 1; margin-bottom: 1.5rem; }
+  .token-ticker.vclm { color: #00b8d9; }
+  .token-ticker.chonx { color: #c9a84c; }
+  .token-ticker.synth { color: #00c472; }
+  .token-title { font-family: "Cormorant Garamond", serif; font-weight: 300; font-size: 1.4rem; color: var(--black); margin-bottom: 1rem; }
+  .token-body { font-size: 0.85rem; line-height: 1.8; color: var(--mid); }
+  .token-body strong { color: var(--black); font-weight: 400; }
 
-  /* THE ROOM */
-  .room { background: var(--black); padding: 12rem 3rem; text-align: center; position: relative; overflow: hidden; }
-  .room-orb-1 { position: absolute; width: 500px; height: 500px; background: #00d4ff; border-radius: 50%; filter: blur(100px); opacity: 0.07; top: -100px; left: 10%; animation: orbFloat 15s ease-in-out infinite; }
-  .room-orb-2 { position: absolute; width: 300px; height: 300px; background: #0066ff; border-radius: 50%; filter: blur(80px); opacity: 0.07; bottom: -50px; right: 10%; animation: orbFloat 10s ease-in-out infinite; animation-delay: -5s; }
-  .room-inner { max-width: 900px; margin: 0 auto; position: relative; z-index: 2; }
-  .room-label { font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase; color: rgba(255,255,255,0.2); margin-bottom: 3rem; }
-  .room-text { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(2rem, 4.5vw, 4rem); line-height: 1.3; color: var(--white); margin-bottom: 2rem; }
-  .room-text em { font-style: italic; opacity: 0.35; }
-  .room-tagline { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.25); margin-top: 4rem; }
+  /* GOVERNANCE */
+  .governance { padding: 10rem 3rem; max-width: 1400px; margin: 0 auto; }
+  .governance-headline { font-family: "Cormorant Garamond", serif; font-weight: 300; font-size: clamp(2rem, 3.5vw, 3rem); line-height: 1.2; max-width: 800px; margin-bottom: 2rem; }
+  .governance-headline em { font-style: italic; color: var(--mid); }
+  .governance-intro { font-size: 0.95rem; line-height: 1.9; color: var(--mid); max-width: 700px; margin-bottom: 5rem; }
+  .governance-intro strong { color: var(--black); font-weight: 400; }
+  .governance-tiers { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: rgba(0,0,0,0.06); }
+  .tier-item { background: var(--white); padding: 2.5rem; }
+  .tier-label { font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--mid); margin-bottom: 0.8rem; }
+  .tier-name { font-family: "Cormorant Garamond", serif; font-size: 1.6rem; font-weight: 300; color: var(--black); margin-bottom: 0.8rem; line-height: 1.1; }
+  .tier-token { font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1.5rem; }
+  .tier-token.vclm { color: #00b8d9; }
+  .tier-token.chonx { color: #c9a84c; }
+  .tier-token.synth { color: #00c472; }
+  .tier-min { font-size: 0.8rem; color: var(--mid); margin-bottom: 0.5rem; line-height: 1.6; }
+  .tier-weight { font-size: 0.8rem; color: var(--mid); margin-bottom: 0.5rem; line-height: 1.6; }
+  .tier-pool { font-size: 0.8rem; color: var(--mid); line-height: 1.6; }
 
   /* RESPONSIBILITY */
-  .responsibility { padding: 10rem 3rem; background: var(--off-white); }
+  .responsibility { background: var(--off-white); padding: 10rem 3rem; }
   .responsibility-inner { max-width: 1400px; margin: 0 auto; }
-  .responsibility-headline { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(2rem, 3.5vw, 3rem); line-height: 1.2; max-width: 800px; margin-bottom: 4rem; }
+  .responsibility-headline { font-family: "Cormorant Garamond", serif; font-weight: 300; font-size: clamp(2rem, 3.5vw, 3rem); line-height: 1.2; max-width: 800px; margin-bottom: 4rem; }
   .responsibility-headline em { font-style: italic; color: var(--mid); }
   .responsibility-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-top: 1px solid rgba(0,0,0,0.06); }
   .resp-item { padding: 3rem; border-right: 1px solid rgba(0,0,0,0.06); }
   .resp-item:last-child { border-right: none; }
-  .resp-num { font-family: 'Cormorant Garamond', serif; font-size: 3.5rem; font-weight: 300; color: rgba(0,0,0,0.05); line-height: 1; margin-bottom: 1.5rem; }
-  .resp-title { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: 1.4rem; color: var(--black); margin-bottom: 1rem; }
+  .resp-num { font-family: "Cormorant Garamond", serif; font-size: 3.5rem; font-weight: 300; color: rgba(0,0,0,0.05); line-height: 1; margin-bottom: 1.5rem; }
+  .resp-title { font-family: "Cormorant Garamond", serif; font-weight: 300; font-size: 1.4rem; color: var(--black); margin-bottom: 1rem; }
   .resp-body { font-size: 0.85rem; line-height: 1.8; color: var(--mid); }
 
-  /* BRIDGE TO STEWARDS */
+  /* BRIDGE */
   .bridge { padding: 10rem 3rem; max-width: 900px; margin: 0 auto; text-align: center; }
-  .bridge-headline { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(2rem, 4vw, 3.5rem); line-height: 1.2; margin-bottom: 2rem; }
+  .bridge-headline { font-family: "Cormorant Garamond", serif; font-weight: 300; font-size: clamp(2rem, 4vw, 3.5rem); line-height: 1.2; margin-bottom: 2rem; }
   .bridge-headline em { font-style: italic; color: var(--mid); }
   .bridge-body { font-size: 0.9rem; line-height: 1.9; color: var(--mid); margin-bottom: 3rem; max-width: 650px; margin-left: auto; margin-right: auto; }
   .bridge-link { display: inline-block; font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--black); text-decoration: none; border-bottom: 1px solid var(--black); padding-bottom: 0.3rem; transition: opacity 0.3s; }
@@ -122,19 +136,17 @@
 
   /* FOOTER */
   footer { padding: 4rem 3rem; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(0,0,0,0.06); }
-  .footer-logo { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: 1rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--black); text-decoration: none; }
+  .footer-logo { font-family: "Cormorant Garamond", serif; font-weight: 300; font-size: 1rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--black); text-decoration: none; }
   .footer-links { display: flex; gap: 2.5rem; list-style: none; }
   .footer-links a { font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mid); text-decoration: none; transition: color 0.3s; }
   .footer-links a:hover { color: var(--black); }
   .footer-copy { font-size: 0.65rem; color: var(--mid); }
 
-  /* RESPONSIVE */
   @media (max-width: 900px) {
     nav { padding: 1.5rem; }
-    .problem-inner, .suit { grid-template-columns: 1fr; gap: 3rem; }
-    .shift-grid, .responsibility-grid { grid-template-columns: 1fr; }
-    .shift-item, .resp-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.05); }
-    .resp-item { border-bottom-color: rgba(0,0,0,0.06); }
+    .problem-inner,
+    .shift-grid, .tokens-grid, .governance-tiers, .responsibility-grid { grid-template-columns: 1fr; }
+    .shift-item, .token-item, .tier-item, .resp-item { border-right: none; border-bottom: 1px solid rgba(0,0,0,0.06); }
     footer { flex-direction: column; gap: 2rem; text-align: center; }
     .footer-links { flex-wrap: wrap; justify-content: center; }
   }
@@ -146,7 +158,7 @@
 
 <nav>
   <a href="index.html" class="nav-logo">Vinculum</a>
-  <a href="index.html" class="nav-back">← Back to Protocol</a>
+  <a href="index.html" class="nav-back">Back to Protocol</a>
 </nav>
 
 <!-- HERO -->
@@ -159,23 +171,23 @@
   <div class="hero-content">
     <p class="hero-eyebrow">Vinculum Protocol — The Vision</p>
     <h1 class="hero-title">
-      One token.<br>
-      Every chain.<br>
-      <em>One cooperative.</em>
+      Three tokens.<br>
+      101 communities.<br>
+      <em>One commitment.</em>
     </h1>
-    <p class="hero-sub">DeFi has spent years moving assets between chains. Vinculum is building something different — a shared economic system that unites participants from entirely different blockchains into a single cooperative that grows stronger through collective commitment.</p>
+    <p class="hero-sub">DeFi has spent years moving assets between chains. Vinculum is building something different — a shared economic system where participants from entirely different blockchain communities earn together, govern together, and build something none of them could build alone.</p>
   </div>
 </section>
 
 <!-- OPENING -->
 <section class="opening">
   <p class="opening-text reveal">
-    Most cross-chain work is about moving assets.<br>
+    Most cross-chain protocols are about moving assets.<br>
     <em>This is about building shared ownership.</em><br>
     That is categorically different.<br>
     And categorically more powerful.
   </p>
-  <p class="opening-sub reveal reveal-delay-2">A bridge lets you move your ETH to another chain. Vinculum lets an ETH holder and a TigerOG holder and an XRP holder earn the same token, vote on the same governance, and benefit from the same protocol growth — together, from wherever they are, using whatever they hold.</p>
+  <p class="opening-sub reveal reveal-delay-2">A bridge lets you move your ETH to another chain. Vinculum lets an ETH holder and a LUNC holder and an XRP holder earn the same token, vote on the same governance, and benefit from the same protocol growth — together, from wherever they are, using whatever they hold.</p>
 </section>
 
 <div class="full-divider"></div>
@@ -191,9 +203,9 @@
       </h2>
     </div>
     <div class="problem-right reveal reveal-delay-2">
-      <p class="problem-body">Every chain has its own ecosystem. Its own communities. Its own tokens and cultures and loyalties. ETH holders do not naturally converge with XRP holders. TigerOG holders and SHIB holders come from entirely different worlds. The infrastructure of blockchain has always kept them separate — different chains, different bridges, different governance systems, different tokens.</p>
+      <p class="problem-body">Every chain has its own ecosystem. Its own communities. Its own tokens and cultures and loyalties. ETH holders do not naturally converge with XRP holders. LUNC holders and SHIB holders come from entirely different worlds. The infrastructure of blockchain has always kept them separate — different chains, different bridges, different governance systems, different tokens.</p>
       <p class="problem-body">This fragmentation is not accidental. It emerged from the architecture. Chains are designed to be sovereign. Tokens are designed to be native. Communities form around their chain and their assets and stay there.</p>
-      <p class="problem-body"><strong>Vinculum is the first protocol designed to treat this fragmentation not as a feature to work around, but as a problem worth solving directly.</strong> Not by bridging assets. Not by wrapping tokens. But by creating a shared economic layer that sits above all of it — and rewards commitment from anyone, on any chain, with any approved asset.</p>
+      <p class="problem-body"><strong>Vinculum is the first protocol designed to treat this fragmentation not as a feature to work around, but as a problem worth solving directly.</strong> Not by bridging assets. Not by wrapping tokens. But by creating a shared economic layer that sits above all of it — and rewards commitment from anyone, on any chain, with any supported asset.</p>
     </div>
   </div>
 </section>
@@ -219,12 +231,12 @@
       <div class="shift-item">
         <div class="shift-item-label">The new model</div>
         <div class="shift-item-title">Commit and converge</div>
-        <p class="shift-item-body">Lock your assets — wherever they are, whatever they are — and earn the same token as everyone else who committed. An ETH holder and a TigerOG holder earning the same $VCLM. That is convergence. That is shared ownership.</p>
+        <p class="shift-item-body">Lock your supported assets — wherever they are, whatever they are — and earn VCLM. An ETH holder and a LUNC holder and a DGB holder earning the same token. That is convergence. That is shared ownership.</p>
       </div>
       <div class="shift-item">
         <div class="shift-item-label">The result</div>
-        <div class="shift-item-title">A cooperative</div>
-        <p class="shift-item-body">Not a DAO in the usual sense — a token distributed to insiders who rarely vote. A genuine cooperative where governance weight is earned through commitment and every participant has a real stake in the protocol's direction.</p>
+        <div class="shift-item-title">One cooperative</div>
+        <p class="shift-item-body">Not a DAO in the usual sense — tokens distributed to insiders who rarely vote. A genuine cooperative where governance weight is earned through commitment and every participant has a real stake in the protocol's direction.</p>
       </div>
     </div>
     <p class="shift-statement reveal">
@@ -235,55 +247,77 @@
   </div>
 </section>
 
-<!-- THE SUIT ANALOGY -->
-<section class="suit">
-  <div class="reveal">
-    <h2 class="suit-headline">
-      Value through<br>
-      commitment.<br>
-      <em>Not through purchase.</em>
+<!-- THREE TOKENS -->
+<section class="tokens">
+  <div class="tokens-inner">
+    <h2 class="tokens-headline reveal">
+      Three tokens.<br>
+      <em>Each one necessary for the existence of the next.</em>
     </h2>
-  </div>
-  <div class="suit-right reveal reveal-delay-2">
-    <p class="suit-body">A bespoke suit from a Parisian atelier costs more than a machine-made one. Not because the stitches are more perfect — a machine makes better stitches. It costs more because someone sat with it. For hundreds of hours. The tailor invested time and is compensated handsomely for it. The buyer pays willingly because they understand that time has value.</p>
-    <p class="suit-body"><strong>$VCLM works the same way.</strong> You cannot buy it. No presale. No shortcut. No amount of money skips the line. You commit your assets. You wait. The protocol recognizes your time and rewards you for it. The longer you commit, the greater the reward.</p>
-    <div class="suit-pullquote">
-      Capital gets you started.<br>
-      <em>Commitment gets you $VCLM.</em>
+    <div class="tokens-grid">
+      <div class="token-item reveal">
+        <div class="token-ticker vclm">VCLM</div>
+        <div class="token-title">The Foundation</div>
+        <p class="token-body">Earned by locking any supported asset. Never purchasable. Never pre-mined. Every VCLM in existence was committed into being by an individual participant. <strong>Hard cap: 10 billion.</strong> Emission decays 1.667% per month from day one. The floor price is $0.10 — permanently. After CHONX launches, VCLM stakers earn CHONX at 1.5x the rate of any other participant. That is its only staking function, and it is hard-coded.</p>
+      </div>
+      <div class="token-item reveal reveal-delay-1">
+        <div class="token-ticker chonx">CHONX</div>
+        <div class="token-title">The Middle Layer</div>
+        <p class="token-body">Launches automatically when VCLM circulating supply crosses 10 million tokens — a contract execution, not a team decision. <strong>Hard cap: 100 billion.</strong> VCLM holders stake for CHONX at 1.5x. CHONX is also one of two ingredients required to mint SYNTH. It cannot be created any other way. Your CHONX accumulation strategy matters — only non-reserve CHONX should be used for SYNTH burns.</p>
+      </div>
+      <div class="token-item reveal reveal-delay-2">
+        <div class="token-ticker synth">SYNTH</div>
+        <div class="token-title">The Apex</div>
+        <p class="token-body">Launches when CHONX circulating supply crosses 100 million. <strong>Hard cap: 10 million.</strong> SYNTH can only be created by permanently burning 1,000 VCLM and 10,000 CHONX. Those tokens are gone forever. Every SYNTH in existence is the permanent record of everything destroyed to make it. SYNTH holders sit at the apex of the governance structure — the rarest tier, built only through sustained commitment.</p>
+      </div>
     </div>
-    <p class="suit-body">The emission rate decays 1.667% every month — permanently. Every month that passes, the rate drops. It never comes back. <strong>Early believers are mathematically privileged forever.</strong> Not because they were given something. Because they committed when the commitment was most costly — at the beginning, when the protocol was unproven and the future was uncertain.</p>
   </div>
 </section>
 
-<!-- THE ROOM -->
-<section class="room">
-  <div class="room-orb-1"></div>
-  <div class="room-orb-2"></div>
-  <div class="room-inner">
-    <p class="room-label reveal">The signal</p>
-    <p class="room-text reveal">
-      A bespoke suit does not need<br>
-      to announce its own value.<br>
-      <em>The room full of people<br>
-      who chose it tells you that.</em>
-    </p>
-    <p class="room-text reveal" style="margin-top: 3rem; font-size: clamp(1.3rem, 2.5vw, 2rem); opacity: 0.5;">
-      ETH holders. TigerOG holders. XRP holders.<br>
-      Arriving from different chains.<br>
-      Different communities. Different starting points.<br>
-      Nobody coordinating them.<br>
-      Nobody telling them to come.<br>
-      <em>And yet — all committing to the same vault.</em>
-    </p>
-    <p class="room-text reveal" style="margin-top: 4rem; font-size: clamp(1.8rem, 3.5vw, 3rem);">
-      $VCLM will not need to announce its own value.<br>
-      <em>The room will.</em>
-    </p>
-    <p class="room-tagline reveal">The convergence is the signal</p>
+<!-- GOVERNANCE TIERS -->
+<section class="governance">
+  <h2 class="governance-headline reveal">
+    Governance earned<br>
+    <em>through commitment.</em>
+  </h2>
+  <p class="governance-intro reveal reveal-delay-1">The protocol has three governance tiers. Each one corresponds to a token. Weight and treasury share are proportional to what you hold staked in governance. More staked means more weight and more share of your tier's reward pool. The treasury split — 50% to Tier 3, 30% to Tier 2, 20% to Tier 1 — is fixed in the contract. Distribution timing and amount are decided by governance vote.</p>
+  <div class="governance-tiers reveal reveal-delay-2">
+    <div class="tier-item">
+      <div class="tier-label">Tier 3</div>
+      <div class="tier-name">VCLM Holder</div>
+      <div class="tier-token vclm">VCLM</div>
+      <p class="tier-min">Minimum: 1,000 VCLM (Steward) — 10,000 VCLM (Trustee) — 30,000 VCLM (Council Member)</p>
+      <p class="tier-weight">Voting weight: 1x</p>
+      <p class="tier-pool">Treasury pool: 50% — distributed pro-rata by holdings</p>
+    </div>
+    <div class="tier-item">
+      <div class="tier-label">Tier 2</div>
+      <div class="tier-name">CHONX Holder</div>
+      <div class="tier-token chonx">CHONX</div>
+      <p class="tier-min">Activates when CHONX launches. Stake CHONX to enter.</p>
+      <p class="tier-weight">Voting weight: 2.5x</p>
+      <p class="tier-pool">Treasury pool: 30% — distributed pro-rata by holdings</p>
+    </div>
+    <div class="tier-item">
+      <div class="tier-label">Tier 1 — Apex</div>
+      <div class="tier-name">Synth Council</div>
+      <div class="tier-token synth">SYNTH</div>
+      <p class="tier-min">Minimum: 1 SYNTH per governance seat. Requires burning 1,000 VCLM + 10,000 CHONX to mint.</p>
+      <p class="tier-weight">Voting weight: 7x</p>
+      <p class="tier-pool">Treasury pool: 20% — distributed pro-rata by holdings</p>
+    </div>
+    <div class="tier-item">
+      <div class="tier-label">Proposals</div>
+      <div class="tier-name">Governance Deposits</div>
+      <div class="tier-token vclm">VCLM</div>
+      <p class="tier-min">Standard proposal: 100 VCLM</p>
+      <p class="tier-weight">Treasury proposal: 500 VCLM</p>
+      <p class="tier-pool">Constitutional proposal: 2,000 VCLM — Refunded on pass or quorum. Forfeited otherwise.</p>
+    </div>
   </div>
 </section>
 
-<!-- THE RESPONSIBILITY -->
+<!-- RESPONSIBILITY -->
 <section class="responsibility">
   <div class="responsibility-inner">
     <h2 class="responsibility-headline reveal">
@@ -295,7 +329,7 @@
       <div class="resp-item reveal">
         <div class="resp-num">01</div>
         <div class="resp-title">Steady hands</div>
-        <p class="resp-body">A protocol that coordinates economic activity across the entire blockchain ecosystem needs people who are consistent, deliberate, and not easily rattled. The governance layer must be led by participants who think in years, not days.</p>
+        <p class="resp-body">A protocol that coordinates economic activity across 101 communities needs participants who are consistent, deliberate, and not easily rattled. The governance layer must be led by participants who think in years, not days.</p>
       </div>
       <div class="resp-item reveal reveal-delay-1">
         <div class="resp-num">02</div>
@@ -311,16 +345,15 @@
   </div>
 </section>
 
-<!-- BRIDGE TO STEWARDS -->
+<!-- BRIDGE -->
 <section class="bridge">
   <div class="reveal">
     <h2 class="bridge-headline">
-      This is what the<br>
-      Governance Stewards<br>
-      <em>are protecting.</em>
+      Ready to understand<br>
+      <em>how the vault works?</em>
     </h2>
-    <p class="bridge-body">Now that you understand what is being built — you are ready to understand why stewardship matters. The Keeper, Guardian, and Archon tiers exist to ensure this vision has the governance layer it deserves.</p>
-    <a href="guardians.html" class="bridge-link">Learn about Governance Stewardship →</a>
+    <p class="bridge-body">Now that you understand what is being built — you are ready to participate. Lock a supported asset. Earn VCLM immediately. Watch 95% of your asset return when the lock expires. Lock it again, longer. The protocol is already running. The vaults are already open.</p>
+    <a href="index.html" class="bridge-link">Back to the Protocol</a>
   </div>
 </section>
 
@@ -331,10 +364,10 @@
     <li><a href="https://github.com/VinculumDefi/vinculum-protocol" target="_blank">GitHub</a></li>
     <li><a href="https://twitter.com/VinculumDefi" target="_blank">@VinculumDefi</a></li>
     <li><a href="index.html">Protocol</a></li>
-    <li><a href="guardians.html">Stewards</a></li>
-    <li><a href="calculator.html">Calculator</a></li>
+    <li><a href="governance.html">Governance</a></li>
+    <li><a href="assets.html">Supported Assets</a></li>
   </ul>
-  <span class="footer-copy">© 2026 Vinculum Protocol DAO LLC</span>
+  <span class="footer-copy">2026 Vinculum Protocol DAO LLC</span>
 </footer>
 
 <script>
@@ -344,11 +377,11 @@ document.addEventListener('mousemove', e => {
   cursor.style.left = e.clientX + 'px';
   cursor.style.top = e.clientY + 'px';
   const el = document.elementFromPoint(e.clientX, e.clientY);
-  const inDark = el && el.closest('.hero, .shift, .room');
+  const inDark = el && el.closest('.hero, .shift');
   if (inDark && !isLight) { cursor.classList.add('light'); isLight = true; }
   else if (!inDark && isLight) { cursor.classList.remove('light'); isLight = false; }
 });
-document.querySelectorAll('a, .shift-item, .resp-item').forEach(el => {
+document.querySelectorAll('a, .shift-item, .resp-item, .token-item, .tier-item').forEach(el => {
   el.addEventListener('mouseenter', () => cursor.classList.add('hovering'));
   el.addEventListener('mouseleave', () => cursor.classList.remove('hovering'));
 });
