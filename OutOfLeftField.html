@@ -52,7 +52,7 @@
     }
     .ctrl-btn:hover { background: rgba(255,255,255,0.12); color: white; }
     .ctrl-btn.active { background: var(--vclm); border-color: var(--vclm); color: #000; }
-    #status { font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.25); margin-left: auto; }
+    #status { font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255, var(--faint-alpha, 0.30)); margin-left: auto; }
 
     #scroller {
       position: absolute; top: 56px; left: 0; right: 0; bottom: 0;
@@ -82,7 +82,7 @@
 
     .legal {
       font-size: 0.6rem; letter-spacing: 0.12em; line-height: 1.8;
-      color: rgba(255,255,255,0.18); text-align: center;
+      color: rgba(255,255,255, var(--faint-alpha, 0.30)); text-align: center;
       border: 1px solid rgba(255,255,255,0.06);
       padding: 1rem 2rem; margin-bottom: 5rem; display: inline-block;
     }
@@ -96,7 +96,7 @@
 
     .book-subtitle {
       font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 300;
-      font-size: clamp(1.1rem, 2.2vw, 1.6rem); color: rgba(255,255,255,0.35);
+      font-size: clamp(1.1rem, 2.2vw, 1.6rem); color: rgba(255,255,255, var(--faint-alpha, 0.30));
       margin-bottom: 0.8rem;
     }
     .book-author {
@@ -132,7 +132,7 @@
 
     .scene-break {
       font-size: 0.6rem; letter-spacing: 0.22em; text-transform: uppercase;
-      color: rgba(255,255,255,0.22); margin: 2.5rem 0 1.2rem;
+      color: rgba(255,255,255, var(--faint-alpha, 0.30)); margin: 2.5rem 0 1.2rem;
     }
 
     p {
@@ -158,7 +158,7 @@
       max-width: 780px;
     }
     .dialogue em { font-style: italic; opacity: 0.55; }
-    .sp { font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.22); margin: 0.3rem 0 1.8rem 1.5rem; }
+    .sp { font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255, var(--faint-alpha, 0.30)); margin: 0.3rem 0 1.8rem 1.5rem; }
 
     .big {
       font-family: 'Cormorant Garamond', serif; font-weight: 300;
@@ -176,7 +176,7 @@
       padding: 1.4rem 1.8rem; margin: 2.2rem 0;
       max-width: 680px; background: rgba(255,255,255,0.02);
     }
-    .data-hd { font-size: 0.56rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.22); margin-bottom: 0.9rem; }
+    .data-hd { font-size: 0.56rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255, var(--faint-alpha, 0.30)); margin-bottom: 0.9rem; }
     .data p { font-family: 'DM Sans', sans-serif; font-size: clamp(0.82rem, 1.3vw, 1rem); line-height: 1.9; color: var(--dim); margin-bottom: 0; }
 
     .twist { background: rgba(255,136,136,0.05); border-left: 3px solid rgba(255,136,136,0.35); padding: 1.4rem 1.8rem; margin: 2.5rem 0; max-width: 800px; }
@@ -212,7 +212,812 @@
       border-top: 1px solid rgba(255,255,255,0.07); max-width: 900px;
     }
     .final-block em { font-style: italic; opacity: 0.35; }
-    .coda { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.12); text-align: center; margin-top: 3rem; }
+    .coda { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255, var(--faint-alpha, 0.30)); text-align: center; margin-top: 3rem; }
+  
+    /* ── Light mode ── */
+    body.light {
+      background: #f5f2ee;
+      color: #1a1a2e;
+    }
+    body.light #controls {
+      background: rgba(245,242,238,0.97);
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+    }
+    body.light #scroller::before { background: linear-gradient(to bottom, #f5f2ee, transparent); }
+    body.light #scroller::after  { background: linear-gradient(to top,   #f5f2ee, transparent); }
+    body.light p { color: rgba(26,26,46, var(--txt-alpha, 0.88)); }
+    body.light .dialogue { color: rgba(26,26,46,0.92); border-left-color: rgba(0,0,0,0.15); }
+    body.light .big { color: #1a1a2e; }
+    body.light .scene-break { color: rgba(26,26,46,0.4); }
+    body.light .ch-title { color: #1a1a2e; }
+    body.light .ch-num, body.light .part-label { color: rgba(26,26,46,0.3); }
+    body.light .section-stars { color: rgba(26,26,46,0.2); }
+    body.light .divider { background: rgba(0,0,0,0.08); }
+    body.light .sp { color: rgba(26,26,46,0.3); }
+    body.light .news { background: rgba(212,175,106,0.08); border-left-color: #b8860b; }
+    body.light .news-src { color: #8b6914; }
+    body.light .news-hed { color: #1a1a2e; }
+    body.light .news p { color: rgba(26,26,46,0.7); }
+    body.light .data { background: rgba(0,0,0,0.03); border-color: rgba(0,0,0,0.1); }
+    body.light .data-hd { color: rgba(26,26,46,0.3); }
+    body.light .data p { color: rgba(26,26,46,0.7); }
+    body.light .revelation { background: rgba(0,100,180,0.05); border-left-color: rgba(0,100,180,0.4); }
+    body.light .revelation p { color: rgba(0,60,120,0.75); }
+    body.light .twist { background: rgba(180,0,0,0.04); border-left-color: rgba(180,0,0,0.3); }
+    body.light .twist p { color: rgba(120,0,0,0.7); }
+    body.light .ai-block { background: rgba(0,140,80,0.04); border-color: rgba(0,140,80,0.2); }
+    body.light .ai-hd { color: rgba(0,100,60,0.6); }
+    body.light .ai-block p { color: rgba(0,60,30,0.72); }
+    body.light .final { color: #1a1a2e; border-top-color: rgba(0,0,0,0.08); }
+    body.light .final em { opacity: 0.4; }
+    body.light .coda { color: rgba(26,26,46,0.2); }
+    body.light .book-title { color: #1a1a2e; }
+    body.light .book-subtitle { color: rgba(26,26,46,0.4); }
+    body.light .book-author { color: rgba(26,26,46, var(--faint-alpha, 0.38)); }
+    body.light .part-title { color: #1a1a2e; }
+    body.light .ch-title.c-vclm  { color: #0088aa; }
+    body.light .ch-title.c-chonx { color: #8b6914; }
+    body.light .ch-title.c-synth { color: #006644; }
+    body.light .legal { color: rgba(26,26,46, var(--faint-alpha, 0.38)); border-color: rgba(0,0,0,0.08); }
+    body.light .orb-1 { opacity: 0.03; }
+    body.light .orb-2 { opacity: 0.02; }
+    body.light .orb-3 { opacity: 0.02; }
+    body.light .ctrl-btn { background: rgba(0,0,0,0.05); border-color: rgba(0,0,0,0.12); color: rgba(26,26,46,0.6); }
+    body.light .ctrl-btn:hover { background: rgba(0,0,0,0.1); color: #1a1a2e; }
+    body.light .ctrl-label { color: rgba(26,26,46,0.4); }
+    body.light .ctrl-value { color: #0088aa; }
+    body.light #status { color: rgba(26,26,46,0.3); }
+    body.light input[type="range"] { background: linear-gradient(to right, #0088aa var(--pct,50%), rgba(0,0,0,0.1) var(--pct,50%)); }
+
+    /* ── TOC ── */
+    #toc {
+      margin: 0 0 5rem 0;
+      border: 1px solid rgba(255,255,255,0.07);
+      padding: 2rem 2.2rem;
+      max-width: 820px;
+    }
+    body.light #toc { border-color: rgba(0,0,0,0.09); }
+    .toc-title {
+      font-family: 'DM Sans', sans-serif; font-size: 0.56rem;
+      letter-spacing: 0.28em; text-transform: uppercase;
+      color: rgba(255,255,255,0.2); margin-bottom: 1.2rem;
+    }
+    body.light .toc-title { color: rgba(26,26,46,0.3); }
+    .toc-list { list-style: none; }
+    .toc-list li { margin-bottom: 0.35rem; }
+    .toc-list a {
+      font-family: 'Cormorant Garamond', serif; font-weight: 300;
+      font-size: clamp(0.95rem, 1.6vw, 1.2rem);
+      color: rgba(237,233,248, var(--dim-alpha, 0.55)); text-decoration: none;
+      transition: color 0.2s;
+    }
+    .toc-list a:hover { color: #00d4ff; }
+    body.light .toc-list a { color: rgba(26,26,46, var(--dim-alpha, 0.65)); }
+    body.light .toc-list a:hover { color: #0088aa; }
+    .toc-list .toc-part {
+      font-family: 'DM Sans', sans-serif; font-size: 0.56rem;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: rgba(255,255,255, var(--faint-alpha, 0.30)); margin-top: 0.8rem; margin-bottom: 0.2rem;
+    }
+    body.light .toc-list .toc-part { color: rgba(26,26,46,0.2); }
+    .toc-list .toc-ch {
+    body.light
+    body.light
+    body.light
+
+  
+    /* ── Brightness slider variables ── */
+    :root {
+      --txt-alpha: 0.84;   /* body text */
+      --dim-alpha: 0.55;   /* secondary text */
+      --faint-alpha: 0.30; /* tertiary text */
+    }
+    body.light {
+      --txt-alpha: 0.88;
+      --dim-alpha: 0.65;
+      --faint-alpha: 0.38;
+    }
+
+    /* ── Variable-driven text opacity ── */
+    p { color: rgba(237,233,248, var(--txt-alpha, 0.84)); }
+    body.light p { color: rgba(26,26,46, var(--txt-alpha, 0.88)); }
+
+    .dialogue { color: rgba(237,233,248, var(--txt-alpha, 0.84)); }
+    body.light .dialogue { color: rgba(26,26,46, var(--txt-alpha, 0.88)); }
+
+    .story-p { color: rgba(237,233,248, var(--txt-alpha, 0.84)); }
+    body.light .story-p { color: rgba(26,26,46, var(--txt-alpha, 0.88)); }
+
+    .sp { color: rgba(255,255,255, var(--faint-alpha, 0.30)); }
+    body.light .sp { color: rgba(26,26,46, var(--faint-alpha, 0.38)); }
+
+    .scene-break { color: rgba(255,255,255, var(--faint-alpha, 0.30)); }
+    .scene       { color: rgba(255,255,255, var(--faint-alpha, 0.30)); }
+    body.light .scene-break, body.light .scene { color: rgba(26,26,46, var(--faint-alpha, 0.38)); }
+
+    .ch-num, .part-label { color: rgba(255,255,255, var(--faint-alpha, 0.30)); }
+    body.light .ch-num, body.light .part-label { color: rgba(26,26,46, var(--faint-alpha, 0.38)); }
+
+    .toc-list a { color: rgba(237,233,248, var(--dim-alpha, 0.55)); }
+    body.light .toc-list a { color: rgba(26,26,46, var(--dim-alpha, 0.65)); }
+
+    .toc-title { color: rgba(255,255,255, var(--faint-alpha, 0.30)); }
+    body.light .toc-title { color: rgba(26,26,46, var(--faint-alpha, 0.38)); }
+
+    .toc-list .toc-part { color: rgba(255,255,255, var(--faint-alpha, 0.30)); }
+    body.light .toc-list .toc-part { color: rgba(26,26,46, var(--faint-alpha, 0.38)); }
+
+    .ctrl-label { color: rgba(255,255,255, var(--faint-alpha, 0.30)); }
+    body.light .ctrl-label { color: rgba(26,26,46, var(--faint-alpha, 0.38)); }
+
+    #status { color: rgba(255,255,255, var(--faint-alpha, 0.30)); }
+    body.light #status { color: rgba(26,26,46, var(--faint-alpha, 0.38)); }
+
+    .data-hd { color: rgba(255,255,255, var(--faint-alpha, 0.30)); }
+    body.light .data-hd { color: rgba(26,26,46, var(--faint-alpha, 0.38)); }
+
+    .data p { color: rgba(237,233,248, var(--dim-alpha, 0.55)); }
+    body.light .data p { color: rgba(26,26,46, var(--dim-alpha, 0.65)); }
+
+    .analysis-p { color: rgba(237,233,248, var(--dim-alpha, 0.55)); }
+
+    .news p { color: rgba(237,233,248, var(--dim-alpha, 0.55)); }
+    body.light .news p { color: rgba(26,26,46, var(--dim-alpha, 0.65)); }
+
+    .pull-quote { color: rgba(237,233,248, var(--dim-alpha, 0.55)); }
+    body.light .pull-quote { color: rgba(26,26,46, var(--dim-alpha, 0.65)); }
+
+    .pull { color: rgba(237,233,248, var(--dim-alpha, 0.55)); }
+    body.light .pull { color: rgba(26,26,46, var(--dim-alpha, 0.65)); }
+
+    .section-num { color: rgba(255,255,255, var(--faint-alpha, 0.30)); }
+    body.light .section-num { color: rgba(26,26,46, var(--faint-alpha, 0.38)); }
+
+    .book-subtitle { color: rgba(255,255,255, var(--dim-alpha, 0.55)); }
+    body.light .book-subtitle { color: rgba(26,26,46, var(--dim-alpha, 0.65)); }
+
+    .book-author { color: rgba(255,255,255, var(--faint-alpha, 0.30)); }
+    body.light .book-author { color: rgba(26,26,46, var(--faint-alpha, 0.38)); }
+
+    .legal { color: rgba(255,255,255, var(--faint-alpha, 0.30)); }
+    body.light .legal { color: rgba(26,26,46, var(--faint-alpha, 0.38)); }
+
+    .coda { color: rgba(255,255,255, var(--faint-alpha, 0.30)); }
+    body.light .coda { color: rgba(26,26,46, var(--faint-alpha, 0.38)); }
+    body.light
+
+    .step-body { color: rgba(237,233,248, var(--txt-alpha, 0.84)); }
+    body.light .step-body { color: rgba(26,26,46, var(--txt-alpha, 0.88)); }
+
+    .byline, .journal { color: rgba(255,255,255, var(--faint-alpha, 0.30)); }
+    body.light .byline, body.light .journal { color: rgba(26,26,46, var(--faint-alpha, 0.38)); }
+
+    .data-note { color: rgba(255,255,255, var(--dim-alpha, 0.55)); }
+    body.light .data-note { color: rgba(26,26,46, var(--dim-alpha, 0.65)); }
+
+    .chart-note { color: rgba(255,255,255, var(--faint-alpha, 0.30)); }
+    body.light .chart-note { color: rgba(26,26,46, var(--faint-alpha, 0.38)); }
+
+    .scrubber-label { color: rgba(255,255,255, var(--faint-alpha, 0.30)); }
+    body.light .scrubber-label { color: rgba(26,26,46, var(--faint-alpha, 0.38)); }
+
+    .legend-label { color: rgba(255,255,255, var(--dim-alpha, 0.55)); }
+    body.light .legend-label { color: rgba(26,26,46, var(--dim-alpha, 0.65)); }
+
+  
+    /* ── Slider track follows thumb ── */
+    input[type="range"] {
+      -webkit-appearance: none;
+      width: 130px; height: 2px;
+      background: rgba(255,255,255,0.15);
+      border-radius: 2px; outline: none; cursor: pointer;
+    }
+    body.light input[type="range"] {
+      background: rgba(0,0,0,0.12);
+    }
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none; width: 13px; height: 13px;
+      border-radius: 50%; background: #00d4ff; cursor: pointer;
+    }
+    body.light input[type="range"]::-webkit-slider-thumb {
+      background: #0088aa;
+    }/* ── Light mode: all text uses dark color with opacity vars ── */
+    body.light p,
+    body.light .story-p,
+    body.light .dialogue, body.light .d,
+    body.light .big, body.light .step-body,
+    body.light .letter p, body.light .pull-quote, body.light .pull,
+    body.light .final, body.light .final-line,
+    body.light .news p, body.light .data p, body.light .analysis-p,
+    body.light .ai p, body.light .data-note {
+
+    body.light .toc-list a { color: rgba(26,26,46, var(--dim-alpha, 0.65)); }
+
+    body.light .section-title, body.light .appendix-title,
+    body.light .ch-title, body.light .part-title,
+    body.light .book-title, body.light .step-head { color: rgba(26,26,46, 0.95); }
+
+    body.light .ctrl-btn { color: rgba(26,26,46,0.65); background: rgba(0,0,0,0.06); border-color: rgba(0,0,0,0.14); }
+    body.light .ctrl-value { color: #0088aa; }
+    body.light .ctrl-btn.active { background: #0088aa; color: #fff; border-color: #0088aa; }
+
+  
+    /* ── Control panel: fixed colors, never affected by readability slider ── */
+    #controls { color: rgba(255,255,255,0.85) !important; }
+    .ctrl-label { color: rgba(255,255,255,0.55) !important; }
+    .ctrl-value { color: #00d4ff !important; }
+    .ctrl-btn   { color: rgba(255,255,255,0.75) !important; background: rgba(255,255,255,0.06) !important; border-color: rgba(255,255,255,0.14) !important; }
+    .ctrl-btn:hover { color: #fff !important; background: rgba(255,255,255,0.14) !important; }
+    .ctrl-btn.active { background: #00d4ff !important; color: #000 !important; border-color: #00d4ff !important; }
+    #status { color: rgba(255,255,255,0.35) !important; }
+
+    /* Light mode control panel — dark fixed colors */
+    body.light #controls { color: rgba(26,26,46,0.85) !important; background: rgba(245,242,238,0.97) !important; }
+    body.light .ctrl-label { color: rgba(26,26,46,0.55) !important; }
+    body.light .ctrl-value { color: #0088aa !important; }
+    body.light .ctrl-btn   { color: rgba(26,26,46,0.65) !important; background: rgba(0,0,0,0.06) !important; border-color: rgba(0,0,0,0.14) !important; }
+    body.light .ctrl-btn:hover { color: rgba(26,26,46,0.95) !important; background: rgba(0,0,0,0.12) !important; }
+    body.light .ctrl-btn.active { background: #0088aa !important; color: #fff !important; border-color: #0088aa !important; }
+    body.light #status { color: rgba(26,26,46,0.4) !important; }
+
+    /* ── Light mode: zero white text — absolute rule ── */
+    body.light *:not(#controls):not(#controls *) {
+      color: inherit;
+    }
+    /* Force dark on any element that might still have white */
+    body.light .section-stars,
+    body.light .stars,
+    body.light .divider + *,
+    body.light .toc-list .toc-part,
+    body.light .letter-close,
+    body.light .news-src,
+    body.light .analysis-hd,
+    body.light .ai-hd,
+    body.light .chart-title,
+    body.light .chart-subtitle,
+    body.light #yearDisplay,
+    body.light .stat-box-label,
+    body.light .legend-label,
+    body.light .compare th,
+    body.light .compare td,
+    body.light .phase-label { color: rgba(26,26,46, var(--faint-alpha, 0.45)) !important; }
+    
+    body.light .news-hed,
+    body.light .data-note strong,
+    body.light .compare .label { color: rgba(26,26,46, 0.75) !important; }
+    
+    body.light .compare .optimal { color: #006644 !important; }
+    body.light .compare .delta   { color: #7a5c00 !important; }
+    body.light .compare .actual  { color: rgba(26,26,46,0.5) !important; }
+    
+    /* Accent colors stay vivid in light mode */
+    body.light .t-v, body.light .sv-vclm  { color: #0077aa !important; }
+    body.light .t-c, body.light .sv-chonx { color: #8b6000 !important; }
+    body.light .t-s, body.light .sv-synth { color: #006644 !important; }
+    body.light .sv-dead { color: #aa2200 !important; }
+    body.light .ph-vclm  { color: #0077aa !important; background: rgba(0,120,170,0.08) !important; border-color: rgba(0,120,170,0.2) !important; }
+    body.light .ph-chonx { color: #8b6000 !important; background: rgba(139,96,0,0.08) !important; border-color: rgba(139,96,0,0.2) !important; }
+    body.light .ph-synth { color: #006644 !important; background: rgba(0,102,68,0.08) !important; border-color: rgba(0,102,68,0.2) !important; }
+
+  
+
+    :root {
+      --bg:    #05080e;
+      --text:  #ede9f8;
+      --dim:   rgba(237,233,248,0.84);
+      --vclm:  #00d4ff;
+      --chonx: #d4af6a;
+      --synth: #00e887;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg); color: var(--text);
+      font-family: 'DM Sans', sans-serif; font-weight: 300;
+      overflow: hidden; height: 100vh; width: 100vw;
+    }
+    #controls {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(5,8,14,0.97); backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      padding: 0.8rem 2rem; display: flex; align-items: center; gap: 2rem; flex-wrap: wrap;
+      transition: transform 0.5s ease, opacity 0.5s ease;
+    }
+    #controls.hidden { transform: translateY(-100%); opacity: 0; pointer-events: none; }
+    #reveal-zone { position: fixed; top: 0; left: 0; right: 0; height: 60px; z-index: 99; }
+    .ctrl-label { font-size: 0.58rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.3); }
+    .ctrl-group { display: flex; align-items: center; gap: 0.7rem; }
+    input[type="range"] {
+      -webkit-appearance: none; width: 130px; height: 2px;
+      background: rgba(255,255,255,0.15); border-radius: 2px; outline: none; cursor: pointer;
+    }
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none; width: 13px; height: 13px;
+      border-radius: 50%; background: var(--vclm); cursor: pointer;
+    }
+    .ctrl-value { font-size: 0.7rem; color: var(--vclm); min-width: 2.2rem; }
+    .ctrl-btn {
+      background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 4px; color: rgba(255,255,255,0.7); cursor: pointer;
+      font-family: 'DM Sans', sans-serif; font-size: 0.68rem;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 0.4rem 1rem; transition: all 0.2s;
+    }
+    .ctrl-btn:hover { background: rgba(255,255,255,0.12); color: white; }
+    .ctrl-btn.active { background: var(--vclm); border-color: var(--vclm); color: #000; }
+    #status { font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255, var(--faint-alpha, 0.30)); margin-left: auto; }
+
+    #scroller {
+      position: absolute; top: 56px; left: 0; right: 0; bottom: 0;
+      overflow: hidden; transition: top 0.5s ease;
+    }
+    #scroller.fullscreen { top: 0; }
+    #scroller::before, #scroller::after {
+      content: ''; position: absolute; left: 0; right: 0; height: 12vh;
+      z-index: 10; pointer-events: none;
+    }
+    #scroller::before { top: 0; background: linear-gradient(to bottom, var(--bg), transparent); }
+    #scroller::after  { bottom: 0; background: linear-gradient(to top, var(--bg), transparent); }
+    #content { padding: 8vh 12vw 85vh; will-change: transform; max-width: 1100px; margin: 0 auto; }
+
+    .orb { position: fixed; border-radius: 50%; filter: blur(120px); pointer-events: none; z-index: 0; animation: orbFloat 18s ease-in-out infinite; }
+    .orb-1 { width:600px;height:600px;background:#00d4ff;opacity:0.04;top:-200px;left:-200px; }
+    .orb-2 { width:400px;height:400px;background:#d4af6a;opacity:0.03;bottom:-100px;right:0;animation-delay:-9s; }
+    .orb-3 { width:300px;height:300px;background:#00e887;opacity:0.03;top:45%;left:50%;animation-delay:-5s; }
+    @keyframes orbFloat {
+      0%,100% { transform: translate(0,0) scale(1); }
+      33%      { transform: translate(30px,-40px) scale(1.03); }
+      66%      { transform: translate(-20px,20px) scale(0.98); }
+    }
+
+    /* ── EYEBROW ── */
+    .eyebrow { font-family:'DM Sans',sans-serif; font-size:0.58rem; letter-spacing:0.3em; text-transform:uppercase; color:rgba(255,255,255,0.2); margin-bottom:1rem; }
+
+    /* ── SCENE LABEL ── */
+    .scene { font-family:'DM Sans',sans-serif; font-size:0.6rem; letter-spacing:0.22em; text-transform:uppercase; color:rgba(255,255,255,0.22); margin:2.5rem 0 1.2rem; }
+
+    /* ── PROSE ── */
+    p {
+      font-family:'Cormorant Garamond',serif; font-weight:300;
+      font-size:clamp(1.05rem,1.8vw,1.38rem); line-height:1.95;
+      color:var(--dim); margin-bottom:1.4rem; max-width:860px;
+    }
+    p strong { font-weight:600; color:var(--text); }
+    p em { font-style:italic; color:rgba(255,255,255,0.78); }
+
+    /* ── DIALOGUE ── */
+    .d {
+      font-family:'Cormorant Garamond',serif; font-weight:300;
+      font-size:clamp(1.1rem,2vw,1.65rem); line-height:1.7;
+      color:rgba(237,233,248,0.93); margin:1.8rem 0 0.4rem 1.5rem;
+      padding-left:1.4rem; border-left:2px solid rgba(255,255,255,0.14);
+      max-width:780px;
+    }
+    .d em { font-style:italic; opacity:0.55; }
+    .sp { font-family:'DM Sans',sans-serif; font-size:0.6rem; letter-spacing:0.14em; text-transform:uppercase; color:rgba(255,255,255,0.22); margin:0.3rem 0 1.8rem 1.5rem; }
+
+    /* ── BIG MOMENT ── */
+    .big {
+      font-family:'Cormorant Garamond',serif; font-weight:300;
+      font-size:clamp(1.4rem,2.8vw,2.5rem); line-height:1.4;
+      color:var(--text); margin:3rem 0; max-width:880px;
+    }
+    .big em { font-style:italic; opacity:0.38; }
+
+    /* ── SECTION DIVIDERS ── */
+    .stars { text-align:center; color:rgba(255,255,255,0.15); font-size:1rem; letter-spacing:0.5rem; margin:2.5rem 0; }
+    .rule { height:1px; background:rgba(255,255,255,0.06); margin:3.5rem 0; }
+
+    /* ── STRATEGY STEPS ── */
+    .strategy-block {
+      border-left:2px solid rgba(255,255,255,0.08);
+      padding:0 0 0 2rem; margin:2rem 0 2rem 0; max-width:860px;
+    }
+    .step-num {
+      font-family:'DM Sans',sans-serif; font-size:0.56rem; letter-spacing:0.25em;
+      text-transform:uppercase; color:rgba(255,255,255,0.2); margin-bottom:0.4rem; margin-top:2rem;
+    }
+    .step-num:first-child { margin-top:0; }
+    .step-head {
+      font-family:'Cormorant Garamond',serif; font-weight:400;
+      font-size:clamp(1.1rem,1.8vw,1.4rem); color:var(--text); margin-bottom:0.8rem; line-height:1.3;
+    }
+    .step-body {
+      font-family:'Cormorant Garamond',serif; font-weight:300;
+      font-size:clamp(0.95rem,1.6vw,1.25rem); line-height:1.9;
+      color:var(--dim); margin-bottom:0;
+    }
+    .step-body strong { color:var(--text); font-weight:600; }
+    .step-body em { font-style:italic; color:rgba(255,255,255,0.75); }
+
+    .t-v { color:var(--vclm); font-weight:600; }
+    .t-c { color:var(--chonx); font-weight:600; }
+    .t-s { color:var(--synth); font-weight:600; }
+
+    /* ── DATA CALLOUT ── */
+    .data {
+      border:1px solid rgba(255,255,255,0.08); padding:1.5rem 2rem; margin:2.5rem 0;
+      max-width:740px; background:rgba(255,255,255,0.02);
+    }
+    .data-hd { font-family:'DM Sans',sans-serif; font-size:0.56rem; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.22); margin-bottom:1rem; }
+    .data p { font-family:'DM Sans',sans-serif; font-size:clamp(0.82rem,1.3vw,1.02rem); line-height:2.0; color:var(--dim); margin-bottom:0.2rem; }
+    .data p strong { color:var(--text); font-weight:400; }
+
+    /* ── COMPARISON TABLE ── */
+    .compare { width:100%; max-width:900px; border-collapse:collapse; margin:2.5rem 0; }
+    .compare th { font-family:'DM Sans',sans-serif; font-size:0.56rem; letter-spacing:0.15em; text-transform:uppercase; color:rgba(255,255,255,0.3); padding:0.6rem 1rem; text-align:left; border-bottom:1px solid rgba(255,255,255,0.08); }
+    .compare td { font-family:'DM Sans',sans-serif; font-size:clamp(0.8rem,1.3vw,1rem); padding:0.7rem 1rem; line-height:1.6; color:var(--dim); border-bottom:1px solid rgba(255,255,255,0.04); }
+    .compare tr:last-child td { border-bottom:none; }
+    .compare .label { color:rgba(255,255,255,0.4); font-size:0.78rem; }
+    .compare .actual { color:rgba(255,255,255,0.45); }
+    .compare .optimal { color:var(--synth); }
+    .compare .delta { color:var(--chonx); font-style:italic; }
+
+    /* ── AI BLOCK ── */
+    .ai {
+      background:rgba(0,232,135,0.04); border:1px solid rgba(0,232,135,0.15);
+      padding:2rem 2.2rem; margin:2.5rem 0; max-width:880px;
+    }
+    .ai-hd { font-family:'DM Sans',sans-serif; font-size:0.56rem; letter-spacing:0.22em; text-transform:uppercase; color:rgba(0,232,135,0.5); margin-bottom:1.2rem; }
+    .ai p { font-family:'DM Sans',sans-serif; font-size:clamp(0.86rem,1.4vw,1.05rem); line-height:1.95; color:rgba(200,255,220,0.75); margin-bottom:0.9rem; }
+    .ai p:last-child { margin-bottom:0; }
+
+    /* ── LETTER ── */
+    .letter {
+      border:1px solid rgba(255,255,255,0.1);
+      padding:3rem 3rem; margin:3rem 0; max-width:820px;
+      background:rgba(255,255,255,0.015);
+    }
+    .letter-hd { font-family:'DM Sans',sans-serif; font-size:0.58rem; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.2); margin-bottom:1.5rem; }
+    .letter p {
+      font-family:'Cormorant Garamond',serif; font-weight:300;
+      font-size:clamp(1rem,1.7vw,1.32rem); line-height:2.0;
+      color:rgba(237,233,248,0.8); margin-bottom:1.3rem; max-width:none;
+    }
+    .letter p strong { font-weight:600; color:var(--text); }
+    .letter p em { font-style:italic; color:rgba(255,255,255,0.7); }
+    .letter-close {
+      font-family:'Cormorant Garamond',serif; font-style:italic;
+      font-size:clamp(1rem,1.7vw,1.3rem); color:rgba(255,255,255,0.4);
+      margin-top:2rem; line-height:1.8;
+    }
+
+    /* ── PULL QUOTE ── */
+    .pull {
+      font-family:'Cormorant Garamond',serif; font-weight:300; font-style:italic;
+      font-size:clamp(1.2rem,2.2vw,1.8rem); line-height:1.6;
+      color:rgba(237,233,248,0.45); margin:3rem 0 3rem 2rem;
+      padding-left:1.5rem; border-left:2px solid rgba(255,255,255,0.12); max-width:760px;
+    }
+
+    /* ── FINAL ── */
+    .final {
+      font-family:'Cormorant Garamond',serif; font-weight:300;
+      font-size:clamp(1.4rem,2.5vw,2.2rem); line-height:1.5;
+      color:var(--text); margin:5rem 0 2rem; padding-top:3rem;
+      border-top:1px solid rgba(255,255,255,0.06); max-width:860px;
+    }
+    .final em { font-style:italic; opacity:0.35; }
+    .coda { font-family:'DM Sans',sans-serif; font-size:0.62rem; letter-spacing:0.18em; text-transform:uppercase; color:rgba(255,255,255,0.1); text-align:center; margin-top:2rem; }
+  
+    /* ── Paper-specific styles ── */
+    .appendix-label { font-size: 0.58rem; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(255,255,255,0.2); margin-bottom: 0.8rem; margin-top: 4rem; }
+    .appendix-title { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(1.8rem, 3.5vw, 3rem); line-height: 1.2; color: var(--text); margin-bottom: 1rem; }
+    .appendix-title em { font-style: italic; opacity: 0.4; }
+    .byline { font-family: 'DM Sans', sans-serif; font-size: 0.7rem; letter-spacing: 0.12em; color: rgba(255,255,255,0.3); margin-bottom: 0.4rem; }
+    .journal { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 0.9rem; color: rgba(255,255,255,0.2); margin-bottom: 3rem; }
+    .section-rule { height: 1px; background: rgba(255,255,255,0.06); margin: 3rem 0; }
+    .section-num { font-size: 0.56rem; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(255,255,255,0.2); margin-bottom: 0.5rem; margin-top: 3rem; }
+    .section-title { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(1.4rem, 2.5vw, 2rem); color: var(--text); margin-bottom: 1.5rem; line-height: 1.2; }
+    .section-title em { font-style: italic; opacity: 0.45; }
+    .phase-label { display: inline-block; font-family: 'DM Sans', sans-serif; font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; padding: 0.25rem 0.7rem; border-radius: 2px; margin-bottom: 0.6rem; }
+    .ph-vclm  { background: rgba(0,212,255,0.1);  color: #00d4ff; border: 1px solid rgba(0,212,255,0.2); }
+    .ph-chonx { background: rgba(212,175,106,0.1); color: #d4af6a; border: 1px solid rgba(212,175,106,0.2); }
+    .ph-synth { background: rgba(0,232,135,0.1);   color: #00e887; border: 1px solid rgba(0,232,135,0.2); }
+    .ph-end   { background: rgba(255,255,255,0.05); color: rgba(255,255,255,0.4); border: 1px solid rgba(255,255,255,0.1); }
+    .pull-quote { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-style: italic; font-size: clamp(1.2rem, 2.2vw, 1.7rem); line-height: 1.6; color: rgba(237,233,248,0.5); margin: 2.5rem 0 2.5rem 2rem; padding-left: 1.5rem; border-left: 2px solid rgba(255,255,255,0.12); max-width: 740px; }
+    .data-note { font-family: 'DM Sans', sans-serif; font-size: clamp(0.75rem, 1.2vw, 0.92rem); line-height: 1.8; color: rgba(255,255,255, var(--faint-alpha, 0.30)); border: 1px solid rgba(255,255,255,0.07); padding: 1rem 1.5rem; margin: 2rem 0; max-width: 820px; }
+    .data-note strong { color: rgba(255,255,255, var(--dim-alpha, 0.55)); font-weight: 400; }
+    /* Chart styles */
+    .chart-container { margin: 3rem 0; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); padding: 2rem; max-width: 100%; }
+    .chart-title { font-family: 'DM Sans', sans-serif; font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 0.5rem; }
+    .chart-subtitle { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 0.9rem; color: rgba(255,255,255,0.2); margin-bottom: 1.5rem; }
+    .chart-legend { display: flex; gap: 2rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+    .legend-item { display: flex; align-items: center; gap: 0.5rem; }
+    .legend-line { width: 20px; height: 2px; }
+    .legend-label { font-family: 'DM Sans', sans-serif; font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.4); }
+    #lifecycleChart { width: 100%; height: 320px; display: block; }
+    .scrubber-wrap { margin-top: 1rem; display: flex; align-items: center; gap: 1rem; }
+    .scrubber-label { font-family: 'DM Sans', sans-serif; font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255, var(--faint-alpha, 0.30)); white-space: nowrap; }
+    #yearDisplay { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: rgba(255,255,255,0.5); min-width: 3rem; text-align: right; }
+    .stats-row { display: flex; gap: 2rem; margin-top: 1.2rem; flex-wrap: wrap; }
+    .stat-box { flex: 1; min-width: 120px; }
+    .stat-box-label { font-family: 'DM Sans', sans-serif; font-size: 0.55rem; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 0.3rem; }
+    .stat-box-value { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: 1.3rem; }
+    .sv-vclm  { color: #00d4ff; }
+    .sv-chonx { color: #d4af6a; }
+    .sv-synth { color: #00e887; }
+    .sv-dead  { color: rgba(255,120,120,0.8); }
+    .chart-note { font-family: 'DM Sans', sans-serif; font-size: 0.6rem; color: rgba(255,255,255, var(--faint-alpha, 0.30)); margin-top: 1rem; line-height: 1.6; }
+    .final-line { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(1.4rem, 2.5vw, 2.2rem); line-height: 1.5; color: var(--text); margin: 4rem 0 2rem; padding-top: 3rem; border-top: 1px solid rgba(255,255,255,0.06); max-width: 860px; }
+    .final-line em { font-style: italic; opacity: 0.35; }
+
+  
+    /* ── Light mode ── */
+    body.light { background: #f5f2ee; color: #1a1a2e; }
+    body.light #controls { background: rgba(245,242,238,0.97); border-bottom: 1px solid rgba(0,0,0,0.08); }
+    body.light #scroller::before { background: linear-gradient(to bottom, #f5f2ee, transparent); }
+    body.light #scroller::after  { background: linear-gradient(to top, #f5f2ee, transparent); }
+    body.light p { color: rgba(26,26,46, var(--txt-alpha, 0.88)); }
+    body.light .story-p { color: rgba(26,26,46, var(--txt-alpha, 0.88)); }
+    body.light .d { color: rgba(26,26,46,0.92); border-left-color: rgba(0,0,0,0.15); }
+    body.light .big { color: #1a1a2e; }
+    body.light .scene { color: rgba(26,26,46,0.4); }
+    body.light .eyebrow { color: rgba(26,26,46,0.2); }
+    body.light .pull { color: rgba(26,26,46,0.4); border-left-color: rgba(0,0,0,0.12); }
+    body.light .stars { color: rgba(26,26,46, var(--faint-alpha, 0.38)); }
+    body.light .rule { background: rgba(0,0,0,0.07); }
+    body.light .sp { color: rgba(26,26,46, var(--faint-alpha, 0.38)); }
+    body.light .appendix-title { color: #1a1a2e; }
+    body.light .appendix-label { color: rgba(26,26,46, var(--faint-alpha, 0.38)); }
+    body.light .byline { color: rgba(26,26,46, var(--faint-alpha, 0.38)); }
+    body.light .journal { color: rgba(26,26,46, var(--faint-alpha, 0.38)); }
+    body.light .section-title { color: #1a1a2e; }
+    body.light .section-num { color: rgba(26,26,46, var(--faint-alpha, 0.38)); }
+    body.light .data-note { color: rgba(26,26,46, var(--dim-alpha, 0.65)); border-color: rgba(0,0,0,0.1); }
+    body.light .data-note strong { color: rgba(26,26,46, var(--dim-alpha, 0.65)); }
+    body.light .pull-quote { color: rgba(26,26,46, var(--dim-alpha, 0.65)); border-left-color: rgba(0,0,0,0.1); }
+    body.light .final-line { color: #1a1a2e; border-top-color: rgba(0,0,0,0.07); }
+    body.light .coda { color: rgba(26,26,46, var(--faint-alpha, 0.38)); }
+    body.light .letter { border-color: rgba(0,0,0,0.1); background: rgba(0,0,0,0.02); }
+    body.light .letter p { color: rgba(26,26,46, var(--txt-alpha, 0.88)); }
+    body.light .letter-close { color: rgba(26,26,46, var(--faint-alpha, 0.38)); }
+    body.light .strategy-block { border-left-color: rgba(0,0,0,0.1); }
+    body.light .step-head { color: #1a1a2e; }
+    body.light .step-body { color: rgba(26,26,46, var(--txt-alpha, 0.88)); }
+    body.light .ai { background: rgba(0,120,60,0.04); border-color: rgba(0,120,60,0.15); }
+    body.light .ai p { color: rgba(0,60,30,0.72); }
+    body.light .ai-hd { color: rgba(0,100,50,0.55); }
+    body.light .compare th { color: rgba(26,26,46,0.3); border-bottom-color: rgba(0,0,0,0.1); }
+    body.light .compare td { color: rgba(26,26,46, var(--dim-alpha, 0.65)); border-bottom-color: rgba(0,0,0,0.05); }
+    body.light .compare .optimal { color: #006644; }
+    body.light .compare .delta { color: #8b6914; }
+    body.light .orb-1, body.light .orb-2, body.light .orb-3 { opacity: 0.02; }
+    body.light .ctrl-btn { background: rgba(0,0,0,0.05); border-color: rgba(0,0,0,0.12); color: rgba(26,26,46,0.6); }
+    body.light .ctrl-label { color: rgba(26,26,46,0.4); }
+    body.light .ctrl-value { color: #0088aa; }
+    body.light #status { color: rgba(26,26,46,0.3); }
+    body.light .chart-title { color: rgba(26,26,46, var(--faint-alpha, 0.38)); }
+    body.light .chart-subtitle { color: rgba(26,26,46, var(--faint-alpha, 0.38)); }
+    body.light .legend-label { color: rgba(26,26,46, var(--dim-alpha, 0.65)); }
+    body.light .stat-box-label { color: rgba(26,26,46,0.3); }
+    body.light .scrubber-label { color: rgba(26,26,46,0.3); }
+    body.light #yearDisplay { color: rgba(26,26,46, var(--dim-alpha, 0.65)); }
+    body.light .chart-note { color: rgba(26,26,46, var(--faint-alpha, 0.38)); }
+    body.light .chart-container { background: rgba(0,0,0,0.02); border-color: rgba(0,0,0,0.09); }
+
+    /* ── TOC ── */
+    #toc { margin: 0 0 4rem 0; border: 1px solid rgba(255,255,255,0.07); padding: 1.8rem 2.2rem; max-width: 820px; }
+    body.light #toc { border-color: rgba(0,0,0,0.09); }
+    .toc-title { font-family: 'DM Sans', sans-serif; font-size: 0.56rem; letter-spacing: 0.28em; text-transform: uppercase; color: rgba(255,255,255,0.2); margin-bottom: 1rem; }
+    body.light .toc-title { color: rgba(26,26,46,0.3); }
+    .toc-list { list-style: none; }
+    .toc-list li { margin-bottom: 0.3rem; }
+    .toc-list a { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(0.9rem,1.5vw,1.15rem); color: rgba(237,233,248, var(--dim-alpha, 0.55)); text-decoration: none; transition: color 0.2s; }
+    .toc-list a:hover { color: #00d4ff; }
+    body.light .toc-list a { color: rgba(26,26,46, var(--dim-alpha, 0.65)); }
+    body.light .toc-list a:hover {
+    body.light
+    body.light
+    body.light
+
+  
+    /* ── Brightness slider variables ── */
+    :root {
+      --txt-alpha: 0.84;   /* body text */
+      --dim-alpha: 0.55;   /* secondary text */
+      --faint-alpha: 0.30; /* tertiary text */
+    }
+    body.light {
+      --txt-alpha: 0.88;
+      --dim-alpha: 0.65;
+      --faint-alpha: 0.38;
+    }
+
+    /* ── Variable-driven text opacity ── */
+    p { color: rgba(237,233,248, var(--txt-alpha, 0.84)); }
+    body.light p { color: rgba(26,26,46, var(--txt-alpha, 0.88)); }
+
+    .dialogue { color: rgba(237,233,248, var(--txt-alpha, 0.84)); }
+    body.light .dialogue { color: rgba(26,26,46, var(--txt-alpha, 0.88)); }
+
+    .story-p { color: rgba(237,233,248, var(--txt-alpha, 0.84)); }
+    body.light .story-p { color: rgba(26,26,46, var(--txt-alpha, 0.88)); }
+
+    .sp { color: rgba(255,255,255, var(--faint-alpha, 0.30)); }
+    body.light .sp { color: rgba(26,26,46, var(--faint-alpha, 0.38)); }
+
+    .scene-break { color: rgba(255,255,255, var(--faint-alpha, 0.30)); }
+    .scene       { color: rgba(255,255,255, var(--faint-alpha, 0.30)); }
+    body.light .scene-break, body.light .scene { color: rgba(26,26,46, var(--faint-alpha, 0.38)); }
+
+    .ch-num, .part-label { color: rgba(255,255,255, var(--faint-alpha, 0.30)); }
+    body.light .ch-num, body.light .part-label { color: rgba(26,26,46, var(--faint-alpha, 0.38)); }
+
+    .toc-list a { color: rgba(237,233,248, var(--dim-alpha, 0.55)); }
+    body.light .toc-list a { color: rgba(26,26,46, var(--dim-alpha, 0.65)); }
+
+    .toc-title { color: rgba(255,255,255, var(--faint-alpha, 0.30)); }
+    body.light .toc-title { color: rgba(26,26,46, var(--faint-alpha, 0.38)); }
+
+    .toc-list .toc-part { color: rgba(255,255,255, var(--faint-alpha, 0.30)); }
+    body.light .toc-list .toc-part { color: rgba(26,26,46, var(--faint-alpha, 0.38)); }
+
+    .ctrl-label { color: rgba(255,255,255, var(--faint-alpha, 0.30)); }
+    body.light .ctrl-label { color: rgba(26,26,46, var(--faint-alpha, 0.38)); }
+
+    #status { color: rgba(255,255,255, var(--faint-alpha, 0.30)); }
+    body.light #status { color: rgba(26,26,46, var(--faint-alpha, 0.38)); }
+
+    .data-hd { color: rgba(255,255,255, var(--faint-alpha, 0.30)); }
+    body.light .data-hd { color: rgba(26,26,46, var(--faint-alpha, 0.38)); }
+
+    .data p { color: rgba(237,233,248, var(--dim-alpha, 0.55)); }
+    body.light .data p { color: rgba(26,26,46, var(--dim-alpha, 0.65)); }
+
+    .analysis-p { color: rgba(237,233,248, var(--dim-alpha, 0.55)); }
+
+    .news p { color: rgba(237,233,248, var(--dim-alpha, 0.55)); }
+    body.light .news p { color: rgba(26,26,46, var(--dim-alpha, 0.65)); }
+
+    .pull-quote { color: rgba(237,233,248, var(--dim-alpha, 0.55)); }
+    body.light .pull-quote { color: rgba(26,26,46, var(--dim-alpha, 0.65)); }
+
+    .pull { color: rgba(237,233,248, var(--dim-alpha, 0.55)); }
+    body.light .pull { color: rgba(26,26,46, var(--dim-alpha, 0.65)); }
+
+    .section-num { color: rgba(255,255,255, var(--faint-alpha, 0.30)); }
+    body.light .section-num { color: rgba(26,26,46, var(--faint-alpha, 0.38)); }
+
+    .book-subtitle { color: rgba(255,255,255, var(--dim-alpha, 0.55)); }
+    body.light .book-subtitle { color: rgba(26,26,46, var(--dim-alpha, 0.65)); }
+
+    .book-author { color: rgba(255,255,255, var(--faint-alpha, 0.30)); }
+    body.light .book-author { color: rgba(26,26,46, var(--faint-alpha, 0.38)); }
+
+    .legal { color: rgba(255,255,255, var(--faint-alpha, 0.30)); }
+    body.light .legal { color: rgba(26,26,46, var(--faint-alpha, 0.38)); }
+
+    .coda { color: rgba(255,255,255, var(--faint-alpha, 0.30)); }
+    body.light .coda { color: rgba(26,26,46, var(--faint-alpha, 0.38)); }
+    body.light
+
+    .step-body { color: rgba(237,233,248, var(--txt-alpha, 0.84)); }
+    body.light .step-body { color: rgba(26,26,46, var(--txt-alpha, 0.88)); }
+
+    .byline, .journal { color: rgba(255,255,255, var(--faint-alpha, 0.30)); }
+    body.light .byline, body.light .journal { color: rgba(26,26,46, var(--faint-alpha, 0.38)); }
+
+    .data-note { color: rgba(255,255,255, var(--dim-alpha, 0.55)); }
+    body.light .data-note { color: rgba(26,26,46, var(--dim-alpha, 0.65)); }
+
+    .chart-note { color: rgba(255,255,255, var(--faint-alpha, 0.30)); }
+    body.light .chart-note { color: rgba(26,26,46, var(--faint-alpha, 0.38)); }
+
+    .scrubber-label { color: rgba(255,255,255, var(--faint-alpha, 0.30)); }
+    body.light .scrubber-label { color: rgba(26,26,46, var(--faint-alpha, 0.38)); }
+
+    .legend-label { color: rgba(255,255,255, var(--dim-alpha, 0.55)); }
+    body.light .legend-label { color: rgba(26,26,46, var(--dim-alpha, 0.65)); }
+
+  
+    /* ── Slider track follows thumb ── */
+    input[type="range"] {
+      -webkit-appearance: none;
+      width: 130px; height: 2px;
+      background: rgba(255,255,255,0.15);
+      border-radius: 2px; outline: none; cursor: pointer;
+    }
+    body.light input[type="range"] {
+      background: rgba(0,0,0,0.12);
+    }
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none; width: 13px; height: 13px;
+      border-radius: 50%; background: #00d4ff; cursor: pointer;
+    }
+    body.light input[type="range"]::-webkit-slider-thumb {
+      background: #0088aa;
+    }/* ── Light mode: all text uses dark color with opacity vars ── */
+    body.light p,
+    body.light .story-p,
+    body.light .dialogue, body.light .d,
+    body.light .big, body.light .step-body,
+    body.light .letter p, body.light .pull-quote, body.light .pull,
+    body.light .final, body.light .final-line,
+    body.light .news p, body.light .data p, body.light .analysis-p,
+    body.light .ai p, body.light .data-note {
+
+    body.light .toc-list a { color: rgba(26,26,46, var(--dim-alpha, 0.65)); }
+
+    body.light .section-title, body.light .appendix-title,
+    body.light .ch-title, body.light .part-title,
+    body.light .book-title, body.light .step-head { color: rgba(26,26,46, 0.95); }
+
+    body.light .ctrl-btn { color: rgba(26,26,46,0.65); background: rgba(0,0,0,0.06); border-color: rgba(0,0,0,0.14); }
+    body.light .ctrl-value { color: #0088aa; }
+    body.light .ctrl-btn.active { background: #0088aa; color: #fff; border-color: #0088aa; }
+
+  
+    /* ── Control panel: fixed colors, never affected by readability slider ── */
+    #controls { color: rgba(255,255,255,0.85) !important; }
+    .ctrl-label { color: rgba(255,255,255,0.55) !important; }
+    .ctrl-value { color: #00d4ff !important; }
+    .ctrl-btn   { color: rgba(255,255,255,0.75) !important; background: rgba(255,255,255,0.06) !important; border-color: rgba(255,255,255,0.14) !important; }
+    .ctrl-btn:hover { color: #fff !important; background: rgba(255,255,255,0.14) !important; }
+    .ctrl-btn.active { background: #00d4ff !important; color: #000 !important; border-color: #00d4ff !important; }
+    #status { color: rgba(255,255,255,0.35) !important; }
+
+    /* Light mode control panel — dark fixed colors */
+    body.light #controls { color: rgba(26,26,46,0.85) !important; background: rgba(245,242,238,0.97) !important; }
+    body.light .ctrl-label { color: rgba(26,26,46,0.55) !important; }
+    body.light .ctrl-value { color: #0088aa !important; }
+    body.light .ctrl-btn   { color: rgba(26,26,46,0.65) !important; background: rgba(0,0,0,0.06) !important; border-color: rgba(0,0,0,0.14) !important; }
+    body.light .ctrl-btn:hover { color: rgba(26,26,46,0.95) !important; background: rgba(0,0,0,0.12) !important; }
+    body.light .ctrl-btn.active { background: #0088aa !important; color: #fff !important; border-color: #0088aa !important; }
+    body.light #status { color: rgba(26,26,46,0.4) !important; }
+
+    /* ── Light mode: zero white text — absolute rule ── */
+    body.light *:not(#controls):not(#controls *) {
+      color: inherit;
+    }
+    /* Force dark on any element that might still have white */
+    body.light .section-stars,
+    body.light .stars,
+    body.light .divider + *,
+    body.light .toc-list .toc-part,
+    body.light .letter-close,
+    body.light .news-src,
+    body.light .analysis-hd,
+    body.light .ai-hd,
+    body.light .chart-title,
+    body.light .chart-subtitle,
+    body.light #yearDisplay,
+    body.light .stat-box-label,
+    body.light .legend-label,
+    body.light .compare th,
+    body.light .compare td,
+    body.light .phase-label { color: rgba(26,26,46, var(--faint-alpha, 0.45)) !important; }
+    
+    body.light .news-hed,
+    body.light .data-note strong,
+    body.light .compare .label { color: rgba(26,26,46, 0.75) !important; }
+    
+    body.light .compare .optimal { color: #006644 !important; }
+    body.light .compare .delta   { color: #7a5c00 !important; }
+    body.light .compare .actual  { color: rgba(26,26,46,0.5) !important; }
+    
+    /* Accent colors stay vivid in light mode */
+    body.light .t-v, body.light .sv-vclm  { color: #0077aa !important; }
+    body.light .t-c, body.light .sv-chonx { color: #8b6000 !important; }
+    body.light .t-s, body.light .sv-synth { color: #006644 !important; }
+    body.light .sv-dead { color: #aa2200 !important; }
+    body.light .ph-vclm  { color: #0077aa !important; background: rgba(0,120,170,0.08) !important; border-color: rgba(0,120,170,0.2) !important; }
+    body.light .ph-chonx { color: #8b6000 !important; background: rgba(139,96,0,0.08) !important; border-color: rgba(139,96,0,0.2) !important; }
+    body.light .ph-synth { color: #006644 !important; background: rgba(0,102,68,0.08) !important; border-color: rgba(0,102,68,0.2) !important; }
+
+  
+
+    /* Light mode: em/italic text — dark gray, never white */
+    body.light em,
+    body.light p em,
+    body.light .story-p em,
+    body.light .dialogue em,
+    body.light .d em,
+    body.light .big em,
+    body.light .final em,
+    body.light .final-line em,
+    body.light .pull-quote em,
+    body.light .pull em { color: rgba(26,26,46,0.55) !important; font-style: italic; }
+
   </style>
 </head>
 <body>
@@ -229,13 +1034,14 @@
     <span class="ctrl-value" id="speedVal">18</span>
   </div>
   <div class="ctrl-group">
-    <span class="ctrl-label">Font</span>
-    <input type="range" id="fontSlider" min="75" max="150" value="100" />
-    <span class="ctrl-value" id="fontVal">100%</span>
+    <span class="ctrl-label">Readability</span>
+    <input type="range" id="brightSlider" min="0" max="100" value="50" oninput="applyBrightness(this.value)" />
   </div>
   <button class="ctrl-btn active" id="playBtn" onclick="togglePlay()">⏸ Pause</button>
   <button class="ctrl-btn" onclick="resetScroll()">↺ Reset</button>
   <span id="status">Scrolling…</span>
+  <button class="ctrl-btn" id="themeBtn" onclick="toggleTheme()" title="Toggle light/dark mode">☀</button>
+  <button class="ctrl-btn" id="tocBtn" onclick="jumpToTOC()" title="Table of contents">≡</button>
 </div>
 
 <div id="scroller">
@@ -247,15 +1053,39 @@
   <span class="legal">This is a work of fiction. All characters, events, and outcomes are imagined. The protocol mechanics described reflect Vinculum Protocol's actual design as of the date of writing. Nothing in this story constitutes financial advice, investment guidance, or a promise of future returns. Cryptocurrency investments involve substantial risk. Past performance — real or fictional — does not predict future results. All token prices, distributions, and market behaviors depicted are invented for narrative purposes. Consult a qualified financial professional before making any investment decision. The author and Vinculum Protocol DAO LLC make no representations regarding the accuracy of any projected outcomes described herein.</span>
 </div>
 
+<div id="toc-anchor"></div>
+<div id="toc">
+  <p class="toc-title">Out of Left Field — Table of Contents</p>
+  <ul class="toc-list">
+    <li><a href="#prologue">Prologue — The Nature of Commitment</a></li>
+    <li class="toc-part">Part One · The Foundations · 2026</li>
+    <li class="toc-ch"><a href="#ch1">Chapter One — The Woman Who Refused to Let Go</a></li>
+    <li class="toc-ch"><a href="#ch2">Chapter Two — The Boy Who Bought the Lion</a></li>
+    <li class="toc-ch"><a href="#ch3">Chapter Three — The Teacher and the Long Table</a></li>
+    <li class="toc-ch"><a href="#ch4">Chapter Four — The Man Who Did the Math</a></li>
+    <li class="toc-ch"><a href="#ch5">Chapter Five — The Widow and the Compounding Grace</a></li>
+    <li class="toc-ch"><a href="#ch6">Chapter Six — The Librarian, the Discord, and the Thing Nobody Could Explain</a></li>
+    <li class="toc-part">Part Two · The Unfolding · 2028–2032</li>
+    <li class="toc-ch"><a href="#ch7">Chapter Seven — When the Protocol Surprised Everyone, Including Itself</a></li>
+    <li class="toc-part">Part Three · What Commitment Builds · 2033–2035</li>
+    <li class="toc-ch"><a href="#ch8">Chapter Eight — The Daughter of Lagos</a></li>
+    <li class="toc-ch"><a href="#ch9">Chapter Nine — What Happened to Everyone Else</a></li>
+    <li class="toc-part">Epilogue &amp; Chapter Ten</li>
+    <li class="toc-ch"><a href="#epilogue">Epilogue — The Anonymous Vote</a></li>
+    <li class="toc-ch"><a href="#ch10">Chapter Ten — Where Are You?</a></li>
+    <li style="margin-top:0.8rem;"><a href="#appendix-start" style="color:rgba(0,232,135,0.6);">Appendix A — Ji-ho Lim: The Complete Economic History</a></li>
+  </ul>
+</div>
+
 <div style="text-align:center;margin-bottom:6rem;">
   <h1 class="book-title">Out of<br /><em>Left Field</em></h1>
   <p class="book-subtitle">A novel of commitment, faith, and three extraordinary tokens</p>
-  <p class="book-author">Vinculum Protocol · A Work of Fiction · 2026</p>
+  <p class="book-author">Vinculum Protocol · A Work of Fiction · Second Edition · 2026</p>
 </div>
 
 <!-- ═══════════════════ PROLOGUE ══════════════════════════════════════════ -->
 
-<div class="part-header">
+<div class="part-header" id="prologue">
   <p class="part-label">Prologue</p>
   <h2 class="part-title">The Nature of <em>Commitment</em></h2>
 </div>
@@ -283,7 +1113,7 @@
 
 <!-- ─── CHAPTER ONE: MARIA ─────────────────────────────────────────────── -->
 
-<div class="chapter-header">
+<div class="chapter-header" id="ch1">
   <p class="ch-num">Chapter One</p>
   <h2 class="ch-title c-vclm">The Woman Who Refused to Let Go</h2>
 </div>
@@ -364,7 +1194,7 @@
 
 <!-- ─── CHAPTER TWO: TYLER ─────────────────────────────────────────────── -->
 
-<div class="chapter-header">
+<div class="chapter-header" id="ch2">
   <p class="ch-num">Chapter Two</p>
   <h2 class="ch-title c-chonx">The Boy Who Bought the Lion</h2>
 </div>
@@ -377,7 +1207,7 @@
 
 <p>He was sitting in the University Center café on a Thursday afternoon, procrastinating on a soil science paper, when he saw the image.</p>
 
-<p>It was a lion. Not a majestic lion, not a threatening lion — a <em>smirking</em> lion, round-faced and slightly ridiculous, with the knowing expression of an animal that understood something you didn't and had decided to find it charming rather than frustrating. It was wearing what appeared to be a tiny crown that it clearly considered ironic. The image had been posted in a crypto meme Discord he barely followed, captioned simply: <em>CHONKY LION doesn't explain himself.</em></p>
+<p>It was a lion. Not a majestic lion, not a threatening lion — a <em>smirking</em> lion, round-faced and slightly ridiculous, with the knowing expression of an animal that understood something you didn't and had decided to find it charming rather than frustrating. The image had been posted in a crypto meme Discord he barely followed, captioned simply: <em>CHONKY LION doesn't explain himself.</em></p>
 
 <p>Tyler laughed out loud. Three people at nearby tables looked up.</p>
 
@@ -479,7 +1309,7 @@
 
 <!-- ─── CHAPTER THREE: KOFI ────────────────────────────────────────────── -->
 
-<div class="chapter-header">
+<div class="chapter-header" id="ch3">
   <p class="ch-num">Chapter Three</p>
   <h2 class="ch-title">The Teacher and the Long Table</h2>
 </div>
@@ -550,7 +1380,7 @@
 
 <!-- ─── CHAPTER FOUR: JI-HO ───────────────────────────────────────────── -->
 
-<div class="chapter-header">
+<div class="chapter-header" id="ch4">
   <p class="ch-num">Chapter Four</p>
   <h2 class="ch-title c-chonx">The Man Who Did the Math</h2>
 </div>
@@ -641,7 +1471,7 @@
 
 <!-- ─── CHAPTER FIVE: ROSARIO ─────────────────────────────────────────── -->
 
-<div class="chapter-header">
+<div class="chapter-header" id="ch5">
   <p class="ch-num">Chapter Five</p>
   <h2 class="ch-title">The Widow and the Compounding Grace</h2>
 </div>
@@ -744,7 +1574,7 @@
 
 <!-- ─── CHAPTER SIX: DIANE AND THE CLUB ───────────────────────────────── -->
 
-<div class="chapter-header">
+<div class="chapter-header" id="ch6">
   <p class="ch-num">Chapter Six</p>
   <h2 class="ch-title">The Librarian, the Discord, and the <em>Thing Nobody Could Explain</em></h2>
 </div>
@@ -856,7 +1686,7 @@
 
 <!-- ─── CHAPTER SEVEN: THE TOKENS TAKE ON A LIFE ─────────────────────── -->
 
-<div class="chapter-header">
+<div class="chapter-header" id="ch7">
   <p class="ch-num">Chapter Seven</p>
   <h2 class="ch-title">When the Protocol <em>Surprised Everyone, Including Itself</em></h2>
 </div>
@@ -919,7 +1749,7 @@
 
 <p>Nobody could explain CHONKY LION's trajectory with full confidence, and the community had largely stopped trying.</p>
 
-<p>What had begun as a meme — the smirking, round-faced lion with the ironic crown — had accumulated a life that its creators had not designed and could not have predicted. By 2029 there were CHONKY LION plush toys being manufactured in three countries and sold on a fan merchandise site that donated fifteen percent of proceeds to animal welfare organizations. There was a CHONKY LION children's book — self-published, genuinely well-illustrated, distributed in digital form for free and in print for approximately the cost of production — that used the lion's characteristic expression of serene knowingness to explain, at a picture-book level, the idea of patient commitment and delayed gratification.</p>
+<p>What had begun as a meme — the smirking, round-faced lion — had accumulated a life that its creators had not designed and could not have predicted. By 2029 there were CHONKY LION plush toys being manufactured in three countries and sold on a fan merchandise site that donated fifteen percent of proceeds to animal welfare organizations. There was a CHONKY LION children's book — self-published, genuinely well-illustrated, distributed in digital form for free and in print for approximately the cost of production — that used the lion's characteristic expression of serene knowingness to explain, at a picture-book level, the idea of patient commitment and delayed gratification.</p>
 
 <p>Tyler Garrett, who had first bought CHONX because the lion made him laugh, found the children's book while procrastinating on a graduate school application in 2029 and read it in a single sitting. When he called his mother afterward, which he did every Sunday regardless of how his week had gone, he read her a passage from it:</p>
 
@@ -964,6 +1794,30 @@
 
 <div class="section-stars">· · ·</div>
 
+<div class="scene-break">The elegance — 2029 — a governance forum post that changed the conversation</div>
+
+<p>In the autumn of 2029, a governance forum post appeared that was unlike anything the Vinculum community had published before. It was not a proposal. It was not analysis. It was a single page, written by a Seoul-based researcher whose handle the community recognized, titled simply: <em>On the Proportions.</em></p>
+
+<p>The post began with a question that seemed, at first, to have nothing to do with crypto:</p>
+
+<div class="dialogue">
+  Why does a total solar eclipse work? Not how — we know how. The moon passes between the earth and the sun. But why does it work <em>perfectly?</em> The sun is four hundred times wider than the moon. The sun is four hundred times further away. The result is that from the surface of the earth, they appear exactly the same size — precise enough that the moon covers the sun completely, leaving only the corona visible, producing the most visually spectacular astronomical event in the known solar system. God engineered three bodies in their own sizes, and their distances in proportion to one another, because it pleased Him to do so. The result is the only perfect total eclipse anywhere we have ever looked. It could not have happened any other way. He made sure of that.
+</div>
+
+<p>The post then said this:</p>
+
+<div class="dialogue">
+  VCLM has a ten billion hard cap. CHONX has a one hundred billion hard cap — ten times larger. To mint one SYNTH you burn one thousand VCLM and ten thousand CHONX — a 1:10 ratio that mirrors the 1:10 supply ratio between the two tokens it consumes. The proportions are internally consistent across every layer of the system. Each token is necessary for the existence of the next. The largest feeds the middle. The middle and the largest are consumed to create the smallest. The smallest — ultra-rare, born only from destruction — carries within it everything that was given up to make it. And unlike the eclipse, which we can only observe, we can participate in this one. We can be part of what makes the rare thing rare.
+</div>
+
+<p>The post ended with two words.</p>
+
+<p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(1.2rem,2vw,1.6rem);color:rgba(255,255,255,0.45);margin:2rem 0 2rem 2rem;padding-left:1.4rem;border-left:2px solid rgba(255,255,255,0.12);max-width:500px;">Designed that way.</p>
+
+<p>It was shared thirty-seven thousand times in the first week. It was translated into twenty-two languages. It was cited in three subsequent academic papers on token architecture. And it became, in the communities that were already in the protocol, the shorthand for something they had felt but not been able to articulate: that they were not just in a DeFi protocol. They were participants in a system whose proportions were not arbitrary — whose every ratio pointed toward something that had been made this way on purpose, because it was beautiful to make it this way, and because beauty of this kind does not emerge from accident.</p>
+
+<div class="section-stars">· · ·</div>
+
 <div class="scene-break">The press begins to notice — 2030</div>
 
 <div class="news">
@@ -984,6 +1838,71 @@
   <p>When Vinculum Protocol launched with 101 supported assets, the design intent was straightforward: make commitment equally available to everyone, regardless of which token they held. What the designers did not — and perhaps could not — predict was the social architecture that would emerge from that decision. One hundred and one communities, with no prior relationship and in many cases no awareness of each other, now share a governance layer, a treasury, and a token they all helped create. LUNC holders vote alongside ETH holders. WKC holders earn the same VCLM per dollar as BTC holders. The DigiByte community — a UTXO chain with no native DeFi — has, for the first time in its history, a staking mechanism. We are watching, in real time, the formation of something that does not yet have a name...</p>
 </div>
 
+<div class="section-stars">· · ·</div>
+
+<div class="scene-break">The countdown — 2032</div>
+
+<p>Nobody planned the countdown. It appeared in the vault interface automatically, as designed, when the remaining mintable VCLM supply dropped below one percent of the hard cap — one hundred million tokens, at the floor price representing ten million dollars of remaining vault lock capacity.</p>
+
+<p>The message was simple. Polite. It explained that the supply was approaching the hard cap, that depending on several variables a vault lock might not complete in full, and that users should consider adjusting their lock amount accordingly. It displayed the remaining mintable supply in real time, updating with every block.</p>
+
+<p>The first person who saw it posted a screenshot in the LUNC Discord at 4:43 AM Eastern time on a Tuesday in March 2032.</p>
+
+<p>By noon the screenshot had been shared across forty-seven different platforms in nineteen languages.</p>
+
+<p>By evening it had reached the mainstream press.</p>
+
+<div class="news">
+  <p class="news-src">CoinDesk — March 14, 2032</p>
+  <p class="news-hed">Vinculum Protocol's VCLM Hard Cap Is Now Visible From Here</p>
+  <p>The vault interface for Vinculum Protocol began displaying a warning message Tuesday as the token's circulating supply crossed into the final one percent of its ten billion hard cap. The remaining mintable supply — currently sitting at approximately 87 million tokens and falling — is now displayed live on the protocol's vault page, updating in real time. What happens next is technically straightforward: the minting stops. What happens after that is where it gets interesting. Contributing reporter: <strong>Sarah Okonkwo</strong>, DeFi Infrastructure Desk.</p>
+</div>
+
+<div class="news">
+  <p class="news-src">Decrypt — March 14, 2032</p>
+  <p class="news-hed">'The Last Vaults': Vinculum's Hard Cap Warning Triggers Community Frenzy Across 101 Token Ecosystems</p>
+  <p>A single screenshot posted in a Terra Luna Classic Discord server at 4:43 AM Tuesday has, within hours, set off what can only be described as a coordinated scramble across one hundred and one cryptocurrency communities simultaneously. The Vinculum Protocol vault interface is now showing the remaining mintable VCLM supply in real time — and the number is going down. Fast. <strong>Marcus Thibault</strong>, Protocol Correspondent, reports from what community members are already calling "the last vaults."</p>
+</div>
+
+<div class="news">
+  <p class="news-src">The Block — March 15, 2032</p>
+  <p class="news-hed">Vinculum VCLM Hard Cap: What Happens When a Countdown Is Also a Mechanism</p>
+  <p>The live display of remaining mintable VCLM supply on Vinculum Protocol's vault interface has produced something unusual: a countdown that is simultaneously a market event, a community mobilization tool, and a real-time demonstration of the protocol's burn-mint oscillation mechanism in practice. <strong>Jennifer Park</strong>, Senior Analyst, examines what the data is actually saying — and what it isn't. "The cap is not a death. It is a door. The question is who gets through it before it closes, and who is ready when it opens again."</p>
+</div>
+
+<div class="news">
+  <p class="news-src">Bloomberg Crypto — March 15, 2032</p>
+  <p class="news-hed">A Token Supply Is Running Out in Real Time and the Internet Is Watching</p>
+  <p>Vinculum Protocol's decision to display its remaining mintable token supply publicly has produced an unexpected result: what amounts to the most-watched countdown in decentralized finance history. Third-party sites tracking the remaining supply appeared within six hours of the initial screenshot. <strong>Daniel Voss</strong> and <strong>Priya Anand</strong>, Markets Desk. "We reached out to the Vinculum Protocol team for comment. Their response was characteristically brief."</p>
+</div>
+
+<p>The Vinculum Protocol team's response, quoted in full across seventeen different publications, was four sentences:</p>
+
+<div class="dialogue">
+  The protocol is doing exactly what it was designed to do. We are excited to watch this unfold alongside the community. We wish every participant well. There is nothing more we can say — the contracts are immutable, and we would not change them if we could.
+</div>
+<p class="sp">Vinculum Protocol DAO LLC — official statement, March 15, 2032</p>
+
+<p>This was, predictably, interpreted as everything from extreme confidence to deliberate mysteriousness to evidence of a conspiracy, depending on which Discord server was doing the interpreting. The protocol team said nothing further. They had nothing further to say. The mechanism was the message.</p>
+
+<p>On the third day, a television financial commentator — whose name need not be recorded here, but who was known for his excitable on-air manner and his red suspenders — held up a printout of the Vinculum vault page on live television and said, loudly, that this was either the most important thing happening in crypto or a complete disaster, and he was not sure which, and that his viewers should do their own research immediately.</p>
+
+<p>Vault locks increased by an order of magnitude within the hour.</p>
+
+<p>The remaining supply dropped from forty-one million to nine million in a single afternoon.</p>
+
+<p>Then it hit the hard cap.</p>
+
+<p>The display showed zero. Minting stopped.</p>
+
+<p>Eleven minutes later, a SYNTH burn somewhere on Base destroyed 1,000 VCLM from the total possible supply. The display updated. One thousand tokens of mintable headroom appeared. Someone locked immediately. The display showed zero again.</p>
+
+<p>The countdown had become a heartbeat.</p>
+
+<p>Ji-ho Lim, watching from his desk in Seoul, looked at his three monitors and felt something he had not felt since the night CHONX launched: the specific vertigo of being right about a mechanism and still not being fully prepared for the texture of it in real life.</p>
+
+<p>He opened his governance forum and began writing.</p>
+
 <!-- ═══════════════════ PART THREE ════════════════════════════════════════ -->
 
 <div class="part-header">
@@ -993,7 +1912,7 @@
 
 <!-- ─── CHAPTER EIGHT: ADAEZE ─────────────────────────────────────────── -->
 
-<div class="chapter-header">
+<div class="chapter-header" id="ch8">
   <p class="ch-num">Chapter Eight</p>
   <h2 class="ch-title c-synth">The Daughter of Lagos</h2>
 </div>
@@ -1063,7 +1982,7 @@
 
 <!-- ─── CHAPTER NINE: THE TRANSFORMATION OF THE OTHERS ────────────────── -->
 
-<div class="chapter-header">
+<div class="chapter-header" id="ch9">
   <p class="ch-num">Chapter Nine</p>
   <h2 class="ch-title">What Happened to <em>Everyone Else</em></h2>
 </div>
@@ -1135,7 +2054,7 @@
 
 <!-- ═══════════════════ EPILOGUE ══════════════════════════════════════════ -->
 
-<div class="part-header">
+<div class="part-header" id="epilogue">
   <p class="part-label">Epilogue</p>
   <h2 class="part-title">The <em>Anonymous Vote</em></h2>
 </div>
@@ -1168,7 +2087,7 @@
 
 <!-- ═══════════════════ CHAPTER TEN: THE READER ══════════════════════════ -->
 
-<div class="part-header">
+<div class="part-header" id="ch10">
   <p class="part-label">Chapter Ten</p>
   <h2 class="part-title">Where Are <em>You?</em></h2>
 </div>
@@ -1242,21 +2161,849 @@
   This is a work of fiction. All characters — Maria Souza, Tyler Garrett, Kofi Mensah, Ji-ho Lim, Rosario dela Cruz, Diane Kowalski, Adaeze Okonkwo, and all others — are invented. Any resemblance to real persons, living or dead, is coincidental. The protocol mechanics, token names, and governance structures described reflect Vinculum Protocol's actual design as of the date of writing. All prices, distribution amounts, market behaviors, and outcomes depicted are fictional and invented for narrative purposes. Nothing in this story constitutes financial advice, investment guidance, or any representation regarding future performance. Cryptocurrency investment involves substantial risk of loss. The authors and Vinculum Protocol DAO LLC make no warranties regarding the accuracy of any projected outcomes. Consult a qualified financial professional before making any investment decision. This story was written to illustrate possibility, not to promise it. The difference matters. Please know the difference.
 </p>
 
+
+
+
+<div style="margin:8rem 0 6rem;padding:3rem 0;border-top:1px solid rgba(255,255,255,0.08);border-bottom:1px solid rgba(255,255,255,0.08);text-align:center;" id="appendix-start">
+  <p style="font-family:'DM Sans',sans-serif;font-size:0.56rem;letter-spacing:0.3em;text-transform:uppercase;color:rgba(255,255,255,0.2);margin-bottom:0.8rem;">Appendix A · First Edition</p>
+  <p style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(1.6rem,3vw,2.6rem);color:rgba(237,233,248,0.9);margin-bottom:0.5rem;">The Complete Economic History</p>
+  <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;font-size:clamp(1rem,1.8vw,1.4rem);color:rgba(237,233,248,0.35);">Ji-ho Lim · Seoul · 2045</p>
+</div>
+
+<div id="toc-anchor"></div>
+<div id="toc">
+  <p class="toc-title">Appendix A — Table of Contents</p>
+  <ul class="toc-list">
+    <li><a href="#conv-scene">The Conversation — Seoul, March 2045</a></li>
+    <li><a href="#strategy">Ji-ho's Ideal Strategy</a></li>
+    <li><a href="#the-numbers">The Numbers — $500 Analysis</a></li>
+    <li><a href="#ai-questions">The AI Questions</a></li>
+    <li><a href="#second-question">The Letter to His Younger Self</a></li>
+    <li><a href="#bridge">The Formal Paper Begins</a></li>
+    <li><a href="#sect1">Section I — Genesis: The Era of VCLM</a></li>
+    <li><a href="#sect2">Section II — The CHONX Awakening</a></li>
+    <li><a href="#sect3">Section III — The SYNTH Ignition</a></li>
+    <li><a href="#sect4">Section IV — The Great Compression</a></li>
+    <li><a href="#sect5">Section V — SYNTH Supremacy</a></li>
+    <li><a href="#sect6">Section VI — Eight Emergent Phenomena</a></li>
+    <li style="margin-top:0.8rem;"><a href="OutOfLeftField.html" style="color:rgba(0,212,255,0.6);">← Return to Out of Left Field</a></li>
+  </ul>
+</div>
+
+<!-- ══ HEADER ══════════════════════════════════════════════════════════════════ -->
+
+<p class="eyebrow" id="conv-scene">Out of Left Field · Appendix A · First Edition · Preface</p>
+
+<div class="rule"></div>
+
+<div class="scene">Seoul, South Korea — Ji-ho's apartment — March 2045 — After dinner</div>
+
+<!-- ══ THE SCENE ════════════════════════════════════════════════════════════════ -->
+
+<p>Soo-yeon had been reading the paper for three hours. She had her own printed copy now — her uncle had produced it from a printer she was fairly certain had never been used for anything except this. She was twenty-seven years old, eighteen months into her first job at a quantitative finance firm in Seoul, and she had grown up watching Ji-ho Lim approach every problem in the world with the same expression: focused, measuring, giving nothing away.</p>
+
+<p>She had never seen him excited.</p>
+
+<p>She was about to.</p>
+
+<div class="scene">10:47 PM — the dishes done, the table cleared, a second pot of tea between them</div>
+
+<p>She closed the paper. She looked at her uncle across the table — fifty-nine years old, a Senior Research Fellow at the Seoul Institute for Decentralized Systems, the man who had written the most-cited paper in his field three years running. He was looking at his tea.</p>
+
+<p>She had been thinking about how to phrase the question for two hours. She decided the direct version was best.</p>
+
+<div class="d">
+  Uncle. I want you to do something for me and I want you to take it seriously.
+</div>
+<p class="sp">Soo-yeon</p>
+
+<p>He looked up.</p>
+
+<div class="d">
+  Hypothetical. You have thirty days of advance notice before Vinculum launches. You have the protocol document. You have the website. You have access to a good AI. You know the launch date. You have five hundred dollars.
+</div>
+<p class="sp">Soo-yeon</p>
+
+<p>He tilted his head slightly. She pressed forward.</p>
+
+<div class="d">
+  Walk me through exactly what you would have done. Every step. Every decision. Not the analysis — the <em>actions.</em> What you would have done on day minus thirty. Day one. Month six. The CHONX launch. The burn. All of it. Knowing what you know now. Five hundred dollars. Go.
+</div>
+<p class="sp">Soo-yeon</p>
+
+<p>He was quiet for a moment. She watched something happen in his expression that she could not quite name — a loosening, a particular quality of attention that she associated with him finding an interesting variable in a model. He reached across the table and picked up the pen she had been using to annotate his paper.</p>
+
+<p>He turned over the printed title page.</p>
+
+<p>He started writing on the back of it.</p>
+
+<p>Soo-yeon realized, watching him reach for the pen, that she had never once seen him move that quickly toward anything.</p>
+
+<div class="stars">· · ·</div>
+
+<!-- ══ JI-HO'S ANSWER ══════════════════════════════════════════════════════════ -->
+
+<p>He did not speak for the first few minutes. He drew. A triangle, quickly — <span class="t-v">VCLM</span> at the base, <span class="t-c">CHONX</span> in the middle, <span class="t-s">SYNTH</span> at the apex. Arrows going up. Then arrows going the other direction, the burning direction. He circled the base of the triangle where VCLM and CHONX disappeared into SYNTH and did not come back. He had drawn this exact diagram before. Years ago. On a different piece of paper in a different city. He did not mention this.</p>
+
+<p>Then he began to talk.</p>
+
+<div class="stars">· · ·</div>
+
+<div class="scene">Day minus thirty — thirty days before launch</div>
+
+<div class="d">
+  The first thing I do is not lock anything. The first thing I do is read.
+</div>
+<p class="sp">Ji-ho</p>
+
+<p>He tapped the protocol document she had been reading.</p>
+
+<div class="d">
+  I read the entire How It Works document once, quickly, to understand the shape. Then I open the AI and I ask it one specific question — not <em>is this a good investment</em>, that's a useless question — I ask it: <em>what are the second and third-order consequences of this mechanism that are not explicitly stated in the documentation?</em>
+</div>
+<p class="sp">Ji-ho</p>
+
+<div class="d">
+  That question gets me the float analysis. The FDV insight. The burn-mint oscillation — not as a named phenomenon, but as a logical implication of the hard cap combined with the burn mechanism. The AI will find it if you ask precisely enough. I did not ask precisely enough in 2026. I asked the wrong questions for two years and then stopped asking and just watched.
+</div>
+<p class="sp">Ji-ho</p>
+
+<p>He underlined something on the back of the title page.</p>
+
+<div class="d">
+  Here is what thirty days of preparation actually buys you, and it is not what most people think. It is not the ability to enter faster. It is the ability to enter correctly. Those are completely different things.
+</div>
+<p class="sp">Ji-ho</p>
+
+<div class="strategy-block">
+
+  <div class="step-num">Step One — Days minus 30 to minus 15</div>
+  <div class="step-head">Understand the mechanism completely before touching it</div>
+  <div class="step-body">Feed the protocol document into AI and ask for the second and third-order consequences. Ask specifically: <strong>what happens when total VCLM minted approaches the 10 billion hard cap while people are simultaneously burning VCLM to mint SYNTH — does burning reduce the total enough to reopen minting, and can that cycle repeat?</strong> Ask: <strong>what does the 1.5x CHONX bonus actually mean for someone who holds VCLM from day one versus someone who arrives six months later?</strong> Ask: <strong>what is the practical difference between a token whose float is earned versus one whose float is pre-allocated?</strong> Write down every answer. Read them twice. Sleep on them. The mechanism is not complicated. The implications are profound. You need to understand the difference before you deploy a single dollar.</div>
+
+  <div class="step-num">Step Two — Days minus 15 to minus 1</div>
+  <div class="step-head">Identify your assets and set up your infrastructure</div>
+  <div class="step-body">Look at the supported assets list. <strong>Find every token you already hold.</strong> You do not need to buy anything new. If you have BTC, ETH, XRP, LUNC, WKC, DGB — any of them — they are already on the list. They are already your entry point. Set up a Base wallet. Understand the vault interface before launch day. Set one specific alert: <strong>notify me when the VCLM circulating supply crosses 9 million tokens.</strong> Not 10 million. Nine. You want to be staged and ready one million tokens before the CHONX threshold, not reacting to it after the fact.</div>
+
+  <div class="step-num"><span id="strategy"></span>
+Step Three — Day One</div>
+  <div class="step-head">Lock your supported assets in a staggered ladder. Not all at once. Not all the same duration.</div>
+  <div class="step-body"><strong>The emission rate on day one is the highest it will ever be in the entire history of this protocol.</strong> Every day you delay is a day of decay you cannot recover. But locking everything at one duration on one day is not the optimal move — because you do not know exactly when CHONX launches, and you need VCLM available to stake at that moment.
+
+  Here is the structure. Split your five hundred dollars across four tranches, each locking a different supported asset at a different duration — DOGE, ETH, LUNC, WKC, DGB, whatever you hold that is on the list. Tranche A at six months. Tranche B at twelve months. Tranche C at eighteen to twenty-four months — this is your SYNTH reserve, the VCLM it earns you do not stake for CHONX, you hold it for the burn. Tranche D at thirty-six months, the maximum, for the highest VCLM per dollar the protocol will give you.
+
+  As each tranche's supported asset returns at ninety-five percent, you relock that asset immediately at a longer duration. Always longer. The VCLM accumulates in your wallet. It does not go back into the vault. <strong>VCLM cannot be locked to earn more VCLM.</strong> What you are compounding is the supported asset — locking it over and over, each time for longer, each time earning VCLM at whatever the current emission rate is. You can keep doing this even after CHONX and SYNTH launch, as long as the hard cap allows.
+
+  When it arrives — and VCLM arrives in seconds, not days — write down the number. That number is your foundation. Everything else is built on it.</div>
+
+  <div class="step-num">Step Four — Every lock expiry, without exception</div>
+  <div class="step-head">Relock the supported asset immediately. Always at a longer duration than before.</div>
+  <div class="step-body">Ninety-five percent of your committed supported asset returns when the lock expires — your DOGE, your LUNC, your ETH, your DGB comes back. <strong>It goes straight back in.</strong> Not tomorrow. Not next week. Today. The moment the vault releases it, you lock it again. And this time — always, every time — you choose a longer duration than the previous lock. Six months becomes twelve. Twelve becomes twenty-four. Twenty-four becomes thirty-six. Each longer duration earns more VCLM per dollar locked. The emission rate is decaying yes — but the duration multiplier partially offsets it if you are disciplined.
+
+  The VCLM you earn accumulates in your wallet. You do not relock VCLM — it is not a valid vault input. What you are relocking is the original asset. The VCLM is the reward that builds quietly in the background. Two separate processes running simultaneously. The people who treated Vinculum as a one-time event earned once. The people who treated it as a discipline built something the one-time participants could never replicate. Be the discipline. Never the event.</div>
+
+  <div class="step-num">Step Five — The nine million VCLM alert fires</div>
+  <div class="step-head">Stage everything for CHONX launch. This is your most important alert.</div>
+  <div class="step-body">When the VCLM supply crosses nine million, you have approximately three to eight weeks before CHONX launches — depending on vault activity and emission rate at that point in the decay curve. <strong>This is when you stop thinking about VCLM and start thinking about what VCLM is for.</strong> You have been accumulating VCLM through restaking for months or years. Every token in that wallet above your SYNTH reserve is about to become 1.5 times more valuable as a CHONX-earning instrument than any other token in the world. This is also the moment to calculate your reserve precisely — how many VCLM do you need to hold back for your SYNTH target? Set that aside permanently before you stake a single token for CHONX. Not because the price changed. Because the protocol is about to enter its second phase, and you need to be positioned correctly — not just early.
+
+  Stage your non-reserve VCLM — the tokens from Tranches A, B, and D. Keep your Tranche C VCLM completely separate. That portion is already spoken for — it belongs to your SYNTH burn. The 1.5x bonus applies to the VCLM you stake for CHONX, not to what you hold in reserve. You earned it by being early. Do not waste it by being unprepared at the second door. And do not empty your reserve in the excitement of the moment — that mistake is very hard to recover from.</div>
+
+  <div class="step-num">Step Six — CHONX launches</div>
+  <div class="step-head">Stake your non-reserve VCLM for CHONX immediately. Keep your SYNTH reserve separate.</div>
+  <div class="step-body">The contract executes automatically. You do not need an announcement. You do not need a forum post telling you it happened. Your nine-million alert told you it was coming. When the ten-million threshold fires, you stake your non-reserve VCLM for CHONX within the hour. Not the day. The hour. <strong>The 1.5x CHONX bonus for VCLM holders is the single most time-sensitive opportunity in this protocol's architecture.</strong> The seats are filling. The demand for CHONX is about to become extraordinary. You want to be staked before the market fully understands what has just happened.
+
+  But here is what I would do differently from what I actually did: I would have already calculated exactly how much VCLM I needed to hold in reserve for my SYNTH target before that moment arrived. Not during the excitement. Before it. The ratio is fixed — one thousand VCLM and ten thousand CHONX per SYNTH. Know your target. Know your reserve. Stake everything above that reserve immediately. Everything below it does not move.
+
+  I know what happened when CHONX launched. I watched it from my desk at three forty-seven in the morning. The price moved at seventy degrees for thirty-six hours. I had positioned well but not perfectly. I was not staged at the moment the threshold crossed. I watched the first two hours from the outside. Two hours. That is what waiting costs.</div>
+
+  <div class="step-num">Step Seven — The ratio calculation</div>
+  <div class="step-head">Before you burn a single token, do the arithmetic. It matters more than the timing.</div>
+  <div class="step-body">When you are ready to mint SYNTH — and you will know when you are ready, because you will have accumulated CHONX over months of staking and you will feel the pull of the third token — <strong>do not burn until your ratio is perfect.</strong> One thousand VCLM to ten thousand CHONX. Exactly. If your ratio is off — if you have more VCLM than your CHONX can pair with, or more CHONX than your VCLM can pair with — go to an exchange and buy exactly the shortfall. Not approximately. Exactly. Every unpaired token is SYNTH you could have minted and did not. I know this lesson personally. I calculated it to the token before my burn. I was precise because I am constitutionally incapable of being otherwise. But I should have burned earlier, when CHONX was more plentiful. The compression cascade I describe in the paper — the phenomenon where accelerating burns make future burns progressively more expensive in ingredient terms — was predictable from the documentation. I predicted it. I burned late anyway. Do not burn late.</div>
+
+  <div class="step-num">Step Eight — Before any of this</div>
+  <div class="step-head">Decide what you are going to do with whatever this gives you. Before you have it.</div>
+  <div class="step-body">This is the step that is not in the protocol document. It is not about tokens. It is about what the tokens are for. <strong>The people who build the most meaningful things with what this protocol gives them will be the ones who decided before they participated what they were going to build.</strong> Not what price they were waiting for. Not what their position would be worth. What they would <em>do</em> with it. The tokens are the means. The decision is the beginning. Make the decision first. The rest is arithmetic.</div>
+
+</div>
+
+<div class="stars">· · ·</div>
+
+<p>He stopped writing. He looked at what he had covered on the back of the title page — the triangle, the arrows, a sequence of numbered notes in his precise handwriting, two calculations in the margin. He turned it toward her.</p>
+
+<p>She looked at the triangle for a long moment. Not at the numbers. At the shape itself.</p>
+
+<p>He watched her the way he sometimes watched his best graduate students — waiting to see what they found that he had stopped noticing.</p>
+
+<div class="d">
+  It reminds me of something.
+</div>
+<p class="sp">Soo-yeon</p>
+
+<p>Ji-ho waited.</p>
+
+<div class="d">
+  The earth, the moon, the sun. Three bodies created in their own sizes, and their distances set in proportion to one another. God engineered them that way because it pleased Him to do so. And the result is the only perfect total eclipse in the known solar system. It could not have happened any other way. He made sure of that.
+</div>
+<p class="sp">Soo-yeon</p>
+
+<p>Ji-ho looked at his niece.</p>
+
+<p>He looked at the triangle.</p>
+
+<p>He looked at his niece again.</p>
+
+<p>In nineteen years of studying this system — of modeling it, living inside it, writing about it, presenting at conferences to rooms full of people who had read every paper he had ever published — nobody had said that. Not once. Not in any language. He had seen the proportions a thousand times. He had never seen what the proportions <em>meant.</em></p>
+
+<p>Three tokens. Vastly different supply sizes. Ten billion, one hundred billion, ten million. The 1:10 burn ratio of VCLM to CHONX mirrors the 1:10 supply ratio between them. The proportions are internally consistent across every layer of the system. Each token is necessary for the existence of the next. The largest feeds the middle. The middle and the largest are consumed to create the smallest. The smallest — ultra-rare, irreplaceable, born only from destruction — carries within it everything that was given up to make it.</p>
+
+<p>Designed that way. Not arrived at. Not optimized toward. <em>Designed.</em> Because it pleased the designer to do so.</p>
+
+<div class="d">
+  You know what people say about crypto tokens? They say they have utility. They say their token does something. Most of them are lying. The utility is invented after the tokenomics, to justify the tokenomics. It is decoration. A story told to make a number go up.
+</div>
+<p class="sp">Ji-ho</p>
+
+<p>He tapped the triangle.</p>
+
+<div class="d">
+  VCLM has one staking function. One. It stakes for CHONX after CHONX launches, and it earns 1.5 times more CHONX than any other token staker. That function is hard-coded. It cannot be changed. It cannot be taken away. It was not added later to justify a price. It is written into the architecture of the second token's existence. VCLM does not have utility because someone wrote a whitepaper saying it does. VCLM has utility because CHONX literally cannot be accumulated at the maximum rate without it.
+</div>
+<p class="sp">Ji-ho</p>
+
+<div class="d">
+  That is real utility.
+</div>
+<p class="sp">Soo-yeon</p>
+
+<div class="d">
+  That is the only kind that matters. People have talked about fake utility in this industry for twenty years. Governance tokens that govern nothing. Staking tokens that stake for nothing. Burn mechanisms that burn tokens nobody wanted. Here every layer earns its existence. The first token earns you 1.5x access to the second. The second is one of only two ingredients that can create the third. The third is the permanent record of the destruction of the first two — a seat that can only be built by someone who committed, accumulated, and chose to burn. Nothing is decoration. Everything is load-bearing.
+</div>
+<p class="sp">Ji-ho</p>
+
+<p>Soo-yeon looked at the triangle. The three dots. The arrows going up. The arrows going down in the other direction — the burning direction.</p>
+
+<div class="d">
+  The eclipse.
+</div>
+<p class="sp">Soo-yeon</p>
+
+<p>Ji-ho nodded once. He picked up the pen. At the bottom of the triangle, beneath the SYNTH apex, he wrote two words.</p>
+
+<p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(1.2rem,2.2vw,1.7rem);color:rgba(255,255,255,0.5);margin:2rem 0 2rem 2rem;padding-left:1.4rem;border-left:2px solid rgba(255,255,255,0.12);max-width:500px;">Designed that way.</p>
+
+<div class="stars">· · ·</div>
+
+<div class="d">
+  Five hundred dollars.
+</div>
+<p class="sp">Soo-yeon</p>
+
+<div class="d">
+  Five hundred dollars. Deployed correctly. From day one.
+</div>
+<p class="sp">Ji-ho</p>
+
+<div class="d">
+  Show me what that actually produces.
+</div>
+<p class="sp">Soo-yeon</p>
+
+<p>He turned to a fresh section of the paper's back pages and wrote.</p>
+
+<div class="stars">· · ·</div>
+
+<span id="the-numbers"></span>
+<!-- ══ THE NUMBERS ══════════════════════════════════════════════════════════════ -->
+
+<div class="data">
+  <p class="data-hd">Illustrative Analysis — $500 Starting Capital — Optimal Strategy vs. Ji-ho's Actual</p>
+  <p><em>All figures are illustrative, based on protocol mechanics as designed. Actual outcomes depend on market conditions, available lock durations, exchange rates, and individual decisions. This is not a financial projection. It is an illustration of the compounding effect of timing and discipline.</em></p>
+</div>
+
+<p>He walked through it methodically. Five hundred dollars of supported assets, locked in a staggered ladder on day one at peak emission rate. Each tranche's asset returns at ninety-five percent and is relocked immediately at a longer duration. The VCLM accumulates separately in the wallet — it cannot be relocked. He estimated conservatively — assuming duration multipliers partially offset the 1.667% monthly emission decay, which is what the mechanic is designed to do.</p>
+
+<p>Over two and a half years before CHONX — through consistent restaking, always choosing longer durations, accumulating VCLM at rates that decline but never stop — his estimate for total VCLM from $500 optimally deployed was between twelve thousand and eighteen thousand tokens, depending on how aggressively durations were extended at each cycle. He used fourteen thousand as his working number.</p>
+
+<p>Compare that to starting the same process two years later, at month twenty-five: the emission rate is running at approximately sixty-seven percent of its launch rate. The same $500 deployed identically from month twenty-five produces roughly half the VCLM per dollar over the equivalent period.</p>
+
+<div class="d">
+  The two years of observation I gave myself in 2026 cost me approximately half my position. Not because I lost anything. Because the protocol kept running without me while I was deciding.
+</div>
+<p class="sp">Ji-ho</p>
+
+<div style="overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 -0.5rem;padding:0 0.5rem;">
+<table class="compare" style="min-width:700px;">
+  <tr>
+    <th>Metric</th>
+    <th>Ji-ho — Actual</th>
+    <th>$500 — Optimal from Day One</th>
+    <th>What the Difference Means</th>
+  </tr>
+  <tr>
+    <td class="label">Entry timing</td>
+    <td class="actual">Month 25 — after 2 years of watching</td>
+    <td class="optimal">Day 1 — one month after learning of launch</td>
+    <td class="delta">24 months of decay missed</td>
+  </tr>
+  <tr>
+    <td class="label">Starting capital</td>
+    <td class="actual">~$80,000–$120,000 on secondary market</td>
+    <td class="optimal">$500 directly into vault at floor price</td>
+    <td class="delta">Floor price advantage on every dollar</td>
+  </tr>
+  <tr>
+    <td class="label">VCLM accumulated</td>
+    <td class="actual">94,300 tokens — bought above floor</td>
+    <td class="optimal">~14,000 tokens from $500 — at floor rate</td>
+    <td class="delta">Ji-ho's absolute position larger; per-dollar the $500 strategy is comparable</td>
+  </tr>
+  <tr>
+    <td class="label">CHONX staking</td>
+    <td class="actual">Staged well but not at the exact threshold moment</td>
+    <td class="optimal">Staged and ready at 9M alert — staked within the hour of CHONX launch</td>
+    <td class="delta">Full 1.5x bonus captured at maximum rate from moment zero</td>
+  </tr>
+  <tr>
+    <td class="label">Burn ratio</td>
+    <td class="actual">Calculated precisely — required exchange purchase to balance</td>
+    <td class="optimal">Identical discipline — ratio calculated before burning</td>
+    <td class="delta">Same outcome — precision matters regardless of capital</td>
+  </tr>
+  <tr>
+    <td class="label">SYNTH minted</td>
+    <td class="actual">94.3 tokens — Tier 1 governance seat</td>
+    <td class="optimal">~8–12 tokens from $500 — Tier 1 governance seat</td>
+    <td class="delta">Both arrive at Tier 1. The seat has the same voting weight. The treasury distribution is pro-rata. The $500 participant is at the same table.</td>
+  </tr>
+  <tr>
+    <td class="label">Compounding over 15 years</td>
+    <td class="actual">Substantial — Ji-ho's position grew significantly</td>
+    <td class="optimal">Smaller in absolute terms — but governance distributions, restaking, and the tiger trap era create compounding regardless of initial size</td>
+    <td class="delta">The mechanism does not care how much you start with. It cares when you start and whether you stay.</td>
+  </tr>
+</table>
+</div>
+
+<p>He put down the pen.</p>
+
+<div class="d">
+  The number that matters is not the five hundred dollars. It is not the fourteen thousand VCLM. It is that at the end of the protocol's active life, the person who started with five hundred dollars on day one and followed the discipline — every relock, every duration extension, the ratio calculation, the burn — <strong>holds a Tier 1 SYNTH governance seat.</strong> The same seat I hold. The same seven-times voting weight. The same pro-rata share of every treasury distribution that governance votes to make.
+</div>
+<p class="sp">Ji-ho</p>
+
+<p>He looked at his niece.</p>
+
+<div class="d">
+  The protocol does not ask how much you brought. It asks how long you were willing to stay.
+</div>
+<p class="sp">Ji-ho</p>
+
+<div class="stars">· · ·</div>
+
+<!-- ══ THE AI SECTION ═══════════════════════════════════════════════════════════ -->
+
+<p>Soo-yeon had been quiet for several minutes. She was thinking. Ji-ho recognized the expression — she had had it since she was seven years old, sitting across from him at a different table in a different city, working through a mathematics problem that was harder than she wanted to admit.</p>
+
+<div class="d">
+  You said you would have asked the AI different questions. What would you have asked?
+</div>
+<p class="sp">Soo-yeon</p>
+
+<p>He considered this for a moment. Then he told her.</p>
+
+<div class="ai">
+  <p class="ai-hd"><span id="ai-questions"></span>
+The Questions Ji-ho Would Have Asked an AI — November 2025 — 30 Days Before Launch</p>
+
+  <p><strong>Question 1:</strong> Given that this token's circulating supply is earned through individual commitment events rather than pre-allocated at genesis, what are the structural implications for secondary market price behavior compared to a standard pre-mined token? What specifically happens to the order book when utility demand meets an earned float?</p>
+
+  <p style="background:rgba(0,232,135,0.04);border-left:2px solid rgba(0,232,135,0.2);padding:1rem 1.2rem;margin:0.8rem 0;font-size:clamp(0.82rem,1.3vw,1.02rem);line-height:1.95;color:rgba(200,255,220,0.78);">
+  <strong style="color:rgba(0,232,135,0.7);">AI Response — Question 1:</strong><br/><br/>
+  Most tokens are born with a large supply already in existence. A team mints billions on day one. Some go to founders, some to investors, some to a treasury. Even if many are locked for six or twelve months, the market knows they exist and prices in the future dilution from day one. Buyers are always competing with the shadow of supply that hasn't arrived yet.<br/><br/>
+  VCLM has no genesis event. On day one, zero tokens exist. Every token that will ever exist must be individually minted by an individual participant through an individual commitment event — locking a supported asset, paying the five percent fee, accepting the current emission rate. The float is small not by design but by the nature of how the tokens arrive in the world. They are earned, not allocated.<br/><br/>
+  This creates a structurally different holder base. The people holding VCLM paid for it — not with money, but with commitment. They locked something they valued, accepted a permanent fee, and waited for their asset to return. The psychological attachment to a token earned through commitment is categorically different from the attachment to a token received in an airdrop or presale. Earned holders do not sell quickly. The sell side of the order book is thin not because of any lock mechanism but because the holders chose to be there.<br/><br/>
+  Now consider what happens when utility demand arrives. When CHONX launches, people who want to stake for CHONX at the 1.5x bonus need VCLM. This is not speculative demand — it is structural and urgent. Someone who wants CHONX at 1.5x will pay whatever the market asks for VCLM because the alternative — buying CHONX directly at 1x — is categorically worse for them. They are not asking whether VCLM will go up. They need it right now for a specific purpose.<br/><br/>
+  Here is the critical mechanic that shapes everything: <strong style="color:rgba(0,232,135,0.9);">VCLM arrives in the wallet the instant a vault lock confirms.</strong> Not at the end of the lock period. Not after a waiting period. The moment the lock transaction executes, the VCLM is there. This means someone who needs VCLM urgently can lock a supported asset right now and have VCLM in their wallet in seconds. The supply response is fast. What limits it is not time — it is willingness. You must commit a real asset, accept the five percent fee permanently, and accept the VCLM at whatever the current emission rate is, which is lower today than it was yesterday and lower tomorrow than it is today. The people who delayed participating are paying an ever-higher effective cost in emission decay for every month they waited. That is the real constraint on supply. Not time. Commitment.<br/><br/>
+  Structural utility demand hitting a thin earned float, where supply can respond quickly but at increasing cost, produces price behavior that standard models are not built to analyze. The tools were built for genesis-event tokens. They do not have a framework for a token whose supply is earned discretely, decays in emission rate monthly, and is being permanently destroyed by a burn mechanism simultaneously. Every element of that description breaks a different assumption in the standard model. This token will be mispriced for longer than you expect — and the mispricing will resolve suddenly rather than gradually when the market finally runs the correct model.
+  </p>
+
+  <p><strong>Question 2:</strong> The protocol has a hard cap and a burn mechanism that removes supply permanently. When total VCLM minted gets close to the 10 billion hard cap — but people are also burning VCLM to mint SYNTH at the same time — does the burning reduce the total enough to allow new minting? Could that create a repeating cycle: burn, reopen, mint, burn again? How would I recognize it if it were happening?</p>
+
+  <p><strong>Question 3:</strong> The 1.5x CHONX staking bonus for VCLM holders activates at a specific supply threshold. Assuming I hold VCLM from day one and the threshold is crossed in approximately two to three years — what is the compounding advantage of being positioned before that threshold versus arriving at or after it? Give me the second and third-order effects, not just the first.</p>
+
+  <p><strong>Question 4:</strong> The SYNTH token can only be created by permanently destroying two other tokens. I have not encountered this mechanism elsewhere. What are the long-run supply dynamics of all three tokens if SYNTH minting accelerates significantly? Model the compression cascade. Tell me what the endgame looks like if adoption is substantial.</p>
+
+  <p><strong>Question 5:</strong> What is the single most common mistake a participant in a protocol like this would make in the first six months? Not a technical mistake — a behavioral one. What does the data on similar commitment-based systems say about where people fail themselves?</p>
+
+  <p>The answer to the fifth question, by the way, is always the same: <strong>they stop.</strong> They lock once, get their tokens, watch the price do something unexpected, and stop restaking. They treat the protocol as a one-time event instead of a discipline. The people who built the most significant positions in this system were not necessarily the people with the most capital. They were the people who showed up at every lock expiry and made the same decision one more time.</p>
+</div>
+
+<div class="stars">· · ·</div>
+
+<!-- ══ THE SECOND QUESTION ═══════════════════════════════════════════════════════ -->
+
+<p>Another hour had passed. The tea was cold. Soo-yeon had filled three pages of her notebook — not with the protocol mechanics, which she now understood, but with the things her uncle had said around them. The asides. The observations. The specific quality of attention he brought to something he had lived through and had nineteen years to reconsider.</p>
+
+<p>She asked her second question slowly, because she wanted to get it right.</p>
+
+<div class="d">
+  <span id="second-question"></span>
+Different question. A time machine — but not to go back yourself. To send a letter back. To the you that found Vinculum in late 2026 and put it in a folder called Watch — Interesting and then waited two years. What would you write? What would you say to him?
+</div>
+<p class="sp">Soo-yeon</p>
+
+<p>Ji-ho looked at his niece for a long moment.</p>
+
+<p>He was quiet for longer than she had expected. Not uncomfortable quiet — the quiet of a man who has been asked something true and is taking it seriously.</p>
+
+<p>Then he reached for the pen again.</p>
+
+<p>He turned to the last blank section of the printed paper and began to write. Not notes this time. Not calculations. Something else. She could see the handwriting change — slower, more deliberate, the penmanship of a man writing something he intended to mean.</p>
+
+<p>He wrote for fifteen minutes without looking up. When he was done he set down the pen and slid the paper across the table without reading it back to himself.</p>
+
+<div class="stars">· · ·</div>
+
+<!-- ══ THE LETTER ════════════════════════════════════════════════════════════════ -->
+
+<div class="letter">
+  <p class="letter-hd">A letter — written March 2045 — addressed to Ji-ho Lim, age 37, Seoul — November 2026</p>
+
+  <p>You found it tonight. You read it twice. You put it in a folder. I know what you are thinking. You are thinking: <em>I need more data. I need to watch it for a while. I need to understand the failure modes before I commit to anything.</em></p>
+
+  <p>I know this because I was you. I know how your mind works. You are not wrong to want more data. You are wrong about what the data is for.</p>
+
+  <p>The data you need is in the document you have already read. The mechanism is transparent. The fee is disclosed on the first page. The vault is immutable — there is no admin who can take what you commit. The math of the emission decay is elementary. The three-token architecture is unusual but not complicated once you draw the triangle. You have already drawn the triangle. I know you have because I remember drawing it and I remember the moment I understood what the burning direction meant.</p>
+
+  <p>You understood it tonight. You are choosing not to act on it tonight. That is the only mistake I am writing to tell you about.</p>
+
+  <p><strong>Do not wait two years.</strong> I know that sounds reckless coming from me. It is not recklessness. It is arithmetic. The emission rate on the day this protocol launches will be the highest it will ever be in the protocol's entire history. Every month you wait is 1.667% of that advantage, compounded, that you will never recover. I waited twenty-four months. I know exactly what those twenty-four months cost. I have modeled it carefully — which is, of course, exactly what you would do — and the number is significant enough that I am writing this letter rather than simply noting it in a footnote.</p>
+
+  <p>Here is what I want you to do. Not instead of the analysis. After it. Read the document a third time. Ask an AI what the second and third-order consequences of the burn mechanism are. Ask it specifically: when the VCLM supply approaches its hard cap but burns are also destroying tokens to mint SYNTH — does that create a loop where burning reopens minting, and new minting gets burned again? Write down the answer. Sleep on it. In the morning — not next week, not next month — <strong>start small if you need to. But start.</strong></p>
+
+  <p>Lock your supported asset — whatever is on the list that you hold — at the longest duration you can commit to without anxiety. When it expires — and ninety-five percent of that asset will return to you, exactly as the document says it will — lock it again. Longer this time. The VCLM earns and accumulates in your wallet. The asset cycles back through the vault. And again. And again. Do not stop either process. The people who treated this as a one-time event earned once. The people who treated it as a discipline built something that nineteen years later I am still studying.</p>
+
+  <p>Set an alert for when the VCLM supply crosses nine million tokens. Not ten million. Nine. You want to be staged and ready before the CHONX threshold fires, not reacting to it after the fact. I watched the moment CHONX launched from the wrong side of the threshold. I was positioned — but not perfectly. The first two hours of that morning are the two hours of this entire nineteen-year story I most wish I could have back.</p>
+
+  <p>When you are ready to burn for SYNTH — and you will know when — calculate the ratio before you burn. One thousand VCLM to ten thousand CHONX, exactly. If the ratio is off, go to an exchange and buy the shortfall. Not approximately. Exactly. Every unpaired token is SYNTH you could have minted. Precision is the only luxury the mechanism allows you.</p>
+
+  <p>Burn before the compression cascade makes the ingredients expensive. I know what the cascade is because I watched it happen. You can know it before it happens — it is a logical implication of the mechanism, findable by anyone who asks the right questions of a good AI. Ask the right questions.</p>
+
+  <p>Now. The last thing. The most important thing. The thing that is not in the protocol document and that I did not understand until I was much older than you are now.</p>
+
+  <p><strong>Decide what you are going to do with whatever this gives you — before you have it.</strong></p>
+
+  <p>I know how this sounds. You are an analyst. You do not make decisions about outputs before you understand inputs. But this is not an analytical question. It is a different kind of question. And I have spent fifteen years studying the people who participated in this protocol, and I can tell you with confidence that the ones who built the most meaningful things with what it gave them — every single one of them — had decided before they participated what they would build.</p>
+
+  <p>Not what they would buy. Not what price they were waiting for. What they would <em>build.</em></p>
+
+  <p>You are going to ask me what I would build. I will tell you. I would build understanding. I would write the paper earlier. I would spend less time watching from the outside and more time inside the mechanism, feeling how it works from the participant's perspective rather than the observer's. I would be less afraid of being wrong about the timing and more afraid of arriving too late to see the whole arc.</p>
+
+  <p>I arrived in time to see most of it. I missed the beginning. The beginning was the part that shaped everything that followed.</p>
+
+  <p>You are at the beginning right now.</p>
+
+  <p>Put the folder away. Open the vault. Lock something. Anything. The minimum duration. Five hundred dollars. Whatever you have that is on the list. Let VCLM arrive in your wallet in eleven seconds and feel what that means — not as an abstraction, not as a number in a model, but as a real thing that just happened because you decided to commit to something and the protocol recognized the decision immediately.</p>
+
+  <p>Then relock. Longer.</p>
+
+  <p>Then decide what you will build.</p>
+
+  <div class="letter-close">
+    With the respect of someone who knows exactly how long you will take to make up your mind,<br /><br />
+    Ji-ho Lim<br />
+    March 2045<br />
+    Seoul
+  </div>
+</div>
+
+<div class="stars">· · ·</div>
+
+<!-- ══ CLOSE OF SCENE ═══════════════════════════════════════════════════════════ -->
+
+<p>Soo-yeon read the letter twice. Then she set it down on the table and looked at her uncle for a long moment.</p>
+
+<p>He was looking at his hands.</p>
+
+<div class="d">
+  Did you know, when you wrote the paper — when you titled the section on the eight emergent phenomena — did you know that the most important one wasn't in there?
+</div>
+<p class="sp">Soo-yeon</p>
+
+<p>He looked up.</p>
+
+<div class="d">
+  The ninth phenomenon. The one where the mechanism selects for a specific kind of person. Not by income. Not by sophistication. By disposition. The people who stayed were the people who had already decided what staying was for.
+</div>
+<p class="sp">Soo-yeon</p>
+
+<p>Ji-ho looked at his niece — twenty-seven years old, eighteen months into her first job, holding a letter he had just written to his thirty-seven-year-old self — and for the first time in the conversation, he smiled.</p>
+
+<div class="d">
+  I'll add it to the second edition.
+</div>
+<p class="sp">Ji-ho</p>
+
+<div class="rule"></div>
+
+<div class="pull">
+  "The mechanism does not ask how much you brought. It asks how long you were willing to stay."
+</div>
+
+<div class="final">
+  What follows is the formal paper.<br />
+  <em><span id="bridge"></span>
+The conversation above is what the paper cannot contain.</em>
+</div>
+
+
+<div style="margin:5rem 0;padding:3rem 0;border-top:1px solid rgba(255,255,255,0.07);border-bottom:1px solid rgba(255,255,255,0.07);text-align:center;">
+  <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;font-size:clamp(1.1rem,2vw,1.5rem);color:rgba(255,255,255,0.3);margin:0;">What follows is the formal paper.</p>
+  <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;font-size:clamp(1.1rem,2vw,1.5rem);color:rgba(255,255,255,0.2);margin:0.5rem 0 0;">The conversation above is what the paper cannot contain.</p>
+</div>
+<!-- ══ APPENDIX HEADER ══════════════════════════════════════════════════════ -->
+
+<p class="appendix-label">Out of Left Field · Appendix A</p>
+<h2 class="appendix-title">A Complete Economic History of the<br />Vinculum Three-Token System,<br /><em>2026 — 2044</em></h2>
+<p class="byline">By Ji-ho Lim</p>
+<p class="journal">Published in the Journal of Decentralized Finance · Volume 12 · March 2045 · First Edition<br />
+Presented at the Seoul Conference on Emergent Token Economics · November 2043</p>
+
+<div class="section-rule"></div>
+
+<p>I have been asked, more times than I can count, to explain what happened. Not to justify it — the numbers speak well enough for themselves. Not to celebrate it — I am not, by temperament, a celebrant. But to explain it: to lay out, with the precision the subject deserves, exactly how a three-token system that launched in 2026 with no presale, no premine, and no team allocation arrived, nineteen years later, at the state of affairs we now observe.</p>
+
+<p>I was there from the beginning. Not from the very beginning — I watched for two years before I participated, which is a fact I have made my peace with, mostly. I watched the first vault locks. I watched the first DEX trades. I modeled the CHONX launch eighteen months before it occurred and was still not fully prepared for what happened when it did. I watched the burn-mint oscillation from my desk in Seoul with cold coffee and instant noodles and three monitors that could not update fast enough to keep pace with what the contracts were doing.</p>
+
+<p>I have spent the intervening fifteen years studying what I watched. This paper is the result.</p>
+
+<div class="pull-quote">
+  "The protocol did not create the phenomena described in this paper. The participants did. The protocol merely defined the rules of a game whose most interesting moves were invented by the players."
+</div>
+
+<div class="section-rule"></div>
+
+<!-- ══ THE CHART ═════════════════════════════════════════════════════════════ -->
+
+<p class="section-num">Figure 1</p>
+<h3 class="section-title">The Complete Lifecycle — <em>Supply Dynamics 2026–2044</em></h3>
+
+<p>The following chart represents the best available reconstruction of all three token supplies across the full nineteen-year period. Drag the scrubber to move through time. Hover any point for detail. Phase boundaries are marked.</p>
+
+<div class="chart-container" style="position:relative;">
+  <p class="chart-title">Vinculum Protocol — Three-Token Supply Lifecycle</p>
+  <p class="chart-subtitle">Normalized supply (% of theoretical maximum) · 2026–2044 · Reconstructed from on-chain data</p>
+
+  <div class="chart-legend">
+    <div class="legend-item">
+      <div class="legend-line" style="background:var(--vclm);"></div>
+      <span class="legend-label" style="color:var(--vclm);">VCLM — 10B max</span>
+    </div>
+    <div class="legend-item">
+      <div class="legend-line" style="background:var(--chonx);"></div>
+      <span class="legend-label" style="color:var(--chonx);">CHONX — 100B max</span>
+    </div>
+    <div class="legend-item">
+      <div class="legend-line" style="background:var(--synth);"></div>
+      <span class="legend-label" style="color:var(--synth);">SYNTH — 10M max</span>
+    </div>
+    <div class="legend-item">
+      <div class="legend-line" style="background:rgba(255,80,80,0.6); height:1px; border-top: 2px dashed rgba(255,80,80,0.5);"></div>
+      <span class="legend-label" style="color:rgba(255,120,120,0.7);">Dead supply floor</span>
+    </div>
+  </div>
+
+  <svg id="lifecycleChart" viewBox="0 0 900 300" preserveAspectRatio="xMidYMid meet">
+    <defs>
+      <linearGradient id="vclmGrad" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#00d4ff" stop-opacity="0.15"/>
+        <stop offset="100%" stop-color="#00d4ff" stop-opacity="0"/>
+      </linearGradient>
+      <linearGradient id="chonxGrad" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#d4af6a" stop-opacity="0.12"/>
+        <stop offset="100%" stop-color="#d4af6a" stop-opacity="0"/>
+      </linearGradient>
+      <linearGradient id="synthGrad" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#00e887" stop-opacity="0.12"/>
+        <stop offset="100%" stop-color="#00e887" stop-opacity="0"/>
+      </linearGradient>
+    </defs>
+
+    <!-- Grid lines -->
+    <line x1="60" y1="20" x2="60" y2="260" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+    <line x1="60" y1="260" x2="880" y2="260" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+    <line x1="60" y1="20" x2="880" y2="20" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+    <line x1="60" y1="100" x2="880" y2="100" stroke="rgba(255,255,255,0.03)" stroke-width="1" stroke-dasharray="4,4"/>
+    <line x1="60" y1="180" x2="880" y2="180" stroke="rgba(255,255,255,0.03)" stroke-width="1" stroke-dasharray="4,4"/>
+
+    <!-- Y axis labels -->
+    <text x="50" y="24" fill="rgba(255,255,255,0.2)" font-size="9" text-anchor="end" font-family="DM Sans">100%</text>
+    <text x="50" y="104" fill="rgba(255,255,255,0.2)" font-size="9" text-anchor="end" font-family="DM Sans">67%</text>
+    <text x="50" y="184" fill="rgba(255,255,255,0.2)" font-size="9" text-anchor="end" font-family="DM Sans">33%</text>
+    <text x="50" y="264" fill="rgba(255,255,255,0.2)" font-size="9" text-anchor="end" font-family="DM Sans">0%</text>
+
+    <!-- Phase boundary lines -->
+    <!-- CHONX launch ~year 2 -->
+    <line x1="190" y1="20" x2="190" y2="260" stroke="rgba(212,175,106,0.2)" stroke-width="1" stroke-dasharray="3,3"/>
+    <text x="192" y="35" fill="rgba(212,175,106,0.35)" font-size="8" font-family="DM Sans">CHONX</text>
+    <!-- SYNTH launch ~year 4 -->
+    <line x1="320" y1="20" x2="320" y2="260" stroke="rgba(0,232,135,0.2)" stroke-width="1" stroke-dasharray="3,3"/>
+    <text x="322" y="35" fill="rgba(0,232,135,0.35)" font-size="8" font-family="DM Sans">SYNTH</text>
+    <!-- Oscillation event ~year 6 -->
+    <line x1="430" y1="20" x2="430" y2="260" stroke="rgba(255,150,80,0.2)" stroke-width="1" stroke-dasharray="3,3"/>
+    <text x="432" y="35" fill="rgba(255,150,80,0.3)" font-size="8" font-family="DM Sans">Oscillation</text>
+    <!-- Great compression ~year 12 -->
+    <line x1="650" y1="20" x2="650" y2="260" stroke="rgba(255,80,80,0.2)" stroke-width="1" stroke-dasharray="3,3"/>
+    <text x="652" y="35" fill="rgba(255,80,80,0.3)" font-size="8" font-family="DM Sans">Compression</text>
+    <!-- Tiger trap ~year 16 -->
+    <line x1="790" y1="20" x2="790" y2="260" stroke="rgba(255,255,255,0.15)" stroke-width="1" stroke-dasharray="3,3"/>
+    <text x="792" y="35" fill="rgba(255,255,255,0.25)" font-size="8" font-family="DM Sans">Tiger trap</text>
+
+    <!-- VCLM area fill -->
+    <path id="vclmArea" fill="url(#vclmGrad)"/>
+    <!-- CHONX area fill -->
+    <path id="chonxArea" fill="url(#chonxGrad)"/>
+    <!-- SYNTH area fill -->
+    <path id="synthArea" fill="url(#synthGrad)"/>
+    <!-- Dead supply floor dashed -->
+    <path id="deadPath" fill="none" stroke="rgba(255,80,80,0.45)" stroke-width="1.5" stroke-dasharray="5,4"/>
+
+    <!-- Main lines -->
+    <path id="vclmPath" fill="none" stroke="#00d4ff" stroke-width="2"/>
+    <path id="chonxPath" fill="none" stroke="#d4af6a" stroke-width="2"/>
+    <path id="synthPath" fill="none" stroke="#00e887" stroke-width="2"/>
+
+    <!-- Scrubber line -->
+    <line id="scrubLine" x1="60" y1="20" x2="60" y2="260" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+    <circle id="scrubDot" cx="60" cy="140" r="4" fill="white" opacity="0.6"/>
+
+    <!-- X axis year labels -->
+    <text x="60"  y="278" fill="rgba(255,255,255,0.2)" font-size="8" text-anchor="middle" font-family="DM Sans">2026</text>
+    <text x="190" y="278" fill="rgba(255,255,255,0.2)" font-size="8" text-anchor="middle" font-family="DM Sans">2028</text>
+    <text x="320" y="278" fill="rgba(255,255,255,0.2)" font-size="8" text-anchor="middle" font-family="DM Sans">2030</text>
+    <text x="450" y="278" fill="rgba(255,255,255,0.2)" font-size="8" text-anchor="middle" font-family="DM Sans">2032</text>
+    <text x="580" y="278" fill="rgba(255,255,255,0.2)" font-size="8" text-anchor="middle" font-family="DM Sans">2036</text>
+    <text x="710" y="278" fill="rgba(255,255,255,0.2)" font-size="8" text-anchor="middle" font-family="DM Sans">2040</text>
+    <text x="880" y="278" fill="rgba(255,255,255,0.2)" font-size="8" text-anchor="middle" font-family="DM Sans">2044</text>
+  </svg>
+
+  <!-- Scrubber -->
+  <div class="scrubber-wrap">
+    <span class="scrubber-label">Drag to explore timeline</span>
+    <input type="range" id="timeScrubber" min="0" max="100" value="0" style="flex:1;" />
+    <span id="yearDisplay">2026</span>
+  </div>
+
+  <!-- Live stats -->
+  <div class="stats-row">
+    <div class="stat-box">
+      <div class="stat-box-label" style="color:rgba(0,212,255,0.5);">VCLM Circulating</div>
+      <div class="stat-box-value sv-vclm" id="statVclm">0.8%</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-box-label" style="color:rgba(212,175,106,0.5);">CHONX Circulating</div>
+      <div class="stat-box-value sv-chonx" id="statChonx">—</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-box-label" style="color:rgba(0,232,135,0.5);">SYNTH Minted</div>
+      <div class="stat-box-value sv-synth" id="statSynth">—</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-box-label" style="color:rgba(255,120,120,0.5);">Dead Supply Floor</div>
+      <div class="stat-box-value sv-dead" id="statDead">0%</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-box-label" style="color:rgba(255,255,255,0.3);">Phase</div>
+      <div class="stat-box-value" id="statPhase" style="font-size:0.9rem;color:rgba(255,255,255,0.5);">Genesis</div>
+    </div>
+  </div>
+
+  <p class="chart-note">* All supply figures are normalized to percentage of theoretical maximum for each token. Actual token counts differ significantly. Dead supply floor represents cumulative VCLM and CHONX burned for SYNTH minting plus estimated wallet attrition. Chart reconstructed from on-chain data; pre-2032 figures verified; post-2032 figures estimated from governance records and burn indexes. Interactive scrubber moves through the full 19-year timeline.</p>
+</div>
+
+<div id="chartTooltip"></div>
+
+<div class="section-rule"></div>
+
+<!-- ══ SECTION I ═════════════════════════════════════════════════════════════ -->
+
+<div <span id="sect1"></span>
+<span id="sect2"></span>
+<span id="sect3"></span>
+<span id="sect4"></span>
+class="phase-label ph-vclm">Phase I — 2026–2028</div>
+<p class="section-num">Section I</p>
+<h3 class="section-title">Genesis — <em>The Era of VCLM</em></h3>
+
+<p>The protocol launched without ceremony. There was no press release, no exchange listing, no coordinated announcement. A website appeared. A document explained the mechanics. The supported assets page listed one hundred and one tokens. The vaults opened.</p>
+
+<p>What followed was, by the standards of decentralized finance in 2026, extraordinary in its ordinariness. People locked assets. VCLM appeared in their wallets. The five percent fee was taken honestly and without concealment. Ninety-five percent of committed assets returned to their owners when locks expired. The mechanism worked exactly as described.</p>
+
+<p>This is, I have come to understand, a rarer achievement than it sounds.</p>
+
+<p>The first emergent phenomenon of this period was what I have termed <strong>the earned float effect</strong>. The circulating supply of VCLM was, in the protocol's first two years, a fraction of one percent of the ten billion hard cap. Not because of lockups or vesting schedules — because every token in existence had been individually minted by individual participants through individual commitment events. The float was small because the tokens were earned, not allocated. And a float composed entirely of earned tokens has structural properties that no pre-mined token can replicate: the holders have demonstrated patience before they ever received a single token. They do not sell quickly. They were, by definition, the kind of people who wait.</p>
+
+<p>The secondary market reflected this immediately. VCLM's early trading was, in the words of a market maker I interviewed in 2029, <em>"weirdly healthy for something this young."</em> The order books were balanced. The spread was tight. Sell-side volume was thin not because of any lock mechanism but because the people holding it had chosen to be there. A token that is earned creates a different kind of holder than a token that is purchased. Markets learned this slowly. Holders knew it from the first moment.</p>
+
+<p>The second emergent phenomenon of this period was the <strong>decay paradox</strong>. The emission rate was decaying at 1.667% per month from the first day of the protocol's existence. This meant that every day that passed made the protocol slightly less generous to new participants. But it also meant that every day that passed increased the relative advantage of those who had already participated. The protocol was simultaneously becoming less attractive to newcomers on paper and more valuable to its existing participants in practice. This paradox — declining generosity increasing participant loyalty — is not obvious from the tokenomics documentation. It emerges from the arithmetic of commitment over time.</p>
+
+<div class="section-stars">· · ·</div>
+
+<!-- ══ SECTION II ════════════════════════════════════════════════════════════ -->
+
+<div class="phase-label ph-chonx">Phase II — 2028–2030</div>
+<p class="section-num">Section II</p>
+<h3 class="section-title">The CHONX Awakening — <em>And the 1.5x Amplification Loop</em></h3>
+
+<p>When the VCLM supply crossed ten million tokens in the spring of 2028, the contract executed automatically. No governance vote. No team announcement. No discretion of any kind. The threshold was crossed, and CHONX existed.</p>
+
+<p>I have spent considerable time trying to explain, in language accessible to people who were not present, what it felt like to watch this happen from a position of having modeled it for eighteen months prior. The honest answer is that it felt like watching a door open that had been described to you in detail but that you had not entirely believed was real until the light came through it.</p>
+
+<p>The 1.5x CHONX staking bonus for VCLM holders activated simultaneously. This is the mechanism I have described in prior publications as the <strong>amplification loop</strong>, and I want to be precise about why it is more significant than it first appears.</p>
+
+<p>The standard analysis focuses on the first-order effect: VCLM holders earn 1.5 times more CHONX per staked dollar than any other participant. This is, in itself, a meaningful advantage. But the second-order effect is more interesting: the CHONX earned at this preferential rate is burnable into SYNTH — which means the amplification propagates across all three tokens simultaneously. A VCLM holder's advantage is not limited to the VCLM layer. It compounds into CHONX and from there into SYNTH. The early participant's edge does not diminish across the protocol's layers. It multiplies.</p>
+
+<p>The communities who understood this earliest moved decisively. The LUNC community — which had been in the protocol since its earliest days and had accumulated VCLM at peak emission rates — found themselves, at CHONX launch, positioned to earn CHONX at 1.5x while the broader market was still learning that CHONX existed. The phrase that appeared across their forums, translated from a dozen languages, was consistent: <em>they remembered us.</em></p>
+
+<p>They were correct. The protocol had not remembered them in any sentimental sense — the contract has no sentiment. But the mathematics of the mechanism had produced an outcome that felt like memory: the people who had committed earliest were rewarded most specifically at the exact moment of the protocol's second major transition. This was not luck. It was arithmetic. But arithmetic, experienced in real time, can feel indistinguishable from grace.</p>
+
+<div class="section-stars">· · ·</div>
+
+<!-- ══ SECTION III ═══════════════════════════════════════════════════════════ -->
+
+<div class="phase-label ph-synth">Phase III — 2030–2034</div>
+<p class="section-num">Section III</p>
+<h3 class="section-title">The SYNTH Ignition — <em>The Burn-Mint Oscillation and the Compression Cascade</em></h3>
+
+<p>SYNTH launched in early 2030 when the CHONX supply crossed one hundred million tokens. The first burns were modest — careful participants testing the mechanism, verifying the math, confirming that the transaction behaved as the documentation described. Within three months the burn rate had accelerated dramatically. Within six months it had produced what I observed from my desk as the most genuinely novel emergent economic behavior I have encountered in twenty years of analyzing token systems.</p>
+
+<p>I have described the burn-mint oscillation in detail elsewhere. The summary: as SYNTH burns consumed VCLM approaching the hard cap, they created headroom below that cap that enabled new minting. The newly minted VCLM was, in many cases, immediately burned again for more SYNTH. The system entered a self-reinforcing cycle of destruction and creation that compressed years of expected minting activity into months.</p>
+
+<p>What I had not fully modeled — what I do not believe anyone had fully modeled — was the <strong>compression cascade</strong>: the feedback effect by which accelerating SYNTH burns reduce the available supply of CHONX, which reduces the rate at which SYNTH can be minted, which concentrates minting activity among the participants with the largest existing CHONX positions, which accelerates the burn rate among exactly that group, which further reduces CHONX supply. The cascade is self-terminating — it cannot continue indefinitely because the ingredients eventually become scarce enough that minting slows to a trickle — but the intermediate state, lasting approximately four years by my estimate, produced supply contractions in both VCLM and CHONX that exceeded the most aggressive projections in my 2028 model by a factor of between two and three.</p>
+
+<p>The <strong>governance seat scarcity squeeze</strong> emerged as a secondary phenomenon during this period. Tier 1 SYNTH seats filled faster than the ten-day epoch boundary expansion cycle could accommodate. Participants holding SYNTH found themselves unable to stake governance seats not because they lacked tokens but because the seats did not yet exist — the expansion cycle had not yet fired. This created a period of acute frustration among exactly the most committed protocol participants, which is not an outcome any designer would have chosen deliberately and which the community navigated with, I thought, admirable composure.</p>
+
+<p>The <strong>treasury flywheel</strong> operated throughout this period in a way that deserves specific note. The five percent fee on every vault lock accumulated to the treasury at a rate proportional to vault activity. During the demand surge of 2030–2031, vault activity was extraordinary. The treasury filled rapidly. Governance participants — who had staked their seats before the surge and were therefore already in place when the distributions were voted — received shares of a treasury that had been enriched by the activity of the latecomers rushing to participate. The people who had arrived early and stayed were paid, substantially, by the energy of the people who had arrived late and rushed. I do not think this outcome was intended. I think it was inevitable.</p>
+
+<div class="section-stars">· · ·</div>
+
+<!-- ══ SECTION IV ═════════════════════════════════════════════════════════════ -->
+
+<div class="phase-label ph-end">Phase IV — 2034–2044</div>
+<p class="section-num">Section IV</p>
+<h3 class="section-title">The Great Compression and <em>the Tiger Trap Economy</em></h3>
+
+<p>By 2034, the broad outline of the endgame was visible to anyone paying careful attention. The VCLM circulating supply had contracted sharply from its peak. CHONX, despite its one hundred billion hard cap, showed a circulating supply that had been substantially eroded by years of SYNTH burns combined with the natural attrition that affects all long-lived token systems: lost wallets, inaccessible hardware, forgotten seed phrases, exchange failures, and the quiet accumulation of tokens in wallets whose owners had died or simply stopped caring.</p>
+
+<p>I want to dwell on this attrition factor because it is underappreciated in most economic models of token systems. The crypto industry has, historically, lost between fifteen and thirty percent of any given token supply to permanent inaccessibility within twenty years of issuance. This is not a rounding error. When combined with the deliberate burns of the Vinculum SYNTH mechanism, the effective circulating supply of both VCLM and CHONX by 2034 was substantially below what the hard caps alone would suggest. The dead supply floor — the permanently inaccessible fraction of total issuance — was rising steadily, visible in the on-chain data as a growing gap between theoretical maximum supply and practically accessible supply.</p>
+
+<p>The <strong>coalition gravity effect</strong> reached its full expression during this period in a way I had not anticipated. One hundred and one communities, each with independent social networks and communication channels, had been holding a shared token for eight years. The social bonds formed in governance forums, in community discussions, in the accumulated experience of shared participation, had created something that resembled — without being precisely equivalent to — a culture. When significant protocol events occurred, they propagated through one hundred and one independent channels simultaneously. The amplification of any single piece of news was extraordinary. The protocol had accidentally created a broadcast infrastructure of remarkable reach by the simple act of making its vault available to a diverse asset list.</p>
+
+<p>The tiger trap economy emerged, as I had partially predicted, in the years from 2036 onward. The sell-side of VCLM and CHONX exchange markets became progressively thinner as holders fell into one of two categories: those who had lost access to their tokens and were therefore permanent dead supply, and those who remained and had decided, through whatever combination of conviction and inertia, not to sell. The buy-side, meanwhile, was maintained by a small but disciplined population of participants who understood that any VCLM or CHONX reaching the market was burnable into SYNTH — and that SYNTH, at this stage of the protocol's life, represented a concentration of economic history that could not be replicated by any other means.</p>
+
+<p>The buyers were patient. They set large orders at modest prices and waited. When a seller appeared — a forgotten wallet rediscovered, an estate being settled, a long-term holder finally converting — the order absorbed the supply instantly. The VCLM or CHONX disappeared from circulation and reappeared, days or weeks later, as fractional SYNTH in a minting transaction that removed its ingredients permanently from the total possible supply.</p>
+
+<p>The trap was not malicious. It required no coordination. It was the natural consequence of a system in which one token can only be created by destroying two others, and in which those two others are becoming genuinely, irreversibly scarce.</p>
+
+<div class="section-stars">· · ·</div>
+
+<!-- ══ SECTION V ══════════════════════════════════════════════════════════════ -->
+
+<span id="sect5"></span>
+<p class="section-num">Section V</p>
+<h3 class="section-title">SYNTH Supremacy — <em>The Final State</em></h3>
+
+<p>As of the date of this paper's publication, the Vinculum protocol has been operating for nineteen years. The state of the three-token system is as follows, to the best precision available from public on-chain data:</p>
+
+<div class="data-note">
+  <strong>VCLM:</strong> Circulating supply estimated at approximately 4–6% of theoretical maximum. Hard cap long since approached and partially relieved by burn-generated headroom; net effective maximum substantially below 10 billion due to cumulative burns. Exchange activity thin. Bid-side maintained by SYNTH-motivated buyers. Last meaningful sell-side activity recorded approximately eighteen months prior to this writing.<br /><br />
+  <strong>CHONX:</strong> Circulating supply estimated at approximately 8–12% of theoretical maximum. Similar dynamics to VCLM. Natural attrition compounded by burn consumption over fourteen years of SYNTH minting.<br /><br />
+  <strong>SYNTH:</strong> Minted supply approaching 85–90% of the practical ceiling as constrained by available VCLM and CHONX. Hard cap of 10 million technically unbreached; practical ceiling substantially lower due to ingredient scarcity. Exchange activity robust relative to its float. Price behavior consistent with a thin-float, high-conviction asset: low volume, wide spread, significant price impact on any meaningful transaction. Governance participation rate among the highest recorded for any protocol of comparable maturity.<br /><br />
+  <strong>Dead supply floor:</strong> Estimated at 92–96% of total VCLM and CHONX ever issued, combining burn consumption and natural attrition. This figure will only increase. It cannot decrease.
+</div>
+
+<p>SYNTH is, at this stage, the dominant economic entity in the Vinculum system. Not by design — no document ever stated that SYNTH would eventually overshadow its predecessors. By arithmetic. By the accumulated consequence of thousands of individual decisions made over nineteen years by participants who understood, to varying degrees, what they were participating in.</p>
+
+<p>The comparison to Bitcoin that has been made in several recent publications is, I think, partially apt and partially misleading. Bitcoin's scarcity is designed and fixed — a schedule written before the first block and unchangeable thereafter. SYNTH's scarcity was created dynamically, by participants, through voluntary destruction of two other tokens over nearly two decades. Bitcoin's holders did nothing to make Bitcoin scarce. SYNTH's holders made SYNTH scarce through deliberate, irreversible action. Every SYNTH in existence is the permanent record of someone who chose to burn what they had to build something rarer. That is not Bitcoin. That is something different. I am not certain we have the right word for it yet.</p>
+
+<div class="section-stars">· · ·</div>
+
+<!-- ══ SECTION VI — EMERGENT PHENOMENA CATALOGUE ══════════════════════════════ -->
+
+<span id="sect6"></span>
+<p class="section-num">Section VI</p>
+<h3 class="section-title">Catalogue of Emergent Phenomena — <em>Eight Interactions Nobody Designed</em></h3>
+
+<p>I conclude this paper with a brief catalogue of the emergent phenomena I have identified in nineteen years of studying this system. None of these were explicitly designed. All of them arose from the interaction of components that were each, individually, straightforward. The complexity is emergent. The consequences were real.</p>
+
+<p><strong>1. The Earned Float Effect.</strong> A token distributed exclusively through earned commitment creates a structurally different holder base than any pre-mined or purchased token. The float is small not by design but by the nature of the participants. Earned tokens are held by people who have already demonstrated patience. The secondary market reflects this immediately and persistently.</p>
+
+<p><strong>2. The Decay Paradox.</strong> Declining emission generosity simultaneously increases existing participant loyalty. The protocol becomes harder to enter over time and more valuable to those already inside. This is counterintuitive but arithmetically necessary given the design.</p>
+
+<p><strong>3. The 1.5x Amplification Loop.</strong> The CHONX staking bonus for VCLM holders compounds across all three token layers. Early advantage is not limited to the first token. It multiplies through every subsequent layer of the protocol's architecture.</p>
+
+<p><strong>4. The Burn-Mint Oscillation.</strong> Under sufficient demand pressure, SYNTH burns create headroom below the VCLM hard cap, enabling new minting, which is immediately burned again. The protocol enters a self-reinforcing cycle of creation and destruction that no designer specified and no model fully predicted.</p>
+
+<p><strong>5. The Compression Cascade.</strong> Accelerating SYNTH burns reduce CHONX supply, which limits future SYNTH minting velocity, which concentrates minting activity among the largest CHONX holders, which accelerates burns in that population, which further reduces CHONX supply. Self-terminating but sustained over approximately four years in this system.</p>
+
+<p><strong>6. The Treasury Flywheel.</strong> Late-arriving participants who rush into the protocol during demand surges enrich the treasury through vault fees, which is then distributed to governance participants who arrived and staked before the surge. Early commitment is rewarded by late urgency in a mechanism that requires neither design nor coordination.</p>
+
+<p><strong>7. The Coalition Gravity Effect.</strong> One hundred and one independent communities sharing a single token create a broadcast infrastructure of extraordinary reach. Any significant protocol event propagates through one hundred and one channels simultaneously. The social bonds formed through shared governance participation over years create something that functions as a culture, which has persistence properties that market dynamics alone cannot explain.</p>
+
+<p><strong>8. The Tiger Trap Economy.</strong> In the final state of the system, thin sell-side supply meets patient buy-side demand motivated by SYNTH minting opportunity. Every VCLM or CHONX that surfaces is immediately absorbed and burned. The buyers are not predatory. They are structural. They are the terminal expression of a burn mechanism that never stops operating as long as the ingredients exist and someone wants what can only be made from them.</p>
+
+<div class="section-rule"></div>
+
+<p class="section-num">Concluding Observations</p>
+
+<p>I have been asked, occasionally, whether I regret waiting two years before participating in the protocol. The honest answer is yes — in the narrow financial sense, the two years of observation cost me a position I could not fully recover. But the question misunderstands what the two years gave me. I watched the mechanism work from the outside, with the particular clarity that distance provides, before I was inside it. I understood what I was joining when I joined. I have spent the intervening years trying to share that understanding with anyone who would read carefully enough to receive it.</p>
+
+
+
+<p>The numbers are in the chart. The phenomena are in this paper. But the reason any of it matters is not in either place.</p>
+
+<p>It is in what people chose to do when the mechanism gave them something to work with.</p>
+
+<div class="pull-quote">
+  "I spent fifteen years studying what I watched happen in real time. At the end of those fifteen years, the most surprising finding was not economic. It was this: the people who understood the protocol most deeply were, without exception, the ones who had decided before they participated what they would do with whatever it gave them. They were not optimizing for tokens. They were using the token mechanism to fund something they had already decided to build."
+</div>
+
+<p style="font-family:'DM Sans',sans-serif;font-size:0.7rem;color:rgba(255,255,255,0.25);margin-top:2rem;line-height:1.8;">
+Ji-ho Lim is a Senior Research Fellow at the Seoul Institute for Decentralized Systems. He has held a Tier 1 SYNTH governance seat since April 2030. He declares no conflicts of interest. Correspondence: research@seoulids.kr
+</p>
+
+<div class="section-rule"></div>
+
+<div class="final-line">
+  The protocol did not create the phenomena described in this paper.<br />
+  The participants did.<br />
+  <em>The protocol merely defined the rules of a game<br />
+  whose most interesting moves<br />
+  were invented by the players.</em>
+</div>
+
+
+<p class="coda">Out of Left Field · Appendix A · © 2026 Vinculum Protocol DAO LLC · vinculumprotocol.com · @VinculumDefi</p>
+
 <p class="coda">vinculumprotocol.com &nbsp;·&nbsp; @VinculumDefi</p>
 
 </div>
 </div>
 
+
 <script>
-  let playing = true, pos = 0, rafId = null, lastTime = null, hideTimer = null;
-  const content = document.getElementById('content');
-  const scroller = document.getElementById('scroller');
+  const scroller    = document.getElementById('scroller');
+  const content     = document.getElementById('content');
   const speedSlider = document.getElementById('speedSlider');
-  const fontSlider  = document.getElementById('fontSlider');
+  const brightSlider= document.getElementById('brightSlider');
   const speedVal    = document.getElementById('speedVal');
-  const fontVal     = document.getElementById('fontVal');
   const statusEl    = document.getElementById('status');
   const playBtn     = document.getElementById('playBtn');
+
+  let playing  = true;
+  let pos      = 0;
+  let lastTime = null;
+  let hideTimer= null;
 
   function getSpeed() { return parseFloat(speedSlider.value) * 0.8; }
 
@@ -1268,62 +3015,236 @@
       const max = content.scrollHeight - scroller.clientHeight + 56;
       if (pos >= max) {
         pos = max; playing = false;
-        statusEl.textContent = 'The End';
-        playBtn.textContent = '▶ Play'; playBtn.classList.remove('active');
+        statusEl.textContent = 'End';
+        playBtn.textContent  = '▶ Play';
+        playBtn.classList.remove('active');
         showControls();
       }
-      content.style.transform = `translateY(${-pos}px)`;
+      content.style.transform = 'translateY(' + (-pos) + 'px)';
     }
-    rafId = requestAnimationFrame(animate);
+    requestAnimationFrame(animate);
   }
-
-  speedSlider.addEventListener('input', () => { speedVal.textContent = speedSlider.value; });
-  fontSlider.addEventListener('input', () => {
-    const pct = fontSlider.value;
-    fontVal.textContent = pct + '%';
-    content.style.fontSize = (pct / 100) + 'em';
-  });
 
   function showControls() {
     document.getElementById('controls').classList.remove('hidden');
     scroller.classList.remove('fullscreen');
     clearTimeout(hideTimer);
   }
-  function handleControlsLeave() { if (playing) hideTimer = setTimeout(hideControls, 1200); }
   function hideControls() {
     document.getElementById('controls').classList.add('hidden');
     scroller.classList.add('fullscreen');
   }
+  function handleControlsLeave() {
+    if (playing) hideTimer = setTimeout(hideControls, 1200);
+  }
+
   function togglePlay() {
     playing = !playing;
     if (playing) {
       lastTime = null;
-      playBtn.textContent = '⏸ Pause'; playBtn.classList.add('active');
+      playBtn.textContent = '⏸ Pause';
+      playBtn.classList.add('active');
       statusEl.textContent = 'Scrolling…';
       hideTimer = setTimeout(hideControls, 2000);
     } else {
       clearTimeout(hideTimer); showControls();
-      playBtn.textContent = '▶ Play'; playBtn.classList.remove('active');
+      playBtn.textContent = '▶ Play';
+      playBtn.classList.remove('active');
       statusEl.textContent = 'Paused';
     }
   }
+
   function resetScroll() {
     pos = 0; lastTime = null;
     content.style.transform = 'translateY(0)';
     playing = true;
-    playBtn.textContent = '⏸ Pause'; playBtn.classList.add('active');
+    playBtn.textContent = '⏸ Pause';
+    playBtn.classList.add('active');
     statusEl.textContent = 'Scrolling…';
     hideTimer = setTimeout(hideControls, 2000);
+    localStorage.removeItem('VP_POS');
   }
 
-  document.addEventListener('keydown', e => {
+  // ── Readability slider — directly sets opacity on text elements ──────────
+  // Simple approach: querySelectorAll every text element and set opacity directly.
+  function applyBrightness(val) {
+    var v     = parseInt(val);
+    var boost = (v - 50) / 50;
+    var isLight = document.body.classList.contains('light');
+
+    // Three tiers of text opacity
+    var txtAlpha   = isLight ? Math.min(0.97, Math.max(0.5, 0.88 + boost*0.09)) : Math.min(0.97, Math.max(0.5, 0.84 + boost*0.13));
+    var dimAlpha   = isLight ? Math.min(0.95, Math.max(0.3, 0.65 + boost*0.30)) : Math.min(0.95, Math.max(0.2, 0.55 + boost*0.40));
+    var faintAlpha = isLight ? Math.min(0.90, Math.max(0.2, 0.38 + boost*0.50)) : Math.min(0.90, Math.max(0.1, 0.30 + boost*0.58));
+
+    var baseText  = isLight ? '26,26,46'       : '237,233,248';
+    var baseWhite = isLight ? '26,26,46'       : '255,255,255';
+
+    // Main body text
+    var txtEls = document.querySelectorAll(
+      '#content p, #content .story-p, #content .dialogue, #content .d, #content .big, ' +
+      '#content .step-body, #content .letter p, #content .pull-quote, #content .pull, ' +
+      '#content .final, #content .final-line, #content .news p, #content .data p, ' +
+      '#content .analysis-p, #content .ai p, #content .data-note, #content .section-title, ' +
+      '#content .appendix-title, #content .ch-title, #content .part-title, #content .book-title, ' +
+      '#content .step-head'
+    );
+    txtEls.forEach(function(el) {
+      el.style.color = 'rgba(' + baseText + ',' + txtAlpha + ')';
+    });
+
+    // Dim text
+    var dimEls = document.querySelectorAll(
+      '#content .toc-list a, #content .pull-quote, #content .pull, ' +
+      '#content .book-subtitle, #content .audio-label'
+    );
+    dimEls.forEach(function(el) {
+      el.style.color = 'rgba(' + baseText + ',' + dimAlpha + ')';
+    });
+
+    // Faint text
+    var faintEls = document.querySelectorAll(
+      '#content .sp, #content .scene, #content .scene-break, ' +
+      '#content .ch-num, #content .part-label, #content .section-num, ' +
+      '#content .toc-title, #content .toc-part, #content .book-author, ' +
+      '#content .legal, #content .coda, #content .byline, #content .journal, ' +
+      '#content .chart-note, #content .scrubber-label, #content .data-hd, ' +
+      '#content .appendix-label, #content .eyebrow, #content .step-num, ' +
+      '#content .section-stars, #content .stars'
+    );
+    faintEls.forEach(function(el) {
+      el.style.color = 'rgba(' + baseWhite + ',' + faintAlpha + ')';
+    });
+
+    localStorage.setItem('VP_BRIGHT', val);
+    updateTrack(brightSlider);
+  }
+
+  // ── Theme toggle ─────────────────────────────────────────────────────────
+  function toggleTheme() {
+    var isLight = document.body.classList.toggle('light');
+    document.getElementById('themeBtn').textContent = isLight ? '☾' : '☀';
+    localStorage.setItem('VP_THEME', isLight ? 'light' : 'dark');
+    applyBrightness(brightSlider.value);
+    updateTrack(brightSlider);
+    updateTrack(speedSlider);
+  }
+
+  // ── Slider track fill ─────────────────────────────────────────────────────
+  function updateTrack(slider) {
+    var pct   = ((slider.value - slider.min) / (slider.max - slider.min)) * 100;
+    var light = document.body.classList.contains('light');
+    var fill  = light ? '#0088aa' : '#00d4ff';
+    var track = light ? 'rgba(0,0,0,0.14)' : 'rgba(255,255,255,0.15)';
+    slider.style.background = 'linear-gradient(to right,' + fill + ' ' + pct + '%,' + track + ' ' + pct + '%)';
+  }
+
+  speedSlider.addEventListener('input', function() {
+    speedVal.textContent = speedSlider.value;
+    updateTrack(speedSlider);
+    localStorage.setItem('VP_SPEED', speedSlider.value);
+  });
+
+  brightSlider.addEventListener('input', function() {
+    applyBrightness(brightSlider.value);
+  });
+
+  // ── TOC navigation ────────────────────────────────────────────────────────
+  function jumpToTOC() {
+    pos = 0; lastTime = null;
+    content.style.transform = 'translateY(0)';
+    playing = false;
+    playBtn.textContent = '▶ Play'; playBtn.classList.remove('active');
+    statusEl.textContent = 'Paused';
+    clearTimeout(hideTimer); showControls();
+  }
+
+  document.querySelectorAll('#toc a[href^="#"]').forEach(function(link) {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      var id     = link.getAttribute('href').slice(1);
+      var target = document.getElementById(id);
+      if (!target) return;
+      var scrollerTop = scroller.getBoundingClientRect().top + 80;
+      var targetTop   = target.getBoundingClientRect().top;
+      pos = Math.max(0, pos + (targetTop - scrollerTop));
+      content.style.transform = 'translateY(' + (-pos) + 'px)';
+      playing = false;
+      playBtn.textContent = '▶ Play'; playBtn.classList.remove('active');
+      statusEl.textContent = 'Paused';
+      clearTimeout(hideTimer); showControls();
+    });
+  });
+
+  // ── Scroll position memory ────────────────────────────────────────────────
+  function savePos() { if (pos > 10) localStorage.setItem('VP_POS', pos.toFixed(1)); }
+  setInterval(savePos, 3000);
+  window.addEventListener('beforeunload', savePos);
+
+  // ── Touch / swipe ─────────────────────────────────────────────────────────
+  var touchStartY = 0, isTouching = false;
+  document.addEventListener('touchstart', function(e) {
+    touchStartY = e.touches[0].clientY; isTouching = true;
+  }, { passive: true });
+  document.addEventListener('touchmove', function(e) {
+    if (!isTouching) return;
+    var deltaY = touchStartY - e.touches[0].clientY;
+    if (Math.abs(deltaY) > 4 && playing) {
+      playing = false; clearTimeout(hideTimer); showControls();
+      playBtn.textContent = '▶ Play'; playBtn.classList.remove('active');
+      statusEl.textContent = 'Paused';
+    }
+    pos = Math.max(0, Math.min(content.scrollHeight - scroller.clientHeight + 56, pos + deltaY * 1.2));
+    touchStartY = e.touches[0].clientY;
+    content.style.transform = 'translateY(' + (-pos) + 'px)';
+  }, { passive: true });
+  document.addEventListener('touchend', function() { isTouching = false; }, { passive: true });
+
+  // ── Mouse wheel ───────────────────────────────────────────────────────────
+  document.addEventListener('wheel', function(e) {
+    if (playing) {
+      playing = false; clearTimeout(hideTimer); showControls();
+      playBtn.textContent = '▶ Play'; playBtn.classList.remove('active');
+      statusEl.textContent = 'Paused';
+    }
+    pos = Math.max(0, Math.min(content.scrollHeight - scroller.clientHeight + 56, pos + e.deltaY * 1.8));
+    content.style.transform = 'translateY(' + (-pos) + 'px)';
+  }, { passive: true });
+
+  // ── Keyboard ──────────────────────────────────────────────────────────────
+  document.addEventListener('keydown', function(e) {
     if (e.code === 'Space')     { e.preventDefault(); togglePlay(); }
-    if (e.code === 'ArrowUp')   { speedSlider.value = Math.min(100, +speedSlider.value + 5); speedVal.textContent = speedSlider.value; }
-    if (e.code === 'ArrowDown') { speedSlider.value = Math.max(1,   +speedSlider.value - 5); speedVal.textContent = speedSlider.value; }
+    if (e.code === 'ArrowUp')   { speedSlider.value = Math.min(100, +speedSlider.value + 5); speedVal.textContent = speedSlider.value; updateTrack(speedSlider); }
+    if (e.code === 'ArrowDown') { speedSlider.value = Math.max(1,   +speedSlider.value - 5); speedVal.textContent = speedSlider.value; updateTrack(speedSlider); }
     if (e.code === 'KeyR')      { resetScroll(); }
   });
 
-  rafId = requestAnimationFrame(animate);
+  // ── Restore preferences & start ───────────────────────────────────────────
+  if (localStorage.getItem('VP_THEME') === 'light') {
+    document.body.classList.add('light');
+    document.getElementById('themeBtn').textContent = '☾';
+  }
+  var savedSpeed = localStorage.getItem('VP_SPEED');
+  if (savedSpeed) { speedSlider.value = savedSpeed; speedVal.textContent = savedSpeed; }
+
+  var savedBright = localStorage.getItem('VP_BRIGHT');
+  brightSlider.value = savedBright || 50;
+  applyBrightness(brightSlider.value);
+
+  var savedPos = parseFloat(localStorage.getItem('VP_POS') || '0');
+  if (savedPos > 10) {
+    pos = savedPos;
+    content.style.transform = 'translateY(' + (-pos) + 'px)';
+    playing = false;
+    playBtn.textContent = '▶ Play'; playBtn.classList.remove('active');
+    statusEl.textContent = 'Tap Play to resume';
+    showControls();
+  }
+
+  updateTrack(speedSlider);
+  updateTrack(brightSlider);
+
+  requestAnimationFrame(animate);
 </script>
 </body>
 </html>
