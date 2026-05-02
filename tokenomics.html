@@ -1,938 +1,390 @@
-<!--
-=============================================================
-  Vinculum Protocol — tokenomics.html
-=============================================================
-  Revision History:
-
-  v1.0 | March 21, 2026 | Founding Team
-  - Initial HTML conversion from tokenomics-rules.md v1.6
-  - Styled to match established Vinculum site design language
-  - Cormorant Garamond / DM Sans / dark navy / teal / gold
-
-=============================================================
--->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tokenomics Rules — Vinculum Protocol</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@200;300;400;500&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --black:   #0a0a0a;
-    --navy:    #060a10;
-    --bg:      #0d1318;
-    --bg2:     #111820;
-    --border:  rgba(255,255,255,0.07);
-    --border2: rgba(255,255,255,0.12);
-    --teal:    #00d4ff;
-    --gold:    #c9a84c;
-    --gold2:   #e8c96a;
-    --green:   #00e887;
-    --white:   #fafaf8;
-    --mid:     rgba(255,255,255,0.45);
-    --dim:     rgba(255,255,255,0.25);
-    --muted:   rgba(255,255,255,0.12);
-  }
-
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-
-  body {
-    background: var(--navy);
-    color: var(--white);
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 300;
-    line-height: 1.7;
-    overflow-x: hidden;
-  }
-
-  /* ── CURSOR ── */
-  .cursor {
-    width: 8px; height: 8px;
-    background: var(--white);
-    border-radius: 50%;
-    position: fixed; top: 0; left: 0;
-    pointer-events: none; z-index: 9999;
-    transition: transform 0.15s ease, width 0.3s ease, height 0.3s ease;
-    transform: translate(-50%, -50%);
-  }
-  .cursor.hovering { width: 36px; height: 36px; background: transparent; border: 1px solid var(--white); }
-
-  /* ── NAV ── */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0;
-    z-index: 100;
-    display: flex; justify-content: space-between; align-items: center;
-    padding: 2rem 3rem;
-    background: linear-gradient(180deg, rgba(6,10,16,0.95) 0%, transparent 100%);
-    border-bottom: 1px solid var(--border);
-  }
-  .nav-logo {
-    font-family: 'Cormorant Garamond', serif; font-weight: 300;
-    font-size: 1.1rem; letter-spacing: 0.15em;
-    color: var(--white); text-decoration: none; text-transform: uppercase;
-  }
-  .nav-links { display: flex; gap: 3rem; list-style: none; }
-  .nav-links a {
-    font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase;
-    color: var(--mid); text-decoration: none; transition: color 0.3s;
-  }
-  .nav-links a:hover { color: var(--white); }
-  .nav-version {
-    font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase;
-    color: var(--gold); border: 1px solid rgba(201,168,76,0.3);
-    padding: 0.3rem 0.8rem;
-  }
-
-  /* ── PAGE WRAP ── */
-  .page {
-    max-width: 960px;
-    margin: 0 auto;
-    padding: 140px 3rem 80px;
-  }
-
-  /* ── PAGE HEADER ── */
-  .page-header {
-    margin-bottom: 64px;
-    border-bottom: 1px solid var(--border);
-    padding-bottom: 48px;
-  }
-  .page-eyebrow {
-    font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
-    color: var(--teal); margin-bottom: 1rem;
-    display: flex; align-items: center; gap: 12px;
-  }
-  .page-eyebrow::before {
-    content: ''; width: 24px; height: 1px; background: var(--teal);
-  }
-  .page-title {
-    font-family: 'Cormorant Garamond', serif; font-weight: 300;
-    font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1.1;
-    color: var(--white); margin-bottom: 1rem;
-  }
-  .page-title em { font-style: italic; color: var(--teal); }
-  .page-subtitle {
-    font-size: 0.85rem; color: var(--mid); letter-spacing: 0.05em;
-  }
-
-  /* ── REVISION TABLE ── */
-  .revision-block {
-    background: var(--bg);
-    border: 1px solid var(--border);
-    border-left: 3px solid var(--gold);
-    margin-bottom: 64px;
-    overflow: hidden;
-  }
-  .revision-header {
-    padding: 16px 24px;
-    border-bottom: 1px solid var(--border);
-    display: flex; justify-content: space-between; align-items: center;
-  }
-  .revision-label {
-    font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase;
-    color: var(--gold);
-  }
-  .revision-current {
-    font-size: 0.65rem; letter-spacing: 0.1em;
-    color: var(--teal);
-    font-family: 'DM Sans', monospace;
-  }
-
-  /* ── TABLES ── */
-  .table-wrap { overflow-x: auto; }
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 0.8rem;
-  }
-  thead tr {
-    background: var(--bg2);
-    border-bottom: 1px solid var(--border2);
-  }
-  th {
-    padding: 12px 20px;
-    text-align: left;
-    font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase;
-    color: var(--dim); font-weight: 400;
-    white-space: nowrap;
-  }
-  td {
-    padding: 14px 20px;
-    border-bottom: 1px solid var(--border);
-    color: var(--mid);
-    vertical-align: top;
-    line-height: 1.5;
-  }
-  tr:last-child td { border-bottom: none; }
-  tr:hover td { background: rgba(255,255,255,0.02); }
-  td:first-child { color: var(--gold); font-family: 'DM Sans', monospace; white-space: nowrap; }
-  td strong { color: var(--white); font-weight: 500; }
-
-  /* Multiplier tables — centered values */
-  .table-compact td:last-child { color: var(--teal); text-align: right; }
-  .table-compact td:first-child { color: var(--white); }
-
-  /* ── SECTIONS ── */
-  .section {
-    margin-bottom: 56px;
-    animation: fadeUp 0.4s ease both;
-  }
-  .section-header {
-    display: flex; align-items: baseline; gap: 16px;
-    margin-bottom: 28px;
-    padding-bottom: 16px;
-    border-bottom: 1px solid var(--border);
-  }
-  .section-number {
-    font-family: 'Cormorant Garamond', serif; font-style: italic;
-    font-size: 0.75rem; color: var(--teal); letter-spacing: 0.1em;
-    white-space: nowrap;
-  }
-  .section-title {
-    font-family: 'Cormorant Garamond', serif; font-weight: 300;
-    font-size: 1.6rem; color: var(--white); letter-spacing: 0.03em;
-  }
-
-  /* ── RULES ── */
-  .rule {
-    margin-bottom: 32px;
-    padding: 24px 28px;
-    background: var(--bg);
-    border: 1px solid var(--border);
-    border-left: 2px solid var(--border2);
-    position: relative;
-  }
-  .rule:hover { border-left-color: var(--teal); }
-  .rule-id {
-    font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase;
-    color: var(--teal); margin-bottom: 8px;
-    font-family: 'DM Sans', monospace;
-  }
-  .rule-title {
-    font-family: 'Cormorant Garamond', serif; font-weight: 400;
-    font-size: 1.1rem; color: var(--white); margin-bottom: 12px;
-  }
-  .rule-body {
-    font-size: 0.85rem; color: var(--mid); line-height: 1.75;
-  }
-  .rule-body strong { color: var(--white); font-weight: 500; }
-  .rule-body em { color: var(--teal); font-style: normal; }
-
-  .rule.immutable { border-left-color: var(--gold); }
-  .rule.immutable .rule-id { color: var(--gold); }
-  .immutable-badge {
-    position: absolute; top: 16px; right: 16px;
-    font-size: 0.55rem; letter-spacing: 0.15em; text-transform: uppercase;
-    color: var(--gold); border: 1px solid rgba(201,168,76,0.3);
-    padding: 2px 8px; background: rgba(201,168,76,0.05);
-  }
-
-  /* ── FORMULA BOX ── */
-  .formula {
-    background: var(--bg2);
-    border: 1px solid var(--border2);
-    border-left: 3px solid var(--teal);
-    padding: 20px 24px;
-    margin: 16px 0;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.15rem;
-    color: var(--white);
-    line-height: 1.5;
-  }
-  .formula strong { color: var(--teal); }
-
-  /* ── EXAMPLE BOX ── */
-  .example {
-    background: rgba(0,232,135,0.04);
-    border: 1px solid rgba(0,232,135,0.12);
-    padding: 16px 20px;
-    margin: 16px 0;
-    font-size: 0.85rem;
-    color: var(--mid);
-  }
-  .example strong { color: #00e887; }
-
-  /* ── TIER BADGES ── */
-  .tier-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1px;
-    background: var(--border);
-    margin: 16px 0;
-  }
-  .tier-cell {
-    background: var(--bg2);
-    padding: 16px 20px;
-  }
-  .tier-label {
-    font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase;
-    margin-bottom: 8px;
-  }
-  .tier-label.a { color: var(--teal); }
-  .tier-label.b { color: var(--gold); }
-  .tier-label.c { color: var(--mid); }
-  .tier-mult {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.6rem; font-weight: 300; line-height: 1;
-    margin-bottom: 8px;
-  }
-  .tier-assets {
-    font-size: 0.72rem; color: var(--dim); line-height: 1.6;
-  }
-
-  /* ── BULLET LISTS ── */
-  .rule-body ul {
-    list-style: none;
-    margin: 12px 0;
-  }
-  .rule-body ul li {
-    padding: 6px 0 6px 20px;
-    position: relative;
-    border-bottom: 1px solid var(--border);
-    font-size: 0.85rem;
-    color: var(--mid);
-  }
-  .rule-body ul li:last-child { border-bottom: none; }
-  .rule-body ul li::before {
-    content: '→';
-    position: absolute; left: 0;
-    color: var(--teal); font-size: 0.7rem;
-  }
-
-  /* ── NUMBERED LIST ── */
-  .rule-body ol {
-    list-style: none;
-    counter-reset: rule-counter;
-    margin: 12px 0;
-  }
-  .rule-body ol li {
-    counter-increment: rule-counter;
-    padding: 10px 0 10px 36px;
-    position: relative;
-    border-bottom: 1px solid var(--border);
-    font-size: 0.85rem;
-    color: var(--mid);
-  }
-  .rule-body ol li:last-child { border-bottom: none; }
-  .rule-body ol li::before {
-    content: counter(rule-counter);
-    position: absolute; left: 0;
-    width: 24px; height: 24px;
-    background: var(--bg2);
-    border: 1px solid var(--border2);
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 0.65rem; color: var(--teal);
-    top: 10px;
-  }
-
-  /* ── DIVIDER ── */
-  .divider {
-    border: none;
-    border-top: 1px solid var(--border);
-    margin: 48px 0;
-  }
-
-  /* ── PHILOSOPHY BOX ── */
-  .philosophy {
-    background: linear-gradient(135deg, rgba(0,212,255,0.04), rgba(201,168,76,0.04));
-    border: 1px solid var(--border2);
-    padding: 28px 32px;
-    margin: 16px 0;
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-size: 1.05rem;
-    color: rgba(255,255,255,0.65);
-    line-height: 1.8;
-  }
-
-  /* ── FOOTER ── */
-  footer {
-    border-top: 1px solid var(--border);
-    padding: 2rem 3rem;
-    display: flex; justify-content: space-between; align-items: center;
-    margin-top: 80px;
-  }
-  .footer-logo {
-    font-family: 'Cormorant Garamond', serif; font-weight: 300;
-    font-size: 1rem; letter-spacing: 0.15em;
-    color: var(--mid); text-transform: uppercase;
-  }
-  .footer-meta {
-    font-size: 0.65rem; letter-spacing: 0.1em;
-    color: var(--dim); text-align: right; line-height: 1.8;
-  }
-
-  /* ── ANIMATIONS ── */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(16px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-  .section:nth-child(1) { animation-delay: 0.05s; }
-  .section:nth-child(2) { animation-delay: 0.10s; }
-  .section:nth-child(3) { animation-delay: 0.15s; }
-  .section:nth-child(4) { animation-delay: 0.20s; }
-  .section:nth-child(5) { animation-delay: 0.25s; }
-
-  @media (max-width: 640px) {
-    .page { padding: 120px 1.5rem 60px; }
-    nav { padding: 1.5rem; }
-    .nav-links { display: none; }
-    .tier-grid { grid-template-columns: 1fr; }
-    footer { flex-direction: column; gap: 1rem; text-align: center; }
-    .footer-meta { text-align: center; }
-  }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tokenomics — Vinculum Protocol</title>
+  <meta name="description" content="How VCLM, CHONX, and SYNTH are earned, governed, and made scarce. Vinculum Protocol tokenomics." />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=DM+Sans:wght@200;300;400&display=swap" rel="stylesheet" />
+  <style>
+    :root { --white:#fafaf8; --off-white:#f4f3ef; --black:#0a0a0a; --mid:#6b6b65; --accent:#0a0a0a; --blue:#1a1a2e; }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{background:var(--white);color:var(--black);font-family:'DM Sans',sans-serif;font-weight:300;cursor:none;overflow-x:hidden;}
+    #cursor{width:8px;height:8px;background:var(--black);border-radius:50%;position:fixed;z-index:9999;pointer-events:none;transform:translate(-50%,-50%);transition:width 0.3s,height 0.3s,background 0.3s,transform 0.15s;}
+    #cursor.hovering{width:40px;height:40px;background:transparent;border:1px solid var(--black);}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:2rem 3rem;mix-blend-mode:difference;}
+    .nav-logo{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:1.1rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--white);text-decoration:none;}
+    .nav-links{display:flex;gap:3rem;list-style:none;}
+    .nav-links a{font-family:'DM Sans',sans-serif;font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--white);opacity:0.8;text-decoration:none;transition:opacity 0.2s;}
+    .nav-links a:hover{opacity:1;}
+    .hero{height:100vh;background:linear-gradient(135deg,#060a10 0%,#0d1b2a 40%,#1a1a2e 70%,#060a10 100%);position:relative;overflow:hidden;display:flex;align-items:flex-end;padding:0 3rem 4rem;}
+    .hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.03) 1px,transparent 1px);background-size:80px 80px;animation:gridDrift 20s linear infinite;}
+    @keyframes gridDrift{from{transform:translateY(0);}to{transform:translateY(80px);}}
+    .orb{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none;animation:orbFloat 12s ease-in-out infinite;}
+    .orb-1{width:600px;height:600px;background:#00d4ff;opacity:0.15;top:-100px;left:-100px;}
+    .orb-2{width:400px;height:400px;background:#0066ff;opacity:0.15;bottom:-50px;right:10%;animation-delay:-4s;}
+    .orb-3{width:300px;height:300px;background:#00e887;opacity:0.15;top:40%;left:50%;animation-delay:-8s;}
+    @keyframes orbFloat{0%{transform:translate(0,0) scale(1);}33%{transform:translate(30px,-40px) scale(1.05);}66%{transform:translate(-20px,20px) scale(0.95);}100%{transform:translate(0,0) scale(1);}}
+    .hero-content{position:relative;z-index:1;}
+    .hero-eyebrow{font-family:'DM Sans',sans-serif;font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:1.5rem;opacity:0;animation:fadeUp 1.2s ease 0.3s forwards;}
+    .hero h1{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(3.5rem,8vw,7rem);line-height:1.0;color:var(--white);margin-bottom:2rem;opacity:0;animation:fadeUp 1.2s ease 0.5s forwards;}
+    .hero h1 em{font-style:italic;opacity:0.6;}
+    .hero-subtitle{font-family:'DM Sans',sans-serif;font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.4);opacity:0;animation:fadeUp 1.2s ease 0.8s forwards;}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:translateY(0);}}
+    .full-divider{height:1px;background:rgba(0,0,0,0.06);}
+    .section{padding:10rem 3rem;max-width:1400px;margin:0 auto;}
+    .section-header{display:flex;align-items:baseline;justify-content:space-between;border-bottom:1px solid rgba(0,0,0,0.06);padding-bottom:2rem;margin-bottom:6rem;flex-wrap:wrap;gap:1rem;}
+    .section-label{font-family:'DM Sans',sans-serif;font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--mid);}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:start;}
+    .headline{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(2rem,3.5vw,3rem);line-height:1.2;color:var(--black);}
+    .headline em{font-style:italic;color:var(--mid);}
+    .body-copy{font-family:'DM Sans',sans-serif;font-size:0.95rem;line-height:1.9;color:var(--mid);}
+    .body-copy p+p{margin-top:1.2rem;}
+    .three-tokens{display:grid;grid-template-columns:repeat(3,1fr);}
+    .token-card{padding:3rem;border-right:1px solid rgba(0,0,0,0.06);transition:background 0.3s;}
+    .token-card:last-child{border-right:none;}
+    .token-card:hover{background:var(--off-white);}
+    .token-num{font-family:'Cormorant Garamond',serif;font-size:4rem;font-weight:300;color:rgba(0,0,0,0.06);line-height:1;margin-bottom:2rem;}
+    .token-badge{font-family:'DM Sans',sans-serif;font-size:0.58rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--mid);margin-bottom:0.5rem;}
+    .token-title{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:1.8rem;color:var(--black);margin-bottom:0.3rem;}
+    .token-ticker{font-family:'DM Sans',sans-serif;font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--mid);margin-bottom:2rem;}
+    .token-stats{margin-bottom:2rem;}
+    .token-stat{border-top:1px solid rgba(0,0,0,0.06);padding:0.75rem 0;}
+    .token-stat:first-child{border-top:none;padding-top:0;}
+    .token-stat-label{font-family:'DM Sans',sans-serif;font-size:0.58rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--mid);margin-bottom:0.2rem;}
+    .token-stat-value{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:1.25rem;color:var(--black);}
+    .token-desc{font-family:'DM Sans',sans-serif;font-size:0.82rem;line-height:1.8;color:var(--mid);}
+    .token-note{margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid rgba(0,0,0,0.06);font-family:'DM Sans',sans-serif;font-size:0.72rem;line-height:1.7;color:var(--mid);}
+    .token-note strong{font-family:'DM Sans',sans-serif;font-weight:400;color:var(--black);font-size:0.72rem;}
+    .how-grid{display:grid;grid-template-columns:repeat(3,1fr);}
+    .how-item{padding:3rem;border-right:1px solid rgba(0,0,0,0.06);transition:background 0.3s;}
+    .how-item:last-child{border-right:none;}
+    .how-item:hover{background:var(--off-white);}
+    .how-num{font-family:'Cormorant Garamond',serif;font-size:4rem;font-weight:300;color:rgba(0,0,0,0.06);line-height:1;margin-bottom:2rem;}
+    .how-title{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:1.4rem;color:var(--black);margin-bottom:1rem;}
+    .how-body{font-family:'DM Sans',sans-serif;font-size:0.85rem;line-height:1.8;color:var(--mid);}
+    .how-body strong{font-weight:400;color:var(--black);}
+    .mechanics-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;}
+    .mechanics-col{padding:3rem;border-right:1px solid rgba(0,0,0,0.06);}
+    .mechanics-col:last-child{border-right:none;}
+    .mechanics-col-label{font-family:'DM Sans',sans-serif;font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--mid);padding-bottom:1.5rem;margin-bottom:2rem;border-bottom:1px solid rgba(0,0,0,0.06);}
+    .mechanics-item{padding:1rem 0;border-bottom:1px solid rgba(0,0,0,0.06);}
+    .mechanics-item:last-child{border-bottom:none;}
+    .mechanics-item-title{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:1.1rem;color:var(--black);margin-bottom:0.3rem;}
+    .mechanics-item-desc{font-family:'DM Sans',sans-serif;font-size:0.78rem;line-height:1.7;color:var(--mid);}
+    .mechanics-item-desc strong{font-weight:400;color:var(--black);}
+    .gov-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;}
+    .gov-col{padding:3rem;border-right:1px solid rgba(0,0,0,0.06);}
+    .gov-col:last-child{border-right:none;}
+    .gov-col-label{font-family:'DM Sans',sans-serif;font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--mid);padding-bottom:1.5rem;margin-bottom:2rem;border-bottom:1px solid rgba(0,0,0,0.06);}
+    .gov-item{padding:1rem 0;border-bottom:1px solid rgba(0,0,0,0.06);}
+    .gov-item:last-child{border-bottom:none;}
+    .gov-item-title{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:1.1rem;color:var(--black);margin-bottom:0.3rem;}
+    .gov-item-desc{font-family:'DM Sans',sans-serif;font-size:0.78rem;line-height:1.7;color:var(--mid);}
+    .dark-section{background:var(--black);position:relative;overflow:hidden;}
+    .dark-orb{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none;animation:orbFloat 12s ease-in-out infinite;}
+    .dark-orb-1{width:500px;height:500px;background:#00d4ff;opacity:0.08;top:-100px;right:-100px;}
+    .dark-orb-2{width:300px;height:300px;background:#00e887;opacity:0.06;bottom:0;left:20%;animation-delay:-6s;}
+    .dark-inner{position:relative;z-index:1;padding:10rem 3rem;max-width:1400px;margin:0 auto;}
+    .dark-headline{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(2.5rem,5vw,4.5rem);line-height:1.15;color:var(--white);margin-bottom:2rem;}
+    .dark-headline em{font-style:italic;opacity:0.4;}
+    .dark-body{font-family:'DM Sans',sans-serif;font-size:0.9rem;line-height:1.9;color:rgba(255,255,255,0.5);max-width:600px;margin-bottom:3rem;}
+    .dark-link{font-family:'DM Sans',sans-serif;font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.6);text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.2);padding-bottom:2px;transition:color 0.2s;}
+    .dark-link:hover{color:var(--white);}
+    .reveal{opacity:0;transform:translateY(40px);transition:opacity 0.9s ease,transform 0.9s ease;}
+    .reveal.visible{opacity:1;transform:none;}
+    .reveal.delay-1{transition-delay:0.1s;}
+    .reveal.delay-2{transition-delay:0.2s;}
+    .reveal.delay-3{transition-delay:0.3s;}
+    footer{border-top:1px solid rgba(0,0,0,0.06);padding:4rem 3rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:2rem;max-width:1400px;margin:0 auto;}
+    .footer-logo{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:1rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--black);text-decoration:none;}
+    .footer-links{display:flex;gap:2.5rem;list-style:none;flex-wrap:wrap;}
+    .footer-links a{font-family:'DM Sans',sans-serif;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--mid);text-decoration:none;transition:color 0.2s;}
+    .footer-links a:hover{color:var(--black);}
+    .footer-copy{font-family:'DM Sans',sans-serif;font-size:0.65rem;letter-spacing:0.05em;color:var(--mid);}
+    @media(max-width:900px){
+      nav{padding:1.5rem;} .nav-links{display:none;} .section{padding:6rem 1.5rem;}
+      .two-col,.gov-grid,.mechanics-grid{grid-template-columns:1fr;gap:3rem;}
+      .gov-col,.mechanics-col{border-right:none;border-bottom:1px solid rgba(0,0,0,0.06);padding:2rem 0;}
+      .three-tokens,.how-grid{grid-template-columns:1fr;}
+      .token-card,.how-item{border-right:none;border-bottom:1px solid rgba(0,0,0,0.06);}
+      .dark-inner{padding:6rem 1.5rem;}
+      footer{flex-direction:column;gap:1.5rem;text-align:center;padding:3rem 1.5rem;}
+      .footer-links{justify-content:center;}
+    }
+  </style>
+<!-- GoatCounter analytics — privacy-friendly, free -->
+<script data-goatcounter="https://YOURCODE.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </head>
 <body>
+  <div id="cursor"></div>
+  <nav>
+    <a href="index.html" class="nav-logo">Vinculum</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Protocol</a></li>
+      <li><a href="assets.html">Assets</a></li>
+      <li><a href="governance.html">Governance</a></li>
+      <li><a href="vision.html">Vision</a></li>
+      <li><a href="tokenomics.html">Tokenomics</a></li>
+    </ul>
+  </nav>
 
-<div class="cursor" id="cursor"></div>
+  <section class="hero">
+    <div class="hero-grid"></div>
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Vinculum Protocol · Tokenomics</p>
+      <h1>The rules<br />of <em>commitment.</em></h1>
+      <p class="hero-subtitle">How VCLM, CHONX, and SYNTH are earned, governed, and made scarce.</p>
+    </div>
+  </section>
 
-<!-- NAV -->
-<nav>
-  <a href="index.html" class="nav-logo">Vinculum</a>
-  <ul class="nav-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="tokenomics.html">Tokenomics</a></li>
-  </ul>
-  <div class="nav-version">v1.6 — Current</div>
-</nav>
+  <div class="full-divider"></div>
 
-<div class="page">
-
-  <!-- PAGE HEADER -->
-  <div class="page-header">
-    <div class="page-eyebrow">Vinculum Protocol DAO LLC</div>
-    <h1 class="page-title">Tokenomics <em>Rules</em></h1>
-    <div class="page-subtitle">Governing Rules for VCLM Token Issuance, Staking, and Rewards</div>
+  <!-- Disclaimer -->
+  <div style="background:var(--off-white);padding:2rem 3rem;border-bottom:1px solid rgba(0,0,0,0.06);">
+    <p style="font-family:'DM Sans',sans-serif;font-size:0.72rem;line-height:1.8;color:var(--mid);max-width:1400px;margin:0 auto;"><strong style="color:var(--black);font-weight:400;">Important:</strong> All token quantities, emission rates, duration multipliers, and calculations on this page describe the protocol mechanics as designed. They are illustrative examples only. They do not represent financial advice, a promise of returns, or a guarantee of any outcome. Cryptocurrency involves substantial risk of loss. The value of any token — including VCLM, CHONX, and SYNTH — may go to zero. Past protocol mechanics do not guarantee future results. Nothing on this page should be construed as an offer or solicitation to buy or sell any asset. Consult a qualified financial professional before making any investment decision.</p>
   </div>
 
-  <!-- REVISION HISTORY -->
-  <div class="revision-block section">
-    <div class="revision-header">
-      <div class="revision-label">Revision History</div>
-      <div class="revision-current">Current Version: 1.6</div>
-    </div>
-    <div class="table-wrap">
-      <table>
-        <thead>
-          <tr>
-            <th>Version</th>
-            <th>Date</th>
-            <th>Summary of Changes</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td>1.0</td><td>March 2026</td><td>Initial draft — eligible assets, mint rules, supply controls, rewards, Protocol 2 conditions, enforcement</td></tr>
-          <tr><td>1.1</td><td>March 2026</td><td>Replaced ETH-specific tier with USD-denominated formula — added full mint formula, asset tiers, duration multipliers, emission decay, trial vault rules, treasury split, Protocol 2 threshold set at $100M</td></tr>
-          <tr><td>1.2</td><td>March 2026</td><td>Added Section 4A — Priority Queue including loyalty gate, dynamic fee formula, 5% hard cap, fee distribution split, conflict of interest protections</td></tr>
-          <tr><td>1.3</td><td>March 2026</td><td>Added Rule 6.2a — Protocol 2 vote time-lock; added Rule 7.5 — epoch cap voting conflict of interest cap at 1% voting weight</td></tr>
-          <tr><td>1.4</td><td>March 2026</td><td>Added Section 8 — Transparency Commitments including vault unlock calendar, CBR dashboard, volatile asset risk disclosure, queue depth visibility, and design philosophy on organic market behavior</td></tr>
-          <tr><td>1.5</td><td>March 21, 2026</td><td>Added AXL to Tier A approved collateral assets</td></tr>
-          <tr><td>1.6</td><td>March 21, 2026</td><td>Added BASE to Tier A approved collateral assets — confirmed total asset count at 17</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-
-  <!-- SECTION 1 -->
-  <div class="section">
-    <div class="section-header">
-      <div class="section-number">Section 01</div>
-      <div class="section-title">Eligible Staking Assets</div>
-    </div>
-
-    <div class="rule">
-      <div class="rule-id">Rule 1.1</div>
-      <div class="rule-title">Approved Collateral Only</div>
-      <div class="rule-body">
-        <p>Only externally sourced assets may be staked in the Vinculum Protocol. Assets are organized into quality tiers. The approved collateral list at launch is:</p>
-        <div class="tier-grid" style="margin-top:16px;">
-          <div class="tier-cell">
-            <div class="tier-label a">Tier A — 1.00×</div>
-            <div class="tier-mult" style="color:var(--teal);">1.00×</div>
-            <div class="tier-assets">ETH · USDC · USDT · RLUSD · XRP · XLM · XDC · AXL · BASE</div>
+  <!-- Three Tokens -->
+  <section>
+    <div class="section">
+      <div class="section-header reveal">
+        <p class="section-label">The architecture</p>
+        <p class="section-label">Three tokens. Each necessary for the next.</p>
+      </div>
+      <div class="two-col reveal delay-1" style="margin-bottom:6rem;">
+        <div>
+          <h2 class="headline">Not three tokens that happen to coexist.<br /><em>Three tokens that require each other.</em></h2>
+        </div>
+        <div class="body-copy">
+          <p>VCLM is earned by locking supported assets. CHONX is earned by staking VCLM — at 1.5× the rate for VCLM holders, hard-coded and permanent. SYNTH can only be created by permanently burning both. Each token is necessary for the existence of the next. None of them can be purchased. All of them must be earned.</p>
+          <p>The three token supplies maintain a consistent proportional relationship: 10 billion VCLM, 100 billion CHONX, 10 million SYNTH. The burn ratio mirrors this — 1,000 VCLM and 10,000 CHONX to mint 1 SYNTH. The proportions are not arbitrary. They are designed.</p>
+        </div>
+      </div>
+      <div class="three-tokens reveal delay-2">
+        <div class="token-card">
+          <div class="token-num">01</div>
+          <div class="token-badge">The foundation</div>
+          <div class="token-title">VCLM</div>
+          <div class="token-ticker">Vinculum Token</div>
+          <div class="token-stats">
+            <div class="token-stat"><div class="token-stat-label">Hard cap</div><div class="token-stat-value">10,000,000,000</div></div>
+            <div class="token-stat"><div class="token-stat-label">Launch emission</div><div class="token-stat-value">10 VCLM per $1.00</div></div>
+            <div class="token-stat"><div class="token-stat-label">Decay rate</div><div class="token-stat-value">1.667% per month</div></div>
+            <div class="token-stat"><div class="token-stat-label">Emission decay floor</div><div class="token-stat-value" style="font-size:0.85rem;line-height:1.6;">The emission rate launches at 10 VCLM per $1.00 locked and decays 1.667% per month — permanently, automatically, and without exception. For illustration: in the final months of year 20, if the hard cap has not yet been reached, the rate will have decayed to its permanent floor of 1 VCLM per $1.00 locked. It never drops below this. These are illustrative examples of the protocol mechanics only — not financial projections or guarantees of any kind.</div></div>
+            <div class="token-stat"><div class="token-stat-label">Protocol fee</div><div class="token-stat-value">5% at lock — non-refundable</div></div>
           </div>
-          <div class="tier-cell">
-            <div class="tier-label b">Tier B — 0.85×</div>
-            <div class="tier-mult" style="color:var(--gold);">0.85×</div>
-            <div class="tier-assets">SHIB · LUNC · VOLT · WKC · KEKEC</div>
+          <p class="token-desc">Earned by locking any supported asset in a commitment vault. Cannot be purchased. Cannot be pre-mined. Every VCLM in existence was committed into being by an individual participant. Arrives in your wallet the instant the lock confirms — not at expiry. 95% of your locked asset returns when the vault matures.</p>
+          <div class="token-note"><strong>VCLM cannot be locked to earn more VCLM.</strong> Enforced at the contract level. Cannot be overridden by governance. After CHONX launches, VCLM may be staked for CHONX — that is its only staking function.</div>
+        </div>
+        <div class="token-card">
+          <div class="token-num">02</div>
+          <div class="token-badge">The middle layer</div>
+          <div class="token-title">CHONX</div>
+          <div class="token-ticker">Chonx Token</div>
+          <div class="token-stats">
+            <div class="token-stat"><div class="token-stat-label">Hard cap</div><div class="token-stat-value">100,000,000,000</div></div>
+            <div class="token-stat"><div class="token-stat-label">Launch condition</div><div class="token-stat-value">VCLM supply crosses 10M</div></div>
+            <div class="token-stat"><div class="token-stat-label">VCLM holder bonus</div><div class="token-stat-value">1.5× — hard-coded</div></div>
+            <div class="token-stat"><div class="token-stat-label">Governance tier</div><div class="token-stat-value">Tier 2 — 2.5× voting weight</div></div>
+            <div class="token-stat"><div class="token-stat-label">Treasury pool share</div><div class="token-stat-value">30% per distribution</div></div>
           </div>
-          <div class="tier-cell">
-            <div class="tier-label c">Tier C — 0.70×</div>
-            <div class="tier-mult" style="color:var(--mid);">0.70×</div>
-            <div class="tier-assets">TigerOG · LionOG · FrogOG</div>
+          <p class="token-desc">Launches automatically when VCLM circulating supply crosses 10 million tokens — a contract execution, not a team decision. VCLM holders stake for CHONX at 1.5× the rate of any other participant. This bonus is permanent and cannot be changed. CHONX is also one of only two ingredients required to mint SYNTH.</p>
+          <div class="token-note"><strong>Reserve VCLM before staking.</strong> Calculate how much VCLM you need for your SYNTH target before staking any for CHONX. That reserve does not get staked — ever.</div>
+        </div>
+        <div class="token-card">
+          <div class="token-num">03</div>
+          <div class="token-badge">The apex</div>
+          <div class="token-title">SYNTH</div>
+          <div class="token-ticker">Synth Token</div>
+          <div class="token-stats">
+            <div class="token-stat"><div class="token-stat-label">Hard cap</div><div class="token-stat-value">10,000,000</div></div>
+            <div class="token-stat"><div class="token-stat-label">Launch condition</div><div class="token-stat-value">CHONX supply crosses 100M</div></div>
+            <div class="token-stat"><div class="token-stat-label">Burn required</div><div class="token-stat-value">1,000 VCLM + 10,000 CHONX</div></div>
+            <div class="token-stat"><div class="token-stat-label">Governance tier</div><div class="token-stat-value">Tier 1 — 7× voting weight</div></div>
+            <div class="token-stat"><div class="token-stat-label">Treasury pool share</div><div class="token-stat-value">20% per distribution</div></div>
+          </div>
+          <p class="token-desc">Can only be created by permanently burning 1,000 VCLM and 10,000 CHONX. Those tokens are gone forever. Every SYNTH carries the permanent record of everything destroyed to make it. SYNTH holders sit at the apex governance tier — the rarest position in the protocol, built only through sustained commitment.</p>
+          <div class="token-note"><strong>Calculate your exact ratio before burning.</strong> 1,000 VCLM to 10,000 CHONX per SYNTH, precisely. Buy any shortfall on exchange. Every unpaired token is SYNTH you could have minted.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="full-divider"></div>
+
+  <!-- How VCLM is earned -->
+  <section style="background:var(--off-white);">
+    <div class="section">
+      <div class="section-header reveal">
+        <p class="section-label">How VCLM is earned</p>
+        <p class="section-label">Commitment, not purchase</p>
+      </div>
+      <div class="two-col reveal delay-1" style="margin-bottom:6rem;">
+        <div>
+          <h2 class="headline">The emission rate on day one<br />is the highest<br /><em>it will ever be.</em></h2>
+        </div>
+        <div class="body-copy">
+          <p>VCLM minted = (USD value of deposit) x asset multiplier x duration multiplier x emission factor. The emission factor launches at 10 VCLM per $1.00 and decays at 1.667% per month permanently. The floor is 1 VCLM per $1.00. The maximum lock duration is 36 months. VCLM arrives in the wallet the instant the lock confirms — not at expiry. 95% of the committed asset returns when the vault matures.</p>
+          <p>Some participants may choose to relock their returning asset at a longer duration than their previous lock. Others may not. The emission decay formula means earlier participants earn more VCLM per dollar than later ones at any given duration — this is a mechanical fact of how the formula works, not a financial projection or promise of any outcome. There are different strategies, and what fits one participant may not fit another.</p>
+        </div>
+      </div>
+      <div class="how-grid reveal delay-2">
+        <div class="how-item">
+          <div class="how-num">01</div>
+          <h3 class="how-title">Duration multipliers</h3>
+          <p class="how-body">7 days: 1.0x &middot; 30 days: 1.0x &middot; 90 days: 1.25x &middot; 180 days: 1.5x &middot; 365 days: 2.0x &middot; 36 months: 3.0x. Longer commitment earns more VCLM per dollar. The maximum lock of 36 months earns three times the VCLM of a 30-day lock on the same deposit.</p>
+        </div>
+        <div class="how-item">
+          <div class="how-num">02</div>
+          <h3 class="how-title">The restaking discipline</h3>
+          <p class="how-body">When a vault expires, 95% of your committed supported asset returns to your wallet. Some participants may choose to relock that asset — at the same or a longer duration — while others may not. The duration multipliers mean longer locks produce more VCLM per dollar at any given emission rate. What you do with your returned asset is entirely your own decision, based on your own goals and circumstances. Locking continues as long as the VCLM hard cap allows, even after CHONX and SYNTH have launched.</p>
+        </div>
+        <div class="how-item">
+          <div class="how-num">03</div>
+          <h3 class="how-title">Three activities simultaneously</h3>
+          <p class="how-body">After CHONX launches, three things can run at once: locking supported assets to earn VCLM, staking non-reserve VCLM for CHONX at 1.5x, and burning VCLM and CHONX to mint SYNTH. The vault does not close when CHONX or SYNTH launches. They are independent parallel processes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="full-divider"></div>
+
+  <!-- The burn mechanic -->
+  <section>
+    <div class="section">
+      <div class="section-header reveal">
+        <p class="section-label">The burn mechanic</p>
+        <p class="section-label">What makes SYNTH permanent</p>
+      </div>
+      <div class="mechanics-grid reveal delay-1">
+        <div class="mechanics-col">
+          <div class="mechanics-col-label">What the burn does</div>
+          <div class="mechanics-item">
+            <div class="mechanics-item-title">Destroys VCLM and CHONX permanently</div>
+            <div class="mechanics-item-desc">The burned tokens do not go to a treasury. They are not redistributed. They cease to exist. The total possible supply of both tokens decreases with every SYNTH minted.</div>
+          </div>
+          <div class="mechanics-item">
+            <div class="mechanics-item-title">Creates headroom below the hard cap</div>
+            <div class="mechanics-item-desc">As burns destroy VCLM, the gap between total minted supply and the 10 billion hard cap reopens. New vault locks can mint into that headroom. The hard cap is a ceiling the protocol's own participants push downward through voluntary destruction.</div>
+          </div>
+          <div class="mechanics-item">
+            <div class="mechanics-item-title">Produces the burn-mint oscillation</div>
+            <div class="mechanics-item-desc">Under high demand, burns create headroom, new minting fills it, newly minted VCLM gets burned again for more SYNTH. The cycle becomes self-sustaining — creation and destruction running simultaneously.</div>
+          </div>
+          <div class="mechanics-item">
+            <div class="mechanics-item-title">Hard cap warning appears at 1%</div>
+            <div class="mechanics-item-desc">When remaining mintable supply drops below 1% of the hard cap, the vault interface displays the remaining supply live and suggests a smaller lock. The contract will revert oversized locks — this is correct behavior. Try a smaller amount.</div>
           </div>
         </div>
-        <p style="margin-top:14px;">Additional assets may be added or re-tiered by DAO governance vote. Tier assignments reflect liquidity, market capitalization, age, distribution, and oracle availability at the time of approval.</p>
-      </div>
-    </div>
-
-    <div class="rule immutable">
-      <div class="immutable-badge">Immutable</div>
-      <div class="rule-id">Rule 1.2</div>
-      <div class="rule-title">VCLM Is Not Stakeable</div>
-      <div class="rule-body">
-        <p><strong>VCLM tokens are permanently and technically excluded from the staking system in Protocol 1.</strong> A user may not stake VCLM in any form — locked, unlocked, vested, or unvested — to earn new VCLM rewards, mints, or any protocol incentive. This restriction is enforced at the smart contract level and cannot be overridden by policy alone. See Section 6 for conditions under which VCLM staking may become available in a future protocol.</p>
-      </div>
-    </div>
-
-    <div class="rule">
-      <div class="rule-id">Rule 1.3</div>
-      <div class="rule-title">No Derivative Staking</div>
-      <div class="rule-body">
-        <p>Wrapped versions of VCLM, synthetic VCLM, or any token whose value is primarily derived from VCLM shall also be ineligible for staking. The protocol's smart contracts shall enforce this at the contract level, not merely by policy.</p>
-      </div>
-    </div>
-  </div>
-
-  <hr class="divider">
-
-  <!-- SECTION 2 -->
-  <div class="section">
-    <div class="section-header">
-      <div class="section-number">Section 02</div>
-      <div class="section-title">VCLM Mint Formula</div>
-    </div>
-
-    <div class="rule">
-      <div class="rule-id">Rule 2.1</div>
-      <div class="rule-title">Mint Trigger</div>
-      <div class="rule-body">A VCLM mint is triggered <strong>only</strong> when a user deposits an approved external collateral asset (Rule 1.1) into a qualifying commitment vault. No other action triggers a mint.</div>
-    </div>
-
-    <div class="rule">
-      <div class="rule-id">Rule 2.2</div>
-      <div class="rule-title">Mint Formula</div>
-      <div class="rule-body">
-        <p>The amount of VCLM minted is determined by the following formula:</p>
-        <div class="formula"><strong>VCLM Minted = (USD Value of Deposit) × Quality Multiplier × Commitment Duration Multiplier × Emission Factor</strong></div>
-        <p>The protocol calculates the USD value of any deposit using the asset's spot price at the exact moment of deposit. Users are responsible for calculating their own expected VCLM yield using the previewMint() function before committing. No specific deposit amount in any asset is guaranteed to produce a fixed VCLM output — the output is always a function of the four variables in the formula.</p>
-      </div>
-    </div>
-
-    <div class="rule">
-      <div class="rule-id">Rule 2.3</div>
-      <div class="rule-title">Quality Multiplier</div>
-      <div class="rule-body">
-        <p>The quality multiplier is assigned by asset tier as defined in Rule 1.1:</p>
-        <div class="table-wrap" style="margin-top:12px;">
-          <table class="table-compact">
-            <thead><tr><th>Tier</th><th style="text-align:right;">Multiplier</th></tr></thead>
-            <tbody>
-              <tr><td>Tier A</td><td>1.00×</td></tr>
-              <tr><td>Tier B</td><td>0.85×</td></tr>
-              <tr><td>Tier C</td><td>0.70×</td></tr>
-            </tbody>
-          </table>
+        <div class="mechanics-col">
+          <div class="mechanics-col-label">How to burn correctly</div>
+          <div class="mechanics-item">
+            <div class="mechanics-item-title">Understanding your SYNTH reserve</div>
+            <div class="mechanics-item-desc">Some participants may find it helpful to determine a SYNTH target before staking any VCLM for CHONX, so they can calculate how much VCLM to set aside. Each SYNTH requires 1,000 VCLM and 10,000 CHONX. How much SYNTH to pursue — if any — is a personal decision based on individual goals and circumstances.</div>
+          </div>
+          <div class="mechanics-item">
+            <div class="mechanics-item-title">Reserve VCLM and staking VCLM serve different purposes</div>
+            <div class="mechanics-item-desc">VCLM intended for a SYNTH burn cannot simultaneously be staked for CHONX — once staked, it is committed to that purpose. Participants who plan to mint SYNTH may want to track which portion of their VCLM is intended for burning versus staking. This is a mechanical consideration, not advice on what to do.</div>
+          </div>
+          <div class="mechanics-item">
+            <div class="mechanics-item-title">The burn ratio is fixed at 1,000 VCLM to 10,000 CHONX per SYNTH</div>
+            <div class="mechanics-item-desc">The contract requires precisely this ratio. If a participant's VCLM and CHONX holdings do not match this ratio at burn time, only the paired portion can be used. Unpaired tokens remain in the wallet. Some participants may choose to source any shortfall on an exchange before burning — others may adjust the amount of SYNTH they mint to match what they have. These are mechanical options, not instructions.</div>
+          </div>
+          <div class="mechanics-item">
+            <div class="mechanics-item-title">Supply dynamics over time</div>
+            <div class="mechanics-item-desc">As more participants burn VCLM and CHONX for SYNTH, the circulating supply of both contracts. The compression cascade means future burns may require sourcing ingredients from a smaller available supply. When participants may choose to burn is a personal consideration — this is simply how the mechanics interact over time.</div>
+          </div>
         </div>
       </div>
     </div>
+  </section>
 
-    <div class="rule">
-      <div class="rule-id">Rule 2.4</div>
-      <div class="rule-title">Commitment Duration Multiplier</div>
-      <div class="rule-body">
-        <p>The commitment duration multiplier rewards longer vault lock periods:</p>
-        <div class="table-wrap" style="margin-top:12px;">
-          <table class="table-compact">
-            <thead><tr><th>Duration</th><th style="text-align:right;">Multiplier</th></tr></thead>
-            <tbody>
-              <tr><td>Trial Vault — 7 Days</td><td>1.00×</td></tr>
-              <tr><td>30 Days</td><td>1.00×</td></tr>
-              <tr><td>90 Days</td><td>1.25×</td></tr>
-              <tr><td>180 Days</td><td>1.50×</td></tr>
-              <tr><td>365 Days</td><td>2.00×</td></tr>
-              <tr><td>730 Days</td><td>3.00×</td></tr>
-            </tbody>
-          </table>
+  <div class="full-divider"></div>
+
+  <!-- Immutable vs governable -->
+  <section style="background:var(--off-white);">
+    <div class="section">
+      <div class="section-header reveal">
+        <p class="section-label">What is fixed</p>
+        <p class="section-label">And what governance decides</p>
+      </div>
+      <div class="two-col reveal delay-1" style="margin-bottom:6rem;">
+        <div>
+          <h2 class="headline">Some things are written in the contract.<br /><em>Nothing changes them.</em></h2>
+        </div>
+        <div class="body-copy">
+          <p>Certain rules are immutable — locked in the smart contracts and unreachable by any governance vote, admin key, or upgrade. They are enforced by code alone. Violations are technically impossible, not merely prohibited by policy.</p>
+          <p>Everything else is governed by token holders through on-chain proposals. Standard proposals require greater than 50% quorum, greater than 60% approval, and a 14-day public voting window. Proposal deposits are refunded on pass or quorum — forfeited if the proposal fails to reach quorum.</p>
+        </div>
+      </div>
+      <div class="gov-grid reveal delay-2">
+        <div class="gov-col">
+          <div class="gov-col-label">Immutable — no governance vote can ever change these</div>
+          <div class="gov-item"><div class="gov-item-title">10 billion VCLM hard cap</div><div class="gov-item-desc">Written as a constant in the token contract. Enforced on every mint. No vote can increase it.</div></div>
+          <div class="gov-item"><div class="gov-item-title">100 billion CHONX hard cap</div><div class="gov-item-desc">No admin action or upgrade can increase the CHONX ceiling.</div></div>
+          <div class="gov-item"><div class="gov-item-title">10 million SYNTH hard cap</div><div class="gov-item-desc">The scarcest token has the strictest cap. Immutable by design.</div></div>
+          <div class="gov-item"><div class="gov-item-title">VCLM cannot be locked to earn more VCLM</div><div class="gov-item-desc">Enforced at contract level. No governance vote enables VCLM vault staking.</div></div>
+          <div class="gov-item"><div class="gov-item-title">Decay direction</div><div class="gov-item-desc">The emission rate can only decrease. The 1.667% monthly decay will never reverse.</div></div>
+          <div class="gov-item"><div class="gov-item-title">SYNTH burn formula</div><div class="gov-item-desc">1,000 VCLM and 10,000 CHONX per SYNTH. Fixed in the contract. Cannot be changed.</div></div>
+          <div class="gov-item"><div class="gov-item-title">No presale, no premine, no insider allocation</div><div class="gov-item-desc">There is no minting path that bypasses commitment vaults for VCLM. Every token was earned.</div></div>
+          <div class="gov-item"><div class="gov-item-title">Treasury split — 60% Core Reserve / 40% Dev Fund</div><div class="gov-item-desc">The 5% vault fee splits as 60% Core Reserve and 40% Dev Fund. This split is fixed. It is not subject to governance amendment of any kind.</div></div>
+        </div>
+        <div class="gov-col">
+          <div class="gov-col-label">Governable — decided by token holders through proposals</div>
+          <div class="gov-item"><div class="gov-item-title">Supported asset list</div><div class="gov-item-desc">Which tokens are approved for commitment vaults. New assets can be proposed and added by governance vote.</div></div>
+          <div class="gov-item"><div class="gov-item-title">Treasury distributions</div><div class="gov-item-desc">How much flows from the treasury into the governance reward pool and how often. The 50/30/20 tier split is fixed — timing and amount are not.</div></div>
+          <div class="gov-item"><div class="gov-item-title">Chain expansion</div><div class="gov-item-desc">Which new blockchains Vinculum deploys to. Governance decides when and where.</div></div>
+          <div class="gov-item"><div class="gov-item-title">Protocol partnerships</div><div class="gov-item-desc">Strategic decisions about ecosystem integrations, exchange listings, and protocol growth.</div></div>
+          <div class="gov-item"><div class="gov-item-title">Audit requirements</div><div class="gov-item-desc">Prior to mainnet launch, all contracts must be audited by at least one independent firm. The report shall be published publicly.</div></div>
         </div>
       </div>
     </div>
+  </section>
 
-    <div class="rule">
-      <div class="rule-id">Rule 2.5</div>
-      <div class="rule-title">Emission Factor and Decay</div>
-      <div class="rule-body">
-        <p>The emission factor defines how many VCLM are minted per $1.00 USD of adjusted deposit value.</p>
-        <ul>
-          <li><strong>At launch:</strong> 10 VCLM per $1.00 USD (equivalent to $0.10 per VCLM)</li>
-          <li><strong>Decay rate:</strong> 20% per year, computed on-chain from the protocol deployment timestamp</li>
-          <li><strong>Floor:</strong> 1 VCLM per $1.00 USD — decay stops at this level permanently</li>
-          <li>The decay is automatic, irreversible, and cannot be paused or overridden by governance</li>
-        </ul>
-        <p style="margin-top:12px;">Early participants earn significantly more VCLM per dollar committed than later participants. This is by design.</p>
-      </div>
-    </div>
-
-    <div class="rule">
-      <div class="rule-id">Rule 2.6</div>
-      <div class="rule-title">Example Calculation</div>
-      <div class="rule-body">
-        <p>A user deposits $3,000 USD worth of SHIB (Tier C) into a 730-day vault in the protocol's first week:</p>
-        <div class="example">
-          <strong>$3,000 × 0.70 (Tier C) × 3.00 (730-day) × 10 (launch emission) = 63,000 VCLM</strong>
-        </div>
-        <p>The same deposit made one year later would yield less due to emission decay.</p>
-      </div>
+  <!-- CTA -->
+  <div class="dark-section">
+    <div class="dark-orb dark-orb-1"></div>
+    <div class="dark-orb dark-orb-2"></div>
+    <div class="dark-inner">
+      <h2 class="dark-headline reveal">The emission rate on day one<br />is the highest it will ever be.<br /><em>Every month that passes, it drops.</em></h2>
+      <p class="dark-body reveal delay-1">The protocol mechanics are designed so that earlier participants earn more VCLM per dollar committed than later ones. This is a function of the emission decay formula — not a promise of any financial outcome. What you do with what the protocol gives you is entirely your decision. Nothing here is financial advice.</p>
+      <a href="index.html" class="dark-link reveal delay-2">Start with the protocol &rarr;</a>
     </div>
   </div>
 
-  <hr class="divider">
+  <footer>
+    <a href="index.html" class="footer-logo">Vinculum Protocol</a>
+    <ul class="footer-links">
+      <li><a href="https://github.com/VinculumDefi/vinculum-protocol">GitHub</a></li>
+      <li><a href="https://twitter.com/VinculumDefi">@VinculumDefi</a></li>
+      <li><a href="index.html">Protocol</a></li>
+      <li><a href="assets.html">Assets</a></li>
+      <li><a href="governance.html">Governance</a></li>
+      <li><a href="vision.html">Vision</a></li>
+    </ul>
+    <p class="footer-copy">&copy; 2026 Vinculum Protocol DAO LLC</p>
+  </footer>
 
-  <!-- SECTION 3 -->
-  <div class="section">
-    <div class="section-header">
-      <div class="section-number">Section 03</div>
-      <div class="section-title">Trial Vault Rules</div>
-    </div>
-
-    <div class="rule">
-      <div class="rule-id">Rule 3.1</div>
-      <div class="rule-title">Trial Vault Entry</div>
-      <div class="rule-body">Any approved asset may be deposited into a Trial Vault with a 7-day commitment period. A <strong>2.5% retention fee</strong> is applied at entry.</div>
-    </div>
-
-    <div class="rule">
-      <div class="rule-id">Rule 3.2</div>
-      <div class="rule-title">Trial Vault Exit</div>
-      <div class="rule-body">A user who exits the Trial Vault before the 7-day period ends receives <strong>97.5% of their principal back</strong> and retains all VCLM earned. The 2.5% retention is permanent and non-refundable.</div>
-    </div>
-
-    <div class="rule">
-      <div class="rule-id">Rule 3.3</div>
-      <div class="rule-title">Trial Vault Continuation</div>
-      <div class="rule-body">A user who continues from the Trial Vault into a standard vault incurs an additional 2.5% retention fee at continuation, for a total of <strong>5%</strong> — consistent with standard vault retention.</div>
-    </div>
-  </div>
-
-  <hr class="divider">
-
-  <!-- SECTION 4 -->
-  <div class="section">
-    <div class="section-header">
-      <div class="section-number">Section 04</div>
-      <div class="section-title">Supply Integrity Controls</div>
-    </div>
-
-    <div class="rule immutable">
-      <div class="immutable-badge">Immutable</div>
-      <div class="rule-id">Rule 4.1</div>
-      <div class="rule-title">Hard Maximum Supply</div>
-      <div class="rule-body">VCLM has a hard maximum supply cap of <strong>10,000,000,000 (ten billion) tokens.</strong> This cap is encoded in the VinculumToken smart contract and is immutable. No governance proposal, founder action, or other mechanism may increase this cap under any circumstances. Once the cap is reached, no further minting is possible regardless of collateral deposited.</div>
-    </div>
-
-    <div class="rule">
-      <div class="rule-id">Rule 4.2</div>
-      <div class="rule-title">Epoch Mint Cap</div>
-      <div class="rule-body">No more than <strong>10,000,000 VCLM</strong> (0.1% of maximum supply) may be minted in any 7-day epoch across all users combined. This is the recommended starting cap and may be adjusted by governance vote. If the epoch cap is reached before the epoch ends, new mint requests are queued and processed automatically at the start of the next epoch in the order they were received. See Section 4A for priority queue rules governing queue position advancement.</div>
-    </div>
-
-    <div class="rule">
-      <div class="rule-id">Rule 4.3</div>
-      <div class="rule-title">Collateral Backing Ratio</div>
-      <div class="rule-body">
-        <p>The protocol shall track a <strong>Collateral Backing Ratio (CBR)</strong> defined as:</p>
-        <div class="formula">CBR = Total External Collateral (USD value) ÷ Total VCLM in Circulation (USD value)</div>
-        <p>If the CBR falls below <strong>0.50</strong>, all new mints are automatically paused until the ratio recovers above the threshold.</p>
-      </div>
-    </div>
-
-    <div class="rule">
-      <div class="rule-id">Rule 4.4</div>
-      <div class="rule-title">Per-Asset Deposit Cap</div>
-      <div class="rule-body">Governance may set a maximum total deposit cap per approved asset to prevent any single asset from dominating the collateral pool. A cap of 0 means unlimited. Caps are adjustable by governance vote.</div>
-    </div>
-
-    <div class="rule">
-      <div class="rule-id">Rule 4.5</div>
-      <div class="rule-title">Treasury Split</div>
-      <div class="rule-body">
-        <p>At the time of each vault deposit, the protocol's 5% retention is atomically and permanently split as follows:</p>
-        <ul>
-          <li><strong>82%</strong> → Core Reserve Pool</li>
-          <li><strong>12%</strong> → Dev Fund (founder-controlled multisig)</li>
-          <li><strong>6%</strong> → Ecosystem Fund (governed by VCLM holders)</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <hr class="divider">
-
-  <!-- SECTION 4A -->
-  <div class="section">
-    <div class="section-header">
-      <div class="section-number">Section 4A</div>
-      <div class="section-title">Priority Queue</div>
-    </div>
-
-    <div class="rule">
-      <div class="rule-id">Rule 4A.1</div>
-      <div class="rule-title">Queue Formation</div>
-      <div class="rule-body">When the epoch mint cap is reached before an epoch ends, all remaining mint requests enter a first-in-first-out queue. Standard queue positions are processed in the order received at the start of the next available epoch at no additional cost.</div>
-    </div>
-
-    <div class="rule">
-      <div class="rule-id">Rule 4A.2</div>
-      <div class="rule-title">Priority Queue Eligibility</div>
-      <div class="rule-body">Priority queue access is available <strong>only</strong> to wallets that have successfully completed at least one prior vault from inception to maturity within Vinculum Protocol. First-time wallets are ineligible for priority queue access regardless of deposit size. <strong>Loyalty is a prerequisite for speed.</strong></div>
-    </div>
-
-    <div class="rule">
-      <div class="rule-id">Rule 4A.3</div>
-      <div class="rule-title">Priority Queue Fee</div>
-      <div class="rule-body">
-        <p>Eligible wallets may pay a priority fee to advance their position. The fee is dynamic based on current queue depth:</p>
-        <div class="formula">Priority Fee = (Weeks of Queue Backlog) × 0.5% of Deposit Value</div>
-        <p><strong>Hard cap: 5.0% of deposit value regardless of queue length.</strong></p>
-        <div class="table-wrap" style="margin-top:16px;">
-          <table>
-            <thead><tr><th>Queue Backlog</th><th>Priority Fee</th><th>Fee on $10,000 Deposit</th></tr></thead>
-            <tbody>
-              <tr><td>No queue</td><td>0%</td><td>$0</td></tr>
-              <tr><td>2 weeks</td><td>1.0%</td><td>$100</td></tr>
-              <tr><td>4 weeks</td><td>2.0%</td><td>$200</td></tr>
-              <tr><td>6 weeks</td><td>3.0%</td><td>$300</td></tr>
-              <tr><td>8 weeks</td><td>4.0%</td><td>$400</td></tr>
-              <tr><td>10+ weeks</td><td>5.0% (cap)</td><td>$500</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-
-    <div class="rule">
-      <div class="rule-id">Rule 4A.4</div>
-      <div class="rule-title">Priority Fee Distribution</div>
-      <div class="rule-body">
-        <p>Priority fees collected are split as follows:</p>
-        <ul>
-          <li><strong>50%</strong> → Core Reserve Pool</li>
-          <li><strong>50%</strong> → Ecosystem Fund (distributed to VCLM holders)</li>
-        </ul>
-        <p style="margin-top:10px;">Priority fees are never used for new VCLM minting and never flow to the Dev Fund.</p>
-      </div>
-    </div>
-
-    <div class="rule">
-      <div class="rule-id">Rule 4A.5</div>
-      <div class="rule-title">Priority Does Not Affect Mint Amount</div>
-      <div class="rule-body">Paying a priority fee advances queue position only. It does not increase, decrease, or otherwise affect the VCLM minted. The mint formula defined in Rule 2.2 applies identically to all positions regardless of priority status.</div>
-    </div>
-
-    <div class="rule">
-      <div class="rule-id">Rule 4A.6</div>
-      <div class="rule-title">One Priority Upgrade Per Deposit</div>
-      <div class="rule-body">A wallet may pay the priority fee once per vault deposit. Priority cannot be purchased multiple times for the same deposit. Among priority queue participants, order is still first-in-first-out.</div>
-    </div>
-  </div>
-
-  <hr class="divider">
-
-  <!-- SECTION 5 -->
-  <div class="section">
-    <div class="section-header">
-      <div class="section-number">Section 05</div>
-      <div class="section-title">Rewards for VCLM Holders</div>
-    </div>
-
-    <div class="rule">
-      <div class="rule-id">Rule 5.1</div>
-      <div class="rule-title">Revenue Share</div>
-      <div class="rule-body">VCLM holders are eligible to receive a proportional share of protocol revenue, including transaction fees, treasury yield, and partnership distributions.</div>
-    </div>
-
-    <div class="rule">
-      <div class="rule-id">Rule 5.2</div>
-      <div class="rule-title">Revenue Share Paid in External Assets</div>
-      <div class="rule-body">Revenue share distributions are paid in ETH, USDC, or other approved stablecoins — <strong>never in newly minted VCLM.</strong> This prevents reward compounding from inflating supply.</div>
-    </div>
-
-    <div class="rule">
-      <div class="rule-id">Rule 5.3</div>
-      <div class="rule-title">No Yield from Minting</div>
-      <div class="rule-body">VCLM minting is a one-time event triggered by a vault deposit. It is not an ongoing yield mechanism. Yield paid to collateral stakers comes exclusively from protocol revenue.</div>
-    </div>
-  </div>
-
-  <hr class="divider">
-
-  <!-- SECTION 6 -->
-  <div class="section">
-    <div class="section-header">
-      <div class="section-number">Section 06</div>
-      <div class="section-title">Protocol 2 and Future VCLM Staking</div>
-    </div>
-
-    <div class="rule immutable">
-      <div class="immutable-badge">Immutable</div>
-      <div class="rule-id">Rule 6.1</div>
-      <div class="rule-title">VCLM Staking Is Impossible in Protocol 1</div>
-      <div class="rule-body">VCLM staking is technically impossible within Protocol 1. It is not a policy restriction — it is a hard contract-level enforcement. No governance action can enable VCLM staking within Protocol 1.</div>
-    </div>
-
-    <div class="rule">
-      <div class="rule-id">Rule 6.2</div>
-      <div class="rule-title">Protocol 2 Activation Conditions</div>
-      <div class="rule-body">
-        <p>A second protocol in which VCLM may be staked may only be activated when <strong>all</strong> of the following conditions are simultaneously true:</p>
-        <ol>
-          <li>VCLM is actively listed and trading on at least one recognized external exchange</li>
-          <li>VCLM circulating market cap has exceeded <strong>$100,000,000 (one hundred million USD)</strong> and sustained that level for a minimum of 30 continuous days</li>
-          <li>Protocol 1 has been live for a minimum of <strong>12 continuous months</strong> with no critical security incidents</li>
-          <li>A DAO governance supermajority vote of <strong>&gt;66% approval</strong> passes with the required quorum</li>
-          <li>An independent third-party security audit of Protocol 2 has been completed and published</li>
-        </ol>
-      </div>
-    </div>
-
-    <div class="rule">
-      <div class="rule-id">Rule 6.2a</div>
-      <div class="rule-title">Protocol 2 Vote Time-Lock</div>
-      <div class="rule-body">Once all objective conditions in Rule 6.2 items 1 through 3 and 5 are simultaneously met and verified on-chain, the governance vote required by item 4 <strong>must open within 14 days</strong> and must remain open for the standard 14-day voting window. No governance bloc, wallet, or combination of wallets may delay, postpone, or prevent the vote from opening. This rule exists to prevent any actor from using governance position as a timing weapon to delay a price-moving event for personal trading advantage.</div>
-    </div>
-
-    <div class="rule">
-      <div class="rule-id">Rule 6.3</div>
-      <div class="rule-title">Protocol 2 Staking Rewards</div>
-      <div class="rule-body">VCLM staked in Protocol 2 earns <strong>protocol revenue share and governance weight only.</strong> It does not trigger new VCLM mints. The anti-inflation rules of Protocol 1 remain intact within Protocol 2.</div>
-    </div>
-  </div>
-
-  <hr class="divider">
-
-  <!-- SECTION 7 -->
-  <div class="section">
-    <div class="section-header">
-      <div class="section-number">Section 07</div>
-      <div class="section-title">Enforcement</div>
-    </div>
-
-    <div class="rule">
-      <div class="rule-id">Rule 7.1</div>
-      <div class="rule-title">Smart Contract Enforcement</div>
-      <div class="rule-body">Rules 1.2, 1.3, 2.1, 4.1, 4.2, 4.3, and 6.1 shall be enforced directly in the protocol's smart contracts. The contracts make violations technically impossible, not merely prohibited by policy.</div>
-    </div>
-
-    <div class="rule">
-      <div class="rule-id">Rule 7.2</div>
-      <div class="rule-title">Audit Requirement</div>
-      <div class="rule-body">Prior to mainnet launch, all staking and minting contracts must be audited by at least one independent third-party security firm. The audit report shall be published publicly.</div>
-    </div>
-
-    <div class="rule immutable">
-      <div class="immutable-badge">Immutable</div>
-      <div class="rule-id">Rule 7.3</div>
-      <div class="rule-title">Immutable Rules</div>
-      <div class="rule-body">
-        <p>The following rules are immutable and cannot be changed by any governance vote under any circumstance:</p>
-        <ul>
-          <li>Rule 1.2 — VCLM is not stakeable in Protocol 1</li>
-          <li>Rule 4.1 — Hard maximum supply cap of 10 billion</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="rule">
-      <div class="rule-id">Rule 7.4</div>
-      <div class="rule-title">Governance Amendment Process</div>
-      <div class="rule-body">
-        <p>All rules not listed in Rule 7.3 may be amended by a DAO governance vote requiring:</p>
-        <ul>
-          <li>Greater than 50% quorum of eligible voting power</li>
-          <li>Greater than 60% approval of votes cast</li>
-          <li>A 14-day public voting window</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="rule">
-      <div class="rule-id">Rule 7.5</div>
-      <div class="rule-title">Epoch Cap Voting Conflict of Interest</div>
-      <div class="rule-body">
-        <p>Proposals to adjust the epoch mint cap represent a direct financial conflict of interest for large VCLM holders. To mitigate this conflict the following restrictions apply to epoch cap votes specifically:</p>
-        <ul>
-          <li>Any wallet holding more than <strong>1% of total circulating VCLM supply</strong> has its voting weight on epoch cap proposals <strong>capped at 1%</strong> of total supply regardless of actual holdings</li>
-          <li>This cap cannot be circumvented by distributing holdings across multiple wallets</li>
-          <li>All other governance proposals are unaffected by this rule</li>
-          <li>This rule is itself amendable only by a governance vote in which the 1% cap applies</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <hr class="divider">
-
-  <!-- SECTION 8 -->
-  <div class="section">
-    <div class="section-header">
-      <div class="section-number">Section 08</div>
-      <div class="section-title">Transparency Commitments</div>
-    </div>
-
-    <div class="philosophy">
-      Vinculum Protocol deliberately does not attempt to engineer out all forms of market turbulence, speculation, or organic price behavior. Every rule added to a protocol introduces new complexity, new edge cases, and new interactions that cannot be fully anticipated. Overcompensating for theoretical risks often creates more complicated and less understood risks in their place. The protocol therefore draws a clear distinction between behavior that is genuinely extractive or manipulative — which warrants a rule — and behavior that is simply markets operating as markets — which warrants transparency, not prohibition.
-    </div>
-
-    <div class="rule">
-      <div class="rule-id">Rule 8.1</div>
-      <div class="rule-title">Vault Unlock Calendar</div>
-      <div class="rule-body">The protocol shall publish and maintain a publicly accessible vault unlock calendar showing the approximate timeline of all major VCLM vesting events derivable from on-chain data. This calendar shall be updated continuously and shall be accessible without requiring a wallet connection or account.</div>
-    </div>
-
-    <div class="rule">
-      <div class="rule-id">Rule 8.2</div>
-      <div class="rule-title">Collateral Backing Ratio Dashboard</div>
-      <div class="rule-body">The Collateral Backing Ratio (CBR) shall be displayed publicly and in real time on the protocol's primary interface. Participants shall be able to see the current CBR, its 30-day trend, and the 0.50 threshold at which minting pauses. No participant should ever be surprised by a mint pause.</div>
-    </div>
-
-    <div class="rule">
-      <div class="rule-id">Rule 8.3</div>
-      <div class="rule-title">Volatile Asset Risk Disclosure</div>
-      <div class="rule-body">At the point of deposit for any Tier B or Tier C collateral asset, the protocol interface shall display a prominent disclosure stating that the asset is classified as volatile, that its USD value may decline significantly during the lock period, that the staker will receive the original nominal token amount at maturity regardless of price change, and that the 5% retention fee is non-refundable. The staker must affirmatively acknowledge this disclosure before the deposit transaction is submitted.</div>
-    </div>
-
-    <div class="rule">
-      <div class="rule-id">Rule 8.4</div>
-      <div class="rule-title">Per-Asset Deposit Cap Transparency</div>
-      <div class="rule-body">The current per-asset deposit cap for every approved collateral asset shall be publicly visible alongside the current total deposited for that asset. Participants shall be able to see how much remaining capacity exists for any given asset before committing a deposit.</div>
-    </div>
-
-    <div class="rule">
-      <div class="rule-id">Rule 8.5</div>
-      <div class="rule-title">Priority Queue Depth Visibility</div>
-      <div class="rule-body">The current queue depth, estimated wait time in epochs, and current priority fee rate shall be displayed publicly and in real time on the protocol interface. Participants shall have full information about queue conditions before deciding whether to pay a priority fee or wait.</div>
-    </div>
-  </div>
-
-</div>
-
-<!-- FOOTER -->
-<footer>
-  <div class="footer-logo">Vinculum Protocol</div>
-  <div class="footer-meta">
-    VCLM Tokenomics Rules · Version 1.6<br>
-    Vinculum Protocol DAO LLC · March 2026<br>
-    @VinculumDefi
-  </div>
-</footer>
-
-<script>
-const cursor = document.getElementById('cursor');
-document.addEventListener('mousemove', e => {
-  cursor.style.left = e.clientX + 'px';
-  cursor.style.top  = e.clientY + 'px';
-});
-document.querySelectorAll('a, .rule').forEach(el => {
-  el.addEventListener('mouseenter', () => cursor.classList.add('hovering'));
-  el.addEventListener('mouseleave', () => cursor.classList.remove('hovering'));
-});
-</script>
-
+  <script>
+    const cursor = document.getElementById('cursor');
+    document.addEventListener('mousemove', e => {
+      cursor.style.left = e.clientX + 'px';
+      cursor.style.top  = e.clientY + 'px';
+    });
+    document.querySelectorAll('a, button, .token-card, .how-item, .mechanics-item, .gov-item').forEach(el => {
+      el.addEventListener('mouseenter', () => cursor.classList.add('hovering'));
+      el.addEventListener('mouseleave', () => cursor.classList.remove('hovering'));
+    });
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
 </body>
 </html>
