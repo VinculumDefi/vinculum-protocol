@@ -300,12 +300,6 @@
       color: rgba(255,255,255, var(--faint-alpha, 0.30)); margin-top: 0.8rem; margin-bottom: 0.2rem;
     }
     body.light .toc-list .toc-part { color: rgba(26,26,46,0.2); }
-    .toc-list .toc-ch {
-    body.light
-    body.light
-    body.light
-
-  
     /* ── Brightness slider variables ── */
     :root {
       --txt-alpha: 0.84;   /* body text */
@@ -384,8 +378,6 @@
 
     .coda { color: rgba(255,255,255, var(--faint-alpha, 0.30)); }
     body.light .coda { color: rgba(26,26,46, var(--faint-alpha, 0.38)); }
-    body.light
-
     .step-body { color: rgba(237,233,248, var(--txt-alpha, 0.84)); }
     body.light .step-body { color: rgba(26,26,46, var(--txt-alpha, 0.88)); }
 
@@ -421,15 +413,7 @@
     }
     body.light input[type="range"]::-webkit-slider-thumb {
       background: #0088aa;
-    }/* ── Light mode: all text uses dark color with opacity vars ── */
-    body.light p,
-    body.light .story-p,
-    body.light .dialogue, body.light .d,
-    body.light .big, body.light .step-body,
-    body.light .letter p, body.light .pull-quote, body.light .pull,
-    body.light .final, body.light .final-line,
-    body.light .news p, body.light .data p, body.light .analysis-p,
-    body.light .ai p, body.light .data-note {
+        }
 
     body.light .toc-list a { color: rgba(26,26,46, var(--dim-alpha, 0.65)); }
 
@@ -714,6 +698,14 @@
     .ph-chonx { background: rgba(212,175,106,0.1); color: #d4af6a; border: 1px solid rgba(212,175,106,0.2); }
     .ph-synth { background: rgba(0,232,135,0.1);   color: #00e887; border: 1px solid rgba(0,232,135,0.2); }
     .ph-end   { background: rgba(255,255,255,0.05); color: rgba(255,255,255,0.4); border: 1px solid rgba(255,255,255,0.1); }
+    .asset-list-block { margin: 2.5rem 0 2.5rem 1rem; padding: 1.5rem 2rem; border-left: 2px solid rgba(255,255,255,0.08); max-width: 740px; }
+    .asset-list-label { font-family: 'DM Sans', sans-serif; font-size: 0.58rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.25); margin-top: 1rem; margin-bottom: 0.3rem; }
+    .asset-list-label:first-child { margin-top: 0; }
+    .asset-list-items { font-family: 'DM Sans', sans-serif; font-size: 0.8rem; font-weight: 300; color: rgba(237,233,248,0.45); line-height: 1.7; }
+    body.light .asset-list-block { border-left-color: rgba(0,0,0,0.08); }
+    body.light .asset-list-label { color: rgba(26,26,46,0.3); }
+    body.light .asset-list-items { color: rgba(26,26,46,0.55); }
+
     .pull-quote { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-style: italic; font-size: clamp(1.2rem, 2.2vw, 1.7rem); line-height: 1.6; color: rgba(237,233,248,0.5); margin: 2.5rem 0 2.5rem 2rem; padding-left: 1.5rem; border-left: 2px solid rgba(255,255,255,0.12); max-width: 740px; }
     .data-note { font-family: 'DM Sans', sans-serif; font-size: clamp(0.75rem, 1.2vw, 0.92rem); line-height: 1.8; color: rgba(255,255,255, var(--faint-alpha, 0.30)); border: 1px solid rgba(255,255,255,0.07); padding: 1rem 1.5rem; margin: 2rem 0; max-width: 820px; }
     .data-note strong { color: rgba(255,255,255, var(--dim-alpha, 0.55)); font-weight: 400; }
@@ -805,12 +797,8 @@
     .toc-list a { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(0.9rem,1.5vw,1.15rem); color: rgba(237,233,248, var(--dim-alpha, 0.55)); text-decoration: none; transition: color 0.2s; }
     .toc-list a:hover { color: #00d4ff; }
     body.light .toc-list a { color: rgba(26,26,46, var(--dim-alpha, 0.65)); }
-    body.light .toc-list a:hover {
-    body.light
-    body.light
-    body.light
+    body.light .toc-list a:hover { color: #0088aa; }
 
-  
     /* ── Brightness slider variables ── */
     :root {
       --txt-alpha: 0.84;   /* body text */
@@ -889,8 +877,6 @@
 
     .coda { color: rgba(255,255,255, var(--faint-alpha, 0.30)); }
     body.light .coda { color: rgba(26,26,46, var(--faint-alpha, 0.38)); }
-    body.light
-
     .step-body { color: rgba(237,233,248, var(--txt-alpha, 0.84)); }
     body.light .step-body { color: rgba(26,26,46, var(--txt-alpha, 0.88)); }
 
@@ -926,15 +912,7 @@
     }
     body.light input[type="range"]::-webkit-slider-thumb {
       background: #0088aa;
-    }/* ── Light mode: all text uses dark color with opacity vars ── */
-    body.light p,
-    body.light .story-p,
-    body.light .dialogue, body.light .d,
-    body.light .big, body.light .step-body,
-    body.light .letter p, body.light .pull-quote, body.light .pull,
-    body.light .final, body.light .final-line,
-    body.light .news p, body.light .data p, body.light .analysis-p,
-    body.light .ai p, body.light .data-note {
+        }
 
     body.light .toc-list a { color: rgba(26,26,46, var(--dim-alpha, 0.65)); }
 
@@ -1018,6 +996,149 @@
     body.light .pull-quote em,
     body.light .pull em { color: rgba(26,26,46,0.55) !important; font-style: italic; }
 
+    /* ═══════════════════════════════════════════════════════════════════
+       THEME COLOR VARIABLES
+    ═══════════════════════════════════════════════════════════════════ */
+    :root {
+      --text-primary:   #f9fafb;
+      --text-secondary: #e5e7eb;
+      --text-muted:     #cbd5e1;
+      --text-faint:     #94a3b8;
+    }
+    body.light {
+      --text-primary:   #1f2937;
+      --text-secondary: #374151;
+      --text-muted:     #4b5563;
+      --text-faint:     #6b7280;
+    }
+
+    /* ═══════════════════════════════════════════════════════════════════
+       NUCLEAR LIGHT MODE OVERRIDE
+       These rules have final authority. No white text on light background.
+    ═══════════════════════════════════════════════════════════════════ */
+
+    /* Primary reading text */
+    body.light p,
+    body.light .big,
+    body.light .lead,
+    body.light .dialogue,
+    body.light .step-body,
+    body.light .letter p,
+    body.light .final,
+    body.light .final-line,
+    body.light .news p,
+    body.light .data p,
+    body.light .ai-block p,
+    body.light .ai p,
+    body.light .analysis-p,
+    body.light .revelation p,
+    body.light .twist p,
+    body.light .asset-list-items { color: #374151 !important; }
+
+    /* em / italic — never white */
+    body.light em,
+    body.light p em,
+    body.light .big em,
+    body.light .lead em,
+    body.light .dialogue em,
+    body.light .step-body em,
+    body.light .letter p em,
+    body.light .final em,
+    body.light .final-line em,
+    body.light .pull-quote em,
+    body.light .pull em { color: #4b5563 !important; font-style: italic; }
+
+    /* strong — always darkest */
+    body.light p strong,
+    body.light .big strong,
+    body.light .step-body strong,
+    body.light .letter p strong,
+    body.light .data p strong { color: #1f2937 !important; }
+
+    /* pull quotes */
+    body.light .pull-quote,
+    body.light .pull { color: #4b5563 !important; border-left-color: rgba(0,0,0,0.12) !important; }
+
+    /* headings */
+    body.light .book-title,
+    body.light .part-title,
+    body.light .ch-title,
+    body.light .section-title,
+    body.light .appendix-title,
+    body.light .step-head,
+    body.light .news-hed { color: #1f2937 !important; }
+
+    /* muted labels — minimum #6b7280, never lighter */
+    body.light .book-subtitle,
+    body.light .book-author,
+    body.light .part-label,
+    body.light .ch-num,
+    body.light .scene-break,
+    body.light .scene,
+    body.light .eyebrow,
+    body.light .sp,
+    body.light .section-num,
+    body.light .appendix-label,
+    body.light .byline,
+    body.light .journal,
+    body.light .toc-title,
+    body.light .toc-part,
+    body.light .section-stars,
+    body.light .stars,
+    body.light .legal,
+    body.light .coda,
+    body.light .data-hd,
+    body.light .ai-hd,
+    body.light .chart-title,
+    body.light .chart-subtitle,
+    body.light .chart-note,
+    body.light .scrubber-label,
+    body.light .data-note,
+    body.light .letter-hd,
+    body.light .letter-close,
+    body.light .stat-box-label,
+    body.light #yearDisplay,
+    body.light .legend-label,
+    body.light .news-src,
+    body.light .phase-label,
+    body.light .asset-list-label { color: #6b7280 !important; }
+
+    /* data-note inline strong */
+    body.light .data-note strong { color: #4b5563 !important; }
+
+    /* toc links */
+    body.light .toc-list a { color: #374151 !important; }
+    body.light .toc-list a:hover { color: #0077aa !important; }
+
+    /* dividers */
+    body.light .chapter-header,
+    body.light .part-header { border-top-color: rgba(0,0,0,0.08) !important; }
+    body.light .rule,
+    body.light .section-rule,
+    body.light .divider { background: rgba(0,0,0,0.07) !important; }
+
+    /* ═══════════════════════════════════════════════════════════════════
+       PROGRESS BAR
+    ═══════════════════════════════════════════════════════════════════ */
+    #progress-wrap {
+      position: fixed; bottom: 0; left: 0; right: 0; z-index: 101;
+      height: 4px; background: rgba(255,255,255,0.06); pointer-events: none;
+    }
+    #progress-fill {
+      height: 100%; width: 0%;
+      background: var(--vclm, #00d4ff);
+      transition: width 0.35s linear; max-width: 100%;
+    }
+    #progress-pct {
+      position: fixed; bottom: 10px; right: 14px; z-index: 102;
+      font-family: 'DM Sans', sans-serif; font-size: 0.52rem;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: rgba(255,255,255,0.22); pointer-events: none;
+    }
+    body.light #progress-wrap { background: rgba(0,0,0,0.07); }
+    body.light #progress-fill { background: #0088aa; }
+    body.light #progress-pct  { color: rgba(26,26,46,0.28); }
+
   </style>
 
 <!-- GoatCounter analytics — privacy-friendly, free -->
@@ -1048,6 +1169,8 @@
 </div>
 
 <div id="scroller">
+<div id="progress-wrap"><div id="progress-fill"></div></div>
+<div id="progress-pct">0% complete</div>
 <div id="content">
 
 <!-- ═══════════════════ FRONT MATTER ══════════════════════════════════════ -->
@@ -1068,14 +1191,16 @@
     <li class="toc-ch"><a href="#ch4">Chapter Four — The Man Who Did the Math</a></li>
     <li class="toc-ch"><a href="#ch5">Chapter Five — The Widow and the Compounding Grace</a></li>
     <li class="toc-ch"><a href="#ch6">Chapter Six — The Librarian, the Discord, and the Thing Nobody Could Explain</a></li>
+    <li class="toc-ch"><a href="#ch7">Chapter Seven — One More Campaign</a></li>
+    <li class="toc-ch"><a href="#ch8">Chapter Eight — The Man Who Read About Himself</a></li>
     <li class="toc-part">Part Two · The Unfolding · 2028–2032</li>
-    <li class="toc-ch"><a href="#ch7">Chapter Seven — When the Protocol Surprised Everyone, Including Itself</a></li>
+    <li class="toc-ch"><a href="#ch9">Chapter Nine — When the Protocol Surprised Everyone, Including Itself</a></li>
     <li class="toc-part">Part Three · What Commitment Builds · 2033–2035</li>
-    <li class="toc-ch"><a href="#ch8">Chapter Eight — The Daughter of Lagos</a></li>
-    <li class="toc-ch"><a href="#ch9">Chapter Nine — What Happened to Everyone Else</a></li>
-    <li class="toc-part">Epilogue &amp; Chapter Ten</li>
+    <li class="toc-ch"><a href="#ch10">Chapter Ten — The Daughter of Lagos</a></li>
+    <li class="toc-ch"><a href="#ch11">Chapter Eleven — What Happened to Everyone Else</a></li>
+    <li class="toc-part">Epilogue &amp; Chapter Twelve</li>
     <li class="toc-ch"><a href="#epilogue">Epilogue — The Anonymous Vote</a></li>
-    <li class="toc-ch"><a href="#ch10">Chapter Ten — Where Are You?</a></li>
+    <li class="toc-ch"><a href="#ch12">Chapter Twelve — Where Are You?</a></li>
     <li style="margin-top:0.8rem;"><a href="#appendix-start" style="color:rgba(0,232,135,0.6);">Appendix A — Ji-ho Lim: The Complete Economic History</a></li>
   </ul>
 </div>
@@ -1083,7 +1208,7 @@
 <div style="text-align:center;margin-bottom:6rem;">
   <h1 class="book-title">Out of<br /><em>Left Field</em></h1>
   <p class="book-subtitle">A novel of commitment, faith, and three extraordinary tokens</p>
-  <p class="book-author">Vinculum Protocol · A Work of Fiction · Second Edition · 2026</p>
+  <p class="book-author">Vinculum Protocol · A Work of Fiction · Third Edition · 2026</p>
 </div>
 
 <!-- ═══════════════════ PROLOGUE ══════════════════════════════════════════ -->
@@ -1680,6 +1805,287 @@
 
 <p>She did.</p>
 
+<!-- ─── CHAPTER SEVEN: THE GUILD ──────────────────────────────────────────── -->
+
+<div class="chapter-header" id="ch7">
+  <p class="ch-num">Chapter Seven</p>
+  <h2 class="ch-title">One More Campaign</h2>
+</div>
+
+<div class="scene-break">Online — Guild of Guardians, Server NA-7 — May 2026</div>
+
+<p>The dungeon dropped its loot at 11:47 PM.</p>
+
+<p>They had been running the Shadowmaw Vault for two hours and forty minutes — longer than any of them had planned, longer than the guild's unofficial rule about weeknight campaigns, and significantly longer than Dev had been willing to admit he had the energy for. He was the party's support specialist. He was always the last one complaining about the time, and also always the last one to log off.</p>
+
+<p>Four of them. Same squad for eight months. The voice chat was a comfortable mess of overlapping observations and post-raid debriefs, the kind of noise that only exists between people who have lost and recovered and lost again together enough times that even the frustrating parts have become familiar.</p>
+
+<div class="dialogue">
+  That's two clears this week. Guild ranking's going to update Friday.
+</div>
+<p class="sp">Kira, guild leader</p>
+
+<div class="dialogue">
+  Our DPS average was 4.2% lower than last Tuesday. We left efficiency on the table in the second corridor.
+</div>
+<p class="sp">Marco</p>
+
+<div class="dialogue">
+  Marco, it's midnight. I am begging you.
+</div>
+<p class="sp">Dev</p>
+
+<p>Dev — real name Devon, twenty-six, somewhere in Ontario — had been in crypto since 2021. He had also been in one play-to-earn protocol that had described itself as revolutionary and had behaved, in practice, like a controlled demolition of his trust in the words <em>play</em>, <em>earn</em>, and <em>protocol</em>. He had lost eleven hundred dollars. He had kept the memory pinned like a photograph — not for the grief of it, but for the information.</p>
+
+<p>Sasha was quiet on the channel. She was often quiet during post-raid review — not because she wasn't listening, but because she was usually doing something else simultaneously. Tonight she was on her phone.</p>
+
+<div class="section-stars">· · ·</div>
+
+<p>The notification had come in during the final corridor. She had glanced at it then and not clicked it — you did not take your eyes off a Shadowmaw Vault run with two minutes left — but she had registered it. Someone she followed in the Immutable community had reposted something from an account she didn't recognize.</p>
+
+<p><em>@VinculumDefi.</em></p>
+
+<p>She clicked it now, half-listening to Marco's efficiency analysis.</p>
+
+<p>The graphic loaded. A dark background. Three tokens arranged in sequence — <span class="t-v">$VCLM</span>, <span class="t-c">$CHONX</span>, <span class="t-s">$SYNTH</span> — with a description beneath each one that was nothing like what she expected from a late-night crypto repost. No promises. No moon emojis. Just architecture. The third token, it said, could only be created by permanently destroying the first two.</p>
+
+<p>She clicked the website link.</p>
+
+<div class="dialogue">
+  Sasha, thoughts on the second corridor?
+</div>
+<p class="sp">Kira</p>
+
+<div class="dialogue">
+  Yeah, one sec.
+</div>
+<p class="sp">Sasha</p>
+
+<p>This was not, the rest of the squad had learned, a reliable indicator of how long she would actually be.</p>
+
+<div class="section-stars">· · ·</div>
+
+<p>Sasha held <span class="t-c">IMX</span> — Immutable — because she believed in what Immutable had built: the idea that the things you earned in a game should actually belong to you, not to a company that could change the terms on a Tuesday and delete three months of your effort. She had held IMX through two bear markets and a period of her life when selling it would have been the practical choice. She had not sold it, because she considered it a statement of principle as much as an investment.</p>
+
+<p>She found the supported assets page. The table loaded cleanly — live prices pulling from three independent sources, she noticed, which she appreciated immediately. She scrolled. The list was long and organized:</p>
+
+<div class="asset-list-block">
+  <p class="asset-list-label">Core</p>
+  <p class="asset-list-items">Bitcoin (BTC) · Ethereum (ETH)</p>
+
+  <p class="asset-list-label">Stablecoins</p>
+  <p class="asset-list-items">USDC · USDT · DAI · USDP · TUSD · FRAX · GUSD · PYUSD · USTC · RLUSD · DigiDollar (DGLD)</p>
+
+  <p class="asset-list-label">L1 Networks</p>
+  <p class="asset-list-items">ADA · ALGO · APT · ATOM · AVAX · BNB · DASH · DOT · EGLD · FIL · FLOW · FLR · FTM · HBAR · ICP · IOTA · KAVA · LTC · NEAR · PI · SEI · SOL · SUI · TIA · TRX · VET · XDC · XLM · XMR · XRP · XTZ · DGB · ZIL</p>
+
+  <p class="asset-list-label">L2 Networks</p>
+  <p class="asset-list-items">ARB · MATIC · OP</p>
+
+  <p class="asset-list-label">DeFi</p>
+  <p class="asset-list-items">AAVE · 1INCH · AMP · ANKR · API3 · AXL · BAL · BAND · BLUR · CAKE · CHZ · COMP · CRO · CRV · DYDX · ENJ · GMX · GRT · INJ · KCS · LDO · LINK · MANA · MAGIC · MKR · MORPHO · OKB · PENDLE · RSR · RUNE · SAND · SHIB · SNX · SUSHI · UNI · WBTC · XCN · LUNC · WKC · VOLT · IMX · BAT</p>
+
+  <p class="asset-list-label">Meme</p>
+  <p class="asset-list-items">DOGE · FARTCOIN · FLOKI · PEPE · POPCAT · WIF · DOGINME · BONE · FrogOG · KEKEC · LionOG · TIGEROG</p>
+</div>
+
+<p>She stopped scrolling.</p>
+
+<p><em>IMX</em> was there. In the DeFi category, formatted with exactly the same weight and respect as Bitcoin at the top of the list. No asterisk. No footnote. No <em>limited availability</em> qualifier. She also noticed <em>BAT</em> — Basic Attention Token, the currency of the Brave browser's privacy ecosystem — listed in the same breath. And near the top, in the stablecoins section: <em>DigiDollar.</em> A DigiByte-native stablecoin that had only recently launched, already here, already equal. Because someone had decided that showing up for a community the moment their product existed was worth doing.</p>
+
+<div class="dialogue">
+  Hey. Anyone holding IMX?
+</div>
+<p class="sp">Sasha</p>
+
+<p>A brief pause on the channel.</p>
+
+<div class="dialogue">
+  Yeah, I have some. Why?
+</div>
+<p class="sp">Kira</p>
+
+<div class="dialogue">
+  There's a protocol that supports it natively. Along with like a hundred other tokens. I'm reading it now.
+</div>
+<p class="sp">Sasha</p>
+
+<div class="dialogue">
+  Is it a rug?
+</div>
+<p class="sp">Dev</p>
+
+<div class="dialogue">
+  I don't think so. It has three tokens and the architecture is actually — it's not what I expected. It's weird in a good way.
+</div>
+<p class="sp">Sasha</p>
+
+<div class="dialogue">
+  "Three tokens" is historically not a sentence that has ended well for me personally.
+</div>
+<p class="sp">Dev</p>
+
+<div class="dialogue">
+  Dev.
+</div>
+<p class="sp">Kira</p>
+
+<div class="dialogue">
+  I'm just saying. I've heard that sentence before. I've also paid tuition on it.
+</div>
+<p class="sp">Dev</p>
+
+<p>Marco had not said anything. Marco was looking at his post-raid efficiency spreadsheet.</p>
+
+<div class="section-stars">· · ·</div>
+
+<p>Sasha found the book at the bottom of the website. <em>Out of Left Field. A novel about the people who find it first. Free.</em></p>
+
+<p>She clicked it.</p>
+
+<p>She read the prologue still in voice chat, her character standing in the post-dungeon lobby with the particular stillness of avatars whose players have gone somewhere else entirely.</p>
+
+<p>She read Chapter One. The woman in Brazil who had held LUNC through the collapse. The specific stubbornness of not letting go of something you believed in because everyone told you to. Sasha recognized that. She had held IMX through two bear markets while her friends called it a sunk cost. It was the same impulse. The same quiet conviction that the thing you chose to believe in had been chosen for a reason.</p>
+
+<p>She read Chapter Two.</p>
+
+<p>The lion.</p>
+
+<p>She laughed out loud — alone, in her apartment, at eleven fifty-eight PM — in the way you laugh when something is genuinely funny rather than performing the idea of funny. The twenty-year-old agri student who bought a token because the logo made him laugh. She had done something nearly identical once, with a token that had a cartoon fox for a mascot. It had not worked out. But the impulse — the specific faith that a logo that made you laugh was the logo of something worth knowing — was identical.</p>
+
+<p>The voice chat wound down. Kira said goodnight. Marco sent the post-raid efficiency summary to the guild Discord — seventeen bullet points, timestamped — and logged off. Dev said, without particular emphasis:</p>
+
+<div class="dialogue">
+  Don't stay up reading about crypto protocols until two in the morning, Sasha.
+</div>
+<p class="sp">Dev</p>
+
+<div class="dialogue">
+  I won't.
+</div>
+<p class="sp">Sasha</p>
+
+<p>She stayed up reading until 2:14 AM.</p>
+
+<p>The next morning she posted a link in the guild Discord with three words of commentary: <em>read the book.</em></p>
+
+<p>Dev responded four hours later: <em>Okay, I read it. I have questions. Also I think I owe the concept of three-token protocols a partial apology.</em></p>
+
+<!-- ─── CHAPTER EIGHT: JARED TATE ──────────────────────────────────────────── -->
+
+<div class="chapter-header" id="ch8">
+  <p class="ch-num">Chapter Eight</p>
+  <h2 class="ch-title">The Man Who Read About Himself</h2>
+</div>
+
+<p>Around the same time Sasha was reading the book at two in the morning, the Vinculum team was adding tokens.</p>
+
+<p>Two in particular. <span class="t-c">IMX</span> — Immutable X, the backbone of blockchain gaming's promise of true digital ownership — and <span class="t-v">BAT</span>, the Basic Attention Token that powered the Brave browser's quiet rebellion against the surveillance economy. Both had communities that understood something Vinculum was built around: that what you hold should mean something beyond its price, and that the people who choose differently from the crowd usually have a reason. They were added to the supported assets list without announcement. They were just there one morning, formatted the same as everything else, no asterisk, no fanfare.</p>
+
+<p>The team was also, around this time, thinking about DigiDollar.</p>
+
+<p>DigiByte had been on the list from the beginning — <span class="t-v">DGB</span>, one of the oldest chains still standing, one of the most loyal communities in the space. It had always belonged. But DigiDollar was different. DigiDollar was something that didn't exist yet — a DigiByte-native stablecoin, an asset class that would need its own oracle integration, its own careful handling, its own moment of being real and live before anyone could responsibly lock it in a vault.</p>
+
+<p>The team had been watching the DigiDollar development closely. They were ready to list it. The question was when.</p>
+
+<p>That's just about when Jared Tate posted on X.</p>
+
+<div class="section-stars">· · ·</div>
+
+<p>The post was about delay. About the courage it takes to tell a waiting community that the thing they're waiting for isn't ready yet — not because anything went wrong, but because <em>nearly ready</em> and <em>ready</em> are not the same thing, and the people on the other side of the launch deserve the difference.</p>
+
+<div class="pull-quote">
+  Security comes before speed.
+</div>
+
+<p>One of the Vinculum developers read it the evening it went up. Read it twice. Then sent it to the group.</p>
+
+<p>The team talked about it. Not for long. The philosophy was identical to their own — the same willingness to absorb the cost of patience, the same conviction that getting it wrong and fixing it live is more expensive than taking the time to get it right. They had built that conviction into Vinculum from the first contract. And here was someone they respected, in a completely different corner of the industry, saying the same thing out loud on the same day.</p>
+
+<p>They voted to delay their own launch slightly. To wait for DigiDollar to go live. To list it properly, with a live oracle and a real integration, not a placeholder.</p>
+
+<p>That is how DigiDollar became an approved asset. Not through a roadmap item or a scheduled announcement. Through one post, on one evening, from someone building something real — and a team that recognized the sound of their own values coming back to them from an unexpected direction.</p>
+
+<p>They also, incidentally, wrote a new edition of the book the day after his post. Added the chapters you just read. Because that is who they are.</p>
+
+<div class="section-stars">· · ·</div>
+
+<p>Jared Tate did not know any of this yet.</p>
+
+<div class="scene-break">The next morning</div>
+
+<p>He ran. Came home, made coffee, opened his phone.</p>
+
+<p>The responses to his post had been what he expected — mostly supportive, some impatient, all of them read. He scrolled through them. Then he saw it: a member of the DigiByte community, someone who had been in the ecosystem long enough to have earned his follow, had reposted something from an account he didn't immediately recognize.</p>
+
+<p><em>@VinculumDefi.</em></p>
+
+<p>He clicked it.</p>
+
+<p>The graphic loaded. Three tokens, clearly described, architecturally explained. No noise. No hype. The third token could only exist by permanently destroying the first two. He read it twice.</p>
+
+<p>He clicked through to the website.</p>
+
+<div class="section-stars">· · ·</div>
+
+<p>The Vinculum site was spare in the way that confident things are spare — not empty, but precise. He read the protocol description. He found the mechanism document and read that too. He scanned the asset list. He found DigiByte. He found, in the stablecoins section, one entry that hadn't been there long.</p>
+
+<p><em>DigiDollar.</em></p>
+
+<p>He was quiet for a moment with his coffee.</p>
+
+<p>Then he found the link to the book.</p>
+
+<p><em>Out of Left Field. A novel about the people who find it first. Free.</em></p>
+
+<p>He opened it.</p>
+
+<div class="section-stars">· · ·</div>
+
+<p>He read the prologue. The three-continent structure. He recognized the framing — the kind of story that only lands if the reader already suspects it might be true.</p>
+
+<p>He read Chapter One. The woman in Brazil who had held LUNC through the collapse. He had met hundreds of versions of that person in twelve years of building DigiByte. The ones who stayed when the price went wrong, who understood that the thing they held was real regardless of what the market said about it that week.</p>
+
+<p>He read Chapter Two. The lion.</p>
+
+<p>He chuckled. The round-faced, smirking lion that the twenty-year-old agricultural student had bought without reading a single word, because the logo made him laugh. The slow realization, pages later, that the lion had understood something all along.</p>
+
+<p>Funny because it was true rather than because it was trying to be funny. He kept reading.</p>
+
+<div class="section-stars">· · ·</div>
+
+<p>The passage he found in the later section of the third edition was not long.</p>
+
+<p>It described a developer reading a post about DigiDollar. About recognizing a philosophy. About a team that voted to wait, to do it right, to list DigiDollar properly rather than approximately. About the specific resonance of hearing your own convictions spoken aloud by someone in a different corner of the industry, on the same evening you were already thinking them.</p>
+
+<p>He read it.</p>
+
+<p>Then read it again.</p>
+
+<p>He looked at the edition notice. <em>Third Edition. 2026.</em></p>
+
+<p>He set his coffee down.</p>
+
+<p>Then he laughed — a real one, the kind that arrives before the thinking brain has caught up. He was alone in the room and he laughed like someone had just delivered a punchline he hadn't known he was inside of. He shook his head.</p>
+
+<div class="dialogue">
+  What — did they just read my post yesterday and rewrite their book this morning?
+</div>
+<p class="sp">Jared Tate, to no one in particular</p>
+
+<p>Still laughing. He scrolled back. Read it again. Still real. Still funny.</p>
+
+<p>He went to the @VinculumDefi page on X. It had followed him already — within the past twenty-four hours.</p>
+
+<p>He followed back.</p>
+
+<p>Then he opened his messages and typed four words — no address yet, just saving them for when he figured out who to send them to.</p>
+
+<div class="dialogue">
+  I gotta meet these guys.
+</div>
+<p class="sp">Jared Tate — unsent draft, the morning after</p>
+
 <!-- ═══════════════════ PART TWO ══════════════════════════════════════════ -->
 
 <div class="part-header">
@@ -1687,10 +2093,10 @@
   <h2 class="part-title">The <em>Unfolding</em></h2>
 </div>
 
-<!-- ─── CHAPTER SEVEN: THE TOKENS TAKE ON A LIFE ─────────────────────── -->
+<!-- ─── CHAPTER NINE: THE TOKENS TAKE ON A LIFE ──────────────────────────── -->
 
-<div class="chapter-header" id="ch7">
-  <p class="ch-num">Chapter Seven</p>
+<div class="chapter-header" id="ch9">
+  <p class="ch-num">Chapter Nine</p>
   <h2 class="ch-title">When the Protocol <em>Surprised Everyone, Including Itself</em></h2>
 </div>
 
@@ -1698,7 +2104,13 @@
 
 <p>No one predicted exactly what happened when CHONX activated.</p>
 
-<p>The mechanism was exactly as documented — the VCLM supply crossed ten million, the contract executed, governance tier two opened, 50,000 starting seats became available. The math was correct. The timing was roughly as expected. What was not predicted, or not predicted with sufficient specificity, was the texture of the response.</p>
+<p>The mechanism was exactly as documented — the VCLM supply crossed ten million, the contract executed, and governance Tier 2 opened. But fifty starting seats was not what it looked like in practice.</p>
+
+<p>By the time CHONX activated, Tier 3 had been running for two years. In those two years, the VCLM governance seats had filled and expanded through multiple epoch cycles — each cycle adding ten percent to the available seat count, rounding up, compounding on itself. The contract was explicit about what happened next: when a new tier activated, it inherited the expansion count that Tier 3 had accumulated. The starting seat count was adjusted upward for every cycle Tier 3 had already completed before CHONX launched.</p>
+
+<p>In practical terms, this meant that Tier 2 did not open with fifty seats. It opened with significantly more — a proportionately sizable pool that reflected two years of protocol growth rather than a cold launch at zero. And because the VCLM community had been accumulating CHONX at 1.5 times the base rate since activation, the people positioned to fill those seats were ready. The tier filled faster than anyone had formally modeled.</p>
+
+<p>The math was correct. The timing was roughly as expected. What was not predicted, or not predicted with sufficient specificity, was the texture of the response.</p>
 
 <p>It began with the community tokens.</p>
 
@@ -1913,10 +2325,10 @@
   <h2 class="part-title">What <em>Commitment Builds</em></h2>
 </div>
 
-<!-- ─── CHAPTER EIGHT: ADAEZE ─────────────────────────────────────────── -->
+<!-- ─── CHAPTER TEN: ADAEZE ───────────────────────────────────────────────── -->
 
-<div class="chapter-header" id="ch8">
-  <p class="ch-num">Chapter Eight</p>
+<div class="chapter-header" id="ch10">
+  <p class="ch-num">Chapter Ten</p>
   <h2 class="ch-title c-synth">The Daughter of Lagos</h2>
 </div>
 
@@ -1983,10 +2395,10 @@
 
 <p>She kept her own spreadsheet. She kept it in the same format. She thought this was the least she could do.</p>
 
-<!-- ─── CHAPTER NINE: THE TRANSFORMATION OF THE OTHERS ────────────────── -->
+<!-- ─── CHAPTER ELEVEN: THE TRANSFORMATION OF THE OTHERS ─────────────────── -->
 
-<div class="chapter-header" id="ch9">
-  <p class="ch-num">Chapter Nine</p>
+<div class="chapter-header" id="ch11">
+  <p class="ch-num">Chapter Eleven</p>
   <h2 class="ch-title">What Happened to <em>Everyone Else</em></h2>
 </div>
 
@@ -2088,10 +2500,10 @@
   <em>How can I be involved in that?</em>
 </div>
 
-<!-- ═══════════════════ CHAPTER TEN: THE READER ══════════════════════════ -->
+<!-- ═══════════════════ CHAPTER TWELVE: THE READER ════════════════════════ -->
 
-<div class="part-header" id="ch10">
-  <p class="part-label">Chapter Ten</p>
+<div class="part-header" id="ch12">
+  <p class="part-label">Chapter Twelve</p>
   <h2 class="part-title">Where Are <em>You?</em></h2>
 </div>
 
@@ -3024,8 +3436,20 @@ Ji-ho Lim is a Senior Research Fellow at the Seoul Institute for Decentralized S
         showControls();
       }
       content.style.transform = 'translateY(' + (-pos) + 'px)';
+      updateProgress();
     }
     requestAnimationFrame(animate);
+  }
+
+  // ── Progress bar ──────────────────────────────────────────────────────────
+  var progressFill  = document.getElementById('progress-fill');
+  var progressPct   = document.getElementById('progress-pct');
+
+  function updateProgress() {
+    var max = Math.max(1, content.scrollHeight - scroller.clientHeight + 56);
+    var pct = Math.min(100, Math.max(0, (pos / max) * 100));
+    if (progressFill) progressFill.style.width = pct.toFixed(1) + '%';
+    if (progressPct)  progressPct.textContent  = Math.round(pct) + '% complete';
   }
 
   function showControls() {
@@ -3121,6 +3545,20 @@ Ji-ho Lim is a Senior Research Fellow at the Seoul Institute for Decentralized S
 
     localStorage.setItem('VP_BRIGHT', val);
     updateTrack(brightSlider);
+
+    // Fix em/italic — never white on light background
+    if (isLight) {
+      var emColor = 'rgb(75,85,99)';
+      document.querySelectorAll(
+        '#content em, #content p em, #content .dialogue em, #content .step-body em, ' +
+        '#content .letter p em, #content .big em, #content .final em, #content .final-line em'
+      ).forEach(function(el) { el.style.color = emColor; });
+    } else {
+      document.querySelectorAll(
+        '#content em, #content p em, #content .dialogue em, #content .step-body em, ' +
+        '#content .letter p em, #content .big em, #content .final em, #content .final-line em'
+      ).forEach(function(el) { el.style.color = ''; });
+    }
   }
 
   // ── Theme toggle ─────────────────────────────────────────────────────────
@@ -3176,6 +3614,7 @@ Ji-ho Lim is a Senior Research Fellow at the Seoul Institute for Decentralized S
       playBtn.textContent = '▶ Play'; playBtn.classList.remove('active');
       statusEl.textContent = 'Paused';
       clearTimeout(hideTimer); showControls();
+      updateProgress();
     });
   });
 
@@ -3200,6 +3639,7 @@ Ji-ho Lim is a Senior Research Fellow at the Seoul Institute for Decentralized S
     pos = Math.max(0, Math.min(content.scrollHeight - scroller.clientHeight + 56, pos + deltaY * 1.2));
     touchStartY = e.touches[0].clientY;
     content.style.transform = 'translateY(' + (-pos) + 'px)';
+    updateProgress();
   }, { passive: true });
   document.addEventListener('touchend', function() { isTouching = false; }, { passive: true });
 
@@ -3212,6 +3652,7 @@ Ji-ho Lim is a Senior Research Fellow at the Seoul Institute for Decentralized S
     }
     pos = Math.max(0, Math.min(content.scrollHeight - scroller.clientHeight + 56, pos + e.deltaY * 1.8));
     content.style.transform = 'translateY(' + (-pos) + 'px)';
+    updateProgress();
   }, { passive: true });
 
   // ── Keyboard ──────────────────────────────────────────────────────────────
@@ -3242,6 +3683,7 @@ Ji-ho Lim is a Senior Research Fellow at the Seoul Institute for Decentralized S
     playBtn.textContent = '▶ Play'; playBtn.classList.remove('active');
     statusEl.textContent = 'Tap Play to resume';
     showControls();
+    updateProgress();
   }
 
   updateTrack(speedSlider);
