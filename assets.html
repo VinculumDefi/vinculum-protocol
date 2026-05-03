@@ -375,6 +375,19 @@
       color: var(--mid);
     }
 
+    /* Coming soon */
+    .coming-soon-badge {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.55rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--white);
+      background: var(--black);
+      padding: 0.25rem 0.6rem;
+      display: inline-block;
+    }
+    tr.coming-soon-row { opacity: 0.6; }
+
     /* Empty state */
     .empty-state {
       text-align: center;
@@ -539,7 +552,9 @@
               <th data-col="name">Asset <span class="sort-icon">↕</span></th>
               <th data-col="symbol">Symbol <span class="sort-icon">↕</span></th>
               <th data-col="chain">Chain <span class="sort-icon">↕</span></th>
-              <th data-col="price" class="sorted">Price <span class="sort-icon">↓</span></th>
+              <th data-col="price" class="sorted">CoinGecko <span class="sort-icon">↓</span></th>
+              <th>DexScreener</th>
+              <th>CryptoCompare</th>
               <th data-col="cat">Category <span class="sort-icon">↕</span></th>
               <th data-col="change">24h <span class="sort-icon">↕</span></th>
               <th data-col="time">Updated <span class="sort-icon">↕</span></th>
@@ -670,7 +685,6 @@
     ["havven",                      "Synthetix",         "SNX",      "Ethereum",       "defi"],
     ["sushi",                      "Sushi",             "SUSHI",    "Ethereum",       "defi"],
     ["uniswap",                    "Uniswap",           "UNI",      "Ethereum",       "defi"],
-    ["vechain",                    "VeChain",           "VET",      "VeChain",        "defi"],
     ["wrapped-bitcoin",            "Wrapped Bitcoin",   "WBTC",     "Ethereum",       "defi"],
     ["chain-2",                    "Onyxcoin",          "XCN",      "Ethereum",       "defi"],
     ["terra-luna",                 "Terra Luna Classic","LUNC",     "Terra Classic",  "defi"],
@@ -687,12 +701,17 @@
     ["frog-og",                    "FrogOG",            "FrogOG",   "BNB Chain",       "meme"],
     ["the-balkan-dwarf",           "Balkan Dwarf",      "KEKEC",    "Native",         "meme"],
     ["lion-og",                    "LionOG",            "LionOG",   "BNB Chain",       "meme"],
+    ["immutable-x",                "Immutable",         "IMX",      "Ethereum",       "defi"],
+    ["basic-attention-token",      "Basic Attention",   "BAT",      "Ethereum",       "defi"],
+    ["digidollar",                 "DigiDollar",        "DGLD",     "DigiByte",       "coming-soon"],
   ];
 
-  const ALL_IDS = ASSETS.map(a => a[0]).join(",");
+  const ALL_IDS = ASSETS.filter(a => a[4] !== "coming-soon").map(a => a[0]).join(",");
 
   // State
   let priceData     = {};
+  let dexPriceData  = {}; // keyed by symbol.toUpperCase()
+  let ccPriceData   = {}; // keyed by symbol.toUpperCase()
   let lastFetchTime = null;
   let sortCol       = "price";
   let sortAsc       = false;
@@ -726,32 +745,94 @@
     };
   }
 
-  async function fetchPrices() {
-    pulseDot.className = "pulse-dot loading";
-    updateLabel.textContent = "Fetching prices…";
+  // ── CryptoCompare — batch all symbols in one call ────────────────────────
+  async function fetchCryptoComparePrices() {
     try {
-      // Main CoinGecko fetch
-      const url = `https://api.coingecko.com/api/v3/simple/price?ids=${ALL_IDS}&vs_currencies=usd&include_24hr_change=true`;
+      const symbols = ASSETS.map(a => a[2]).join(",");
+      const url = `https://min-api.cryptocompare.com/data/pricemulti?fsyms=${encodeURIComponent(symbols)}&tsyms=USD`;
       const res = await fetch(url);
-      if (!res.ok) throw new Error("API error");
-      priceData = await res.json();
+      if (!res.ok) return;
+      const data = await res.json();
+      for (const [sym, val] of Object.entries(data)) {
+        if (val && val.USD) ccPriceData[sym.toUpperCase()] = val.USD;
+      }
+    } catch { /* silent fallback */ }
+  }
 
-      // GeckoTerminal fetch for DEX-only tokens
-      const gtFetches = Object.values(GECKO_TERMINAL_POOLS).map(async ({ network, pool, id }) => {
-        const result = await fetchGeckoTerminalPrice(network, pool);
-        if (result) priceData[id] = result;
+  // ── DexScreener — parallel symbol searches, pick highest-liquidity pair ──
+  async function fetchOneDexScreenerPrice(symbol) {
+    try {
+      const url = `https://api.dexscreener.com/latest/dex/search?q=${encodeURIComponent(symbol)}`;
+      const res = await fetch(url);
+      if (!res.ok) return;
+      const data = await res.json();
+      const pairs = data?.pairs;
+      if (!pairs || pairs.length === 0) return;
+      // Prefer pairs quoted against a stable USD token
+      const usdPairs = pairs.filter(p => {
+        const q = p.quoteToken?.symbol?.toUpperCase();
+        return q === "USD" || q === "USDT" || q === "USDC" || q === "BUSD";
       });
-      await Promise.allSettled(gtFetches);
+      const pool = (usdPairs.length > 0 ? usdPairs : pairs)
+        .sort((a, b) => (parseFloat(b.liquidity?.usd) || 0) - (parseFloat(a.liquidity?.usd) || 0))[0];
+      if (pool?.priceUsd) dexPriceData[symbol.toUpperCase()] = parseFloat(pool.priceUsd);
+    } catch { /* silent fallback */ }
+  }
 
-      lastFetchTime = new Date();
-      pulseDot.className = "pulse-dot";
-      updateLabel.textContent = `Updated ${formatTime(lastFetchTime)}`;
-      renderTable();
-    } catch {
-      pulseDot.className = "pulse-dot error";
-      updateLabel.textContent = "Price fetch failed";
-      renderTable();
+  async function fetchDexScreenerPrices() {
+    // Batch into groups of 10 with a small delay to be respectful of rate limits
+    const symbols = ASSETS.map(a => a[2]);
+    const batchSize = 10;
+    for (let i = 0; i < symbols.length; i += batchSize) {
+      const batch = symbols.slice(i, i + batchSize);
+      await Promise.allSettled(batch.map(s => fetchOneDexScreenerPrice(s)));
+      if (i + batchSize < symbols.length) await new Promise(r => setTimeout(r, 100));
     }
+  }
+
+  async function fetchPrices() {
+    pulseDot.className   = "pulse-dot loading";
+    updateLabel.textContent = "Fetching prices…";
+
+    // Each source is fully independent — failure of one never blocks the others
+    const cgFetch = (async () => {
+      try {
+        const url = `https://api.coingecko.com/api/v3/simple/price?ids=${ALL_IDS}&vs_currencies=usd&include_24hr_change=true`;
+        const res = await fetch(url);
+        if (!res.ok) return false;
+        priceData = await res.json();
+        // GeckoTerminal for DEX-only tokens — runs only if CoinGecko succeeds
+        const gtFetches = Object.values(GECKO_TERMINAL_POOLS).map(async ({ network, pool, id }) => {
+          const result = await fetchGeckoTerminalPrice(network, pool);
+          if (result) priceData[id] = result;
+        });
+        await Promise.allSettled(gtFetches);
+        return true;
+      } catch { return false; }
+    })();
+
+    const ccFetch  = fetchCryptoComparePrices();
+    const dexFetch = fetchDexScreenerPrices();
+
+    const [cgOk] = await Promise.all([cgFetch, ccFetch, dexFetch]);
+
+    lastFetchTime = new Date();
+
+    // Determine how many sources returned data
+    const hasCG  = Object.keys(priceData).length  > 0;
+    const hasCC  = Object.keys(ccPriceData).length > 0;
+    const hasDex = Object.keys(dexPriceData).length > 0;
+    const sourceCount = [hasCG, hasCC, hasDex].filter(Boolean).length;
+
+    if (sourceCount === 0) {
+      pulseDot.className      = "pulse-dot error";
+      updateLabel.textContent = "All price sources unavailable";
+    } else {
+      pulseDot.className      = "pulse-dot";
+      updateLabel.textContent = `Updated ${formatTime(lastFetchTime)} — ${sourceCount}/3 sources live`;
+    }
+
+    renderTable();
   }
 
   // ── Formatters ────────────────────────────────────────────────────────────
@@ -784,7 +865,7 @@
   }
 
   function catLabel(cat) {
-    return { core: "Core", stablecoin: "Stablecoin", l1: "L1", l2: "L2", defi: "DeFi", meme: "Meme" }[cat] || cat;
+    return { core: "Core", stablecoin: "Stablecoin", l1: "L1", l2: "L2", defi: "DeFi", meme: "Meme", "coming-soon": "Coming Soon" }[cat] || cat;
   }
 
   // ── Render ────────────────────────────────────────────────────────────────
@@ -824,10 +905,14 @@
     const timeStr = lastFetchTime ? formatTime(lastFetchTime) : "—";
 
     tbody.innerHTML = rows.map(r => {
-      const p  = formatPrice(r.price > 0 ? r.price : null);
-      const ch = formatChange(r.change);
+      const isComingSoon = r.cat === "coming-soon";
+      const p    = isComingSoon ? null : formatPrice(r.price > 0 ? r.price : null);
+      const dexP = isComingSoon ? null : formatPrice(dexPriceData[r.symbol.toUpperCase()] || null);
+      const ccP  = isComingSoon ? null : formatPrice(ccPriceData[r.symbol.toUpperCase()]  || null);
+      const ch   = isComingSoon ? { text: "—", cls: "change-zero" } : formatChange(r.change);
       const initials = r.symbol.substring(0, 3).toUpperCase();
-      return `<tr>
+      const comingSoonBadge = '<span class="coming-soon-badge">Coming Soon</span>';
+      return `<tr${isComingSoon ? ' class="coming-soon-row"' : ''}>
         <td>
           <div class="token-cell">
             <div class="token-initials">${initials}</div>
@@ -836,10 +921,12 @@
         </td>
         <td><span class="symbol-cell">${r.symbol}</span></td>
         <td><span class="chain-cell">${r.chain}</span></td>
-        <td class="price-cell">${p ? p : '<span class="price-dash">—</span>'}</td>
+        <td class="price-cell">${isComingSoon ? comingSoonBadge : (p ? p : '<span class="price-dash">—</span>')}</td>
+        <td class="price-cell">${isComingSoon ? '' : (dexP ? dexP : '<span class="price-dash">—</span>')}</td>
+        <td class="price-cell">${isComingSoon ? '' : (ccP  ? ccP  : '<span class="price-dash">—</span>')}</td>
         <td><span class="cat-cell">${catLabel(r.cat)}</span></td>
         <td><span class="${ch.cls}">${ch.text}</span></td>
-        <td class="time-cell">${timeStr}</td>
+        <td class="time-cell">${isComingSoon ? '—' : timeStr}</td>
       </tr>`;
     }).join("");
   }
