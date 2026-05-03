@@ -704,10 +704,11 @@
     ["tigerog",                    "TigerOG",           "TIGEROG",  "Base",            "meme"],
     ["immutable-x",                "Immutable",         "IMX",      "Ethereum",       "defi"],
     ["basic-attention-token",      "Basic Attention",   "BAT",      "Ethereum",       "defi"],
-    ["digidollar",                 "DigiDollar",        "DGLD",     "DigiByte",       "coming-soon"],
+    ["digidollar",                 "DigiDollar",        "DGLD",     "DigiByte",       "stablecoin"],
   ];
 
-  const ALL_IDS = ASSETS.filter(a => a[4] !== "coming-soon").map(a => a[0]).join(",");
+  const COMING_SOON_IDS = new Set(["digidollar"]);
+  const ALL_IDS = ASSETS.filter(a => !COMING_SOON_IDS.has(a[0])).map(a => a[0]).join(",");
 
   // State
   let priceData     = {};
@@ -907,7 +908,7 @@
     const timeStr = lastFetchTime ? formatTime(lastFetchTime) : "—";
 
     tbody.innerHTML = rows.map(r => {
-      const isComingSoon = r.cat === "coming-soon";
+      const isComingSoon = COMING_SOON_IDS.has(r.id);
       const p    = isComingSoon ? null : formatPrice(r.price > 0 ? r.price : null);
       const dexP = isComingSoon ? null : formatPrice(dexPriceData[r.symbol.toUpperCase()] || null);
       const ccP  = isComingSoon ? null : formatPrice(ccPriceData[r.symbol.toUpperCase()]  || null);
