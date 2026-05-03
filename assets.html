@@ -701,6 +701,7 @@
     ["frog-og",                    "FrogOG",            "FrogOG",   "BNB Chain",       "meme"],
     ["the-balkan-dwarf",           "Balkan Dwarf",      "KEKEC",    "Native",         "meme"],
     ["lion-og",                    "LionOG",            "LionOG",   "BNB Chain",       "meme"],
+    ["tigerog",                    "TigerOG",           "TIGEROG",  "Base",            "meme"],
     ["immutable-x",                "Immutable",         "IMX",      "Ethereum",       "defi"],
     ["basic-attention-token",      "Basic Attention",   "BAT",      "Ethereum",       "defi"],
     ["digidollar",                 "DigiDollar",        "DGLD",     "DigiByte",       "coming-soon"],
@@ -728,8 +729,9 @@
   // ── Fetch prices ─────────────────────────────────────────────────────────
   // GeckoTerminal pool addresses for tokens not on CoinGecko coins API
   const GECKO_TERMINAL_POOLS = {
-    "lion-og":  { network: "bsc", pool: "0x8d5103750a9ad07b8db6b21bd84d433d21fa8928", id: "lion-og"  },
-    "frog-og":  { network: "bsc", pool: "0x575c344853bc3d258b4c2d1e57b93aa26a457350", id: "frog-og"  },
+    "lion-og":  { network: "bsc",  pool: "0x8d5103750a9ad07b8db6b21bd84d433d21fa8928", id: "lion-og"  },
+    "frog-og":  { network: "bsc",  pool: "0x575c344853bc3d258b4c2d1e57b93aa26a457350", id: "frog-og"  },
+    "tigerog":  { network: "base", pool: "0x6b9667bf054d3d7f48c411b261e35a0dff3c5d77", id: "tigerog"  },
   };
 
   async function fetchGeckoTerminalPrice(network, pool) {
