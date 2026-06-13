@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Approved Asset Registry — Vinculum Protocol</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@200;300;400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --white:     #fafaf8;
+  --off-white: #f4f3ef;
+  --black:     #0a0a0a;
+  --mid:       #6b6b65;
+  --blue:      #1a1a2e;
+  --orb-cyan:  #00d4ff;
+  --orb-blue:  #0066ff;
+  --orb-green: #00e887;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', system-ui, sans-serif;
+  font-weight: 300;
+  background: var(--white);
+  color: var(--black);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1.5rem 3rem;
+  mix-blend-mode: difference;
+}
+.nav-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300; font-size: 1.1rem;
+  letter-spacing: 0.15em; text-transform: uppercase;
+  color: #fafaf8; text-decoration: none;
+}
+.nav-links { display: flex; gap: 2.5rem; }
+.nav-links a {
+  font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase;
+  color: #fafaf8; opacity: 0.8; text-decoration: none; transition: opacity 0.2s;
+}
+.nav-links a:hover { opacity: 1; }
+
+/* ── HERO ── */
+.hero {
+  background: linear-gradient(135deg, #060a10 0%, #0d1b2a 40%, #1a1a2e 70%, #060a10 100%);
+  position: relative; overflow: hidden;
+  padding: 11rem 3rem 6rem; min-height: 46vh;
+}
+.hero-orb {
+  position: absolute; border-radius: 50%;
+  filter: blur(80px); opacity: 0.15;
+  animation: orbFloat 14s ease-in-out infinite alternate;
+}
+.orb1 { width: 500px; height: 500px; background: var(--orb-cyan); top: -120px; left: -120px; }
+.orb2 { width: 400px; height: 400px; background: var(--orb-blue); bottom: -60px; right: 8%; animation-duration: 18s; animation-direction: alternate-reverse; }
+.orb3 { width: 300px; height: 300px; background: var(--orb-green); top: 35%; left: 42%; animation-duration: 11s; }
+@keyframes orbFloat {
+  0%   { transform: translate(0,0) scale(1); }
+  100% { transform: translate(40px,30px) scale(1.08); }
+}
+.hero-grid {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+  background-size: 60px 60px;
+  animation: gridDrift 30s linear infinite;
+}
+@keyframes gridDrift { to { background-position: 60px 60px; } }
+
+.hero-inner { position: relative; z-index: 2; max-width: 1400px; margin: 0 auto; }
+.hero-eyebrow {
+  font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
+  color: rgba(255,255,255,0.45); margin-bottom: 1.5rem;
+  animation: fadeUp 0.8s ease both;
+}
+.hero-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300; font-size: clamp(3rem, 6.5vw, 6rem);
+  line-height: 1.0; color: #fafaf8; margin-bottom: 1.75rem;
+  animation: fadeUp 0.8s ease 0.1s both;
+}
+.hero-title em { font-style: italic; opacity: 0.55; }
+.hero-desc {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic; font-weight: 300;
+  font-size: 1.15rem; line-height: 1.8;
+  color: rgba(255,255,255,0.45); max-width: 680px;
+  animation: fadeUp 0.8s ease 0.2s both;
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── STATS STRIP ── */
+.stats-strip {
+  background: var(--off-white);
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  padding: 0;
+}
+.stats-inner {
+  max-width: 1400px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(5, 1fr);
+  gap: 1px; background: rgba(0,0,0,0.06);
+}
+.stat-cell {
+  background: var(--off-white);
+  padding: 2rem 1.75rem;
+}
+.stat-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300; font-size: 2.2rem;
+  line-height: 1; margin-bottom: 0.4rem; color: var(--black);
+}
+.stat-label {
+  font-size: 0.55rem; letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--mid);
+}
+
+/* ── CONTROLS ── */
+.controls {
+  padding: 2.5rem 3rem 1.5rem;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+.controls-inner {
+  max-width: 1400px; margin: 0 auto;
+  display: flex; align-items: center; gap: 2rem; flex-wrap: wrap;
+}
+.search-wrap {
+  flex: 1; min-width: 260px; max-width: 480px;
+  position: relative;
+}
+.search-icon {
+  position: absolute; left: 0; top: 50%; transform: translateY(-50%);
+  color: var(--mid); font-size: 0.75rem; pointer-events: none;
+}
+.search-input {
+  width: 100%; font-family: 'DM Sans', sans-serif;
+  font-size: 0.8rem; font-weight: 300;
+  background: transparent; border: none;
+  border-bottom: 1px solid rgba(0,0,0,0.15);
+  color: var(--black); padding: 0.5rem 0 0.5rem 1.25rem;
+  outline: none; transition: border-color 0.2s;
+}
+.search-input:focus { border-color: var(--black); }
+.search-input::placeholder { color: var(--mid); }
+
+.filter-group { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+.filter-btn {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.6rem; font-weight: 300;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  background: transparent; border: 1px solid rgba(0,0,0,0.12);
+  color: var(--mid); padding: 0.45rem 0.9rem;
+  cursor: pointer; transition: all 0.15s;
+}
+.filter-btn:hover { border-color: var(--black); color: var(--black); }
+.filter-btn.active { background: var(--black); color: var(--white); border-color: var(--black); }
+
+.count-readout {
+  margin-left: auto; font-size: 0.6rem;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--mid);
+}
+.last-updated {
+  font-size: 0.6rem; letter-spacing: 0.08em;
+  color: var(--mid); white-space: nowrap;
+}
+
+/* ── TABLE ── */
+.table-section { padding: 0 3rem 8rem; overflow-x: auto; }
+.table-inner { max-width: 1400px; margin: 0 auto; }
+
+.reg-table {
+  width: 100%; border-collapse: collapse;
+  font-size: 0.75rem; margin-top: 1.5rem;
+}
+.reg-table th {
+  font-size: 0.55rem; letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--mid); font-weight: 300; text-align: left;
+  padding: 0.9rem 0.75rem;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  white-space: nowrap; cursor: pointer; user-select: none;
+}
+.reg-table th:hover { color: var(--black); }
+.reg-table th.sort-asc::after  { content: ' ↑'; }
+.reg-table th.sort-desc::after { content: ' ↓'; }
+
+.reg-table td {
+  padding: 0.75rem 0.75rem;
+  border-bottom: 1px solid rgba(0,0,0,0.04);
+  vertical-align: middle;
+}
+.reg-row { transition: background 0.15s; }
+.reg-row:hover td { background: var(--off-white); }
+
+.tok-sym {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.05rem; font-weight: 400; display: block;
+}
+.tok-name { color: var(--mid); font-size: 0.68rem; display: block; margin-top: 1px; }
+
+.chain-pill {
+  font-size: 0.55rem; letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 0.2rem 0.55rem; border: 1px solid rgba(0,0,0,0.1); color: var(--mid);
+  white-space: nowrap; display: inline-block;
+}
+
+.price-val {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem; font-weight: 300; text-align: right;
+  display: block; font-variant-numeric: tabular-nums;
+}
+.price-val.no-price { color: var(--mid); font-style: italic; font-size: 0.7rem; font-family: 'DM Sans', sans-serif; }
+
+.source-badge {
+  font-size: 0.55rem; letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 0.2rem 0.5rem; white-space: nowrap; display: inline-block;
+}
+.source-badge.CoinGecko         { background: rgba(26,82,118,0.07);   color: #1a5276; border: 1px solid rgba(26,82,118,0.15); }
+.source-badge.Pyth              { background: rgba(45,106,79,0.07);   color: #2d6a4f; border: 1px solid rgba(45,106,79,0.15); }
+.source-badge.Chainlink         { background: rgba(52,73,94,0.07);    color: #34495e; border: 1px solid rgba(52,73,94,0.15); }
+.source-badge.DexScreener       { background: rgba(100,30,120,0.07);  color: #64187a; border: 1px solid rgba(100,30,120,0.15); }
+.source-badge.DexScreener_search{ background: rgba(120,40,140,0.07);  color: #78288c; border: 1px solid rgba(120,40,140,0.15); }
+.source-badge.GeckoTerminal     { background: rgba(130,80,0,0.07);    color: #825000; border: 1px solid rgba(130,80,0,0.15); }
+.source-badge.none              { background: rgba(138,32,32,0.06);   color: #8a2020; border: 1px solid rgba(138,32,32,0.12); font-style: italic; }
+
+.tiers-cell {
+  font-size: 0.6rem; color: var(--mid);
+  line-height: 1.8; max-width: 200px;
+}
+.tier-dot {
+  display: inline-block; width: 5px; height: 5px; border-radius: 50%;
+  background: var(--mid); margin-right: 4px; vertical-align: middle;
+}
+.tier-dot.CL { background: #34495e; }
+.tier-dot.PY { background: #2d6a4f; }
+.tier-dot.CG { background: #1a5276; }
+.tier-dot.DS { background: #64187a; }
+.tier-dot.GT { background: #825000; }
+
+.contract-cell {
+  font-size: 0.62rem; color: var(--mid);
+  font-variant-numeric: tabular-nums; letter-spacing: 0.02em;
+}
+.contract-cell a { color: var(--mid); text-decoration: none; }
+.contract-cell a:hover { color: var(--black); }
+
+.ts-cell { font-size: 0.62rem; color: var(--mid); white-space: nowrap; }
+
+/* ── LOADING / EMPTY ── */
+.state-row td {
+  text-align: center; padding: 5rem;
+  color: var(--mid); font-size: 0.75rem;
+  letter-spacing: 0.12em; text-transform: uppercase;
+}
+
+/* ── REVEAL ── */
+.reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.visible { opacity: 1; transform: none; }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--black); padding: 4rem 3rem;
+  color: rgba(255,255,255,0.25);
+}
+.footer-inner {
+  max-width: 1400px; margin: 0 auto;
+  display: flex; justify-content: space-between; align-items: flex-end;
+  flex-wrap: wrap; gap: 2rem;
+}
+.footer-logo {
+  font-family: 'Cormorant Garamond', serif; font-weight: 300;
+  font-size: 1.1rem; letter-spacing: 0.15em; text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+}
+.footer-meta {
+  font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase;
+  line-height: 2; text-align: right;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .stats-inner { grid-template-columns: repeat(3,1fr); }
+}
+@media (max-width: 768px) {
+  nav { padding: 1.2rem 1.5rem; }
+  .nav-links { gap: 1.2rem; }
+  .hero { padding: 8rem 1.5rem 4rem; }
+  .controls, .table-section { padding-left: 1rem; padding-right: 1rem; }
+  .stats-inner { grid-template-columns: repeat(2,1fr); }
+  .count-readout { display: none; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">Vinculum</a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="asset-registry.html">Asset Registry</a>
+    <a href="registry-qa.html">Price QA</a>
+    <a href="Whitepaper.html">Whitepaper</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-orb orb1"></div>
+  <div class="hero-orb orb2"></div>
+  <div class="hero-orb orb3"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-inner">
+    <p class="hero-eyebrow">Vinculum Protocol — Supported Assets</p>
+    <h1 class="hero-title">Approved Asset <em>Registry</em></h1>
+    <p class="hero-desc">One thousand verified digital assets across fourteen approved blockchains. Each asset has been reviewed for contract address integrity, oracle price availability, and chain compatibility. Prices are sourced twice daily through a five-tier cascade: Chainlink, Pyth Network, CoinGecko, DexScreener, and GeckoTerminal.</p>
+  </div>
+</section>
+
+<!-- STATS STRIP -->
+<div class="stats-strip reveal">
+  <div class="stats-inner">
+    <div class="stat-cell">
+      <div class="stat-num" id="statTotal">—</div>
+      <div class="stat-label">Approved Assets</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-num" id="statPriced">—</div>
+      <div class="stat-label">Live Prices</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-num" id="statChains">14</div>
+      <div class="stat-label">Blockchains</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-num" id="statSources">5</div>
+      <div class="stat-label">Oracle Tiers</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-num" id="statCoverage">—</div>
+      <div class="stat-label">Coverage</div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTROLS -->
+<div class="controls reveal">
+  <div class="controls-inner">
+    <div class="search-wrap">
+      <span class="search-icon">⌕</span>
+      <input class="search-input" id="searchInput" type="text"
+             placeholder="Search by symbol, name, chain, or contract address…">
+    </div>
+    <div class="filter-group" id="chainFilters">
+      <button class="filter-btn active" data-chain="all">All Chains</button>
+      <button class="filter-btn" data-chain="Ethereum">Ethereum</button>
+      <button class="filter-btn" data-chain="Base">Base</button>
+      <button class="filter-btn" data-chain="Solana">Solana</button>
+      <button class="filter-btn" data-chain="BSC">BSC</button>
+      <button class="filter-btn" data-chain="Arbitrum">Arbitrum</button>
+      <button class="filter-btn" data-chain="Polygon">Polygon</button>
+      <button class="filter-btn" data-chain="Avalanche">Avalanche</button>
+    </div>
+    <div class="filter-group" id="sourceFilters">
+      <button class="filter-btn active" data-source="all">All Sources</button>
+      <button class="filter-btn" data-source="CoinGecko">CoinGecko</button>
+      <button class="filter-btn" data-source="DexScreener">DexScreener</button>
+      <button class="filter-btn" data-source="GeckoTerminal">GeckoTerminal</button>
+      <button class="filter-btn" data-source="Chainlink">Chainlink</button>
+      <button class="filter-btn" data-source="Pyth">Pyth</button>
+    </div>
+    <span class="count-readout" id="countReadout"></span>
+    <span class="last-updated" id="lastUpdated"></span>
+  </div>
+</div>
+
+<!-- TABLE -->
+<section class="table-section">
+  <div class="table-inner">
+    <table class="reg-table">
+      <thead>
+        <tr>
+          <th data-sort="symbol">Symbol</th>
+          <th data-sort="name">Name</th>
+          <th data-sort="chain">Chain</th>
+          <th data-sort="price" style="text-align:right;">Price (USD)</th>
+          <th data-sort="source">Price Source</th>
+          <th>Oracle Tiers Available</th>
+          <th data-sort="updated">Last Updated</th>
+          <th>Contract Address</th>
+        </tr>
+      </thead>
+      <tbody id="regBody">
+        <tr class="state-row"><td colspan="8">Loading asset registry…</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <span class="footer-logo">Vinculum Protocol</span>
+    <div class="footer-meta">
+      Approved Asset Registry — 1,000 Verified Assets<br>
+      Prices updated twice daily via five-tier oracle cascade<br>
+      Vinculum Protocol DAO LLC
+    </div>
+  </div>
+</footer>
+
+<script>
+'use strict';
+
+// ── STATE ─────────────────────────────────────────────────────────────────
+let REGISTRY = [];   // from approved_assets_final.json
+let PRICES   = {};   // from vinculum_prices.json  { "SYM@Chain": {usd, source, ts} }
+let filterChain  = 'all';
+let filterSource = 'all';
+let searchQ      = '';
+let sortCol      = 'symbol';
+let sortDir      = 'asc';
+
+// ── EXPLORER LINKS ────────────────────────────────────────────────────────
+const EXPLORER = {
+  Ethereum:  c => `https://etherscan.io/token/${c}`,
+  Base:      c => `https://basescan.org/token/${c}`,
+  BSC:       c => `https://bscscan.com/token/${c}`,
+  Arbitrum:  c => `https://arbiscan.io/token/${c}`,
+  Optimism:  c => `https://optimistic.etherscan.io/token/${c}`,
+  Polygon:   c => `https://polygonscan.com/token/${c}`,
+  Avalanche: c => `https://snowtrace.io/token/${c}`,
+  Solana:    c => `https://solscan.io/token/${c}`,
+};
+
+function explorerLink(chain, contract) {
+  if (!contract || contract.startsWith('NATIVE')) return null;
+  const fn = EXPLORER[chain];
+  return fn ? fn(contract) : null;
+}
+
+// ── FORMAT PRICE ──────────────────────────────────────────────────────────
+function fmtPrice(usd) {
+  if (usd == null) return null;
+  if (usd >= 1000)        return '$' + usd.toLocaleString('en-US', {minimumFractionDigits:2, maximumFractionDigits:2});
+  if (usd >= 1)           return '$' + usd.toFixed(4);
+  if (usd >= 0.0001)      return '$' + usd.toFixed(6);
+  if (usd >= 0.000000001) return '$' + usd.toFixed(12);
+  return '$' + usd.toExponential(4);
+}
+
+function fmtTs(ts) {
+  if (!ts) return '—';
+  try {
+    const d = new Date(ts);
+    return d.toLocaleString('en-US', {month:'short', day:'numeric',
+           hour:'2-digit', minute:'2-digit', hour12:false});
+  } catch { return ts; }
+}
+
+function shortAddr(addr) {
+  if (!addr || addr.startsWith('NATIVE')) return addr || '—';
+  if (addr.startsWith('0x') && addr.length === 42)
+    return addr.slice(0,8) + '…' + addr.slice(-6);
+  if (addr.length > 20) return addr.slice(0,10) + '…' + addr.slice(-6);
+  return addr;
+}
+
+// ── TIER DOTS ─────────────────────────────────────────────────────────────
+const TIER_SHORT = {
+  'Chainlink':   {code:'CL', label:'Chainlink'},
+  'Pyth':        {code:'PY', label:'Pyth'},
+  'CoinGecko':   {code:'CG', label:'CoinGecko'},
+  'DexScreener': {code:'DS', label:'DexScreener'},
+  'DexScreener_search': {code:'DS', label:'DexScreener'},
+  'GeckoTerminal':{code:'GT', label:'GeckoTerminal'},
+  'DefiLlama':   {code:'DL', label:'DefiLlama'},
+};
+
+function tierDots(sources) {
+  if (!sources || !sources.length) return '<span style="color:var(--mid);font-size:0.6rem;">—</span>';
+  const seen = new Set();
+  return sources.map(s => {
+    const t = TIER_SHORT[s] || {code:'??', label:s};
+    if (seen.has(t.code)) return '';
+    seen.add(t.code);
+    return `<span class="tier-dot ${t.code}" title="${t.label}"></span><span style="font-size:0.6rem;margin-right:0.6rem;">${t.label}</span>`;
+  }).join('');
+}
+
+// ── RENDER ────────────────────────────────────────────────────────────────
+function render() {
+  let rows = REGISTRY.filter(a => {
+    const key = `${a.symbol}@${a.chain}`;
+    const p   = PRICES[key] || {};
+    const src = p.source || '';
+
+    if (filterChain !== 'all' && a.chain !== filterChain) return false;
+    if (filterSource !== 'all') {
+      const inTiers = (a.price_sources || []).some(s =>
+        s === filterSource || s.startsWith(filterSource));
+      if (!inTiers) return false;
+    }
+    if (searchQ) {
+      const q = searchQ.toLowerCase();
+      const contract = (a.contract || '').toLowerCase();
+      if (!a.symbol.toLowerCase().includes(q) &&
+          !a.name.toLowerCase().includes(q) &&
+          !a.chain.toLowerCase().includes(q) &&
+          !contract.includes(q)) return false;
+    }
+    return true;
+  });
+
+  // Sort
+  rows.sort((a, b) => {
+    let va, vb;
+    if (sortCol === 'symbol') { va = a.symbol; vb = b.symbol; }
+    else if (sortCol === 'name')   { va = a.name;   vb = b.name; }
+    else if (sortCol === 'chain')  { va = a.chain;  vb = b.chain; }
+    else if (sortCol === 'price') {
+      va = (PRICES[`${a.symbol}@${a.chain}`] || {}).usd ?? -1;
+      vb = (PRICES[`${b.symbol}@${b.chain}`] || {}).usd ?? -1;
+      return sortDir === 'asc' ? va - vb : vb - va;
+    }
+    else if (sortCol === 'source') {
+      va = (PRICES[`${a.symbol}@${a.chain}`] || {}).source || '';
+      vb = (PRICES[`${b.symbol}@${b.chain}`] || {}).source || '';
+    }
+    else if (sortCol === 'updated') {
+      va = (PRICES[`${a.symbol}@${a.chain}`] || {}).ts || '';
+      vb = (PRICES[`${b.symbol}@${b.chain}`] || {}).ts || '';
+    }
+    else { va = a.symbol; vb = b.symbol; }
+    if (typeof va === 'string') va = va.toLowerCase();
+    if (typeof vb === 'string') vb = vb.toLowerCase();
+    if (va < vb) return sortDir === 'asc' ? -1 : 1;
+    if (va > vb) return sortDir === 'asc' ? 1 : -1;
+    return 0;
+  });
+
+  document.getElementById('countReadout').textContent =
+    `${rows.length.toLocaleString()} of ${REGISTRY.length.toLocaleString()} assets`;
+
+  const body = document.getElementById('regBody');
+  if (!rows.length) {
+    body.innerHTML = '<tr class="state-row"><td colspan="8">No matching assets</td></tr>';
+    return;
+  }
+
+  body.innerHTML = rows.map(a => {
+    const key     = `${a.symbol}@${a.chain}`;
+    const p       = PRICES[key] || {};
+    const usd     = p.usd ?? null;
+    const src     = p.source || 'none';
+    const ts      = p.ts || '';
+    const contract = a.contract || '';
+    const link    = explorerLink(a.chain, contract);
+
+    const priceHTML = usd != null
+      ? `<span class="price-val">${fmtPrice(usd)}</span>`
+      : `<span class="price-val no-price">—</span>`;
+
+    const srcClass = src.replace('_search','');
+    const srcLabel = src === 'DexScreener_search' ? 'DexScreener' : src;
+    const sourceHTML = src !== 'none' && usd != null
+      ? `<span class="source-badge ${src}">${srcLabel}</span>`
+      : `<span class="source-badge none">Pending</span>`;
+
+    const addrHTML = link
+      ? `<a href="${link}" target="_blank" rel="noopener" title="${contract}">${shortAddr(contract)}</a>`
+      : `<span title="${contract}">${shortAddr(contract)}</span>`;
+
+    return `<tr class="reg-row">
+      <td><span class="tok-sym">${esc(a.symbol)}</span></td>
+      <td><span class="tok-name">${esc(a.name)}</span></td>
+      <td><span class="chain-pill">${esc(a.chain)}</span></td>
+      <td style="text-align:right;">${priceHTML}</td>
+      <td>${sourceHTML}</td>
+      <td class="tiers-cell">${tierDots(a.price_sources || [])}</td>
+      <td class="ts-cell">${fmtTs(ts)}</td>
+      <td class="contract-cell">${addrHTML}</td>
+    </tr>`;
+  }).join('');
+}
+
+function esc(s) {
+  return String(s)
+    .replace(/&/g,'&amp;')
+    .replace(/</g,'&lt;')
+    .replace(/>/g,'&gt;')
+    .replace(/"/g,'&quot;');
+}
+
+// ── STATS ─────────────────────────────────────────────────────────────────
+function updateStats() {
+  const total  = REGISTRY.length;
+  const priced = REGISTRY.filter(a => {
+    const p = PRICES[`${a.symbol}@${a.chain}`];
+    return p && p.usd != null;
+  }).length;
+  document.getElementById('statTotal').textContent   = total.toLocaleString();
+  document.getElementById('statPriced').textContent  = priced.toLocaleString();
+  document.getElementById('statCoverage').textContent = Math.round(100*priced/total) + '%';
+
+  // Last updated from most recent timestamp in prices
+  const timestamps = Object.values(PRICES)
+    .map(p => p.ts).filter(Boolean).sort();
+  if (timestamps.length) {
+    const latest = new Date(timestamps[timestamps.length-1]);
+    document.getElementById('lastUpdated').textContent =
+      'Last updated: ' + latest.toLocaleString('en-US', {
+        month:'short', day:'numeric', hour:'2-digit', minute:'2-digit', hour12:false
+      }) + ' UTC';
+  }
+}
+
+// ── SORT HEADERS ──────────────────────────────────────────────────────────
+document.querySelectorAll('.reg-table th[data-sort]').forEach(th => {
+  th.addEventListener('click', () => {
+    const col = th.dataset.sort;
+    if (sortCol === col) {
+      sortDir = sortDir === 'asc' ? 'desc' : 'asc';
+    } else {
+      sortCol = col; sortDir = col === 'symbol' ? 'asc' : 'desc';
+    }
+    document.querySelectorAll('.reg-table th').forEach(t => {
+      t.classList.remove('sort-asc','sort-desc');
+    });
+    th.classList.add(sortDir === 'asc' ? 'sort-asc' : 'sort-desc');
+    render();
+  });
+});
+
+// ── FILTERS ───────────────────────────────────────────────────────────────
+document.querySelectorAll('#chainFilters .filter-btn').forEach(b => {
+  b.addEventListener('click', () => {
+    document.querySelectorAll('#chainFilters .filter-btn').forEach(x => x.classList.remove('active'));
+    b.classList.add('active');
+    filterChain = b.dataset.chain;
+    render();
+  });
+});
+
+document.querySelectorAll('#sourceFilters .filter-btn').forEach(b => {
+  b.addEventListener('click', () => {
+    document.querySelectorAll('#sourceFilters .filter-btn').forEach(x => x.classList.remove('active'));
+    b.classList.add('active');
+    filterSource = b.dataset.source;
+    render();
+  });
+});
+
+document.getElementById('searchInput').addEventListener('input', e => {
+  searchQ = e.target.value.trim();
+  render();
+});
+
+// ── REVEAL ────────────────────────────────────────────────────────────────
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.05 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+// ── LOAD DATA ─────────────────────────────────────────────────────────────
+// Loads approved_assets_final.json (registry) and vinculum_prices.json (prices).
+// Both files must be in the same directory as this HTML file.
+// Prices are NOT hardcoded — the page always reads from the live JSON files.
+
+async function loadData() {
+  try {
+    const [regRes, priceRes] = await Promise.all([
+      fetch('approved_assets_final.json'),
+      fetch('vinculum_prices.json'),
+    ]);
+
+    if (!regRes.ok) throw new Error('approved_assets_final.json not found');
+
+    REGISTRY = await regRes.json();
+
+    // Sort alphabetically by symbol as default
+    REGISTRY.sort((a,b) => a.symbol.localeCompare(b.symbol));
+
+    if (priceRes.ok) {
+      PRICES = await priceRes.json();
+    } else {
+      // Prices not yet generated — registry still loads, prices show as pending
+      console.warn('vinculum_prices.json not found — prices will show as pending');
+    }
+
+    updateStats();
+    render();
+
+    // Mark sort header
+    document.querySelector('.reg-table th[data-sort="symbol"]')
+      ?.classList.add('sort-asc');
+
+  } catch (err) {
+    document.getElementById('regBody').innerHTML =
+      `<tr class="state-row"><td colspan="8">
+        Unable to load registry data.<br>
+        <span style="font-size:0.65rem;opacity:0.6;">
+          Ensure approved_assets_final.json and vinculum_prices.json
+          are in the same directory as this page.
+        </span>
+      </td></tr>`;
+    console.error('Registry load error:', err);
+  }
+}
+
+loadData();
+</script>
+</body>
+</html>
