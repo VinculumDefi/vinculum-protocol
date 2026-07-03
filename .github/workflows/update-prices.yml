@@ -1,0 +1,36 @@
+name: Update Vinculum Prices
+
+on:
+  schedule:
+    # Runs at 06:00 and 18:00 UTC every day (twice daily)
+    - cron: '0 6,18 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  fetch-prices:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install requests openpyxl
+
+      - name: Run price fetcher v9
+        run: python vinculum_price_fetcher_v9.py
+
+      - name: Commit refreshed prices
+        run: |
+          git config user.name  "vinculum-price-bot"
+          git config user.email "bot@vinculumprotocol.com"
+          git add vinculum_prices.json vinculum_prices.xlsx price_fetch_log.txt
+          git diff --cached --quiet || git commit -m "Auto: refresh prices $(date -u +%Y-%m-%dT%H:%MZ)"
+          git push
