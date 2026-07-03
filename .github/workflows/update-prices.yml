@@ -32,5 +32,8 @@ jobs:
           git config user.name  "vinculum-price-bot"
           git config user.email "bot@vinculumprotocol.com"
           git add vinculum_prices.json vinculum_prices.xlsx price_fetch_log.txt
-          git diff --cached --quiet || git commit -m "Auto: refresh prices $(date -u +%Y-%m-%dT%H:%MZ)"
-          git push
+          if ! git diff --cached --quiet; then
+            git commit -m "Auto: refresh prices $(date -u +%Y-%m-%dT%H:%MZ)"
+            git pull --rebase origin main
+            git push
+          fi
