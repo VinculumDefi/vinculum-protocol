@@ -1,31 +1,46 @@
 #!/usr/bin/env python3
 """
-Vinculum Protocol — Universal Price Fetcher v8
+Vinculum Protocol — Universal Price Fetcher v9
 ===============================================
 Reference price lookup for vault mint ratio calculations.
 Run 2x/day. Target: within a few percent. Not for trading.
 
-Built against: approved_assets_final.json (1000 assets, clean)
+Built against: approved_assets_final.json (1001 assets, clean)
 
 Cascade per asset:
   Tier 1 — CoinGecko  (batch 200 IDs per call, ~5 calls total)
   Tier 2 — DexScreener (contract address lookup for batch misses)
   Tier 3 — DexScreener (symbol search for remaining)
-  Tier 4 — GeckoTerminal (community tokens: TigerOG, LionOG, FrogOG, WKC)
+  Tier 4 — Community-token override (TigerOG, LionOG, FrogOG, WKC):
+           DexScreener -> GeckoTerminal, against a dedicated price-source
+           contract that may differ from the asset's display contract.
 
-v6 vs v5:
-  - Built against clean 1000-asset registry (bad tokens removed)
-  - Step 1b removed (CoinGecko /coins/{id} unusable on free tier)
-  - Batch misses go straight to DexScreener by contract
-  - GeckoTerminal covers LionOG and FrogOG (BSC) in addition to TigerOG/WKC
-  - No hardcoded prices anywhere
+v9 vs v8 — TigerOG / LionOG / FrogOG price-source fix:
+  - TigerOG, LionOG, and FrogOG each exist as a legacy token on BSC and a
+    unified Axelar ITS token on Base. The registry displays them as the
+    Base ITS token (registry "contract" field = ITS address, unchanged).
+    But the ITS contracts on Base have thin/inconsistent liquidity, while
+    the original legacy BSC contracts retain real market activity — nobody
+    is required to bridge their legacy tokens, so BSC liquidity persists.
+  - COMMUNITY_TOKENS now points ds_addr/gt_addr at the legacy BSC contract
+    for these three (ds_chain/gt_network = "bsc") instead of the Base ITS
+    address. Display chain in the registry is untouched — still Base.
+  - Steps 2 and 3 now skip any asset whose key is in COMMUNITY_TOKENS.
+    Previously, Step 2 (DexScreener by contract) would run against these
+    three using their Base ITS contract *before* reaching Step 4, and if
+    the thin ITS pool returned any price at all it would lock that in and
+    Step 4's correct BSC-sourced override would never run. That's the
+    likely cause of the intermittent (not clean-miss) coverage gap.
+  - Fixed leftover "v6" strings in the log header, xlsx summary title, and
+    HTTP User-Agent that were never updated in earlier version bumps.
+  - No hardcoded prices anywhere.
 
 Usage:
-  python vinculum_price_fetcher_v8.py
+  python vinculum_price_fetcher_v9.py
 
 Both files must be in the same folder:
   approved_assets_final.json
-  vinculum_price_fetcher_v8.py
+  vinculum_price_fetcher_v9.py
 
 Outputs:
   vinculum_prices.json
@@ -78,26 +93,42 @@ GT_NET = {
 
 # Community tokens: no CoinGecko ID — priced via DexScreener first,
 # then GeckoTerminal as fallback. Both sources tried for every token.
+#
+# TigerOG / LionOG / FrogOG display in the registry as their unified Axelar
+# ITS token on Base (registry "contract" field), but that display contract
+# often has thin/inconsistent liquidity. Each also has an original legacy
+# token on BSC that nobody is ever required to bridge away from, so it
+# keeps real market activity. ds_addr/gt_addr below deliberately point at
+# the BSC legacy contract, not the Base display contract — this is a
+# price-source override, keyed by contract address, independent of what
+# the registry shows the user. See v9 changelog above.
 COMMUNITY_TOKENS = {
     "TigerOG@Base": {
-        "ds_chain":  "base",
-        "ds_addr":   "0xCF7Fc0De71238c9EC45EC2Fd24FDc8521345dbB5",
-        "gt_network":"base",
-        "gt_addr":   "0xCF7Fc0De71238c9EC45EC2Fd24FDc8521345dbB5",
+        # Price source: BNBTiger legacy contract on BSC (~$921K liquidity
+        # on its main WBNB pool as of last check). Display stays Base ITS.
+        "ds_chain":  "bsc",
+        "ds_addr":   "0xAC68931B666E086E9de380CFDb0Fb5704a35dc2D",
+        "gt_network":"bsc",
+        "gt_addr":   "0xAC68931B666E086E9de380CFDb0Fb5704a35dc2D",
     },
     "LionOG@Base": {
-        "ds_chain":  "base",
-        "ds_addr":   "0x6731F2d7ADF86cfba30d15c4D10113Ce98f3492A",
-        "gt_network":"base",
-        "gt_addr":   "0x6731F2d7ADF86cfba30d15c4D10113Ce98f3492A",
+        # Price source: BNBLion legacy contract on BSC (~$110K liquidity
+        # as of last check). Display stays Base ITS.
+        "ds_chain":  "bsc",
+        "ds_addr":   "0xdA1689C5557564d06E2A546F8FD47350b9D44a73",
+        "gt_network":"bsc",
+        "gt_addr":   "0xdA1689C5557564d06E2A546F8FD47350b9D44a73",
     },
     "FrogOG@Base": {
-        "ds_chain":  "base",
-        "ds_addr":   "0x0E3b564bdD09348840811C7e1106BbD0e98b5b4f",
-        "gt_network":"base",
-        "gt_addr":   "0x0E3b564bdD09348840811C7e1106BbD0e98b5b4f",
+        # Price source: BNBFrog legacy contract on BSC (~$108K liquidity
+        # as of last check). Display stays Base ITS.
+        "ds_chain":  "bsc",
+        "ds_addr":   "0x64da67A12a46f1DDF337393e2dA12eD0A507Ad3D",
+        "gt_network":"bsc",
+        "gt_addr":   "0x64da67A12a46f1DDF337393e2dA12eD0A507Ad3D",
     },
     "WKC@Ethereum": {
+        # Unchanged — not part of the Base ITS pattern.
         "ds_chain":  "ethereum",
         "ds_addr":   "0x6ec90334d89dbdc89e08a133271be3d104128edb",
         "gt_network":"eth",
@@ -122,7 +153,7 @@ def fetch(url, params=None):
         try:
             r = requests.get(url, params=params, timeout=TIMEOUT_S,
                              headers={"Accept":"application/json",
-                                      "User-Agent":"vinculum-price-fetcher/6"})
+                                      "User-Agent":"vinculum-price-fetcher/9"})
             if r.status_code == 200:
                 return r.json()
             if r.status_code == 429:
@@ -223,7 +254,7 @@ def main():
     fh = open(LOG_FILE, "w", encoding="utf-8")
     ts  = now_ts()
 
-    log("=== Vinculum Price Fetcher v8 ===")
+    log("=== Vinculum Price Fetcher v9 ===")
     log(f"Assets: {len(assets)} | Purpose: vault reference rates (2x/day)")
     log(f"Input:  {INPUT_FILE}")
     log("")
@@ -256,6 +287,7 @@ def main():
     log("Step 2: DexScreener (contract address)...")
     ds_needed = [a for a in assets
                  if f"{a['symbol']}@{a['chain']}" not in prices
+                 and f"{a['symbol']}@{a['chain']}" not in COMMUNITY_TOKENS
                  and a["chain"] in DS_CHAIN
                  and a.get("contract","")]
     log(f"  {len(ds_needed)} assets to try...")
@@ -273,6 +305,7 @@ def main():
     log("Step 3: DexScreener symbol search...")
     ds_search_needed = [a for a in assets
                         if f"{a['symbol']}@{a['chain']}" not in prices
+                        and f"{a['symbol']}@{a['chain']}" not in COMMUNITY_TOKENS
                         and a["chain"] in DS_CHAIN]
     log(f"  {len(ds_search_needed)} assets to try...")
     ds_search_applied = 0
@@ -414,7 +447,7 @@ def main():
 
         # Summary sheet
         ss = wb.create_sheet("Summary")
-        ss.append(["Vinculum Price Fetcher v6 -- Run Summary"])
+        ss.append(["Vinculum Price Fetcher v9 -- Run Summary"])
         ss.append(["Run time", ts])
         ss.append(["Input file", INPUT_FILE])
         ss.append(["Total assets", total])
