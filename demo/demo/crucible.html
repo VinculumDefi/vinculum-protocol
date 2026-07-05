@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Crucible — Vinculum 90-Day Demonstration</title>
+<meta name="description" content="Burn dVCLM and dCHONX to forge dSYNTH — the one irreversible act in the Vinculum demonstration.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300&family=DM+Sans:wght@200;300;400&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/ethers@6.13.2/dist/ethers.umd.min.js"></script>
+<style>
+:root{
+  --bg-deep:#07050f; --bg-mid:#110d1f; --bg-panel:#1a1430; --line:#2a2145;
+  --accent:#7c3aed; --accent-soft:#a855f7; --accent-glow:rgba(124,58,237,0.15);
+  --white:#fafaf8; --off:#f4f3ef; --mid:#8b8b99;
+  --danger:#ef4444; --success:#22c55e; --warning:#f59e0b;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#050309;color:var(--off);font-family:'DM Sans',sans-serif;font-weight:300;line-height:1.6;font-size:16px}
+h1,h2,h3{font-family:'Cormorant Garamond',serif;font-weight:300;color:var(--white);line-height:1.2}
+h1{font-size:48px} h3{font-size:24px}
+a{color:var(--accent-soft);text-decoration:none}
+.container{max-width:720px;margin:0 auto;padding:0 24px}
+.muted{color:var(--mid);font-size:14px}
+.num{font-variant-numeric:tabular-nums}
+.demo-banner{background:linear-gradient(90deg,rgba(124,58,237,.18),rgba(124,58,237,.10));border-bottom:1px solid var(--line);font-size:13px;text-align:center;padding:8px 40px;position:relative}
+.demo-banner button{position:absolute;right:12px;top:6px;background:none;border:none;color:var(--mid);font-size:16px;cursor:pointer;padding:4px}
+header{position:sticky;top:0;z-index:50;background:rgba(5,3,9,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.header-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:64px;gap:12px}
+.wordmark{font-family:'Cormorant Garamond',serif;font-size:24px;color:var(--white);letter-spacing:2px}
+.demo-badge{font-size:10px;font-weight:400;color:var(--accent-soft);border:1px solid var(--accent);border-radius:4px;padding:2px 6px;margin-left:8px;letter-spacing:1px}
+nav.main{display:flex;gap:28px}
+nav.main a{color:var(--off);font-size:14px;font-weight:400;padding:4px 0;border-bottom:2px solid transparent}
+nav.main a.active{border-color:var(--accent);color:var(--white)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:400;font-size:15px;border-radius:8px;padding:0 24px;height:48px;cursor:pointer;border:1px solid transparent;background:var(--accent);color:var(--white);transition:background .2s}
+.btn:hover{background:var(--accent-soft)}
+.btn.secondary{background:transparent;color:var(--accent-soft);border-color:var(--accent)}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.btn:focus-visible{outline:2px solid var(--accent-soft);outline-offset:3px}
+.btn.small{height:38px;font-size:13px;padding:0 16px}
+/* Crucible hero */
+.crucible-hero{padding:96px 0 64px;text-align:center;background:radial-gradient(ellipse at 50% 0%,rgba(124,58,237,.22),transparent 60%),linear-gradient(180deg,#0a0616,#050309)}
+.ratio{font-family:'Cormorant Garamond',serif;font-size:30px;color:var(--white);margin-top:24px;line-height:1.5}
+.ratio .arrow{color:var(--accent-soft)}
+.forge-panel{background:rgba(26,20,48,.6);border:1px solid var(--line);border-radius:24px;padding:36px;margin:48px auto;box-shadow:0 0 80px rgba(124,58,237,.12)}
+label{display:block;font-size:13px;color:var(--off);font-weight:400;margin-bottom:6px}
+input[type=number]{width:100%;height:52px;background:var(--bg-deep);border:1px solid var(--line);border-radius:8px;color:var(--white);font-size:18px;padding:0 14px;font-family:'DM Sans',sans-serif}
+input:focus-visible{outline:2px solid var(--accent)}
+.req{display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid var(--line);font-size:15px;flex-wrap:wrap}
+.req b{font-weight:400;color:var(--white)}
+.req .short{color:var(--danger)}
+.req .okv{color:var(--success)}
+.maxline{font-size:13px;color:var(--mid);margin-top:12px}
+.maxline a{cursor:pointer}
+/* Step rail */
+.rail{display:flex;gap:8px;margin-top:24px;flex-wrap:wrap}
+.rail .stepchip{flex:1;min-width:150px;text-align:center;border:1px solid var(--line);border-radius:8px;padding:10px;font-size:13px;color:var(--mid)}
+.rail .stepchip.now{border-color:var(--accent);color:var(--white);background:var(--accent-glow)}
+.rail .stepchip.done{border-color:var(--success);color:var(--success)}
+/* Modal */
+.modal-back{position:fixed;inset:0;background:rgba(5,3,9,.85);z-index:100;display:none;align-items:center;justify-content:center;padding:20px}
+.modal-back.on{display:flex}
+.modal{background:var(--bg-panel);border:1px solid var(--line);border-radius:16px;max-width:460px;width:100%;padding:28px}
+.modal h3{margin-bottom:14px}
+.modal .row{padding:8px 0;border-bottom:1px solid var(--line);font-size:14px}
+.modal .row b{display:block;font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--accent-soft);font-weight:400}
+.modal .danger-strip{background:rgba(239,68,68,.12);border:1px solid rgba(239,68,68,.55);color:var(--danger);border-radius:8px;padding:12px;font-size:14px;margin-top:14px;font-weight:400}
+.modal .actions{display:flex;gap:12px;margin-top:20px}
+.modal .actions .btn{flex:1}
+.result{border-radius:12px;padding:14px 18px;font-size:14px;margin-top:16px;display:none}
+.result.ok{display:block;background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.4)}
+.result.err{display:block;background:rgba(239,68,68,.08);border:1px solid rgba(239,68,68,.4);color:var(--danger)}
+.result.warn{display:block;background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.4);color:var(--warning)}
+.spin{display:inline-block;width:14px;height:14px;border:2px solid var(--white);border-top-color:transparent;border-radius:50%;animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.balances{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;font-size:14px;margin-top:20px}
+.balances b{font-weight:400;color:var(--white)}
+footer{border-top:1px solid var(--line);padding:40px 0 96px;text-align:center;font-size:13px;color:var(--mid)}
+footer p{margin:4px 0}
+.bottom-nav{display:none}
+@media (max-width:760px){
+  h1{font-size:36px}.ratio{font-size:22px}
+  nav.main{display:none}
+  .bottom-nav{display:flex;position:fixed;bottom:0;left:0;right:0;z-index:60;background:rgba(5,3,9,.96);border-top:1px solid var(--line);justify-content:space-around;padding:10px 0 max(10px,env(safe-area-inset-bottom))}
+  .bottom-nav a{font-size:12px;color:var(--off);text-align:center}
+  .bottom-nav a.active{color:var(--accent-soft)}
+  body{padding-bottom:64px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="demo-banner" id="demoBanner" role="note">
+  ⚗ VINCULUM PROTOCOL — 90-DAY LIVE DEMONSTRATION · Tokens carry no value · For educational purposes only
+  <button aria-label="Dismiss demonstration banner" onclick="dismissBanner()">✕</button>
+</div>
+
+<header>
+  <div class="header-inner">
+    <div><a href="index.html" class="wordmark" style="color:var(--white)">VINCULUM</a><span class="demo-badge">DEMO</span></div>
+    <nav class="main" aria-label="Demo pages">
+      <a href="index.html">Hub</a>
+      <a href="learn.html">Learn</a>
+      <a href="app.html">App</a>
+      <a href="crucible.html" class="active" aria-current="page">Crucible</a>
+    </nav>
+    <button class="btn small" id="connectBtn">Connect Wallet</button>
+  </div>
+</header>
+
+<div class="crucible-hero">
+  <div class="container">
+    <div style="font-size:12px;letter-spacing:2px;color:var(--accent-soft);text-transform:uppercase;margin-bottom:8px">Step 4 · The convergence point</div>
+    <h1>The Crucible</h1>
+    <p style="max-width:560px;margin:16px auto 0">Burn dVCLM and dCHONX to forge dSYNTH. This is the demonstration's one permanent act — which is exactly why it's the one worth understanding most. <a href="learn.html#m4">Learn before you forge.</a></p>
+    <div class="ratio num">1,000 dVCLM + 10,000 dCHONX <span class="arrow">→</span> 1 dSYNTH</div>
+    <p class="muted">Each dSYNTH represents $200 of combined reference value, converged permanently. Ratio read live from the forge contract.</p>
+    <div class="balances" id="balances"></div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="result warn" id="netNotice">This demonstration runs on Base. <a href="#" id="switchNet">Switch network to continue</a>.</div>
+  <div class="result warn" id="noWalletHelp">No wallet detected in this browser. On mobile, open this page inside your wallet's built-in browser
+    (<a href="https://metamask.app.link/dapp/vinculumprotocol.com/demo/crucible.html" rel="noopener">MetaMask</a> ·
+    <a href="https://go.cb-w.com/dapp?cb_url=https%3A%2F%2Fvinculumprotocol.com%2Fdemo%2Fcrucible.html" rel="noopener">Coinbase Wallet</a>) —
+    on desktop, install a wallet extension, then refresh.</div>
+  <div class="result warn" id="rpcNotice">Live data is temporarily unavailable — the public Base endpoint may be busy. <a href="#" onclick="refreshAll();return false">Try again</a>.</div>
+
+  <div class="forge-panel">
+    <label for="synthAmt">Amount of dSYNTH to forge <span class="muted">(fractions welcome — 0.1 is a fine first forge)</span></label>
+    <input type="number" id="synthAmt" min="0" step="any" placeholder="0.0">
+    <div style="margin-top:18px">
+      <div class="req"><span>dVCLM required</span><span class="num" id="reqV">—</span></div>
+      <div class="req"><span>dCHONX required</span><span class="num" id="reqC">—</span></div>
+    </div>
+    <div class="maxline" id="maxLine">Connect your wallet to see the most you can forge.</div>
+    <div class="rail" aria-hidden="false">
+      <div class="stepchip" id="chip1">1 · Approve dVCLM</div>
+      <div class="stepchip" id="chip2">2 · Approve dCHONX</div>
+      <div class="stepchip" id="chip3">3 · Forge dSYNTH</div>
+    </div>
+    <button class="btn" id="forgeBtn" style="margin-top:24px;width:100%" disabled>Connect your wallet to forge</button>
+    <div class="result" id="forgeResult"></div>
+  </div>
+
+  <p class="muted" style="text-align:center;margin-bottom:48px">Short on ingredients? <a href="app.html#step2">Commit a vault for dVCLM</a> · <a href="app.html#step3">Stake for dCHONX</a> · After forging, <a href="index.html#roadmap">see what your forge advanced</a>.</p>
+</div>
+
+<footer>
+  <p>Vinculum Protocol — 90-Day Live Demonstration</p>
+  <p>Deployed on Base Mainnet · Tokens carry no monetary value</p>
+  <p>© 2026 Vinculum Protocol DAO LLC · <a href="https://vinculumprotocol.com">vinculumprotocol.com</a></p>
+</footer>
+
+<nav class="bottom-nav" aria-label="Demo pages">
+  <a href="index.html">⌂<br>Hub</a>
+  <a href="learn.html">✎<br>Learn</a>
+  <a href="app.html">▣<br>App</a>
+  <a href="crucible.html" class="active">⚗<br>Crucible</a>
+</nav>
+
+<!-- Transaction summary modal -->
+<div class="modal-back" id="modalBack" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal">
+    <h3 id="modalTitle">Confirm</h3>
+    <div id="modalRows"></div>
+    <div class="danger-strip" id="modalDanger" style="display:none"></div>
+    <p class="muted" style="margin-top:12px">This requires a small gas fee paid in ETH on Base. Your wallet will ask you to approve.</p>
+    <div class="actions">
+      <button class="btn secondary" id="modalCancel">Cancel</button>
+      <button class="btn" id="modalConfirm">Confirm</button>
+    </div>
+  </div>
+</div>
+
+<script>
+"use strict";
+/* ================= CONFIGURATION (edit here — see Configuration Guide) ================= */
+const CONFIG = {
+  rpcUrl: "https://mainnet.base.org",
+  chainId: 8453,
+  chainIdHex: "0x2105",
+  basescan: "https://basescan.org",
+  balanceRefreshMs: 15000,
+  addresses: {
+    dVCLM:  "0x3B8667db0fE1ec004aABC28D5E55fEe4506501CE",
+    dCHONX: "0x5226C0caf7DCEd83ac9D09a08e0b1b7077942FB1",
+    dSYNTH: "0xDEDBf19c376b5ff30Df8c96C5E818eE9467345a3",
+    forge:  "0x552e12f924A2E9ae0bb4c109f83F9d49E008BE66"
+  }
+};
+
+const ERC20_ABI=[
+  "function balanceOf(address) view returns (uint256)",
+  "function allowance(address owner,address spender) view returns (uint256)",
+  "function approve(address spender,uint256 value) returns (bool)",
+  "error ERC20InsufficientAllowance(address spender,uint256 allowance,uint256 needed)",
+  "error ERC20InsufficientBalance(address sender,uint256 balance,uint256 needed)"
+];
+const FORGE_ABI=[
+  "function DVCLM_PER_DSYNTH() view returns (uint256)",
+  "function DCHONX_PER_DSYNTH() view returns (uint256)",
+  "function burnRequirements(uint256 dSYNTHamount) pure returns (uint256 dVCLMrequired,uint256 dCHONXrequired)",
+  "function maxSynthCreatable(address user) view returns (uint256 maxDSYNTH,uint256 vclmLimited,uint256 chonxLimited)",
+  "function createSynth(uint256 dSYNTHamount)"
+];
+
+let readProvider,browserProvider,signer,user=null,R={},W={},BAL={v:0n,c:0n,s:0n};
+let RATIO={v:1000,c:10000};
+
+const $=id=>document.getElementById(id);
+const fmt=(x,d=2)=>Number(ethers.formatUnits(x,18)).toLocaleString(undefined,{maximumFractionDigits:d});
+const parse=v=>ethers.parseUnits(String(v),18);
+function short(a){return a.slice(0,6)+"…"+a.slice(-4);}
+function dismissBanner(){ $("demoBanner").style.display="none"; try{sessionStorage.setItem("vclm_banner","off")}catch(e){} }
+try{ if(sessionStorage.getItem("vclm_banner")==="off") $("demoBanner").style.display="none"; }catch(e){}
+function markParticipate(id){ try{ const p=JSON.parse(localStorage.getItem("vclm_demo_progress"))||{}; p[id]=p[id]||{l:0,q:0,p:0}; p[id].p=1; localStorage.setItem("vclm_demo_progress",JSON.stringify(p)); }catch(e){} }
+
+function humanError(e){
+  if(e && (e.code==="ACTION_REJECTED"||e.code===4001)) return "Transaction cancelled — nothing was burned.";
+  const m=(e&&(e.reason||e.shortMessage||(e.info&&e.info.error&&e.info.error.message)||e.message)||"").toLowerCase();
+  if(m.includes("insufficient funds")) return "You need a small amount of ETH on Base to pay the network fee.";
+  if(e && e.reason) return "The contract declined this action: "+e.reason;
+  if(m.includes("user rejected")) return "Transaction cancelled — nothing was burned.";
+  return "That didn't go through. Nothing was burned — please try again in a moment.";
+}
+function showResult(cls,html){ const el=$("forgeResult"); el.className="result "+cls; el.innerHTML=html; }
+function txLink(hash){ return `<a href="${CONFIG.basescan}/tx/${hash}" target="_blank" rel="noopener">View on Basescan ↗</a>`; }
+
+/* Modal */
+let modalResolve=null;
+function summarize({title,what,spend,receive,next,danger}){
+  return new Promise(res=>{
+    modalResolve=res;
+    $("modalTitle").textContent=title;
+    $("modalRows").innerHTML=
+      `<div class="row"><b>What will happen</b>${what}</div>`+
+      (spend?`<div class="row"><b>You will spend</b>${spend}</div>`:"")+
+      (receive?`<div class="row"><b>You will receive</b>${receive}</div>`:"")+
+      (next?`<div class="row"><b>What happens next</b>${next}</div>`:"");
+    const d=$("modalDanger"); if(danger){d.style.display="block";d.textContent=danger;}else d.style.display="none";
+    $("modalBack").classList.add("on"); $("modalConfirm").focus();
+  });
+}
+$("modalCancel").addEventListener("click",()=>{ $("modalBack").classList.remove("on"); if(modalResolve)modalResolve(false); });
+$("modalConfirm").addEventListener("click",()=>{ $("modalBack").classList.remove("on"); if(modalResolve)modalResolve(true); });
+document.addEventListener("keydown",e=>{ if(e.key==="Escape"&&$("modalBack").classList.contains("on")){$("modalBack").classList.remove("on");if(modalResolve)modalResolve(false);} });
+
+/* Wallet */
+async function connect(){
+  if(!window.ethereum){ $("noWalletHelp").className="result warn"; return; }
+  try{
+    browserProvider=new ethers.BrowserProvider(window.ethereum);
+    const accts=await browserProvider.send("eth_requestAccounts",[]);
+    user=ethers.getAddress(accts[0]);
+    const net=await browserProvider.getNetwork();
+    if(Number(net.chainId)!==CONFIG.chainId){ $("netNotice").className="result warn"; return; }
+    $("netNotice").className="result";
+    signer=await browserProvider.getSigner();
+    W.vclm=new ethers.Contract(CONFIG.addresses.dVCLM,ERC20_ABI,signer);
+    W.chonx=new ethers.Contract(CONFIG.addresses.dCHONX,ERC20_ABI,signer);
+    W.forge=new ethers.Contract(CONFIG.addresses.forge,FORGE_ABI,signer);
+    $("connectBtn").innerHTML='<span style="width:8px;height:8px;border-radius:50%;background:var(--success);display:inline-block"></span> '+short(user);
+    window.ethereum.on&&window.ethereum.on("accountsChanged",()=>location.reload());
+    window.ethereum.on&&window.ethereum.on("chainChanged",()=>location.reload());
+    $("forgeBtn").disabled=false; $("forgeBtn").textContent="Forge dSYNTH";
+    await refreshAll();
+  }catch(e){ /* user closed the prompt */ }
+}
+$("connectBtn").addEventListener("click",connect);
+$("switchNet").addEventListener("click",async e=>{
+  e.preventDefault();
+  try{ await window.ethereum.request({method:"wallet_switchEthereumChain",params:[{chainId:CONFIG.chainIdHex}]}); }
+  catch(err){ if(err&&err.code===4902){ try{ await window.ethereum.request({method:"wallet_addEthereumChain",params:[{chainId:CONFIG.chainIdHex,chainName:"Base",nativeCurrency:{name:"Ether",symbol:"ETH",decimals:18},rpcUrls:[CONFIG.rpcUrl],blockExplorerUrls:[CONFIG.basescan]}]}); }catch(e2){} } }
+});
+
+/* Reads */
+async function loadRatio(){
+  const [pv,pc]=await Promise.all([R.forge.DVCLM_PER_DSYNTH(),R.forge.DCHONX_PER_DSYNTH()]);
+  /* Contract expresses per-dSYNTH burn amounts; normalize to whole-token multipliers for preview math. */
+  const nv=Number(pv), nc=Number(pc);
+  RATIO={ v: nv>100000 ? Number(ethers.formatUnits(pv,18)) : nv,
+          c: nc>1000000 ? Number(ethers.formatUnits(pc,18)) : nc };
+}
+async function refreshAll(){
+  try{
+    await loadRatio();
+    if(user){
+      const [v,c,s,mx]=await Promise.all([R.vclm.balanceOf(user),R.chonx.balanceOf(user),R.synth.balanceOf(user),R.forge.maxSynthCreatable(user)]);
+      BAL={v,c,s};
+      $("balances").innerHTML=
+        `<span><b class="num">${fmt(v)}</b> dVCLM held</span><span><b class="num">${fmt(c)}</b> dCHONX held</span><span><b class="num">${fmt(s,4)}</b> dSYNTH forged so far</span>`;
+      const maxS=Number(ethers.formatUnits(mx.maxDSYNTH,18));
+      $("maxLine").innerHTML = maxS>0
+        ? `With your current balances you can forge up to <b class="num" style="color:var(--white)">${maxS.toLocaleString(undefined,{maximumFractionDigits:4})} dSYNTH</b> — <a id="useMax">use max</a>.`
+        : `You don't yet hold enough of both ingredients. <a href="app.html#step2">Earn dVCLM in a vault</a> and <a href="app.html#step3">dCHONX by staking</a>, then return.`;
+      const um=$("useMax"); if(um) um.addEventListener("click",()=>{ $("synthAmt").value=maxS; calc(); });
+    }
+    calc();
+    $("rpcNotice").className="result";
+  }catch(e){ $("rpcNotice").className="result warn"; }
+}
+function calc(){
+  const v=Number($("synthAmt").value||0);
+  if(!v){ $("reqV").textContent="—"; $("reqC").textContent="—"; return; }
+  const needV=v*RATIO.v, needC=v*RATIO.c;
+  const haveV=Number(ethers.formatUnits(BAL.v,18)), haveC=Number(ethers.formatUnits(BAL.c,18));
+  $("reqV").innerHTML=`<b>${needV.toLocaleString(undefined,{maximumFractionDigits:2})}</b> <span class="${user?(haveV>=needV?"okv":"short"):""}">${user?`(you hold ${haveV.toLocaleString(undefined,{maximumFractionDigits:2})})`:""}</span>`;
+  $("reqC").innerHTML=`<b>${needC.toLocaleString(undefined,{maximumFractionDigits:2})}</b> <span class="${user?(haveC>=needC?"okv":"short"):""}">${user?`(you hold ${haveC.toLocaleString(undefined,{maximumFractionDigits:2})})`:""}</span>`;
+}
+$("synthAmt").addEventListener("input",calc);
+
+/* Rail helpers */
+function rail(stage){ // 0 none, 1 approving V, 2 approving C, 3 forging, 4 done
+  [["chip1",1],["chip2",2],["chip3",3]].forEach(([id,n])=>{
+    const el=$(id); el.className="stepchip"+(stage>n?" done":stage===n?" now":"");
+  });
+}
+
+/* Forge flow: approve dVCLM → approve dCHONX → createSynth */
+$("forgeBtn").addEventListener("click",async()=>{
+  const val=$("synthAmt").value;
+  if(!val||Number(val)<=0){ showResult("warn","Enter how much dSYNTH to forge first — 0.1 is a fine first forge."); return; }
+  const amt=parse(val);
+  const needV=parse(String(Number(val)*RATIO.v)), needC=parse(String(Number(val)*RATIO.c));
+  if(needV>BAL.v){ showResult("warn",`You need ${fmt(needV)} dVCLM but hold ${fmt(BAL.v)}. <a href="app.html#step2">Commit a vault</a> to earn more.`); return; }
+  if(needC>BAL.c){ showResult("warn",`You need ${fmt(needC)} dCHONX but hold ${fmt(BAL.c)}. <a href="app.html#step3">Stake</a> to earn more.`); return; }
+
+  const btn=$("forgeBtn"); const orig=btn.textContent;
+
+  /* Step 1 — approve dVCLM if needed */
+  rail(1);
+  const alV=await R.vclm.allowance(user,CONFIG.addresses.forge);
+  if(alV<needV){
+    const ok=await summarize({ title:"Confirm — Step 1 of 3 · Approve dVCLM",
+      what:`Permit the Forge contract to take ${fmt(needV)} dVCLM for burning. Nothing is burned in this step.`,
+      spend:"Only the gas fee.", receive:"Permission recorded on-chain.", next:"Step 2 approves dCHONX." });
+    if(!ok){ rail(0); showResult("warn","Cancelled — nothing was burned."); return; }
+    btn.disabled=true; btn.innerHTML='<span class="spin"></span> Approving dVCLM…';
+    try{ const tx=await W.vclm.approve(CONFIG.addresses.forge,needV); await tx.wait(); }
+    catch(e){ showResult("err",humanError(e)); btn.disabled=false; btn.textContent=orig; rail(0); return; }
+  }
+
+  /* Step 2 — approve dCHONX if needed */
+  rail(2);
+  const alC=await R.chonx.allowance(user,CONFIG.addresses.forge);
+  if(alC<needC){
+    const ok=await summarize({ title:"Confirm — Step 2 of 3 · Approve dCHONX",
+      what:`Permit the Forge contract to take ${fmt(needC)} dCHONX for burning. Nothing is burned in this step.`,
+      spend:"Only the gas fee.", receive:"Permission recorded on-chain.", next:"Step 3 is the forge itself — the permanent one." });
+    if(!ok){ rail(0); btn.disabled=false; btn.textContent=orig; showResult("warn","Cancelled — nothing was burned."); return; }
+    btn.disabled=true; btn.innerHTML='<span class="spin"></span> Approving dCHONX…';
+    try{ const tx=await W.chonx.approve(CONFIG.addresses.forge,needC); await tx.wait(); }
+    catch(e){ showResult("err",humanError(e)); btn.disabled=false; btn.textContent=orig; rail(0); return; }
+  }
+
+  /* Step 3 — forge */
+  rail(3);
+  const ok=await summarize({ title:"Confirm — Step 3 of 3 · Forge dSYNTH",
+    what:`Burn ${fmt(needV)} dVCLM and ${fmt(needC)} dCHONX to forge ${Number(val).toLocaleString(undefined,{maximumFractionDigits:4})} dSYNTH.`,
+    spend:`${fmt(needV)} dVCLM + ${fmt(needC)} dCHONX — destroyed forever — plus gas.`,
+    receive:`${Number(val).toLocaleString(undefined,{maximumFractionDigits:4})} dSYNTH, the permanent record of your convergence.`,
+    next:"Your dSYNTH appears in your balance; the burn is visible to everyone on Basescan.",
+    danger:"THIS BURN IS PERMANENT AND CANNOT BE UNDONE. The dVCLM and dCHONX will be destroyed." });
+  if(!ok){ rail(0); btn.disabled=false; btn.textContent=orig; showResult("warn","Cancelled — nothing was burned."); return; }
+  btn.disabled=true; btn.innerHTML='<span class="spin"></span> Forging on Base…';
+  try{
+    const tx=await W.forge.createSynth(amt);
+    const rc=await tx.wait();
+    rail(4);
+    showResult("ok",`⚗ Forged ${Number(val).toLocaleString(undefined,{maximumFractionDigits:4})} dSYNTH — ${fmt(needV)} dVCLM and ${fmt(needC)} dCHONX converged, permanently. `+txLink(rc.hash));
+    markParticipate("m4");
+    await refreshAll();
+  }catch(e){ showResult("err",humanError(e)); rail(0); }
+  btn.disabled=false; btn.textContent=orig;
+});
+
+/* Boot */
+(function(){
+  readProvider=new ethers.JsonRpcProvider(CONFIG.rpcUrl,CONFIG.chainId);
+  R.vclm=new ethers.Contract(CONFIG.addresses.dVCLM,ERC20_ABI,readProvider);
+  R.chonx=new ethers.Contract(CONFIG.addresses.dCHONX,ERC20_ABI,readProvider);
+  R.synth=new ethers.Contract(CONFIG.addresses.dSYNTH,ERC20_ABI,readProvider);
+  R.forge=new ethers.Contract(CONFIG.addresses.forge,FORGE_ABI,readProvider);
+  refreshAll();
+  setInterval(()=>{ if(user) refreshAll().catch(()=>{}); },CONFIG.balanceRefreshMs);
+})();
+</script>
+</body>
+</html>
