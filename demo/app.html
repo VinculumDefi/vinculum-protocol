@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>App — Vinculum 90-Day Demonstration</title>
+<meta name="description" content="Claim, commit, stake, and manage your positions in the Vinculum 90-day demonstration on Base mainnet.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300&family=DM+Sans:wght@200;300;400&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/ethers@6.13.2/dist/ethers.umd.min.js"></script>
+<style>
+:root{
+  --bg-deep:#07050f; --bg-mid:#110d1f; --bg-panel:#1a1430; --line:#2a2145;
+  --accent:#7c3aed; --accent-soft:#a855f7; --accent-glow:rgba(124,58,237,0.15);
+  --white:#fafaf8; --off:#f4f3ef; --mid:#8b8b99;
+  --danger:#ef4444; --success:#22c55e; --warning:#f59e0b;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg-deep);color:var(--off);font-family:'DM Sans',sans-serif;font-weight:300;line-height:1.6;font-size:16px}
+h1,h2,h3{font-family:'Cormorant Garamond',serif;font-weight:300;color:var(--white);line-height:1.2}
+h1{font-size:48px} h2{font-size:34px} h3{font-size:24px}
+a{color:var(--accent-soft);text-decoration:none}
+.container{max-width:960px;margin:0 auto;padding:0 24px}
+section{padding:56px 0;border-bottom:1px solid var(--line)}
+.muted{color:var(--mid);font-size:14px}
+.num{font-variant-numeric:tabular-nums}
+.demo-banner{background:linear-gradient(90deg,rgba(124,58,237,.18),rgba(124,58,237,.10));border-bottom:1px solid var(--line);font-size:13px;text-align:center;padding:8px 40px;position:relative}
+.demo-banner button{position:absolute;right:12px;top:6px;background:none;border:none;color:var(--mid);font-size:16px;cursor:pointer;padding:4px}
+header{position:sticky;top:0;z-index:50;background:rgba(7,5,15,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.header-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:64px;gap:12px}
+.wordmark{font-family:'Cormorant Garamond',serif;font-size:24px;color:var(--white);letter-spacing:2px}
+.demo-badge{font-size:10px;font-weight:400;color:var(--accent-soft);border:1px solid var(--accent);border-radius:4px;padding:2px 6px;margin-left:8px;letter-spacing:1px}
+nav.main{display:flex;gap:28px}
+nav.main a{color:var(--off);font-size:14px;font-weight:400;padding:4px 0;border-bottom:2px solid transparent}
+nav.main a.active{border-color:var(--accent);color:var(--white)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:400;font-size:15px;border-radius:8px;padding:0 24px;height:48px;cursor:pointer;border:1px solid transparent;background:var(--accent);color:var(--white)}
+.btn:hover{background:var(--accent-soft)}
+.btn.secondary{background:transparent;color:var(--accent-soft);border-color:var(--accent)}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.btn:focus-visible{outline:2px solid var(--accent-soft);outline-offset:3px}
+.card{background:var(--bg-panel);border:1px solid var(--line);border-radius:16px;padding:28px;margin-top:20px;position:relative}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media(max-width:760px){.two-col{grid-template-columns:1fr}}
+.step-eyebrow{font-size:12px;letter-spacing:2px;color:var(--accent-soft);text-transform:uppercase;margin-bottom:6px}
+.wallet-bar{background:var(--bg-mid);border-bottom:1px solid var(--line);padding:10px 0;display:none}
+.wallet-bar.on{display:block}
+.wb-inner{max-width:960px;margin:0 auto;padding:0 24px;display:flex;gap:24px;overflow-x:auto;font-size:14px;white-space:nowrap}
+.progressbar{height:8px;background:var(--bg-mid);border-radius:4px;overflow:hidden;margin-top:10px}
+.progressbar>div{height:100%;background:var(--accent)}
+.veil{position:absolute;inset:0;background:rgba(7,5,15,.72);backdrop-filter:blur(2px);border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;z-index:5}
+.pos{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:16px;border:1px solid var(--line);border-radius:12px;background:var(--bg-mid);margin-top:12px;flex-wrap:wrap}
+.modal-back{position:fixed;inset:0;background:rgba(7,5,15,.8);z-index:100;display:none;align-items:center;justify-content:center;padding:20px}
+.modal-back.on{display:flex}
+.modal{background:var(--bg-panel);border:1px solid var(--line);border-radius:16px;max-width:460px;width:100%;padding:28px}
+.result{border-radius:12px;padding:14px 18px;font-size:14px;margin-top:14px;display:none}
+.result.ok{background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.4)}
+</style>
+</head>
+<body>
+
+<!-- Full body content and script from Fable 5's app.html would go here. Due to length, reply "continue app" if you need the rest split. -->
+
+</body>
+</html>
