@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>App — Vinculum 90-Day Demonstration</title>
+<meta name="description" content="Claim, commit, stake, and manage your positions in the Vinculum 90-day demonstration on Base mainnet.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300&family=DM+Sans:wght@200;300;400&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/ethers@6.13.2/dist/ethers.umd.min.js"></script>
+<style>
+:root{
+  --bg-deep:#07050f; --bg-mid:#110d1f; --bg-panel:#1a1430; --line:#2a2145;
+  --accent:#7c3aed; --accent-soft:#a855f7; --accent-glow:rgba(124,58,237,0.15);
+  --white:#fafaf8; --off:#f4f3ef; --mid:#8b8b99;
+  --danger:#ef4444; --success:#22c55e; --warning:#f59e0b;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg-deep);color:var(--off);font-family:'DM Sans',sans-serif;font-weight:300;line-height:1.6;font-size:16px}
+h1,h2,h3{font-family:'Cormorant Garamond',serif;font-weight:300;color:var(--white);line-height:1.2}
+h1{font-size:48px} h2{font-size:34px} h3{font-size:24px}
+a{color:var(--accent-soft);text-decoration:none}
+.container{max-width:960px;margin:0 auto;padding:0 24px}
+section{padding:56px 0;border-bottom:1px solid var(--line)}
+.muted{color:var(--mid);font-size:14px}
+.num{font-variant-numeric:tabular-nums}
+.demo-banner{background:linear-gradient(90deg,rgba(124,58,237,.18),rgba(124,58,237,.10));border-bottom:1px solid var(--line);font-size:13px;text-align:center;padding:8px 40px;position:relative}
+.demo-banner button{position:absolute;right:12px;top:6px;background:none;border:none;color:var(--mid);font-size:16px;cursor:pointer;padding:4px}
+header{position:sticky;top:0;z-index:50;background:rgba(7,5,15,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.header-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:64px;gap:12px}
+.wordmark{font-family:'Cormorant Garamond',serif;font-size:24px;color:var(--white);letter-spacing:2px}
+.demo-badge{font-size:10px;font-weight:400;color:var(--accent-soft);border:1px solid var(--accent);border-radius:4px;padding:2px 6px;margin-left:8px;letter-spacing:1px}
+nav.main{display:flex;gap:28px}
+nav.main a{color:var(--off);font-size:14px;font-weight:400;padding:4px 0;border-bottom:2px solid transparent}
+nav.main a.active{border-color:var(--accent);color:var(--white)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:'DM Sans',sans-serif;font-weight:400;font-size:15px;border-radius:8px;padding:0 24px;height:48px;cursor:pointer;border:1px solid transparent;background:var(--accent);color:var(--white);transition:background .2s}
+.btn:hover{background:var(--accent-soft)}
+.btn.secondary{background:transparent;color:var(--accent-soft);border-color:var(--accent)}
+.btn.secondary:hover{background:var(--accent-glow)}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.btn:focus-visible{outline:2px solid var(--accent-soft);outline-offset:3px}
+.btn.small{height:38px;font-size:13px;padding:0 16px}
+.card{background:var(--bg-panel);border:1px solid var(--line);border-radius:16px;padding:28px;margin-top:20px;position:relative}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media(max-width:760px){.two-col{grid-template-columns:1fr}}
+.step-eyebrow{font-size:12px;letter-spacing:2px;color:var(--accent-soft);text-transform:uppercase;margin-bottom:6px}
+.live-tick{display:inline-flex;align-items:center;gap:6px;font-size:11px;color:var(--mid);letter-spacing:1px}
+.live-dot{width:7px;height:7px;border-radius:50%;background:var(--success);animation:breathe 3s ease-in-out infinite}
+@keyframes breathe{0%,100%{opacity:1}50%{opacity:.35}}
+/* Wallet bar */
+.wallet-bar{background:var(--bg-mid);border-bottom:1px solid var(--line);padding:10px 0;display:none}
+.wallet-bar.on{display:block}
+.wb-inner{max-width:960px;margin:0 auto;padding:0 24px;display:flex;gap:24px;overflow-x:auto;font-size:14px;white-space:nowrap}
+.wb-item b{font-weight:400;color:var(--white)}
+.wb-item .cap{color:var(--mid);font-size:11px;margin-left:4px}
+/* Inputs */
+label{display:block;font-size:13px;color:var(--off);font-weight:400;margin-bottom:6px}
+input[type=number],select{width:100%;height:48px;background:var(--bg-mid);border:1px solid var(--line);border-radius:8px;color:var(--white);font-size:16px;padding:0 14px;font-family:'DM Sans',sans-serif}
+input:focus-visible,select:focus-visible{outline:2px solid var(--accent)}
+.calc{font-size:13px;color:var(--mid);margin-top:8px;line-height:1.7}
+.calc b{color:var(--off);font-weight:400}
+.field{margin-top:16px}
+.reason{font-size:13px;color:var(--mid);margin-top:8px;display:flex;gap:6px;align-items:flex-start}
+.warn-inline{color:var(--warning)} .bad-inline{color:var(--danger)}
+/* Progress bar */
+.progressbar{height:8px;background:var(--bg-mid);border-radius:4px;overflow:hidden;margin-top:10px}
+.progressbar>div{height:100%;background:var(--accent);border-radius:4px;transition:width 1.2s ease}
+/* Lock veil */
+.veil-wrap{position:relative}
+.veil{position:absolute;inset:0;background:rgba(7,5,15,.72);backdrop-filter:blur(2px);border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;z-index:5}
+.veil .lock{font-size:28px;margin-bottom:8px}
+/* Positions */
+.pos{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:16px;border:1px solid var(--line);border-radius:12px;background:var(--bg-mid);margin-top:12px;flex-wrap:wrap}
+.pos.claimed{opacity:.5}
+.pos .left{min-width:200px}
+.pos .title{color:var(--white);font-weight:400;font-size:15px}
+.pos .sub{font-size:13px;color:var(--mid)}
+.pos .cd{font-size:15px;color:var(--warning)}
+.tag{font-size:11px;border:1px solid var(--line);border-radius:4px;padding:2px 8px;color:var(--mid)}
+/* Modal */
+.modal-back{position:fixed;inset:0;background:rgba(7,5,15,.8);z-index:100;display:none;align-items:center;justify-content:center;padding:20px}
+.modal-back.on{display:flex}
+.modal{background:var(--bg-panel);border:1px solid var(--line);border-radius:16px;max-width:460px;width:100%;padding:28px}
+.modal h3{margin-bottom:14px}
+.modal .row{padding:8px 0;border-bottom:1px solid var(--line);font-size:14px}
+.modal .row b{color:var(--white);font-weight:400;display:block;font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--accent-soft)}
+.modal .danger-strip{background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.5);color:var(--danger);border-radius:8px;padding:12px;font-size:14px;margin-top:14px}
+.modal .actions{display:flex;gap:12px;margin-top:20px}
+.modal .actions .btn{flex:1}
+/* Toast / result */
+.result{border-radius:12px;padding:14px 18px;font-size:14px;margin-top:14px;display:none}
+.result.ok{display:block;background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.4)}
+.result.err{display:block;background:rgba(239,68,68,.08);border:1px solid rgba(239,68,68,.4);color:var(--danger)}
+.result.warn{display:block;background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.4);color:var(--warning)}
+.spin{display:inline-block;width:14px;height:14px;border:2px solid var(--white);border-top-color:transparent;border-radius:50%;animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+footer{border-top:1px solid var(--line);padding:40px 0 96px;text-align:center;font-size:13px;color:var(--mid)}
+footer p{margin:4px 0}
+.bottom-nav{display:none}
+@media (max-width:760px){
+  h1{font-size:36px}
+  nav.main{display:none}
+  .bottom-nav{display:flex;position:fixed;bottom:0;left:0;right:0;z-index:60;background:rgba(7,5,15,.96);border-top:1px solid var(--line);justify-content:space-around;padding:10px 0 max(10px,env(safe-area-inset-bottom))}
+  .bottom-nav a{font-size:12px;color:var(--off);text-align:center}
+  .bottom-nav a.active{color:var(--accent-soft)}
+  body{padding-bottom:64px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="demo-banner" id="demoBanner" role="note">
+  ⚗ VINCULUM PROTOCOL — 90-DAY LIVE DEMONSTRATION · Tokens carry no value · For educational purposes only
+  <button aria-label="Dismiss demonstration banner" onclick="dismissBanner()">✕</button>
+</div>
+
+<header>
+  <div class="header-inner">
+    <div><a href="index.html" class="wordmark" style="color:var(--white)">VINCULUM</a><span class="demo-badge">DEMO</span></div>
+    <nav class="main" aria-label="Demo pages">
+      <a href="index.html">Hub</a>
+      <a href="learn.html">Learn</a>
+      <a href="app.html" class="active" aria-current="page">App</a>
+      <a href="crucible.html">Crucible</a>
+    </nav>
+    <button class="btn small" id="connectBtn">Connect Wallet</button>
+  </div>
+</header>
+
+<div class="wallet-bar" id="walletBar">
+  <div class="wb-inner num" id="wbInner"></div>
+</div>
+
+<div class="container">
+  <div class="result warn" id="netNotice" style="margin-top:16px">
+    This demonstration runs on Base. <a href="#" id="switchNet">Switch network to continue</a>.
+  </div>
+  <div class="result warn" id="noWalletHelp" style="margin-top:16px">
+    No wallet detected in this browser. On mobile, open this page inside your wallet's built-in browser
+    (<a href="https://metamask.app.link/dapp/vinculumprotocol.com/demo/app.html" rel="noopener">MetaMask</a> ·
+    <a href="https://go.cb-w.com/dapp?cb_url=https%3A%2F%2Fvinculumprotocol.com%2Fdemo%2Fapp.html" rel="noopener">Coinbase Wallet</a>) —
+    on desktop, install a wallet extension, then refresh.
+  </div>
+  <div class="result warn" id="rpcNotice">Live data is temporarily unavailable — the public Base endpoint may be busy. <a href="#" onclick="fullRefresh();return false">Try again</a>.</div>
+</div>
+
+<section id="intro" style="border:none;padding-bottom:24px">
+  <div class="container">
+    <h1>The Demonstration App</h1>
+    <p style="max-width:640px;margin-top:12px">Four steps, in order: claim, commit, stake, forge. Every number below is read live from the contracts on Base — this page only reports the truth. New here? <a href="learn.html">Start with Learn</a>, or read <a href="index.html#before-you-begin">Before You Begin</a>.</p>
+  </div>
+</section>
+
+<!-- ============ STEP 1 — FAUCET ============ -->
+<section id="step1">
+  <div class="container">
+    <div class="step-eyebrow">Step 1</div>
+    <h2>Claim Demo Assets</h2>
+    <p class="muted">dASSET is your starting point — a stand-in for whatever asset you'd commit in production. Free, with fair per-wallet limits. <span class="live-tick"><span class="live-dot"></span>LIVE · BASE</span></p>
+    <div class="card" id="faucetCard">
+      <div id="faucetBody"><p class="muted">Connect your wallet to see your claim status.</p></div>
+      <div class="result" id="faucetResult"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STEP 2 — VAULT ============ -->
+<section id="step2">
+  <div class="container">
+    <div class="step-eyebrow">Step 2</div>
+    <h2>Commit to a Vault, Earn dVCLM</h2>
+    <p class="muted">Lock dASSET for a cycle — dVCLM is minted to you immediately, and your dASSET returns after 1 hour. <a href="learn.html#m2">What is a vault?</a></p>
+    <div class="two-col">
+      <div class="card" id="trustCard">
+        <h3>Trust Trial</h3>
+        <p class="muted" style="margin:6px 0 0">Your gentlest first commitment — once per wallet.</p>
+        <div class="calc" id="trustInfo">Loading terms from the contract…</div>
+        <div class="field">
+          <label for="trustAmt">Amount of dASSET</label>
+          <input type="number" id="trustAmt" min="0" step="any" placeholder="0">
+          <div class="calc" id="trustCalc"></div>
+        </div>
+        <button class="btn" id="trustBtn" style="margin-top:16px" disabled>Lock Trust Trial Vault</button>
+        <div class="reason" id="trustReason"></div>
+      </div>
+      <div class="card" id="stdCard">
+        <h3>Standard Vault</h3>
+        <p class="muted" style="margin:6px 0 0">The full commitment mechanic.</p>
+        <div class="calc" id="stdInfo">Loading terms from the contract…</div>
+        <div class="field">
+          <label for="stdAmt">Amount of dASSET</label>
+          <input type="number" id="stdAmt" min="0" step="any" placeholder="0">
+        </div>
+        <div class="field">
+          <label for="stdLabel">Duration label <span class="muted">(all mature in 1 hour during the demonstration)</span></label>
+          <select id="stdLabel">
+            <option value="1">7-Day</option><option value="2">30-Day</option><option value="3">90-Day</option>
+            <option value="4">180-Day</option><option value="5">1-Year</option><option value="6">2-Year</option><option value="7">3-Year</option>
+          </select>
+        </div>
+        <div class="calc" id="stdCalc"></div>
+        <button class="btn" id="stdBtn" style="margin-top:16px" disabled>Lock Standard Vault</button>
+        <div class="reason" id="stdReason"></div>
+      </div>
+    </div>
+    <div class="result" id="vaultResult"></div>
+  </div>
+</section>
+
+<!-- ============ STEP 3 — STAKING ============ -->
+<section id="step3">
+  <div class="container">
+    <div class="step-eyebrow">Step 3</div>
+    <h2>Stake Tokens, Earn dCHONX</h2>
+    <p class="muted">Stake dVCLM (preferred weight) or dASSET (base weight) for a 1-hour cycle. Your tokens return in full — plus freshly minted dCHONX. <a href="learn.html#m3">How staking works</a></p>
+    <div class="veil-wrap">
+      <div class="veil" id="stakeVeil">
+        <div class="lock">🔒</div>
+        <h3>Staking unlocks at activation</h3>
+        <p style="max-width:420px;margin-top:8px">dCHONX activates when the community's cumulative dVCLM minting crosses the threshold. Every vault commitment moves this bar.</p>
+        <div style="width:100%;max-width:420px;margin-top:14px">
+          <div class="progressbar"><div id="veilBar" style="width:0%"></div></div>
+          <div class="muted num" id="veilLabel" style="margin-top:8px">— / —</div>
+        </div>
+      </div>
+      <div class="two-col">
+        <div class="card">
+          <h3>Stake dVCLM <span class="tag">1.5× weight</span></h3>
+          <div class="calc" id="svInfo">Loading rate…</div>
+          <div class="field">
+            <label for="svAmt">Amount of dVCLM</label>
+            <input type="number" id="svAmt" min="0" step="any" placeholder="0">
+            <div class="calc" id="svCalc"></div>
+          </div>
+          <button class="btn" id="svBtn" style="margin-top:16px" disabled>Stake dVCLM</button>
+          <div class="reason" id="svReason"></div>
+        </div>
+        <div class="card">
+          <h3>Stake dASSET <span class="tag">1.0× weight</span></h3>
+          <div class="calc" id="saInfo">Loading rate…</div>
+          <div class="field">
+            <label for="saAmt">Amount of dASSET</label>
+            <input type="number" id="saAmt" min="0" step="any" placeholder="0">
+            <div class="calc" id="saCalc"></div>
+          </div>
+          <button class="btn" id="saBtn" style="margin-top:16px" disabled>Stake dASSET</button>
+          <div class="reason" id="saReason"></div>
+        </div>
+      </div>
+    </div>
+    <div class="result" id="stakeResult"></div>
+  </div>
+</section>
+
+<!-- ============ MY POSITIONS ============ -->
+<section id="positions" style="border:none">
+  <div class="container">
+    <h2>My Positions</h2>
+    <p class="muted">Your vaults and stakes. Matured positions rise to the top — return here to claim.</p>
+    <div class="card">
+      <h3>Vaults</h3>
+      <div id="vaultList"><p class="muted" style="margin-top:10px">Connect your wallet to see your vaults.</p></div>
+      <h3 style="margin-top:28px">Stakes</h3>
+      <div id="stakeList"><p class="muted" style="margin-top:10px">Connect your wallet to see your stakes.</p></div>
+      <div class="result" id="claimResult"></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>Vinculum Protocol — 90-Day Live Demonstration</p>
+  <p>Deployed on Base Mainnet · Tokens carry no monetary value</p>
+  <p>© 2026 Vinculum Protocol DAO LLC · <a href="https://vinculumprotocol.com">vinculumprotocol.com</a></p>
+</footer>
+
+<nav class="bottom-nav" aria-label="Demo pages">
+  <a href="index.html">⌂<br>Hub</a>
+  <a href="learn.html">✎<br>Learn</a>
+  <a href="app.html" class="active">▣<br>App</a>
+  <a href="crucible.html">⚗<br>Crucible</a>
+</nav>
+
+<!-- Transaction summary modal -->
+<div class="modal-back" id="modalBack" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal">
+    <h3 id="modalTitle">Confirm</h3>
+    <div id="modalRows"></div>
+    <div class="danger-strip" id="modalDanger" style="display:none"></div>
+    <p class="muted" style="margin-top:12px">This requires a small gas fee paid in ETH on Base. Your wallet will ask you to approve.</p>
+    <div class="actions">
+      <button class="btn secondary" id="modalCancel">Cancel</button>
+      <button class="btn" id="modalConfirm">Confirm</button>
+    </div>
+  </div>
+</div>
+
+<script>
+"use strict";
+/* ================= CONFIGURATION (edit here — see Configuration Guide) ================= */
+const CONFIG = {
+  rpcUrl: "https://mainnet.base.org",
+  chainId: 8453,
+  chainIdHex: "0x2105",
+  basescan: "https://basescan.org",
+  balanceRefreshMs: 15000,
+  statusRefreshMs: 30000,
+  addresses: {
+    dAsset:     "0x115b2B47330cD1b7550D347f44df2e151D4A626E",
+    dVCLM:      "0x3B8667db0fE1ec004aABC28D5E55fEe4506501CE",
+    dCHONX:     "0x5226C0caf7DCEd83ac9D09a08e0b1b7077942FB1",
+    dSYNTH:     "0xDEDBf19c376b5ff30Df8c96C5E818eE9467345a3",
+    vault:      "0xFaa243A18c9829A696A1A746bd355f607d69922C",
+    staking:    "0x08236f4252F01eccf401DA157840AFc73D7D001b",
+    forge:      "0x552e12f924A2E9ae0bb4c109f83F9d49E008BE66",
+    controller: "0x767EA4dD16d64ce31DAf5877b3Cd6e31537F1bC6"
+  }
+};
+const DURATION_LABELS=["Trust Trial","7-Day","30-Day","90-Day","180-Day","1-Year","2-Year","3-Year"];
+
+/* ================= ABIs (frontend-relevant fragments, incl. error definitions) ================= */
+const ERC20_ABI=[
+  "function balanceOf(address) view returns (uint256)",
+  "function allowance(address owner,address spender) view returns (uint256)",
+  "function approve(address spender,uint256 value) returns (bool)",
+  "error ERC20InsufficientAllowance(address spender,uint256 allowance,uint256 needed)",
+  "error ERC20InsufficientBalance(address sender,uint256 balance,uint256 needed)"
+];
+const ASSET_ABI=ERC20_ABI.concat([
+  "function CLAIM_AMOUNT() view returns (uint256)",
+  "function CLAIM_COOLDOWN() view returns (uint256)",
+  "function MAX_CLAIMS_PER_WALLET() view returns (uint256)",
+  "function claimCount(address) view returns (uint256)",
+  "function timeUntilNextClaim(address user) view returns (uint256 secondsRemaining)",
+  "function claim()"
+]);
+const CHONX_ABI=ERC20_ABI.concat([
+  "function isActivated() view returns (bool)"
+]);
+const VAULT_ABI=[
+  "function STANDARD_MIN_DASSET() view returns (uint256)",
+  "function STANDARD_FEE_BPS() view returns (uint256)",
+  "function TRUST_TRIAL_MIN_DASSET() view returns (uint256)",
+  "function TRUST_TRIAL_FEE_BPS() view returns (uint256)",
+  "function TRUST_TRIAL_FIXED_VCLM() view returns (uint256)",
+  "function TRUST_TRIAL_GLOBAL_LIMIT() view returns (uint256)",
+  "function DASSET_TO_DVCLM_DIVISOR() view returns (uint256)",
+  "function trustTrialCount() view returns (uint256)",
+  "function trustTrialUsed(address) view returns (bool)",
+  "function getUserVaultCount(address user) view returns (uint256)",
+  "function getUserVault(address user,uint256 index) view returns (uint256 grossAmount,uint256 feeAmount,uint256 lockedAmount,uint256 dVCLMminted,uint256 lockTime,uint256 maturityTime,uint8 durationLabel,bool claimed,bool matured)",
+  "function lockVault(uint256 amount,uint8 durationLabel)",
+  "function claimVault(uint256 vaultIndex)"
+];
+const STAKING_ABI=[
+  "function DVCLM_TO_DCHONX_RATE() view returns (uint256)",
+  "function DASSET_TO_DCHONX_RATE() view returns (uint256)",
+  "function getUserStakeCount(address user) view returns (uint256)",
+  "function getUserStake(address user,uint256 index) view returns (uint8 asset,uint256 amountStaked,uint256 dCHONXearned,uint256 stakeTime,uint256 maturityTime,bool claimed,bool matured)",
+  "function stake(uint8 asset,uint256 amount)",
+  "function claimStake(uint256 stakeIndex)"
+];
+const CONTROLLER_ABI=[
+  "function activationProgress() view returns (uint256 currentDVCLMminted,uint256 threshold,uint256 remaining,bool activated)"
+];
+
+/* ================= State ================= */
+let readProvider, browserProvider, signer, user=null;
+let R={}, W={};              // read contracts / write contracts
+let constantsLoaded=false, C={}; // cached contract constants
+let timers=[];
+
+const $=id=>document.getElementById(id);
+const fmt=(x,d=2)=>Number(ethers.formatUnits(x,18)).toLocaleString(undefined,{maximumFractionDigits:d});
+const parse=v=>ethers.parseUnits(String(v),18);
+function short(a){return a.slice(0,6)+"…"+a.slice(-4);}
+
+function dismissBanner(){ $("demoBanner").style.display="none"; try{sessionStorage.setItem("vclm_banner","off")}catch(e){} }
+try{ if(sessionStorage.getItem("vclm_banner")==="off") $("demoBanner").style.display="none"; }catch(e){}
+
+/* Progress bridge to Learn page */
+function markParticipate(id){
+  try{ const p=JSON.parse(localStorage.getItem("vclm_demo_progress"))||{}; p[id]=p[id]||{l:0,q:0,p:0}; p[id].p=1; localStorage.setItem("vclm_demo_progress",JSON.stringify(p)); }catch(e){}
+}
+
+/* ================= Error mapping (never show raw errors) ================= */
+function humanError(e){
+  if(e && (e.code==="ACTION_REJECTED"||e.code===4001)) return "Transaction cancelled — nothing happened.";
+  const m=(e&&(e.reason||e.shortMessage||(e.info&&e.info.error&&e.info.error.message)||e.message)||"").toLowerCase();
+  if(m.includes("insufficient funds")) return "You need a small amount of ETH on Base to pay the network fee.";
+  if(e && e.reason) return "The contract declined this action: "+e.reason;
+  if(m.includes("user rejected")) return "Transaction cancelled — nothing happened.";
+  return "That didn't go through. Nothing was changed — please try again in a moment.";
+}
+function showResult(id,cls,html){ const el=$(id); el.className="result "+cls; el.innerHTML=html; }
+function txLink(hash){ return `<a href="${CONFIG.basescan}/tx/${hash}" target="_blank" rel="noopener">View on Basescan ↗</a>`; }
+
+/* ================= Transaction summary modal ================= */
+let modalResolve=null;
+function summarize({title,what,spend,receive,next,danger}){
+  return new Promise(res=>{
+    modalResolve=res;
+    $("modalTitle").textContent=title;
+    $("modalRows").innerHTML=
+      `<div class="row"><b>What will happen</b>${what}</div>`+
+      (spend?`<div class="row"><b>You will spend</b>${spend}</div>`:"")+
+      (receive?`<div class="row"><b>You will receive</b>${receive}</div>`:"")+
+      (next?`<div class="row"><b>What happens next</b>${next}</div>`:"");
+    const d=$("modalDanger"); if(danger){d.style.display="block";d.textContent=danger;}else d.style.display="none";
+    $("modalBack").classList.add("on");
+    $("modalConfirm").focus();
+  });
+}
+$("modalCancel").addEventListener("click",()=>{ $("modalBack").classList.remove("on"); if(modalResolve)modalResolve(false); });
+$("modalConfirm").addEventListener("click",()=>{ $("modalBack").classList.remove("on"); if(modalResolve)modalResolve(true); });
+document.addEventListener("keydown",e=>{ if(e.key==="Escape"&&$("modalBack").classList.contains("on")){$("modalBack").classList.remove("on");if(modalResolve)modalResolve(false);} });
+
+/* Generic guarded transaction flow */
+async function runTx(btn,resultId,summary,sendFn,successHtml,after){
+  const ok=await summarize(summary); if(!ok){showResult(resultId,"warn","Transaction cancelled — nothing happened."); return;}
+  const orig=btn.textContent; btn.disabled=true; btn.innerHTML='<span class="spin"></span> Waiting for wallet…';
+  try{
+    const tx=await sendFn();
+    btn.innerHTML='<span class="spin"></span> Confirming on Base…';
+    const rc=await tx.wait();
+    showResult(resultId,"ok",successHtml+" "+txLink(rc.hash));
+    if(after) await after();
+  }catch(e){ showResult(resultId,"err",humanError(e)); }
+  btn.disabled=false; btn.textContent=orig;
+}
+
+/* Ensure ERC-20 allowance (approve step with its own summary) */
+async function ensureAllowance(tokenName,tokenR,tokenW,spender,spenderName,amount,resultId,btn){
+  const cur=await tokenR.allowance(user,spender);
+  if(cur>=amount) return true;
+  const ok=await summarize({
+    title:"Confirm — Approve "+tokenName,
+    what:`You'll permit the ${spenderName} contract to move up to ${fmt(amount)} ${tokenName} from your wallet — a standard first step before any contract can accept your tokens.`,
+    spend:"Only the gas fee. No tokens move in this step.",
+    receive:"Permission is recorded on-chain.",
+    next:`One more confirmation completes the ${spenderName.toLowerCase()} action.`
+  });
+  if(!ok){showResult(resultId,"warn","Approval cancelled — nothing happened."); return false;}
+  const orig=btn.textContent; btn.disabled=true; btn.innerHTML='<span class="spin"></span> Approving…';
+  try{
+    const tx=await tokenW.approve(spender,amount);
+    await tx.wait();
+    btn.disabled=false; btn.textContent=orig;
+    return true;
+  }catch(e){
+    showResult(resultId,"err",humanError(e));
+    btn.disabled=false; btn.textContent=orig;
+    return false;
+  }
+}
+
+/* ================= Wallet connection ================= */
+async function connect(){
+  if(!window.ethereum){ $("noWalletHelp").classList.add("warn"); $("noWalletHelp").className="result warn"; return; }
+  try{
+    browserProvider=new ethers.BrowserProvider(window.ethereum);
+    const accts=await browserProvider.send("eth_requestAccounts",[]);
+    user=ethers.getAddress(accts[0]);
+    await checkNetwork();
+    signer=await browserProvider.getSigner();
+    W.asset=new ethers.Contract(CONFIG.addresses.dAsset,ASSET_ABI,signer);
+    W.vclm=new ethers.Contract(CONFIG.addresses.dVCLM,ERC20_ABI,signer);
+    W.chonx=new ethers.Contract(CONFIG.addresses.dCHONX,CHONX_ABI,signer);
+    W.vault=new ethers.Contract(CONFIG.addresses.vault,VAULT_ABI,signer);
+    W.staking=new ethers.Contract(CONFIG.addresses.staking,STAKING_ABI,signer);
+    $("connectBtn").innerHTML='<span style="width:8px;height:8px;border-radius:50%;background:var(--success);display:inline-block"></span> '+short(user);
+    window.ethereum.on&&window.ethereum.on("accountsChanged",()=>location.reload());
+    window.ethereum.on&&window.ethereum.on("chainChanged",()=>location.reload());
+    await fullRefresh();
+  }catch(e){ /* user closed the wallet prompt — stay calm */ }
+}
+async function checkNetwork(){
+  const net=await browserProvider.getNetwork();
+  if(Number(net.chainId)!==CONFIG.chainId){ $("netNotice").className="result warn"; throw new Error("wrong network"); }
+  $("netNotice").className="result";
+}
+$("switchNet").addEventListener("click",async e=>{
+  e.preventDefault();
+  try{ await window.ethereum.request({method:"wallet_switchEthereumChain",params:[{chainId:CONFIG.chainIdHex}]}); }
+  catch(err){
+    if(err&&err.code===4902){
+      try{ await window.ethereum.request({method:"wallet_addEthereumChain",params:[{chainId:CONFIG.chainIdHex,chainName:"Base",nativeCurrency:{name:"Ether",symbol:"ETH",decimals:18},rpcUrls:[CONFIG.rpcUrl],blockExplorerUrls:[CONFIG.basescan]}]}); }catch(e2){}
+    }
+  }
+});
+$("connectBtn").addEventListener("click",connect);
+
+/* ================= Reads & rendering ================= */
+async function loadConstants(){
+  if(constantsLoaded) return;
+  const [claimAmt,cool,maxClaims,stdMin,stdFee,ttMin,ttFee,ttFix,ttLim,divisor,rateV,rateA]=await Promise.all([
+    R.asset.CLAIM_AMOUNT(),R.asset.CLAIM_COOLDOWN(),R.asset.MAX_CLAIMS_PER_WALLET(),
+    R.vault.STANDARD_MIN_DASSET(),R.vault.STANDARD_FEE_BPS(),
+    R.vault.TRUST_TRIAL_MIN_DASSET(),R.vault.TRUST_TRIAL_FEE_BPS(),R.vault.TRUST_TRIAL_FIXED_VCLM(),R.vault.TRUST_TRIAL_GLOBAL_LIMIT(),
+    R.vault.DASSET_TO_DVCLM_DIVISOR(),
+    R.staking.DVCLM_TO_DCHONX_RATE(),R.staking.DASSET_TO_DCHONX_RATE()
+  ]);
+  C={claimAmt,cool:Number(cool),maxClaims:Number(maxClaims),stdMin,stdFeeBps:Number(stdFee),ttMin,ttFeeBps:Number(ttFee),ttFix,ttLim:Number(ttLim),divisor:Number(divisor),rateV:Number(rateV),rateA:Number(rateA)};
+  constantsLoaded=true;
+  $("stdInfo").innerHTML=`Minimum <b>${fmt(C.stdMin,0)} dASSET</b> · Fee <b>${(C.stdFeeBps/100).toFixed(2)}%</b> · Mints <b>1 dVCLM per ${C.divisor} dASSET</b>, instantly.`;
+  $("svInfo").innerHTML=`Rate: <b>${C.rateV} dCHONX per dVCLM</b> staked, after a 1-hour cycle.`;
+  $("saInfo").innerHTML=`Rate: <b>${C.rateA} dCHONX per dASSET</b> staked, after a 1-hour cycle.`;
+}
+
+async function refreshBalances(){
+  if(!user) return;
+  const [a,v,c,s]=await Promise.all([
+    R.asset.balanceOf(user),R.vclm.balanceOf(user),R.chonx.balanceOf(user),R.synth.balanceOf(user)
+  ]);
+  BAL={a,v,c,s};
+  $("walletBar").classList.add("on");
+  $("wbInner").innerHTML=
+    `<span class="wb-item"><b>${fmt(a)}</b> dASSET<span class="cap">($0.01 ref.)</span></span>`+
+    `<span class="wb-item"><b>${fmt(v)}</b> dVCLM<span class="cap">($0.10 ref.)</span></span>`+
+    `<span class="wb-item"><b>${fmt(c)}</b> dCHONX<span class="cap">($0.01 ref.)</span></span>`+
+    `<span class="wb-item"><b>${fmt(s,4)}</b> dSYNTH<span class="cap">(burn-only)</span></span>`;
+}
+let BAL={a:0n,v:0n,c:0n,s:0n};
+
+/* ---- Faucet ---- */
+async function refreshFaucet(){
+  await loadConstants();
+  const body=$("faucetBody");
+  if(!user){ body.innerHTML='<p class="muted">Connect your wallet to see your claim status.</p>'; return; }
+  const [count,waitS]=await Promise.all([R.asset.claimCount(user),R.asset.timeUntilNextClaim(user)]);
+  const used=Number(count), wait=Number(waitS);
+  if(used>=C.maxClaims){
+    body.innerHTML=`<p>You've used all <b class="num">${C.maxClaims}</b> claims for this wallet — the fair-share limit that keeps the faucet open for everyone. You have everything you need for the full journey below.</p>`;
+    return;
+  }
+  if(wait>0){
+    const h=Math.floor(wait/3600),d=Math.floor(h/24);
+    body.innerHTML=`<p>Claim <b class="num">${used+1} of ${C.maxClaims}</b> becomes available in <b class="num">${d>0?d+"d ":""}${h%24}h ${Math.floor(wait%3600/60)}m</b> — a cooldown read live from the contract.</p>
+      <button class="btn" disabled>🕐 Claim again after cooldown</button>`;
+    return;
+  }
+  body.innerHTML=`<p>Claim <b class="num">${fmt(C.claimAmt,0)} dASSET</b> — free demonstration tokens with no value. Claim <b class="num">${used+1} of ${C.maxClaims}</b> for this wallet.</p>
+    <button class="btn" id="claimBtn">Claim ${fmt(C.claimAmt,0)} dASSET</button>`;
+  $("claimBtn").addEventListener("click",()=>{
+    runTx($("claimBtn"),"faucetResult",{
+      title:"Confirm — Claim Demo Assets",
+      what:`The faucet will send ${fmt(C.claimAmt,0)} dASSET to your wallet. These are demonstration tokens with no value.`,
+      spend:"Only the gas fee (a few cents of ETH on Base).",
+      receive:`${fmt(C.claimAmt,0)} dASSET.`,
+      next:"Head to Step 2 and commit some of it to a vault."
+    },()=>W.asset.claim(),
+    `Claimed ${fmt(C.claimAmt,0)} dASSET — welcome aboard.`,
+    async()=>{ markParticipate("m1"); await refreshBalances(); await refreshFaucet(); });
+  });
+}
+
+/* ---- Vault ---- */
+async function refreshVaultCards(){
+  await loadConstants();
+  if(!user){
+    $("trustInfo").innerHTML="Connect your wallet to see the live terms.";
+    return;
+  }
+  const [used,ttCount]=await Promise.all([R.vault.trustTrialUsed(user),R.vault.trustTrialCount()]);
+  const remaining=C.ttLim-Number(ttCount);
+  $("trustInfo").innerHTML=`Minimum <b>${fmt(C.ttMin,0)} dASSET</b> · Fee <b>${(C.ttFeeBps/100).toFixed(2)}%</b> · Grants a fixed <b>${fmt(C.ttFix,0)} dVCLM</b> instantly · <b class="num">${remaining.toLocaleString()}</b> of ${C.ttLim.toLocaleString()} trials remaining globally.`;
+  const tBtn=$("trustBtn"), tReason=$("trustReason");
+  if(used){ tBtn.disabled=true; tReason.innerHTML='🔒 <span>Already used — the Trust Trial is once per wallet. The Standard Vault is your path now.</span>'; }
+  else if(remaining<=0){ tBtn.disabled=true; tReason.innerHTML='🔒 <span>The global Trust Trial limit has been reached. The Standard Vault is open to everyone.</span>'; }
+  else { tBtn.disabled=false; tReason.innerHTML=""; }
+  $("stdBtn").disabled=false;
+  wireVaultInputs();
+}
+let vaultWired=false;
+function wireVaultInputs(){
+  if(vaultWired) return; vaultWired=true;
+  const tAmt=$("trustAmt"),sAmt=$("stdAmt");
+  const tCalc=()=>{ const v=Number(tAmt.value||0); if(!v){$("trustCalc").textContent="";return;}
+    const fee=v*C.ttFeeBps/10000;
+    $("trustCalc").innerHTML=`Fee: <b>${fee.toLocaleString(undefined,{maximumFractionDigits:2})} dASSET</b> · Returned after 1 hour: <b>${(v-fee).toLocaleString(undefined,{maximumFractionDigits:2})} dASSET</b> · Minted instantly: <b>${fmt(C.ttFix,0)} dVCLM</b> (fixed grant)`
+      + (v<Number(ethers.formatUnits(C.ttMin,18))?` <span class="bad-inline">· below the ${fmt(C.ttMin,0)} minimum</span>`:"")
+      + (parse(tAmt.value||"0")>BAL.a?` <span class="bad-inline">· more than you hold</span>`:""); };
+  const sCalc=()=>{ const v=Number(sAmt.value||0); if(!v){$("stdCalc").textContent="";return;}
+    const fee=v*C.stdFeeBps/10000, mint=v/C.divisor;
+    $("stdCalc").innerHTML=`Fee: <b>${fee.toLocaleString(undefined,{maximumFractionDigits:2})} dASSET</b> · Returned after 1 hour: <b>${(v-fee).toLocaleString(undefined,{maximumFractionDigits:2})} dASSET</b> · Minted instantly: <b>${mint.toLocaleString(undefined,{maximumFractionDigits:2})} dVCLM</b>`
+      + (v<Number(ethers.formatUnits(C.stdMin,18))?` <span class="bad-inline">· below the ${fmt(C.stdMin,0)} minimum</span>`:"")
+      + (parse(sAmt.value||"0")>BAL.a?` <span class="bad-inline">· more than you hold</span>`:""); };
+  tAmt.addEventListener("input",tCalc); sAmt.addEventListener("input",sCalc);
+
+  $("trustBtn").addEventListener("click",async()=>{
+    const v=tAmt.value; if(!v||Number(v)<=0){showResult("vaultResult","warn","Enter an amount first.");return;}
+    const amt=parse(v);
+    if(amt<C.ttMin){showResult("vaultResult","warn",`The Trust Trial minimum is ${fmt(C.ttMin,0)} dASSET.`);return;}
+    if(amt>BAL.a){showResult("vaultResult","warn","That's more dASSET than you hold — claim at Step 1 or lower the amount.");return;}
+    if(!await ensureAllowance("dASSET",R.asset,W.asset,CONFIG.addresses.vault,"Vault",amt,"vaultResult",$("trustBtn"))) return;
+    runTx($("trustBtn"),"vaultResult",{
+      title:"Confirm — Trust Trial Vault",
+      what:`Lock ${fmt(amt)} dASSET for 1 hour under the Trust Trial. A ${(C.ttFeeBps/100).toFixed(2)}% fee applies; the rest returns to you at maturity.`,
+      spend:`${fmt(amt)} dASSET (locked, mostly returned) + gas.`,
+      receive:`${fmt(C.ttFix,0)} dVCLM immediately — plus your locked dASSET back in 1 hour.`,
+      next:"Watch the countdown in My Positions, then claim."
+    },()=>W.vault.lockVault(amt,0),
+    "Trust Trial vault locked — your dVCLM has already arrived.",
+    async()=>{ markParticipate("m2"); await refreshBalances(); await refreshVaultCards(); await refreshPositions(); });
+  });
+
+  $("stdBtn").addEventListener("click",async()=>{
+    const v=sAmt.value; if(!v||Number(v)<=0){showResult("vaultResult","warn","Enter an amount first.");return;}
+    const amt=parse(v), label=Number($("stdLabel").value);
+    if(amt<C.stdMin){showResult("vaultResult","warn",`The Standard Vault minimum is ${fmt(C.stdMin,0)} dASSET.`);return;}
+    if(amt>BAL.a){showResult("vaultResult","warn","That's more dASSET than you hold — claim at Step 1 or lower the amount.");return;}
+    if(!await ensureAllowance("dASSET",R.asset,W.asset,CONFIG.addresses.vault,"Vault",amt,"vaultResult",$("stdBtn"))) return;
+    const mint=Number(v)/C.divisor;
+    runTx($("stdBtn"),"vaultResult",{
+      title:"Confirm — Standard Vault",
+      what:`Lock ${fmt(amt)} dASSET for 1 hour with the "${DURATION_LABELS[label]}" label (all labels mature in 1 hour during the demonstration). A ${(C.stdFeeBps/100).toFixed(2)}% fee applies.`,
+      spend:`${fmt(amt)} dASSET (locked, mostly returned) + gas.`,
+      receive:`${mint.toLocaleString(undefined,{maximumFractionDigits:2})} dVCLM immediately — plus your locked dASSET back in 1 hour.`,
+      next:"Watch the countdown in My Positions, then claim."
+    },()=>W.vault.lockVault(amt,label),
+    "Vault locked — your dVCLM has already arrived.",
+    async()=>{ markParticipate("m2"); await refreshBalances(); await refreshPositions(); });
+  });
+}
+
+/* ---- Staking ---- */
+async function refreshStaking(){
+  await loadConstants();
+  const [ap]=await Promise.all([R.controller.activationProgress()]);
+  const cur=Number(ethers.formatUnits(ap.currentDVCLMminted,18)), thr=Number(ethers.formatUnits(ap.threshold,18));
+  const pct=thr>0?Math.min(100,cur/thr*100):0;
+  if(ap.activated){
+    $("stakeVeil").style.display="none";
+    if(user){ $("svBtn").disabled=false; $("saBtn").disabled=false; }
+  }else{
+    $("stakeVeil").style.display="flex";
+    $("veilBar").style.width=pct+"%";
+    $("veilLabel").textContent=cur.toLocaleString(undefined,{maximumFractionDigits:0})+" / "+thr.toLocaleString(undefined,{maximumFractionDigits:0})+" dVCLM minted";
+  }
+  wireStakeInputs();
+}
+let stakeWired=false;
+function wireStakeInputs(){
+  if(stakeWired) return; stakeWired=true;
+  $("svAmt").addEventListener("input",()=>{ const v=Number($("svAmt").value||0);
+    $("svCalc").innerHTML=v?`Staking <b>${v.toLocaleString()}</b> dVCLM → earn <b>${(v*C.rateV).toLocaleString()}</b> dCHONX in 1 hour${parse($("svAmt").value||"0")>BAL.v?' <span class="bad-inline">· more than you hold</span>':""}`:""; });
+  $("saAmt").addEventListener("input",()=>{ const v=Number($("saAmt").value||0);
+    $("saCalc").innerHTML=v?`Staking <b>${v.toLocaleString()}</b> dASSET → earn <b>${(v*C.rateA).toLocaleString()}</b> dCHONX in 1 hour${parse($("saAmt").value||"0")>BAL.a?' <span class="bad-inline">· more than you hold</span>':""}`:""; });
+
+  const doStake=async(assetEnum,inputId,btnId,tokenName,tokenR,tokenW,bal,rate)=>{
+    const v=$(inputId).value; if(!v||Number(v)<=0){showResult("stakeResult","warn","Enter an amount first.");return;}
+    const amt=parse(v);
+    if(amt>bal()){showResult("stakeResult","warn",`That's more ${tokenName} than you hold.`);return;}
+    if(!await ensureAllowance(tokenName,tokenR,tokenW,CONFIG.addresses.staking,"Staking",amt,"stakeResult",$(btnId))) return;
+    runTx($(btnId),"stakeResult",{
+      title:"Confirm — Stake "+tokenName,
+      what:`Stake ${fmt(amt)} ${tokenName} for a 1-hour cycle. Your full stake returns at maturity.`,
+      spend:`${fmt(amt)} ${tokenName} (staked, fully returned) + gas.`,
+      receive:`${(Number(v)*rate).toLocaleString()} dCHONX, minted when you claim after the cycle completes.`,
+      next:"Watch the countdown in My Positions, then claim to collect your stake and your dCHONX."
+    },()=>W.staking.stake(assetEnum,amt),
+    "Stake created — the cycle has begun.",
+    async()=>{ markParticipate("m3"); await refreshBalances(); await refreshPositions(); });
+  };
+  $("svBtn").addEventListener("click",()=>doStake(0,"svAmt","svBtn","dVCLM",R.vclm,W.vclm,()=>BAL.v,C.rateV));
+  $("saBtn").addEventListener("click",()=>doStake(1,"saAmt","saBtn","dASSET",R.asset,W.asset,()=>BAL.a,C.rateA));
+}
+
+/* ---- Positions ---- */
+let positionsCache={vaults:[],stakes:[]};
+async function refreshPositions(){
+  if(!user) return;
+  const [vc,sc]=await Promise.all([R.vault.getUserVaultCount(user),R.staking.getUserStakeCount(user)]);
+  const vaults=[],stakes=[];
+  for(let i=0;i<Number(vc);i++){ const p=await R.vault.getUserVault(user,i); vaults.push({i,gross:p.grossAmount,locked:p.lockedAmount,minted:p.dVCLMminted,mat:Number(p.maturityTime),label:Number(p.durationLabel),claimed:p.claimed}); }
+  for(let i=0;i<Number(sc);i++){ const p=await R.staking.getUserStake(user,i); stakes.push({i,asset:Number(p.asset),amt:p.amountStaked,earn:p.dCHONXearned,mat:Number(p.maturityTime),claimed:p.claimed}); }
+  positionsCache={vaults,stakes};
+  renderPositions();
+}
+function cd(mat){ const s=Math.max(0,mat-Math.floor(Date.now()/1000)); const h=Math.floor(s/3600),m=Math.floor(s%3600/60),x=s%60; return s<=0?null:`${String(h).padStart(2,"0")}:${String(m).padStart(2,"0")}:${String(x).padStart(2,"0")}`; }
+function renderPositions(){
+  const now=Math.floor(Date.now()/1000);
+  const vEl=$("vaultList"),sEl=$("stakeList");
+  const build=(list,kind)=>{
+    if(!list.length) return `<p class="muted" style="margin-top:10px">No ${kind} yet. ${kind==="vaults"?'Start with <a href="#step1">Step 1</a> — claim, then commit.':'Once staking is active, your stakes appear here.'}</p>`;
+    const open=list.filter(p=>!p.claimed).sort((a,b)=>(a.mat<=now?-1:1)-(b.mat<=now?-1:1));
+    const done=list.filter(p=>p.claimed);
+    let html=open.map(p=>{
+      const t=cd(p.mat), matured=p.mat<=now;
+      const left = kind==="vaults"
+        ? `<div class="title">${DURATION_LABELS[p.label]||"Vault"} · ${fmt(p.gross)} dASSET committed</div><div class="sub">${fmt(p.minted)} dVCLM was minted to you instantly · ${fmt(p.locked)} dASSET returns at maturity</div>`
+        : `<div class="title">${p.asset===0?"dVCLM":"dASSET"} stake · ${fmt(p.amt)} staked</div><div class="sub">Earning ${fmt(p.earn)} dCHONX, minted when you claim</div>`;
+      const right = matured
+        ? `<button class="btn small" data-kind="${kind}" data-i="${p.i}">Claim ${kind==="vaults"?fmt(p.locked)+" dASSET":fmt(p.amt)+" + "+fmt(p.earn)+" dCHONX"}</button>`
+        : `<div class="cd num" aria-label="time until maturity">🕐 ${t}</div>`;
+      return `<div class="pos"><div class="left">${left}</div>${right}</div>`;
+    }).join("");
+    if(done.length) html+=`<details class="pos-done" style="margin-top:12px"><summary class="muted" style="cursor:pointer">Show ${done.length} claimed</summary>${done.map(p=>`<div class="pos claimed"><div class="left"><div class="title">${kind==="vaults"?(DURATION_LABELS[p.label]||"Vault")+" · "+fmt(p.gross)+" dASSET":(p.asset===0?"dVCLM":"dASSET")+" stake · "+fmt(p.amt)}</div></div><span class="tag">Claimed ✓</span></div>`).join("")}</details>`;
+    return html;
+  };
+  vEl.innerHTML=build(positionsCache.vaults,"vaults");
+  sEl.innerHTML=build(positionsCache.stakes,"stakes");
+  document.querySelectorAll("[data-kind]").forEach(btn=>{
+    btn.addEventListener("click",()=>{
+      const kind=btn.dataset.kind,i=Number(btn.dataset.i);
+      if(kind==="vaults"){
+        const p=positionsCache.vaults.find(x=>x.i===i);
+        runTx(btn,"claimResult",{
+          title:"Confirm — Claim Matured Vault",
+          what:`Your ${DURATION_LABELS[p.label]||""} vault has matured. Claiming returns your locked dASSET.`,
+          spend:"Only the gas fee.",
+          receive:`${fmt(p.locked)} dASSET back in your wallet.`,
+          next:"Commit again, or take your dVCLM to Step 3."
+        },()=>W.vault.claimVault(i),"Vault claimed — your dASSET is home.",
+        async()=>{ await refreshBalances(); await refreshPositions(); });
+      }else{
+        const p=positionsCache.stakes.find(x=>x.i===i);
+        runTx(btn,"claimResult",{
+          title:"Confirm — Claim Matured Stake",
+          what:`Your ${p.asset===0?"dVCLM":"dASSET"} stake has matured. Claiming returns your stake and mints your earned dCHONX.`,
+          spend:"Only the gas fee.",
+          receive:`${fmt(p.amt)} ${p.asset===0?"dVCLM":"dASSET"} returned + ${fmt(p.earn)} dCHONX minted.`,
+          next:"You now hold both forge ingredients — The Crucible awaits."
+        },()=>W.staking.claimStake(i),"Stake claimed — dCHONX minted to you.",
+        async()=>{ await refreshBalances(); await refreshPositions(); });
+      }
+    });
+  });
+}
+setInterval(()=>{ if(positionsCache.vaults.length||positionsCache.stakes.length) renderPositions(); },1000);
+
+/* ================= Boot & refresh loops ================= */
+async function fullRefresh(){
+  try{
+    await Promise.all([refreshFaucet(),refreshVaultCards(),refreshStaking(),refreshBalances(),refreshPositions()]);
+    $("rpcNotice").className="result";
+  }catch(e){ $("rpcNotice").className="result warn"; }
+}
+(function(){
+  readProvider=new ethers.JsonRpcProvider(CONFIG.rpcUrl,CONFIG.chainId);
+  R.asset=new ethers.Contract(CONFIG.addresses.dAsset,ASSET_ABI,readProvider);
+  R.vclm=new ethers.Contract(CONFIG.addresses.dVCLM,ERC20_ABI,readProvider);
+  R.chonx=new ethers.Contract(CONFIG.addresses.dCHONX,CHONX_ABI,readProvider);
+  R.synth=new ethers.Contract(CONFIG.addresses.dSYNTH,ERC20_ABI,readProvider);
+  R.vault=new ethers.Contract(CONFIG.addresses.vault,VAULT_ABI,readProvider);
+  R.staking=new ethers.Contract(CONFIG.addresses.staking,STAKING_ABI,readProvider);
+  R.controller=new ethers.Contract(CONFIG.addresses.controller,CONTROLLER_ABI,readProvider);
+  loadConstants().then(()=>{refreshStaking();}).catch(()=>{$("rpcNotice").className="result warn";});
+  setInterval(()=>{ if(user) refreshBalances().catch(()=>{}); },CONFIG.balanceRefreshMs);
+  setInterval(()=>{ refreshStaking().catch(()=>{}); if(user){refreshFaucet().catch(()=>{});refreshPositions().catch(()=>{});} },CONFIG.statusRefreshMs);
+})();
+</script>
+</body>
+</html>
