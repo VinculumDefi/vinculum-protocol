@@ -10,6 +10,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300&family=DM+Sans:wght@200;300;400&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/ethers@6.13.2/dist/ethers.umd.min.js"></script>
 <style>
+/* ============ VINCULUM DEMO DESIGN TOKENS (identical across all 4 pages) ============ */
 :root{
   --bg-deep:#07050f; --bg-mid:#110d1f; --bg-panel:#1a1430; --line:#2a2145;
   --accent:#7c3aed; --accent-soft:#a855f7; --accent-glow:rgba(124,58,237,0.15);
@@ -163,6 +164,7 @@ footer p{margin:4px 0}
     <p class="muted">Tap any milestone to see what it means. The path fills as the demonstration truly progresses.</p>
     <div class="roadmap" id="roadmapEl">
       <div class="fill" id="roadFill" style="height:0"></div>
+      <!-- Nodes are rendered by script from ROADMAP data below -->
     </div>
   </div>
 </section>
@@ -217,6 +219,7 @@ footer p{margin:4px 0}
 
 <script>
 "use strict";
+/* ================= CONFIGURATION (edit here — see Configuration Guide) ================= */
 const CONFIG = {
   rpcUrl: "https://mainnet.base.org",
   chainId: 8453,
@@ -235,6 +238,7 @@ const CONFIG = {
   }
 };
 
+/* Editable content: contract registry display */
 const REGISTRY = [
   ["Demo Asset (dASSET)", CONFIG.addresses.dAsset],
   ["Demo VCLM (dVCLM)", CONFIG.addresses.dVCLM],
@@ -247,6 +251,7 @@ const REGISTRY = [
   ["Governance Safe (3-of-5)", CONFIG.addresses.safe]
 ];
 
+/* Editable content: roadmap nodes (What / Why / Care / Next per milestone) */
 const ROADMAP = [
   { key:"day0", title:"Day 0 — Genesis", sub:"The demonstration begins",
     what:"Eight contracts go live on Base mainnet, owned by a 3-of-5 community Safe. The faucet opens and vault commitments begin minting dVCLM.",
@@ -272,9 +277,10 @@ const ROADMAP = [
     what:"The demonstration closes with aggregate statistics and a full accounting of what was proven.",
     why:"Ninety days of live operation is the strongest argument a protocol can make.",
     care:"Everything you learned here transfers directly to the production launch.",
-    next:"The production protocol — same mechanics, real assets." }
+    next:"The production protocol — same mechanics, real assets, the blue environment." }
 ];
 
+/* ================= Read-only chain layer ================= */
 const CONTROLLER_ABI = [
   "function simulationStatus() view returns (uint256 simulationDay,uint256 phase,uint256 dvclmGrossMinted,uint256 dchonxGrossMinted,uint256 dsynthGrossMinted,uint256 msVCLMminted,uint256 msVCLMburned,uint256 msCHONXminted,uint256 msCHONXburned,uint256 msSYNTHcreated,uint256 totalActions)",
   "function activationProgress() view returns (uint256 currentDVCLMminted,uint256 threshold,uint256 remaining,bool activated)"
@@ -287,54 +293,89 @@ function fmt(x){ return Number(ethers.formatUnits(x,18)).toLocaleString(undefine
 function dismissBanner(){ document.getElementById("demoBanner").style.display="none"; try{sessionStorage.setItem("vclm_banner","off")}catch(e){} }
 try{ if(sessionStorage.getItem("vclm_banner")==="off") document.getElementById("demoBanner").style.display="none"; }catch(e){}
 
+/* Roadmap render */
 function renderRoadmap(day, activated, actPct){
   const el = document.getElementById("roadmapEl");
-  el.innerHTML = '<div class="fill" id="roadFill" style="height:0"></div>';
+  el.querySelectorAll(".rm-node").forEach(n=>n.remove());
+  // done logic: day0 done if day>=0(always after launch); activation done if activated; day nodes by simulation day
   const doneFlags = [true, activated, day>=30, day>=60, day>=90];
-  let currentIdx = doneFlags.lastIndexOf(true) + 1;
-  if(currentIdx >= ROADMAP.length) currentIdx = ROADMAP.length - 1;
-  ROADMAP.forEach((n,i) => {
-    const d = document.createElement("div");
-    d.className = `rm-node${doneFlags[i] ? " done" : ""}${i === currentIdx ? " current" : ""}`;
-    d.tabIndex = 0;
-    d.setAttribute("role","button");
-    d.setAttribute("aria-expanded","false");
-    let ring = "";
-    if(n.key === "activation" && !activated){
-      const C = 2 * Math.PI * 24;
-      ring = `<div class="ring-wrap"><svg class="ring" viewBox="0 0 56 56"><circle class="track" cx="28" cy="28" r="24"></circle><circle class="prog" cx="28" cy="28" r="24" stroke-dasharray="${C}" stroke-dashoffset="${C * (1 - actPct/100)}"></circle></svg><span class="num" style="color:var(--accent-soft)">${actPct.toFixed(1)}%</span></div>`;
+  let currentIdx = doneFlags.lastIndexOf(true)+1; if(currentIdx>=ROADMAP.length) currentIdx = ROADMAP.length-1;
+  ROADMAP.forEach((n,i)=>{
+    const d=document.createElement("div");
+    d.className="rm-node"+(doneFlags[i]?" done":"")+(i===currentIdx?" current":"");
+    d.tabIndex=0; d.setAttribute("role","button"); d.setAttribute("aria-expanded","false");
+    let ring="";
+    if(n.key==="activation" && !activated){
+      const C=2*Math.PI*24;
+      ring=`<div class="ring-wrap"><svg class="ring" viewBox="0 0 56 56" aria-hidden="true"><circle class="track" cx="28" cy="28" r="24"></circle><circle class="prog" cx="28" cy="28" r="24" stroke-dasharray="${C}" stroke-dashoffset="${C*(1-actPct/100)}"></circle></svg><span class="num" style="color:var(--accent-soft)">${actPct.toFixed(1)}%</span></div>`;
     }
-    d.innerHTML = `<div class="rm-dot"></div><div class="rm-title">${n.title}</div><div class="rm-sub">${n.sub}</div>${ring}<div class="rm-detail"><dl><dt>WHAT IS THIS?</dt><dd>${n.what}</dd><dt>WHY DOES IT EXIST?</dt><dd>${n.why}</dd><dt>WHY SHOULD I CARE?</dt><dd>${n.care}</dd><dt>WHAT HAPPENS NEXT?</dt><dd>${n.next}</dd></dl></div>`;
-    d.addEventListener("click", () => d.classList.toggle("open"));
+    d.innerHTML=`<div class="rm-dot"></div><div class="rm-title">${n.title}</div><div class="rm-sub">${n.sub}</div>${ring}
+      <div class="rm-detail"><dl>
+      <dt>WHAT IS THIS?</dt><dd>${n.what}</dd>
+      <dt>WHY DOES IT EXIST?</dt><dd>${n.why}</dd>
+      <dt>WHY SHOULD I CARE?</dt><dd>${n.care}</dd>
+      <dt>WHAT HAPPENS NEXT?</dt><dd>${n.next}</dd></dl></div>`;
+    const toggle=()=>{ const open=d.classList.toggle("open"); d.setAttribute("aria-expanded",open?"true":"false"); };
+    d.addEventListener("click",toggle);
+    d.addEventListener("keydown",e=>{ if(e.key==="Enter"||e.key===" "){e.preventDefault();toggle();} });
     el.appendChild(d);
+  });
+  // fill height up to current node dot
+  requestAnimationFrame(()=>{
+    const nodes=el.querySelectorAll(".rm-node");
+    if(nodes[currentIdx]){
+      const top=el.getBoundingClientRect().top;
+      const dot=nodes[currentIdx].querySelector(".rm-dot").getBoundingClientRect();
+      document.getElementById("roadFill").style.height=(dot.top-top+8)+"px";
+    }
   });
 }
 
+/* Status refresh */
 async function refreshStatus(){
   try{
-    const [s,a] = await Promise.all([controller.simulationStatus(), controller.activationProgress()]);
-    document.getElementById("sDay").textContent = s.simulationDay;
-    document.getElementById("sPhase").textContent = PHASES[Number(s.phase)] || "Phase " + s.phase;
-    document.getElementById("sVclm").textContent = fmt(s.dvclmGrossMinted);
-    document.getElementById("sChonx").textContent = fmt(s.dchonxGrossMinted);
-    document.getElementById("sSynth").textContent = Number(ethers.formatUnits(s.dsynthGrossMinted,18)).toLocaleString(undefined,{maximumFractionDigits:2});
-    document.getElementById("sActions").textContent = s.totalActions;
-    const cur = Number(ethers.formatUnits(a.currentDVCLMminted,18));
-    const thr = Number(ethers.formatUnits(a.threshold,18));
-    const pct = thr > 0 ? Math.min(100, cur/thr*100) : 0;
-    document.getElementById("actLabel").textContent = cur.toLocaleString() + " / " + thr.toLocaleString() + " dVCLM";
-    document.getElementById("actBar").style.width = pct + "%";
+    const [s,a]=await Promise.all([controller.simulationStatus(),controller.activationProgress()]);
+    document.getElementById("sDay").textContent=s.simulationDay.toString();
+    const phase=Number(s.phase); document.getElementById("sPhase").textContent=PHASES[phase]||("Phase "+phase);
+    document.getElementById("sVclm").textContent=fmt(s.dvclmGrossMinted);
+    document.getElementById("sChonx").textContent=fmt(s.dchonxGrossMinted);
+    document.getElementById("sSynth").textContent=Number(ethers.formatUnits(s.dsynthGrossMinted,18)).toLocaleString(undefined,{maximumFractionDigits:2});
+    document.getElementById("sActions").textContent=s.totalActions.toString();
+    const cur=Number(ethers.formatUnits(a.currentDVCLMminted,18)), thr=Number(ethers.formatUnits(a.threshold,18));
+    const pct=thr>0?Math.min(100,cur/thr*100):0;
+    document.getElementById("actLabel").textContent=cur.toLocaleString(undefined,{maximumFractionDigits:0})+" / "+thr.toLocaleString(undefined,{maximumFractionDigits:0})+" dVCLM";
+    document.getElementById("actBar").style.width=pct+"%";
+    document.getElementById("statusTime").textContent="· updated "+new Date().toLocaleTimeString();
+    document.getElementById("rpcNotice").classList.remove("warn");
     renderRoadmap(Number(s.simulationDay), a.activated, pct);
-  } catch(e) {
-    console.log("Status refresh failed", e);
+  }catch(e){
+    document.getElementById("rpcNotice").classList.add("warn");
   }
 }
 
+/* Registry render */
 (function(){
-  provider = new ethers.JsonRpcProvider(CONFIG.rpcUrl, CONFIG.chainId);
-  controller = new ethers.Contract(CONFIG.addresses.controller, CONTROLLER_ABI, provider);
+  const tb=document.querySelector("#registryTable tbody");
+  REGISTRY.forEach(([name,addr])=>{
+    const tr=document.createElement("tr");
+    tr.innerHTML=`<td style="color:var(--white)">${name}</td>
+      <td><span class="addr" role="button" tabindex="0" aria-label="Copy address for ${name}">${addr}</span><span class="copy-hint">copied ✓</span></td>
+      <td><a href="${CONFIG.basescan}/address/${addr}" target="_blank" rel="noopener">Basescan ↗</a></td>`;
+    const span=tr.querySelector(".addr"), hint=tr.querySelector(".copy-hint");
+    const copy=()=>{ navigator.clipboard.writeText(addr).then(()=>{hint.classList.add("show");setTimeout(()=>hint.classList.remove("show"),1500);}); };
+    span.addEventListener("click",copy);
+    span.addEventListener("keydown",e=>{if(e.key==="Enter"){copy();}});
+    tb.appendChild(tr);
+  });
+})();
+
+/* Boot */
+(function(){
+  provider=new ethers.JsonRpcProvider(CONFIG.rpcUrl,CONFIG.chainId);
+  controller=new ethers.Contract(CONFIG.addresses.controller,CONTROLLER_ABI,provider);
+  renderRoadmap(0,false,0);
   refreshStatus();
-  setInterval(refreshStatus, CONFIG.refreshMs);
+  setInterval(refreshStatus,CONFIG.refreshMs);
 })();
 </script>
 </body>
