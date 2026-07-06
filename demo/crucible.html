@@ -39,6 +39,7 @@ nav.main a.active{border-color:var(--accent);color:var(--white)}
 .btn:disabled{opacity:.45;cursor:not-allowed}
 .btn:focus-visible{outline:2px solid var(--accent-soft);outline-offset:3px}
 .btn.small{height:38px;font-size:13px;padding:0 16px}
+/* Crucible hero */
 .crucible-hero{padding:96px 0 64px;text-align:center;background:radial-gradient(ellipse at 50% 0%,rgba(124,58,237,.22),transparent 60%),linear-gradient(180deg,#0a0616,#050309)}
 .ratio{font-family:'Cormorant Garamond',serif;font-size:30px;color:var(--white);margin-top:24px;line-height:1.5}
 .ratio .arrow{color:var(--accent-soft)}
@@ -52,10 +53,12 @@ input:focus-visible{outline:2px solid var(--accent)}
 .req .okv{color:var(--success)}
 .maxline{font-size:13px;color:var(--mid);margin-top:12px}
 .maxline a{cursor:pointer}
+/* Step rail */
 .rail{display:flex;gap:8px;margin-top:24px;flex-wrap:wrap}
 .rail .stepchip{flex:1;min-width:150px;text-align:center;border:1px solid var(--line);border-radius:8px;padding:10px;font-size:13px;color:var(--mid)}
 .rail .stepchip.now{border-color:var(--accent);color:var(--white);background:var(--accent-glow)}
 .rail .stepchip.done{border-color:var(--success);color:var(--success)}
+/* Modal */
 .modal-back{position:fixed;inset:0;background:rgba(5,3,9,.85);z-index:100;display:none;align-items:center;justify-content:center;padding:20px}
 .modal-back.on{display:flex}
 .modal{background:var(--bg-panel);border:1px solid var(--line);border-radius:16px;max-width:460px;width:100%;padding:28px}
@@ -159,6 +162,7 @@ footer p{margin:4px 0}
   <a href="crucible.html" class="active">⚗<br>Crucible</a>
 </nav>
 
+<!-- Transaction summary modal -->
 <div class="modal-back" id="modalBack" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
   <div class="modal">
     <h3 id="modalTitle">Confirm</h3>
@@ -174,6 +178,7 @@ footer p{margin:4px 0}
 
 <script>
 "use strict";
+/* ================= CONFIGURATION (edit here — see Configuration Guide) ================= */
 const CONFIG = {
   rpcUrl: "https://mainnet.base.org",
   chainId: 8453,
@@ -188,12 +193,14 @@ const CONFIG = {
   }
 };
 
-const ERC20_ABI = [
+const ERC20_ABI=[
   "function balanceOf(address) view returns (uint256)",
   "function allowance(address owner,address spender) view returns (uint256)",
-  "function approve(address spender,uint256 value) returns (bool)"
+  "function approve(address spender,uint256 value) returns (bool)",
+  "error ERC20InsufficientAllowance(address spender,uint256 allowance,uint256 needed)",
+  "error ERC20InsufficientBalance(address sender,uint256 balance,uint256 needed)"
 ];
-const FORGE_ABI = [
+const FORGE_ABI=[
   "function DVCLM_PER_DSYNTH() view returns (uint256)",
   "function DCHONX_PER_DSYNTH() view returns (uint256)",
   "function burnRequirements(uint256 dSYNTHamount) pure returns (uint256 dVCLMrequired,uint256 dCHONXrequired)",
@@ -201,26 +208,186 @@ const FORGE_ABI = [
   "function createSynth(uint256 dSYNTHamount)"
 ];
 
-let readProvider, browserProvider, signer, user = null;
-let R = {}, W = {}, BAL = {v:0n, c:0n, s:0n};
-let RATIO = {v:1000, c:10000};
+let readProvider,browserProvider,signer,user=null,R={},W={},BAL={v:0n,c:0n,s:0n};
+let RATIO={v:1000,c:10000};
 
-const $ = id => document.getElementById(id);
-const fmt = (x,d=2) => Number(ethers.formatUnits(x,18)).toLocaleString(undefined,{maximumFractionDigits:d});
-const parse = v => ethers.parseUnits(String(v),18);
-function short(a){return a ? a.slice(0,6)+"…"+a.slice(-4) : "";}
-
+const $=id=>document.getElementById(id);
+const fmt=(x,d=2)=>Number(ethers.formatUnits(x,18)).toLocaleString(undefined,{maximumFractionDigits:d});
+const parse=v=>ethers.parseUnits(String(v),18);
+function short(a){return a.slice(0,6)+"…"+a.slice(-4);}
 function dismissBanner(){ $("demoBanner").style.display="none"; try{sessionStorage.setItem("vclm_banner","off")}catch(e){} }
 try{ if(sessionStorage.getItem("vclm_banner")==="off") $("demoBanner").style.display="none"; }catch(e){}
+function markParticipate(id){ try{ const p=JSON.parse(localStorage.getItem("vclm_demo_progress"))||{}; p[id]=p[id]||{l:0,q:0,p:0}; p[id].p=1; localStorage.setItem("vclm_demo_progress",JSON.stringify(p)); }catch(e){} }
 
 function humanError(e){
-  if(!e) return "Unknown error";
-  if(e.code === "ACTION_REJECTED" || e.code === 4001) return "Transaction cancelled — nothing was burned.";
-  return "That didn't go through. Nothing was burned — please try again.";
+  if(e && (e.code==="ACTION_REJECTED"||e.code===4001)) return "Transaction cancelled — nothing was burned.";
+  const m=(e&&(e.reason||e.shortMessage||(e.info&&e.info.error&&e.info.error.message)||e.message)||"").toLowerCase();
+  if(m.includes("insufficient funds")) return "You need a small amount of ETH on Base to pay the network fee.";
+  if(e && e.reason) return "The contract declined this action: "+e.reason;
+  if(m.includes("user rejected")) return "Transaction cancelled — nothing was burned.";
+  return "That didn't go through. Nothing was burned — please try again in a moment.";
+}
+function showResult(cls,html){ const el=$("forgeResult"); el.className="result "+cls; el.innerHTML=html; }
+function txLink(hash){ return `<a href="${CONFIG.basescan}/tx/${hash}" target="_blank" rel="noopener">View on Basescan ↗</a>`; }
+
+/* Modal */
+let modalResolve=null;
+function summarize({title,what,spend,receive,next,danger}){
+  return new Promise(res=>{
+    modalResolve=res;
+    $("modalTitle").textContent=title;
+    $("modalRows").innerHTML=
+      `<div class="row"><b>What will happen</b>${what}</div>`+
+      (spend?`<div class="row"><b>You will spend</b>${spend}</div>`:"")+
+      (receive?`<div class="row"><b>You will receive</b>${receive}</div>`:"")+
+      (next?`<div class="row"><b>What happens next</b>${next}</div>`:"");
+    const d=$("modalDanger"); if(danger){d.style.display="block";d.textContent=danger;}else d.style.display="none";
+    $("modalBack").classList.add("on"); $("modalConfirm").focus();
+  });
+}
+$("modalCancel").addEventListener("click",()=>{ $("modalBack").classList.remove("on"); if(modalResolve)modalResolve(false); });
+$("modalConfirm").addEventListener("click",()=>{ $("modalBack").classList.remove("on"); if(modalResolve)modalResolve(true); });
+document.addEventListener("keydown",e=>{ if(e.key==="Escape"&&$("modalBack").classList.contains("on")){$("modalBack").classList.remove("on");if(modalResolve)modalResolve(false);} });
+
+/* Wallet */
+async function connect(){
+  if(!window.ethereum){ $("noWalletHelp").className="result warn"; return; }
+  try{
+    browserProvider=new ethers.BrowserProvider(window.ethereum);
+    const accts=await browserProvider.send("eth_requestAccounts",[]);
+    user=ethers.getAddress(accts[0]);
+    const net=await browserProvider.getNetwork();
+    if(Number(net.chainId)!==CONFIG.chainId){ $("netNotice").className="result warn"; return; }
+    $("netNotice").className="result";
+    signer=await browserProvider.getSigner();
+    W.vclm=new ethers.Contract(CONFIG.addresses.dVCLM,ERC20_ABI,signer);
+    W.chonx=new ethers.Contract(CONFIG.addresses.dCHONX,ERC20_ABI,signer);
+    W.forge=new ethers.Contract(CONFIG.addresses.forge,FORGE_ABI,signer);
+    $("connectBtn").innerHTML='<span style="width:8px;height:8px;border-radius:50%;background:var(--success);display:inline-block"></span> '+short(user);
+    window.ethereum.on&&window.ethereum.on("accountsChanged",()=>location.reload());
+    window.ethereum.on&&window.ethereum.on("chainChanged",()=>location.reload());
+    $("forgeBtn").disabled=false; $("forgeBtn").textContent="Forge dSYNTH";
+    await refreshAll();
+  }catch(e){ /* user closed the prompt */ }
+}
+$("connectBtn").addEventListener("click",connect);
+$("switchNet").addEventListener("click",async e=>{
+  e.preventDefault();
+  try{ await window.ethereum.request({method:"wallet_switchEthereumChain",params:[{chainId:CONFIG.chainIdHex}]}); }
+  catch(err){ if(err&&err.code===4902){ try{ await window.ethereum.request({method:"wallet_addEthereumChain",params:[{chainId:CONFIG.chainIdHex,chainName:"Base",nativeCurrency:{name:"Ether",symbol:"ETH",decimals:18},rpcUrls:[CONFIG.rpcUrl],blockExplorerUrls:[CONFIG.basescan]}]}); }catch(e2){} } }
+});
+
+/* Reads */
+async function loadRatio(){
+  const [pv,pc]=await Promise.all([R.forge.DVCLM_PER_DSYNTH(),R.forge.DCHONX_PER_DSYNTH()]);
+  /* Contract expresses per-dSYNTH burn amounts; normalize to whole-token multipliers for preview math. */
+  const nv=Number(pv), nc=Number(pc);
+  RATIO={ v: nv>100000 ? Number(ethers.formatUnits(pv,18)) : nv,
+          c: nc>1000000 ? Number(ethers.formatUnits(pc,18)) : nc };
+}
+async function refreshAll(){
+  try{
+    await loadRatio();
+    if(user){
+      const [v,c,s,mx]=await Promise.all([R.vclm.balanceOf(user),R.chonx.balanceOf(user),R.synth.balanceOf(user),R.forge.maxSynthCreatable(user)]);
+      BAL={v,c,s};
+      $("balances").innerHTML=
+        `<span><b class="num">${fmt(v)}</b> dVCLM held</span><span><b class="num">${fmt(c)}</b> dCHONX held</span><span><b class="num">${fmt(s,4)}</b> dSYNTH forged so far</span>`;
+      const maxS=Number(ethers.formatUnits(mx.maxDSYNTH,18));
+      $("maxLine").innerHTML = maxS>0
+        ? `With your current balances you can forge up to <b class="num" style="color:var(--white)">${maxS.toLocaleString(undefined,{maximumFractionDigits:4})} dSYNTH</b> — <a id="useMax">use max</a>.`
+        : `You don't yet hold enough of both ingredients. <a href="app.html#step2">Earn dVCLM in a vault</a> and <a href="app.html#step3">dCHONX by staking</a>, then return.`;
+      const um=$("useMax"); if(um) um.addEventListener("click",()=>{ $("synthAmt").value=maxS; calc(); });
+    }
+    calc();
+    $("rpcNotice").className="result";
+  }catch(e){ $("rpcNotice").className="result warn"; }
+}
+function calc(){
+  const v=Number($("synthAmt").value||0);
+  if(!v){ $("reqV").textContent="—"; $("reqC").textContent="—"; return; }
+  const needV=v*RATIO.v, needC=v*RATIO.c;
+  const haveV=Number(ethers.formatUnits(BAL.v,18)), haveC=Number(ethers.formatUnits(BAL.c,18));
+  $("reqV").innerHTML=`<b>${needV.toLocaleString(undefined,{maximumFractionDigits:2})}</b> <span class="${user?(haveV>=needV?"okv":"short"):""}">${user?`(you hold ${haveV.toLocaleString(undefined,{maximumFractionDigits:2})})`:""}</span>`;
+  $("reqC").innerHTML=`<b>${needC.toLocaleString(undefined,{maximumFractionDigits:2})}</b> <span class="${user?(haveC>=needC?"okv":"short"):""}">${user?`(you hold ${haveC.toLocaleString(undefined,{maximumFractionDigits:2})})`:""}</span>`;
+}
+$("synthAmt").addEventListener("input",calc);
+
+/* Rail helpers */
+function rail(stage){ // 0 none, 1 approving V, 2 approving C, 3 forging, 4 done
+  [["chip1",1],["chip2",2],["chip3",3]].forEach(([id,n])=>{
+    const el=$(id); el.className="stepchip"+(stage>n?" done":stage===n?" now":"");
+  });
 }
 
-/* Full Crucible script logic would continue here with connect, refreshAll, calc, forge flow, etc. */
+/* Forge flow: approve dVCLM → approve dCHONX → createSynth */
+$("forgeBtn").addEventListener("click",async()=>{
+  const val=$("synthAmt").value;
+  if(!val||Number(val)<=0){ showResult("warn","Enter how much dSYNTH to forge first — 0.1 is a fine first forge."); return; }
+  const amt=parse(val);
+  const needV=parse(String(Number(val)*RATIO.v)), needC=parse(String(Number(val)*RATIO.c));
+  if(needV>BAL.v){ showResult("warn",`You need ${fmt(needV)} dVCLM but hold ${fmt(BAL.v)}. <a href="app.html#step2">Commit a vault</a> to earn more.`); return; }
+  if(needC>BAL.c){ showResult("warn",`You need ${fmt(needC)} dCHONX but hold ${fmt(BAL.c)}. <a href="app.html#step3">Stake</a> to earn more.`); return; }
 
+  const btn=$("forgeBtn"); const orig=btn.textContent;
+
+  /* Step 1 — approve dVCLM if needed */
+  rail(1);
+  const alV=await R.vclm.allowance(user,CONFIG.addresses.forge);
+  if(alV<needV){
+    const ok=await summarize({ title:"Confirm — Step 1 of 3 · Approve dVCLM",
+      what:`Permit the Forge contract to take ${fmt(needV)} dVCLM for burning. Nothing is burned in this step.`,
+      spend:"Only the gas fee.", receive:"Permission recorded on-chain.", next:"Step 2 approves dCHONX." });
+    if(!ok){ rail(0); showResult("warn","Cancelled — nothing was burned."); return; }
+    btn.disabled=true; btn.innerHTML='<span class="spin"></span> Approving dVCLM…';
+    try{ const tx=await W.vclm.approve(CONFIG.addresses.forge,needV); await tx.wait(); }
+    catch(e){ showResult("err",humanError(e)); btn.disabled=false; btn.textContent=orig; rail(0); return; }
+  }
+
+  /* Step 2 — approve dCHONX if needed */
+  rail(2);
+  const alC=await R.chonx.allowance(user,CONFIG.addresses.forge);
+  if(alC<needC){
+    const ok=await summarize({ title:"Confirm — Step 2 of 3 · Approve dCHONX",
+      what:`Permit the Forge contract to take ${fmt(needC)} dCHONX for burning. Nothing is burned in this step.`,
+      spend:"Only the gas fee.", receive:"Permission recorded on-chain.", next:"Step 3 is the forge itself — the permanent one." });
+    if(!ok){ rail(0); btn.disabled=false; btn.textContent=orig; showResult("warn","Cancelled — nothing was burned."); return; }
+    btn.disabled=true; btn.innerHTML='<span class="spin"></span> Approving dCHONX…';
+    try{ const tx=await W.chonx.approve(CONFIG.addresses.forge,needC); await tx.wait(); }
+    catch(e){ showResult("err",humanError(e)); btn.disabled=false; btn.textContent=orig; rail(0); return; }
+  }
+
+  /* Step 3 — forge */
+  rail(3);
+  const ok=await summarize({ title:"Confirm — Step 3 of 3 · Forge dSYNTH",
+    what:`Burn ${fmt(needV)} dVCLM and ${fmt(needC)} dCHONX to forge ${Number(val).toLocaleString(undefined,{maximumFractionDigits:4})} dSYNTH.`,
+    spend:`${fmt(needV)} dVCLM + ${fmt(needC)} dCHONX — destroyed forever — plus gas.`,
+    receive:`${Number(val).toLocaleString(undefined,{maximumFractionDigits:4})} dSYNTH, the permanent record of your convergence.`,
+    next:"Your dSYNTH appears in your balance; the burn is visible to everyone on Basescan.",
+    danger:"THIS BURN IS PERMANENT AND CANNOT BE UNDONE. The dVCLM and dCHONX will be destroyed." });
+  if(!ok){ rail(0); btn.disabled=false; btn.textContent=orig; showResult("warn","Cancelled — nothing was burned."); return; }
+  btn.disabled=true; btn.innerHTML='<span class="spin"></span> Forging on Base…';
+  try{
+    const tx=await W.forge.createSynth(amt);
+    const rc=await tx.wait();
+    rail(4);
+    showResult("ok",`⚗ Forged ${Number(val).toLocaleString(undefined,{maximumFractionDigits:4})} dSYNTH — ${fmt(needV)} dVCLM and ${fmt(needC)} dCHONX converged, permanently. `+txLink(rc.hash));
+    markParticipate("m4");
+    await refreshAll();
+  }catch(e){ showResult("err",humanError(e)); rail(0); }
+  btn.disabled=false; btn.textContent=orig;
+});
+
+/* Boot */
+(function(){
+  readProvider=new ethers.JsonRpcProvider(CONFIG.rpcUrl,CONFIG.chainId);
+  R.vclm=new ethers.Contract(CONFIG.addresses.dVCLM,ERC20_ABI,readProvider);
+  R.chonx=new ethers.Contract(CONFIG.addresses.dCHONX,ERC20_ABI,readProvider);
+  R.synth=new ethers.Contract(CONFIG.addresses.dSYNTH,ERC20_ABI,readProvider);
+  R.forge=new ethers.Contract(CONFIG.addresses.forge,FORGE_ABI,readProvider);
+  refreshAll();
+  setInterval(()=>{ if(user) refreshAll().catch(()=>{}); },CONFIG.balanceRefreshMs);
+})();
 </script>
 </body>
 </html>
