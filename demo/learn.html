@@ -37,14 +37,17 @@ nav.main a.active{border-color:var(--accent);color:var(--white)}
 .btn.secondary{background:transparent;color:var(--accent-soft);border-color:var(--accent)}
 .btn:focus-visible{outline:2px solid var(--accent-soft);outline-offset:3px}
 .card{background:var(--bg-panel);border:1px solid var(--line);border-radius:16px;padding:28px;margin-top:20px}
+/* Tracker */
 .track-row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid var(--line);flex-wrap:wrap}
 .track-row:last-child{border:none}
 .dots{display:flex;gap:8px;align-items:center}
 .dot{width:12px;height:12px;border-radius:50%;background:var(--bg-mid);border:1px solid var(--line)}
 .dot.on{background:var(--accent);border-color:var(--accent)}
 .dot-label{font-size:11px;color:var(--mid);margin-left:4px}
+/* Modules */
 .module{border:1px solid var(--line);border-radius:16px;background:var(--bg-panel);margin-top:24px;overflow:hidden}
 .module>button.head{width:100%;text-align:left;background:none;border:none;color:var(--white);cursor:pointer;padding:24px 28px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.module>button.head:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
 .module .head h3{font-size:26px}
 .module .head .state{font-size:12px;color:var(--mid)}
 .module .body{display:none;padding:0 28px 28px;border-top:1px solid var(--line)}
@@ -55,10 +58,12 @@ nav.main a.active{border-color:var(--accent);color:var(--white)}
 .diagram{font-family:monospace;font-size:13px;color:var(--accent-soft);background:var(--bg-deep);border:1px solid var(--line);border-radius:8px;padding:14px;margin:12px 0;overflow-x:auto;white-space:pre}
 details.deeper{margin-top:10px;font-size:14px;color:var(--mid)}
 details.deeper summary{cursor:pointer;color:var(--accent-soft)}
+/* Quiz */
 .quiz{margin-top:20px}
 .quiz .qtext{font-size:18px;color:var(--white);margin-bottom:14px}
 .quiz .opt{display:block;width:100%;text-align:left;background:var(--bg-mid);border:1px solid var(--line);border-radius:8px;color:var(--off);padding:14px 16px;margin-top:10px;cursor:pointer;font-size:15px}
 .quiz .opt:hover{border-color:var(--accent)}
+.quiz .opt:focus-visible{outline:2px solid var(--accent)}
 .quiz .opt.correct{border-color:var(--success);color:var(--success)}
 .quiz .opt.wrong{opacity:.5}
 .quiz .explain{margin-top:12px;padding:14px;border-radius:8px;font-size:14px;display:none}
@@ -67,12 +72,14 @@ details.deeper summary{cursor:pointer;color:var(--accent-soft)}
 .qdots{display:flex;gap:6px;margin-bottom:14px}
 .qdots span{width:8px;height:8px;border-radius:50%;background:var(--bg-mid);border:1px solid var(--line)}
 .qdots span.done{background:var(--accent);border-color:var(--accent)}
+/* Badges */
 .badge-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:20px;margin-top:24px}
 .badge{text-align:center}
 .badge svg{width:96px;height:96px}
 .badge .name{font-size:14px;color:var(--white);margin-top:8px}
 .badge .cap{font-size:11px;color:var(--mid)}
 .badge.locked .art{opacity:.15}
+/* Share */
 .share-card{background:var(--bg-mid);border:1px solid var(--line);border-radius:12px;padding:18px;margin-top:14px;font-size:14px}
 .share-card .copybtn{margin-top:10px}
 .copied{color:var(--success);font-size:12px;margin-left:10px;opacity:0;transition:opacity .2s}
@@ -159,7 +166,7 @@ footer p{margin:4px 0}
 
 <script>
 "use strict";
-
+/* ============== EDITABLE CONTENT (see Administrator Guide) ============== */
 const SOCIAL = {
   site: "vinculumprotocol.com",
   x: "@VinculumDefi",
@@ -168,8 +175,123 @@ const SOCIAL = {
 };
 
 const MODULES = [
-  { id:"m0", title:"Module 0 — Foundations", needsTx:false, participateHref:null, concepts:[/*... full data ...*/], quiz:[/*...*/] },
-  // (Full MODULES array is long — if GitHub complains about size, let me know and I'll give you a shortened version or split it)
+  { id:"m0", title:"Module 0 — Foundations", needsTx:false, participateHref:null,
+    concepts:[
+      { h:"What is a blockchain?", d:null,
+        b:"A blockchain is a shared public record that nobody can quietly edit. When you do something on it — like claiming a token — the whole network agrees it happened, and anyone can check.",
+        care:"Everything in this demonstration is on that public record. You never have to take our word for anything." },
+      { h:"What is Base?", d:null,
+        b:"Base is a fast, low-cost blockchain built on Ethereum's security. This demonstration runs there because transactions cost cents instead of dollars.",
+        care:"Cheap transactions mean you can learn by doing, not just by reading." },
+      { h:"What is a wallet, and what is gas?", d:"[ you ] --sign--> [ wallet ] --tx + small ETH fee--> [ Base ]",
+        b:"A wallet is your signature — an app that proves an action came from you. Gas is the small network fee, paid in ETH, that every transaction requires. On Base it's typically a few cents.",
+        care:"You'll need a small amount of ETH on Base before your first transaction. That's the only real money involved — the demo tokens themselves are free.",
+        deeper:"Most exchanges let you withdraw ETH directly to the Base network. Send a small amount (a few dollars' worth covers many transactions) to your own wallet address." },
+      { h:"Why do the demo tokens have no value?", d:null,
+        b:"dASSET, dVCLM, dCHONX, and dSYNTH exist to teach the protocol's accounting relationships. The dollar figures you'll see ($0.01, $0.10) are reference values for learning the math — not prices, not promises.",
+        care:"You can experiment freely. There is nothing to lose and nothing to buy — only something to understand." }
+    ],
+    quiz:[
+      { q:"What do you need before making your first transaction in this demonstration?",
+        opts:["A small amount of ETH on Base for gas","Money to buy the demo tokens","Permission from the team"], a:0,
+        ok:"Right — gas is the only real cost, typically a few cents per action. The demo tokens are free.",
+        no:"The demo tokens are free and no permission is needed. The one thing you need is a little ETH on Base to pay network fees." },
+      { q:"The reference values like \"$0.10 per dVCLM\" are…",
+        opts:["Prices you can sell at","Teaching numbers that show the protocol's accounting relationships","Guaranteed future values"], a:1,
+        ok:"Exactly. They exist so the math makes sense — nothing here can be bought or sold.",
+        no:"They're teaching numbers only. Demo tokens carry no value and can't be sold — the figures just make the protocol's math visible." },
+      { q:"Who can verify what happens in this demonstration?",
+        opts:["Only the Vinculum team","Anyone, because every action is public on Base","Nobody — it's private"], a:1,
+        ok:"Yes — every contract and every transaction is public and independently verifiable on Basescan.",
+        no:"It's fully public. Every contract address is listed on the Hub, and every transaction can be checked by anyone on Basescan." }
+    ] },
+
+  { id:"m1", title:"Module 1 — Claim Demo Assets", needsTx:true, participateHref:"app.html#step1",
+    concepts:[
+      { h:"What is dASSET?", d:"[ faucet ] --free claim--> [ your wallet: dASSET ]",
+        b:"dASSET is a stand-in. In the production protocol, participants commit assets they already hold — from a registry of about a thousand approved assets across many chains. The demonstration can't hand you those, so it hands you dASSET to play that role.",
+        care:"When you use dASSET here, you're rehearsing exactly what you'd do with your own assets in production." },
+      { h:"How the faucet works", d:null,
+        b:"The faucet gives a fixed amount of dASSET per claim, with a cooldown between claims and a per-wallet maximum. All three numbers are read live from the contract — the page can never disagree with the chain.",
+        care:"Free tokens, fair limits, everything verifiable. That's the demonstration's whole ethic in one button." }
+    ],
+    quiz:[
+      { q:"What does dASSET represent?",
+        opts:["A new coin being launched","Whatever approved asset a participant would commit in production","A share of the protocol"], a:1,
+        ok:"Right — it's a teaching stand-in for your own assets.",
+        no:"dASSET stands in for the production assets participants would commit. It isn't a launch and isn't ownership of anything." },
+      { q:"Where do the faucet's claim amount and cooldown come from?",
+        opts:["The webpage decides them","They're read live from the contract on Base","Support staff set them per user"], a:1,
+        ok:"Exactly — the contract is the single source of truth, and this site only reports it.",
+        no:"The contract on Base defines them, and the page reads them live. Nothing here is decided off-chain." }
+    ] },
+
+  { id:"m2", title:"Module 2 — Commit to a Vault", needsTx:true, participateHref:"app.html#step2",
+    concepts:[
+      { h:"The heart of the protocol", d:"[ dASSET ] --lock 1 hour--> [ VAULT ] --returns dASSET--> [ you ]\n                       └--mints immediately--> [ dVCLM to you ]",
+        b:"A commitment vault is Vinculum's core idea: you lock an asset for a period, dVCLM is minted to you immediately, and your asset comes back at maturity. In production, assets never even leave their home chains — here, one contract simulates the flow.",
+        care:"This is the mechanic everything else builds on. Master this and you understand Vinculum." },
+      { h:"Fees, minimums, and the Trust Trial", d:null,
+        b:"A small fee is taken from each commitment (the exact percentage is read live from the contract). First-timers get the Trust Trial: a lower minimum, a lower fee, and a fixed dVCLM grant — limited to one per wallet and capped globally.",
+        care:"The Trust Trial exists so your very first commitment is as gentle as possible." },
+      { h:"About those duration labels", d:null,
+        b:"You'll pick a duration label — 7-Day, 30-Day, up to 3-Year. These teach the production protocol's structure, but during the demonstration every vault matures in exactly one hour of real time.",
+        care:"You get the full experience of a long-term commitment — compressed so you can see the whole cycle over a coffee." }
+    ],
+    quiz:[
+      { q:"What happens the moment you lock a vault?",
+        opts:["You wait an hour to get dVCLM","dVCLM is minted to you immediately; your dASSET returns after 1 hour","Your dASSET is gone forever"], a:1,
+        ok:"Right — dVCLM arrives instantly; the locked dASSET (minus the small fee) returns at maturity.",
+        no:"The order matters: dVCLM mints immediately when you commit, and the locked dASSET comes back to you after the 1-hour cycle." },
+      { q:"During the demonstration, a \"1-Year\" vault matures in…",
+        opts:["One year","One month","One hour"], a:2,
+        ok:"Yes — every duration label compresses to one hour so you can experience full cycles quickly.",
+        no:"All labels are compressed: every vault in the demonstration matures in one hour, whatever its label says." },
+      { q:"Why do vaults exist in Vinculum?",
+        opts:["To take custody of assets permanently","To reward commitment: locking assets is what mints dVCLM","To charge fees"], a:1,
+        ok:"Exactly — commitment is the engine. Minting flows from participation, not from thin air.",
+        no:"Vaults reward commitment. Locking assets for a period is precisely what earns newly minted dVCLM." }
+    ] },
+
+  { id:"m3", title:"Module 3 — Stake for dCHONX", needsTx:true, participateHref:"app.html#step3",
+    concepts:[
+      { h:"dCHONX must be earned into existence", d:"dVCLM minted: ▓▓▓▓▓▓░░░░  → at 10,000,000 → dCHONX ACTIVATES",
+        b:"dCHONX doesn't exist from day one. It activates only when the community's cumulative dVCLM minting crosses ten million. Until then, staking is visibly locked — for everyone equally.",
+        care:"Your vault commitments are literally what unlock the next layer. Participation is progress." },
+      { h:"How staking works", d:"[ dVCLM or dASSET ] --stake 1 hour--> [ returned + dCHONX minted on claim ]",
+        b:"Stake dVCLM (preferred weight, higher rate) or dASSET (base rate) for a one-hour cycle. When it matures, you claim: your staked tokens come back and freshly minted dCHONX arrives with them. The exact rates are read live from the contract.",
+        care:"Nothing is at risk in a stake — your tokens return in full, plus the dCHONX they earned." }
+    ],
+    quiz:[
+      { q:"When does staking unlock?",
+        opts:["On a fixed calendar date","When cumulative dVCLM minting crosses the activation threshold","Whenever you ask"], a:1,
+        ok:"Right — it's threshold-driven. The community's own activity opens the door.",
+        no:"It's not a date — it's a threshold. When total dVCLM minted crosses ten million, dCHONX activates for everyone at once." },
+      { q:"What comes back when you claim a matured stake?",
+        opts:["Only the dCHONX you earned","Your staked tokens in full, plus newly minted dCHONX","A fee refund"], a:1,
+        ok:"Exactly — staking returns everything you put in, plus the earned dCHONX.",
+        no:"You lose nothing by staking: the full staked amount returns, and the earned dCHONX is minted alongside it." }
+    ] },
+
+  { id:"m4", title:"Module 4 — The Crucible", needsTx:true, participateHref:"crucible.html",
+    concepts:[
+      { h:"Convergence, made permanent", d:"1,000 dVCLM + 10,000 dCHONX --burn forever--> 1 dSYNTH",
+        b:"dSYNTH is the protocol's apex: it can only be created by permanently destroying dVCLM and dCHONX at a fixed ratio. Nothing mints dSYNTH but sacrifice. Each one represents $200 of combined reference value converged into a single scarce unit.",
+        care:"This is the one irreversible act in the demonstration — which is exactly why it's worth understanding before you do it." },
+      { h:"Why burning matters", d:null,
+        b:"Burning is how many commitments become one scarce thing — the 'convergence engine' in miniature. The tokens you burn are subtracted from existence; the dSYNTH you forge is the permanent record that you did it.",
+        care:"Forge even a fraction of one dSYNTH and you'll have experienced every mechanic the production protocol offers." }
+    ],
+    quiz:[
+      { q:"Forging dSYNTH is…",
+        opts:["Reversible if you change your mind","Permanent — the burned dVCLM and dCHONX are destroyed forever","A temporary lock like a vault"], a:1,
+        ok:"Right. The Crucible is the demonstration's one irreversible act — the page will make sure you know it before confirming.",
+        no:"Unlike vaults and stakes, forging is forever. The inputs are burned out of existence — that permanence is the whole point." },
+      { q:"The only way dSYNTH can ever be created is…",
+        opts:["By the team minting it","By burning dVCLM and dCHONX at the fixed ratio","By staking long enough"], a:1,
+        ok:"Exactly — burn-only creation is what makes it scarce and meaningful.",
+        no:"No one can simply mint dSYNTH — not even the team. Burning the two input tokens at the fixed ratio is the only path." }
+    ] }
 ];
 
 const BADGES = [
@@ -182,13 +304,160 @@ const BADGES = [
 ];
 
 const SHARE_TEMPLATES = [
-  "I just made my first real on-chain commitment in the Vinculum Protocol 90-day demonstration...",
-  // full templates
+  "I just made my first real on-chain commitment in the Vinculum Protocol 90-day demonstration — locked demo assets, minted dVCLM, watched the whole cycle complete.",
+  "Learning DeFi by actually doing it: the Vinculum 90-day demo walks you through vaults, staking, and forging with free demo tokens on Base.",
+  "I forged dSYNTH in The Crucible — 1,000 dVCLM + 10,000 dCHONX, burned forever, converged into one. The Vinculum demo makes the protocol make sense."
 ];
 
-/* Full script logic (progress engine, render functions, quizzes, badges, etc.) */
- /* If pasting the full script causes GitHub issues, reply and I'll give you the rest in parts. */
+/* ============== Progress engine (localStorage) ============== */
+const PKEY="vclm_demo_progress";
+function loadP(){ try{return JSON.parse(localStorage.getItem(PKEY))||{}}catch(e){return{}} }
+function saveP(p){ try{localStorage.setItem(PKEY,JSON.stringify(p))}catch(e){} }
+function get(id){ const p=loadP(); return p[id]||{l:0,q:0,p:0}; }
+function mark(id,field){ const p=loadP(); p[id]=p[id]||{l:0,q:0,p:0}; if(!p[id][field]){p[id][field]=1; saveP(p); renderAll(); if(field!=='l') maybeCelebrate(id);} }
+function achieved(id){ const m=MODULES.find(x=>x.id===id); const s=get(id); return s.l&&s.q&&(m&&m.needsTx?s.p:1); }
+function allAchieved(){ return MODULES.every(m=>achieved(m.id)); }
 
+function dismissBanner(){ document.getElementById("demoBanner").style.display="none"; try{sessionStorage.setItem("vclm_banner","off")}catch(e){} }
+try{ if(sessionStorage.getItem("vclm_banner")==="off") document.getElementById("demoBanner").style.display="none"; }catch(e){}
+
+/* ============== Render: tracker ============== */
+function renderTracker(){
+  const el=document.getElementById("trackRows"); el.innerHTML="";
+  MODULES.forEach(m=>{
+    const s=get(m.id);
+    const row=document.createElement("div"); row.className="track-row";
+    const steps = m.needsTx
+      ? [["Learn",s.l],["Quiz",s.q],["Participate",s.p],["Achieved",achieved(m.id)?1:0]]
+      : [["Learn",s.l],["Quiz",s.q],["Achieved",achieved(m.id)?1:0]];
+    row.innerHTML=`<span style="color:var(--white)">${m.title.replace("Module ","M").split(" — ")[0]} · ${m.title.split(" — ")[1]}</span>
+      <span class="dots">${steps.map(([n,v])=>`<span class="dot ${v?"on":""}" title="${n}"></span><span class="dot-label">${n}</span>`).join("")}</span>`;
+    el.appendChild(row);
+  });
+}
+
+/* ============== Render: modules & quizzes ============== */
+const quizState={};
+function renderModules(){
+  const wrap=document.getElementById("modules"); wrap.innerHTML="";
+  let firstUnfinished=MODULES.find(m=>!achieved(m.id));
+  MODULES.forEach(m=>{
+    const s=get(m.id);
+    const box=document.createElement("div"); box.className="module"; box.id=m.id;
+    const stateTxt = achieved(m.id)?"✓ Achieved":(s.q?"Quiz passed — participate to finish":(s.l?"Ready for the quiz":"Not started"));
+    box.innerHTML=`<button class="head" aria-expanded="false"><h3>${m.title}</h3><span class="state">${stateTxt} ▾</span></button><div class="body"></div>`;
+    const body=box.querySelector(".body");
+
+    /* Concept cards */
+    m.concepts.forEach(c=>{
+      const cc=document.createElement("div"); cc.className="concept";
+      cc.innerHTML=`<h4>${c.h}</h4>${c.d?`<div class="diagram">${c.d}</div>`:""}<p>${c.b}</p><p class="care">Why you should care: ${c.care}</p>${c.deeper?`<details class="deeper"><summary>Go deeper</summary><p style="margin-top:8px">${c.deeper}</p></details>`:""}`;
+      body.appendChild(cc);
+    });
+
+    /* What happens next → quiz */
+    const nxt=document.createElement("div"); nxt.className="concept";
+    nxt.innerHTML=`<h4>What happens next</h4><p>A short quiz — ${m.quiz.length} questions, unlimited retries, no judgment. Then ${m.needsTx?"you'll do the real thing in the app":"your badge reveals"}.</p>
+      <button class="btn" style="margin-top:12px" data-start>Take the quiz</button>`;
+    body.appendChild(nxt);
+
+    /* Quiz container */
+    const qwrap=document.createElement("div"); qwrap.className="quiz"; qwrap.style.display="none"; body.appendChild(qwrap);
+
+    nxt.querySelector("[data-start]").addEventListener("click",()=>{
+      mark(m.id,'l');
+      quizState[m.id]=0; qwrap.style.display="block"; renderQuestion(m,qwrap);
+      qwrap.scrollIntoView({behavior:"smooth",block:"center"});
+    });
+
+    /* Participate deep link (shown once quiz passed) */
+    if(m.needsTx){
+      const pl=document.createElement("div"); pl.className="concept"; pl.dataset.participate="1";
+      pl.style.display = s.q ? "block":"none";
+      pl.innerHTML=`<h4>Participate</h4><p>${s.p?"Done — you've completed this on-chain. ✓":"Now do it for real. The app will guide every step and explain every transaction before you confirm."}</p>
+        ${s.p?"":`<a class="btn" style="margin-top:12px" href="${m.participateHref}">Open ${m.id==="m4"?"The Crucible":"the App"}</a>`}`;
+      body.appendChild(pl);
+    }
+
+    const headBtn=box.querySelector(".head");
+    headBtn.addEventListener("click",()=>{ const open=box.classList.toggle("open"); headBtn.setAttribute("aria-expanded",open); });
+    if(firstUnfinished && m.id===firstUnfinished.id){ box.classList.add("open"); headBtn.setAttribute("aria-expanded","true"); }
+    wrap.appendChild(box);
+  });
+}
+
+function renderQuestion(m,qwrap){
+  const i=quizState[m.id];
+  if(i>=m.quiz.length){
+    mark(m.id,'q');
+    qwrap.innerHTML=`<div class="explain ok" style="display:block">Quiz complete — nicely done. ${m.needsTx?"The Participate step just unlocked below.":"Your badge is revealed in the gallery below."}</div>`;
+    renderModules(); renderBadges(); renderTracker();
+    const reopened=document.getElementById(m.id); if(reopened){reopened.classList.add("open");reopened.querySelector(".head").setAttribute("aria-expanded","true");}
+    return;
+  }
+  const item=m.quiz[i];
+  qwrap.innerHTML=`<div class="qdots">${m.quiz.map((_,k)=>`<span class="${k<i?"done":""}"></span>`).join("")}</div>
+    <div class="qtext">${item.q}</div>
+    ${item.opts.map((o,k)=>`<button class="opt" data-k="${k}">${o}</button>`).join("")}
+    <div class="explain"></div>`;
+  const ex=qwrap.querySelector(".explain");
+  qwrap.querySelectorAll(".opt").forEach(btn=>{
+    btn.addEventListener("click",()=>{
+      const k=Number(btn.dataset.k);
+      if(k===item.a){
+        btn.classList.add("correct"); ex.className="explain ok"; ex.textContent=item.ok;
+        qwrap.querySelectorAll(".opt").forEach(b=>b.disabled=true);
+        setTimeout(()=>{ quizState[m.id]++; renderQuestion(m,qwrap); },1400);
+      }else{
+        btn.classList.add("wrong"); btn.disabled=true;
+        ex.className="explain no"; ex.textContent=item.no+" — try again, as many times as you like.";
+      }
+    });
+  });
+}
+
+/* ============== Render: badges ============== */
+function badgeSVG(glyph,earned){
+  /* Circles drawn in SVG; the glyph is a flex-centered HTML overlay (extension point: swap this for <img> artwork). */
+  return `<span style="position:relative;display:inline-block;width:96px;height:96px">
+    <svg viewBox="0 0 96 96" role="img" aria-label="badge" style="position:absolute;inset:0">
+      <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7c3aed"/><stop offset="1" stop-color="#a855f7"/></linearGradient></defs>
+      <circle cx="48" cy="48" r="44" fill="#110d1f" stroke="${earned?"url(#g)":"#2a2145"}" stroke-width="3"/>
+      <g class="art"><circle cx="48" cy="48" r="34" fill="none" stroke="#2a2145" stroke-width="1"/></g>
+    </svg>
+    <span class="art" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:34px;font-family:serif;color:${earned?"#a855f7":"#8b8b99"}">${glyph}</span>
+  </span>`;
+}
+function renderBadges(){
+  const grid=document.getElementById("badgeGrid"); grid.innerHTML="";
+  BADGES.forEach(b=>{
+    const earned = b.id==="scholar" ? allAchieved() : achieved(b.id);
+    const s = b.id==="scholar" ? null : get(b.id);
+    const m = MODULES.find(x=>x.id===b.id);
+    const total = b.id==="scholar" ? MODULES.length : (m&&m.needsTx?3:2);
+    const done  = b.id==="scholar" ? MODULES.filter(x=>achieved(x.id)).length : (s? s.l+s.q+(m&&m.needsTx?s.p:0) : 0);
+    const div=document.createElement("div"); div.className="badge"+(earned?"":" locked");
+    div.innerHTML=badgeSVG(b.glyph,earned)+`<div class="name">${b.name}</div><div class="cap">${earned?"Earned · commemorative, no value":done+" of "+total+" steps"}</div>`;
+    grid.appendChild(div);
+  });
+}
+function maybeCelebrate(id){ /* single, quiet acknowledgment; extension point for richer badge-reveal ceremony */ }
+
+/* ============== Render: sharing ============== */
+function renderShare(){
+  const wrap=document.getElementById("shareCards"); wrap.innerHTML="";
+  SHARE_TEMPLATES.forEach(t=>{
+    const full=`${t}\n\n${SOCIAL.disclaimer}\n${SOCIAL.site} · ${SOCIAL.x} ${SOCIAL.hashtags}`;
+    const card=document.createElement("div"); card.className="share-card";
+    card.innerHTML=`<div style="white-space:pre-wrap">${full}</div><button class="btn secondary copybtn" style="height:38px;line-height:36px;font-size:13px">Copy post</button><span class="copied">copied ✓</span>`;
+    const hint=card.querySelector(".copied");
+    card.querySelector("button").addEventListener("click",()=>{ navigator.clipboard.writeText(full).then(()=>{hint.classList.add("show");setTimeout(()=>hint.classList.remove("show"),1500);}); });
+    wrap.appendChild(card);
+  });
+}
+
+/* ============== Boot ============== */
+function renderAll(){ renderTracker(); renderModules(); renderBadges(); }
 renderAll(); renderShare();
 </script>
 </body>
