@@ -35,11 +35,46 @@
       letter-spacing: 0.15em; text-transform: uppercase;
       color: var(--black); text-decoration: none;
     }
-    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links {
+      display: flex; gap: 2rem; list-style: none;
+    }
     .nav-links a {
       font-family: 'DM Sans', sans-serif;
       font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase;
       color: var(--black); opacity: 0.75; text-decoration: none;
+    }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 24px;
+      height: 18px;
+      cursor: pointer;
+    }
+    .hamburger span {
+      display: block;
+      height: 2px;
+      background: var(--black);
+      transition: 0.3s;
+    }
+    .mobile-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: var(--white);
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+      padding: 1rem 2rem;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .mobile-menu a {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.85rem;
+      color: var(--black);
+      text-decoration: none;
+      padding: 0.5rem 0;
     }
     .hero {
       min-height: 100vh;
@@ -91,8 +126,9 @@
       display: flex; justify-content: space-between; flex-wrap: wrap; gap: 2rem;
     }
     @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
       .intro-grid { grid-template-columns: 1fr; gap: 3rem; }
-      nav .nav-links { display: none; }
     }
   </style>
 </head>
@@ -101,6 +137,8 @@
   <!-- Navigation -->
   <nav>
     <a href="index.html" class="nav-logo">Vinculum</a>
+    
+    <!-- Desktop Navigation -->
     <ul class="nav-links">
       <li><a href="howitworks.html">How It Works</a></li>
       <li><a href="assets.html">Assets</a></li>
@@ -108,6 +146,22 @@
       <li><a href="#governance">Governance</a></li>
       <li><a href="#roadmap">Roadmap</a></li>
     </ul>
+
+    <!-- Hamburger Icon (Mobile) -->
+    <div class="hamburger" onclick="toggleMobileMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="howitworks.html">How It Works</a>
+      <a href="assets.html">Assets</a>
+      <a href="#tokens">Tokens</a>
+      <a href="#governance">Governance</a>
+      <a href="#roadmap">Roadmap</a>
+    </div>
   </nav>
 
   <!-- Hero -->
@@ -221,6 +275,24 @@
       <a href="https://twitter.com/VinculumDefi" style="color: var(--mid); text-decoration: none;">@VinculumDefi</a>
     </div>
   </footer>
+
+  <script>
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobileMenu');
+      if (menu.style.display === 'flex') {
+        menu.style.display = 'none';
+      } else {
+        menu.style.display = 'flex';
+      }
+    }
+
+    // Close mobile menu when clicking a link
+    document.querySelectorAll('.mobile-menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.getElementById('mobileMenu').style.display = 'none';
+      });
+    });
+  </script>
 
 </body>
 </html>
