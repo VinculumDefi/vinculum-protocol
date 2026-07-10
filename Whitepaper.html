@@ -8,16 +8,15 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=DM+Sans:wght@200;300;400&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --white:     #fafaf8;
+      --white: #fafaf8;
       --off-white: #f4f3ef;
-      --black:     #0a0a0a;
-      --mid:       #6b6b65;
-      --blue:      #1a1a2e;
-      --vclm:      #00d4ff;
-      --chonx:     #d4af6a;
-      --synth:     #00e887;
+      --black: #0a0a0a;
+      --mid: #6b6b65;
+      --blue: #1a1a2e;
+      --vclm: #00d4ff;
+      --chonx: #d4af6a;
+      --synth: #00e887;
     }
-
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
@@ -28,7 +27,6 @@
       cursor: none;
       overflow-x: hidden;
     }
-
     /* ── Cursor ─────────────────────────────────────────────────────────── */
     #cursor {
       width: 8px; height: 8px;
@@ -42,7 +40,6 @@
     #cursor.hovering { width: 40px; height: 40px; background: transparent; border: 1px solid var(--black); }
     #cursor.light { background: var(--white); }
     #cursor.light.hovering { border-color: var(--white); background: transparent; }
-
     /* ── Nav ─────────────────────────────────────────────────────────────── */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
@@ -64,7 +61,6 @@
       transition: opacity 0.2s;
     }
     .nav-links a:hover { opacity: 1; }
-
     /* ── Hero ────────────────────────────────────────────────────────────── */
     .hero {
       min-height: 100vh;
@@ -87,9 +83,9 @@
     .orb-2 { width:400px;height:400px;background:#0066ff;opacity:0.15;bottom:-50px;right:10%;animation-delay:-4s; }
     .orb-3 { width:300px;height:300px;background:#00e887;opacity:0.15;top:40%;left:50%;animation-delay:-8s; }
     @keyframes orbFloat {
-      0%   { transform: translate(0,0) scale(1); }
-      33%  { transform: translate(30px,-40px) scale(1.05); }
-      66%  { transform: translate(-20px,20px) scale(0.95); }
+      0% { transform: translate(0,0) scale(1); }
+      33% { transform: translate(30px,-40px) scale(1.05); }
+      66% { transform: translate(-20px,20px) scale(0.95); }
       100% { transform: translate(0,0) scale(1); }
     }
     .hero-content { position: relative; z-index: 1; max-width: 900px; }
@@ -116,29 +112,24 @@
       opacity: 0; animation: fadeUp 1.2s ease 0.9s forwards;
     }
     @keyframes fadeUp { from { opacity:0; transform:translateY(30px); } to { opacity:1; transform:translateY(0); } }
-
     /* ── Scroll reveal ───────────────────────────────────────────────────── */
     .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.9s ease, transform 0.9s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
     .delay-1 { transition-delay: 0.15s; }
     .delay-2 { transition-delay: 0.3s; }
     .delay-3 { transition-delay: 0.45s; }
-
     /* ── Divider ─────────────────────────────────────────────────────────── */
     .full-divider { height: 1px; background: rgba(0,0,0,0.06); }
-
     /* ── Section scaffold ────────────────────────────────────────────────── */
-    .section-light  { padding: 9rem 3rem; background: var(--white); }
+    .section-light { padding: 9rem 3rem; background: var(--white); }
     .section-tinted { padding: 9rem 3rem; background: var(--off-white); }
-    .section-dark   { padding: 9rem 3rem; background: var(--black); position: relative; overflow: hidden; }
+    .section-dark { padding: 9rem 3rem; background: var(--black); position: relative; overflow: hidden; }
     .inner { max-width: 1400px; margin: 0 auto; }
-
     .eyebrow {
       font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase;
       color: var(--mid); margin-bottom: 1rem;
     }
     .eyebrow-dark { color: rgba(255,255,255,0.25); }
-
     .headline {
       font-family: 'Cormorant Garamond', serif;
       font-weight: 300; font-size: clamp(2rem, 3.5vw, 3.2rem);
@@ -147,14 +138,11 @@
     .headline em { font-style: italic; color: var(--mid); }
     .headline-dark { color: var(--white); }
     .headline-dark em { color: rgba(255,255,255,0.4); }
-
     .body { font-size: 0.95rem; line-height: 1.9; color: var(--mid); margin-bottom: 1.5rem; max-width: 740px; }
     .body strong { color: var(--black); font-weight: 400; }
     .body-dark { color: rgba(255,255,255,0.45); }
     .body-dark strong { color: var(--white); }
-
     .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 7rem; align-items: start; }
-
     /* ── Promise grid (no presale etc) ──────────────────────────────────── */
     .promise-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: rgba(0,0,0,0.06); margin-top: 5rem; }
     .promise-item { background: var(--white); padding: 2.5rem 2rem; }
@@ -165,7 +153,6 @@
     }
     .promise-title { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 300; color: var(--black); margin-bottom: 0.5rem; }
     .promise-body { font-size: 0.82rem; line-height: 1.8; color: var(--mid); }
-
     /* ── How it works steps ──────────────────────────────────────────────── */
     .steps { display: flex; flex-direction: column; gap: 0; }
     .step-row {
@@ -181,7 +168,6 @@
     }
     .step-title { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 300; color: var(--black); margin-bottom: 0.4rem; }
     .step-body { font-size: 0.85rem; line-height: 1.8; color: var(--mid); }
-
     /* ── Token cards ─────────────────────────────────────────────────────── */
     .token-trio { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(255,255,255,0.06); }
     .token-card { background: var(--black); padding: 3rem 2.5rem; }
@@ -195,7 +181,6 @@
     }
     .token-body { font-size: 0.85rem; line-height: 1.9; color: rgba(255,255,255,0.4); }
     .token-body strong { color: var(--white); font-weight: 400; }
-
     /* ── Coalition section ───────────────────────────────────────────────── */
     .coalition-stat {
       font-family: 'Cormorant Garamond', serif;
@@ -203,14 +188,12 @@
       line-height: 1; color: var(--black); margin-bottom: 0;
     }
     .coalition-stat em { font-style: italic; color: var(--mid); }
-
     /* ── Governance grid ─────────────────────────────────────────────────── */
     .gov-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(0,0,0,0.06); margin-top: 4rem; }
     .gov-item { background: var(--off-white); padding: 2.5rem 2rem; }
     .gov-rank { font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--mid); margin-bottom: 0.75rem; }
     .gov-name { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 300; color: var(--black); margin-bottom: 0.5rem; }
     .gov-body { font-size: 0.82rem; line-height: 1.8; color: var(--mid); }
-
     /* ── CTA ─────────────────────────────────────────────────────────────── */
     .cta-section { background: var(--black); padding: 10rem 3rem; position: relative; overflow: hidden; }
     .cta-inner { max-width: 900px; margin: 0 auto; text-align: center; position: relative; z-index: 2; }
@@ -232,11 +215,9 @@
     .cta-btn:hover { border-color: rgba(255,255,255,0.6); background: rgba(255,255,255,0.05); }
     .cta-btn.primary { background: rgba(0,212,255,0.1); border-color: rgba(0,212,255,0.4); color: var(--vclm); }
     .cta-btn.primary:hover { background: rgba(0,212,255,0.18); border-color: rgba(0,212,255,0.7); }
-
     /* ── Dark orbs for dark sections ─────────────────────────────────────── */
     .dark-orb-1 { position: absolute; width:600px;height:600px;background:#00d4ff;border-radius:50%;filter:blur(100px);opacity:0.06;top:-100px;right:-100px;animation:orbFloat 15s ease-in-out infinite; }
     .dark-orb-2 { position: absolute; width:400px;height:400px;background:#00e887;border-radius:50%;filter:blur(80px);opacity:0.05;bottom:-50px;left:5%;animation:orbFloat 12s ease-in-out infinite;animation-delay:-6s; }
-
     /* ── Footer ──────────────────────────────────────────────────────────── */
     footer {
       padding: 3rem; border-top: 1px solid rgba(0,0,0,0.06);
@@ -248,7 +229,6 @@
     .footer-links a { font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--mid); text-decoration: none; transition: color 0.2s; }
     .footer-links a:hover { color: var(--black); }
     .footer-copy { font-size: 0.65rem; letter-spacing: 0.08em; color: var(--mid); }
-
     /* ── Responsive ──────────────────────────────────────────────────────── */
     @media (max-width: 900px) {
       nav { padding: 1.5rem; }
@@ -264,21 +244,18 @@
   <script data-goatcounter="https://vinculum.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </head>
 <body>
-
 <div id="cursor"></div>
-
 <nav>
   <a href="index.html" class="nav-logo">Vinculum</a>
   <ul class="nav-links">
     <li><a href="index.html">Protocol</a></li>
-    <li><a href="assets.html">Assets</a></li>
+    <li><a href="asset-registry.html">Asset Registry</a></li>
     <li><a href="governance.html">Governance</a></li>
     <li><a href="howitworks.html">How It Works</a></li>
     <li><a href="whitepaper.html" style="opacity:1;">Whitepaper</a></li>
     <li><a href="OutOfLeftField.html">The Book</a></li>
   </ul>
 </nav>
-
 <!-- ── Hero ─────────────────────────────────────────────────────────────── -->
 <section class="hero">
   <div class="hero-grid"></div>
@@ -292,7 +269,6 @@
     <p class="hero-sub">Bitcoiners. Solana degens. Dogecoin believers. SHIB Army. XRP holders. 101 communities — all earning and holding the same token. No more fighting. One shared destiny.</p>
   </div>
 </section>
-
 <!-- ── Why Vinculum Feels Different ──────────────────────────────────────── -->
 <section class="section-light">
   <div class="inner">
@@ -330,9 +306,7 @@
     </div>
   </div>
 </section>
-
 <div class="full-divider"></div>
-
 <!-- ── How It Works ───────────────────────────────────────────────────────── -->
 <section class="section-tinted">
   <div class="inner">
@@ -385,7 +359,6 @@
     </div>
   </div>
 </section>
-
 <!-- ── The Three Tokens ───────────────────────────────────────────────────── -->
 <section class="section-dark">
   <div class="dark-orb-1"></div>
@@ -394,7 +367,6 @@
     <p class="eyebrow eyebrow-dark reveal">Section 03</p>
     <h2 class="headline headline-dark reveal">The Three<br /><em>Tokens</em></h2>
     <p class="body body-dark reveal" style="margin-bottom:4rem;max-width:640px;">Three tokens. Each one necessary for the existence of the next. Each one more scarce than the last. The system only moves in one direction.</p>
-
     <div class="token-trio reveal delay-1">
       <div class="token-card">
         <div class="token-ticker tv">VCLM</div>
@@ -414,9 +386,7 @@
     </div>
   </div>
 </section>
-
 <div class="full-divider"></div>
-
 <!-- ── The Coalition ──────────────────────────────────────────────────────── -->
 <section class="section-light">
   <div class="inner">
@@ -437,7 +407,6 @@
     </div>
   </div>
 </section>
-
 <!-- ── Governance ─────────────────────────────────────────────────────────── -->
 <section class="section-tinted">
   <div class="inner">
@@ -445,7 +414,6 @@
     <h2 class="headline reveal">Governance That<br /><em>Actually Matters</em></h2>
     <p class="body reveal" style="margin-bottom:1rem;max-width:740px;">Stake VCLM or CHONX to earn a governance seat. SYNTH holders receive seats automatically. Real responsibility. Real power. Real treasury distributions.</p>
     <p class="body reveal" style="margin-bottom:4rem;max-width:740px;">Governance sets a budget — for example, 60% Rewards, 30% Exchange Listings, 10% Marketing. Once set, the budget runs automatically every 10-day epoch across the Core Reserve. Governance can change the budget at any time, but is not required to vote every epoch.</p>
-
     <div class="gov-grid reveal delay-1">
       <div class="gov-item">
         <div class="gov-rank">Tier 3 · Entry</div>
@@ -463,20 +431,17 @@
         <p class="gov-body">Minimum 1 SYNTH. Voting weight 7.0×. 20% of treasury distributions. Built only through sustained commitment and permanent sacrifice.</p>
       </div>
     </div>
-
     <div style="margin-top:4rem;padding-top:3rem;border-top:1px solid rgba(0,0,0,0.06);" class="reveal delay-2">
       <p class="body" style="max-width:740px;"><strong>Governance lock mechanics:</strong> Minimum 10-day lock to hold a seat and vote. Extend using any standard duration interval up to 36 months. The 5% fee applies once at initial entry. Maintaining your seat costs nothing as long as you extend before your lock expires. Auto-extend available for a defined period. If your lock expires without extension, the seat opens for another participant.</p>
     </div>
   </div>
 </section>
-
 <!-- ── Why Be Early ───────────────────────────────────────────────────────── -->
 <section class="section-dark">
   <div class="dark-orb-1" style="animation-delay:-3s;"></div>
   <div class="inner" style="position:relative;z-index:2;">
     <p class="eyebrow eyebrow-dark reveal">The case for now</p>
     <h2 class="headline headline-dark reveal">Why You Will Want<br /><em>to Be Early</em></h2>
-
     <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:rgba(255,255,255,0.05);margin-top:4rem;" class="reveal delay-1">
       <div style="background:var(--black);padding:3rem 2.5rem;">
         <div style="font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:300;color:var(--white);margin-bottom:1rem;line-height:1.2;">You earn your place<br/>instead of buying it</div>
@@ -497,7 +462,6 @@
     </div>
   </div>
 </section>
-
 <!-- ── CTA ────────────────────────────────────────────────────────────────── -->
 <section class="cta-section">
   <div class="dark-orb-1"></div>
@@ -513,7 +477,6 @@
     <p style="margin-top:2rem;font-size:0.65rem;color:rgba(255,255,255,0.18);letter-spacing:0.08em;line-height:1.8;">Nothing in this document constitutes financial advice or a promise of future returns. Mainnet launch is scheduled for June 2026 — a target, not a guarantee. Cryptocurrency investment involves substantial risk. Consult a qualified financial professional before making any investment decision. © 2026 Vinculum Protocol DAO LLC.</p>
   </div>
 </section>
-
 <!-- ── Footer ──────────────────────────────────────────────────────────────── -->
 <footer>
   <a href="index.html" class="footer-logo">Vinculum Protocol</a>
@@ -521,19 +484,18 @@
     <li><a href="https://github.com/VinculumDefi/vinculum-protocol" target="_blank">GitHub</a></li>
     <li><a href="https://twitter.com/VinculumDefi" target="_blank">@VinculumDefi</a></li>
     <li><a href="index.html">Protocol</a></li>
-    <li><a href="assets.html">Assets</a></li>
+    <li><a href="asset-registry.html">Assets</a></li>
     <li><a href="governance.html">Governance</a></li>
     <li><a href="howitworks.html">How It Works</a></li>
     <li><a href="OutOfLeftField.html">The Book</a></li>
   </ul>
   <span class="footer-copy">© 2026 Vinculum Protocol DAO LLC</span>
 </footer>
-
 <script>
   const cursor = document.getElementById('cursor');
   document.addEventListener('mousemove', e => {
     cursor.style.left = e.clientX + 'px';
-    cursor.style.top  = e.clientY + 'px';
+    cursor.style.top = e.clientY + 'px';
   });
   document.addEventListener('mousemove', e => {
     const el = document.elementFromPoint(e.clientX, e.clientY);
