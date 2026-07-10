@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How It Works — Vinculum Protocol</title>
+  <meta name="description" content="Lock any of 1001 approved assets on its native chain. Earn $VCLM on Base. Simple, transparent, and earned through commitment." />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=DM+Sans:wght@200;300;400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --white: #fafaf8;
+      --off-white: #f4f3ef;
+      --black: #0a0a0a;
+      --mid: #6b6b65;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--white);
+      color: var(--black);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+    }
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.5rem 2rem;
+      background: rgba(250,250,248,0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+    }
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300; font-size: 1.1rem;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--black); text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--black); opacity: 0.75; text-decoration: none;
+    }
+    .section {
+      padding: 6rem 2rem;
+      max-width: 1100px; margin: 0 auto;
+    }
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300; font-size: clamp(2.2rem, 5vw, 3.2rem);
+      line-height: 1.15; margin-bottom: 1.5rem;
+    }
+    .step {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 2rem;
+      margin-bottom: 3.5rem;
+      align-items: start;
+    }
+    .step-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3.2rem;
+      font-weight: 300;
+      color: rgba(0,0,0,0.08);
+      line-height: 1;
+    }
+    .step-content h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: 1.45rem;
+      margin-bottom: 0.6rem;
+    }
+    footer {
+      background: var(--white);
+      border-top: 1px solid rgba(0,0,0,0.08);
+      padding: 3rem 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+      font-size: 0.75rem;
+      color: var(--mid);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+    @media (max-width: 768px) {
+      nav .nav-links { display: none; }
+      .section { padding: 4rem 1.5rem; }
+      .step { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <a href="index.html" class="nav-logo">Vinculum</a>
+    <ul class="nav-links">
+      <li><a href="index.html#protocol">Protocol</a></li>
+      <li><a href="index.html#tokens">Tokens</a></li>
+      <li><a href="assets.html">Assets</a></li>
+      <li><a href="index.html#governance">Governance</a></li>
+      <li><a href="index.html#roadmap">Roadmap</a></li>
+      <li><a href="demo/">Demo</a></li>
+    </ul>
+  </nav>
+
+  <div class="section" style="padding-top: 8rem;">
+    <h1>How It Works</h1>
+    <p style="max-width: 680px; font-size: 1.1rem; color: var(--mid);">
+      Lock any of 1001 approved assets on its native chain. Earn $VCLM on Base. 
+      Your asset stays where it is. Your reward is earned through commitment.
+    </p>
+
+    <!-- Step 1 -->
+    <div class="step" style="margin-top: 4rem;">
+      <div class="step-number">01</div>
+      <div class="step-content">
+        <h3>Choose your asset and duration</h3>
+        <p>Select from 1001 approved tokens across many blockchains. Choose how long you want to commit (minimum 7 days). All assets earn at the same rate — dollar for dollar, with no multipliers.</p>
+      </div>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="step">
+      <div class="step-number">02</div>
+      <div class="step-content">
+        <h3>Lock on the native chain</h3>
+        <p>Your asset is locked directly on its home chain by the protocol’s spoke vault contract. It never leaves that chain. A 5% protocol fee is taken at the moment of lock. The remaining 95% is returned to you when the lock matures.</p>
+      </div>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="step">
+      <div class="step-number">03</div>
+      <div class="step-content">
+        <h3>Earn $VCLM on Base</h3>
+        <p>Once the lock is recorded locally on the native chain, the vault sends a single cross-chain message to Base requesting the mint of your $VCLM. The $VCLM is minted instantly and sent to your wallet. Your reward is calculated on the full committed amount.</p>
+      </div>
+    </div>
+
+    <div style="margin-top: 4rem; padding-top: 3rem; border-top: 1px solid rgba(0,0,0,0.08);">
+      <h3 style="font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: 1.5rem; margin-bottom: 1rem;">Important Details</h3>
+      <ul style="font-size: 0.95rem; color: var(--mid); line-height: 1.9; padding-left: 1.2rem;">
+        <li>Your asset stays on its native chain at all times — it is never bridged or moved.</li>
+        <li>$VCLM is minted on Base the moment your commitment is confirmed.</li>
+        <li>The 5% fee is taken from the committed asset, but your $VCLM reward is based on the full amount before the fee.</li>
+        <li>Axelar is used only to securely deliver the mint instruction to Base. It plays no role in locking or custody of your asset.</li>
+        <li>Every $VCLM that exists is earned through real commitment.</li>
+      </ul>
+    </div>
+  </div>
+
+  <footer>
+    <div>
+      <strong>Vinculum Protocol</strong><br>
+      <span style="font-size: 0.75rem;">No presale • No premine • Pure commitment</span>
+    </div>
+    <div style="text-align: right; font-size: 0.75rem;">
+      © 2026 Vinculum Protocol DAO LLC<br>
+      <a href="https://twitter.com/VinculumDefi" style="color: var(--mid); text-decoration: none;">@VinculumDefi</a>
+    </div>
+  </footer>
+
+</body>
+</html>
