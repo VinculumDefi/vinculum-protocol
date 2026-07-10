@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Team — Vinculum Protocol</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=DM+Sans:wght@200;300;400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --white: #fafaf8;
+      --off-white: #f4f3ef;
+      --black: #0a0a0a;
+      --mid: #6b6b65;
+    }
+    body {
+      background: var(--white);
+      color: var(--black);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+      margin: 0;
+      padding: 0;
+    }
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.5rem 2rem;
+      background: rgba(250,250,248,0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+    }
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300; font-size: 1.1rem;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--black); text-decoration: none;
+    }
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 8rem 2rem 4rem;
+    }
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: 2.8rem;
+      margin-bottom: 0.5rem;
+    }
+    .subtitle {
+      color: var(--mid);
+      font-size: 1.1rem;
+      margin-bottom: 4rem;
+    }
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2.5rem;
+    }
+    .team-card {
+      background: var(--off-white);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+    .team-card img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      display: block;
+    }
+    .team-info {
+      padding: 1.5rem;
+    }
+    .team-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 300;
+      margin: 0 0 0.25rem;
+    }
+    .team-role {
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--mid);
+      margin-bottom: 1rem;
+    }
+    .team-bio {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: #444;
+    }
+    footer {
+      text-align: center;
+      padding: 3rem 2rem;
+      color: var(--mid);
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <a href="index.html" class="nav-logo">Vinculum</a>
+  </nav>
+
+  <main>
+    <h1>The Voices Behind Vinculum</h1>
+    <p class="subtitle">An anonymous team building in public with distinct perspectives.</p>
+
+    <div class="team-grid">
+
+      <!-- Alex -->
+      <div class="team-card">
+        <img src="images/team/alex.jpg" alt="Alex">
+        <div class="team-info">
+          <h3 class="team-name">Alex</h3>
+          <div class="team-role">Founder &amp; Vision</div>
+          <p class="team-bio">Focuses on long-term direction and the deeper philosophy behind the protocol. Believes the system should reward genuine commitment above all else.</p>
+        </div>
+      </div>
+
+      <!-- Elena -->
+      <div class="team-card">
+        <img src="images/team/elena.jpg" alt="Elena">
+        <div class="team-info">
+          <h3 class="team-name">Elena</h3>
+          <div class="team-role">Product &amp; Operations</div>
+          <p class="team-bio">Keeps everything grounded in what can actually be built and shipped. Prioritizes clarity, execution, and realistic next steps.</p>
+        </div>
+      </div>
+
+      <!-- Sam -->
+      <div class="team-card">
+        <img src="images/team/sam.jpg" alt="Sam">
+        <div class="team-info">
+          <h3 class="team-name">Sam</h3>
+          <div class="team-role">Narrative &amp; Community</div>
+          <p class="team-bio">Translates complex mechanics into human stories. Focuses on making the protocol feel accessible and relatable to real people.</p>
+        </div>
+      </div>
+
+      <!-- Marcus -->
+      <div class="team-card">
+        <img src="images/team/marcus.jpg" alt="Marcus">
+        <div class="team-info">
+          <h3 class="team-name">Marcus</h3>
+          <div class="team-role">Growth &amp; Partnerships</div>
+          <p class="team-bio">Focused on real adoption, liquidity, and partnerships. Values results over hype and keeps an eye on what actually moves the protocol forward.</p>
+        </div>
+      </div>
+
+      <!-- Priya -->
+      <div class="team-card">
+        <img src="images/team/priya.jpg" alt="Priya">
+        <div class="team-info">
+          <h3 class="team-name">Priya</h3>
+          <div class="team-role">Research &amp; Analytics</div>
+          <p class="team-bio">Analyzes tokenomics, incentives, and data. Brings a precise, evidence-based approach to how the system actually behaves over time.</p>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2026 Vinculum Protocol</p>
+  </footer>
+
+</body>
+</html>
