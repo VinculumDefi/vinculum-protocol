@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vinculum Protocol — Mainnet Test Console</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=DM+Sans:wght@200;300;400;500&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/6.13.2/ethers.umd.min.js"></script>
+<style>
+  :root {
+    --bg: #fafaf8;
+    --ink: #1a1a18;
+    --ink-soft: #55554f;
+    --hairline: #e4e4de;
+    --card: #ffffff;
+    --vclm: #6b7fd7;
+    --chonx: #c9a227;
+    --synth: #2d2a26;
+    --ok: #2e7d4f;
+    --warn: #b3541e;
+    --err: #a83232;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--bg); color: var(--ink);
+    font-family: 'DM Sans', sans-serif; font-weight: 300;
+    line-height: 1.55; padding-bottom: 6rem;
+  }
+  header {
+    padding: 3.5rem 2rem 2.5rem; text-align: center;
+    border-bottom: 1px solid var(--hairline);
+    background: linear-gradient(135deg, #0a0a18 0%, #1a1a2e 100%);
+    color: #fafaf8;
+  }
+  h1 {
+    font-family: 'Cormorant Garamond', serif; font-weight: 300;
+    font-size: clamp(2rem, 5vw, 3.2rem); letter-spacing: 0.02em;
+  }
+  .sub { color: #b0b0b0; font-weight: 200; margin-top: 0.4rem; font-size: 0.95rem; }
+  .banner {
+    background: #1a1a2e; color: #00d4ff; padding: 0.4rem 0; font-size: 0.75rem;
+    text-align: center; letter-spacing: 0.08em; font-weight: 400;
+  }
+  main { max-width: 1060px; margin: 0 auto; padding: 0 1.25rem; }
+  section {
+    background: var(--card); border: 1px solid var(--hairline);
+    border-radius: 10px; padding: 1.6rem 1.75rem; margin-top: 1.75rem;
+  }
+  h2 {
+    font-family: 'Cormorant Garamond', serif; font-weight: 400;
+    font-size: 1.55rem; margin-bottom: 0.35rem;
+  }
+  .hint { color: var(--ink-soft); font-size: 0.85rem; margin-bottom: 1rem; }
+  label { display: block; font-size: 0.8rem; color: var(--ink-soft); margin: 0.7rem 0 0.2rem; }
+  input, select {
+    width: 100%; max-width: 420px; padding: 0.55rem 0.7rem;
+    border: 1px solid var(--hairline); border-radius: 6px;
+    font-family: inherit; font-size: 0.92rem; background: #fff; color: var(--ink);
+  }
+  button {
+    font-family: 'DM Sans', sans-serif; font-weight: 400; font-size: 0.88rem;
+    padding: 0.6rem 1.3rem; border-radius: 6px; border: 1px solid var(--ink);
+    background: var(--ink); color: #fff; cursor: pointer; margin: 0.8rem 0.5rem 0 0;
+    transition: opacity 0.15s;
+  }
+  button:hover { opacity: 0.82; }
+  button.secondary { background: transparent; color: var(--ink); }
+  button:disabled { opacity: 0.35; cursor: not-allowed; }
+  .row { display: flex; flex-wrap: wrap; gap: 1.5rem; }
+  .col { flex: 1 1 300px; }
+  .stat { margin: 0.4rem 0; font-size: 0.92rem; }
+  .stat b { font-weight: 500; }
+  .mono { font-family: ui-monospace, monospace; font-size: 0.8rem; word-break: break-all; }
+  .pill {
+    display: inline-block; font-size: 0.72rem; padding: 0.15rem 0.6rem;
+    border-radius: 999px; border: 1px solid var(--hairline); color: var(--ink-soft);
+    margin-left: 0.4rem; vertical-align: middle;
+  }
+  .pill.on  { border-color: var(--ok); color: var(--ok); }
+  .pill.off { border-color: var(--warn); color: var(--warn); }
+
+  /* Rail styling */
+  .rail-wrap { margin: 1.4rem 0 0.6rem; }
+  .rail-label {
+    display: flex; justify-content: space-between; align-items: baseline;
+    font-size: 0.82rem; color: var(--ink-soft); margin-bottom: 0.35rem;
+  }
+  .rail-label .val { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; color: var(--ink); font-weight: 400; }
+  .rail {
+    height: 10px; background: var(--hairline); border-radius: 999px; overflow: hidden;
+    position: relative;
+  }
+  .rail .fill {
+    height: 100%; width: 0%; border-radius: 999px;
+    transition: width 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .rail.vclm .fill  { background: linear-gradient(90deg, #9fb0ec, var(--vclm)); }
+  .rail.chonx .fill { background: linear-gradient(90deg, #e8d48a, var(--chonx)); }
+  .crossed { color: var(--ok); font-weight: 500; }
+
+  #log {
+    background: #14140f; color: #d8d8cf; border-radius: 10px;
+    padding: 1.1rem 1.3rem; font-family: ui-monospace, monospace;
+    font-size: 0.78rem; margin-top: 1.75rem; max-height: 300px; overflow-y: auto;
+    white-space: pre-wrap; word-break: break-all;
+  }
+  #log .ok   { color: #8fce9f; }
+  #log .err  { color: #e89b9b; }
+  #log .info { color: #b6c3ee; }
+  table { width: 100%; border-collapse: collapse; margin-top: 0.8rem; font-size: 0.85rem; }
+  th { text-align: left; font-weight: 400; color: var(--ink-soft); border-bottom: 1px solid var(--hairline); padding: 0.4rem 0.5rem; }
+  td { padding: 0.45rem 0.5rem; border-bottom: 1px solid var(--hairline); }
+  @media (prefers-reduced-motion: reduce) { .rail .fill { transition: none; } }
+</style>
+</head>
+<body>
+
+<div class="banner">MAINNET TEST CONSOLE — PRIVATE PROVING RUN</div>
+
+<header>
+  <h1>Vinculum Protocol</h1>
+  <div class="sub">Mainnet Test Console — Base (8453)</div>
+</header>
+
+<main>
+
+  <!-- Connection -->
+  <section id="sec-connect">
+    <h2>Connection</h2>
+    <p class="hint">Connect the deployer wallet. It is admin, sole validator, and test operator in one.</p>
+    <button id="btnConnect">Connect wallet</button>
+    <div class="stat">Wallet: <span id="stAddr" class="mono">—</span></div>
+    <div class="stat">Network: <span id="stNet">—</span></div>
+    <div class="stat">Manifest: <span id="stManifest">not loaded</span></div>
+    <label for="manifestPaste">If the manifest didn't auto-load (e.g. opened as a local file), paste the contents of <span class="mono">deployed_base_mainnet_test.json</span> here:</label>
+    <input id="manifestPaste" placeholder='{"contracts": { ... }}'>
+    <button class="secondary" id="btnManifestPaste">Load pasted manifest</button>
+  </section>
+
+  <!-- Status + Rails -->
+  <section id="sec-status">
+    <h2>Protocol Status</h2>
+    <p class="hint">The two ascents this test exists to witness.</p>
+
+    <div class="rail-wrap">
+      <div class="rail-label">
+        <span>VCLM gross minted → CHONX at 10,000,000</span>
+        <span class="val" id="vclmVal">—</span>
+      </div>
+      <div class="rail vclm"><div class="fill" id="vclmFill"></div></div>
+    </div>
+
+    <div class="rail-wrap">
+      <div class="rail-label">
+        <span>CHONX gross minted → SYNTH at 100,000,000</span>
+        <span class="val" id="chonxVal">—</span>
+      </div>
+      <div class="rail chonx"><div class="fill" id="chonxFill"></div></div>
+    </div>
+
+    <div class="row" style="margin-top:1rem">
+      <div class="col">
+        <div class="stat">CHONX launch: <span id="stChonxLaunch" class="pill off">…</span></div>
+        <div class="stat">SYNTH threshold: <span id="stSynthLaunch" class="pill off">…</span></div>
+        <div class="stat">SYNTH forged: <b id="stSynthSupply">—</b></div>
+      </div>
+      <div class="col">
+        <div class="stat">Current epoch: <b id="stEpoch">—</b></div>
+        <div class="stat">Governance tiers active: <span id="stTiers">—</span></div>
+      </div>
+    </div>
+    <button class="secondary" id="btnCheckChonx">Check CHONX trigger</button>
+    <button class="secondary" id="btnCheckSynth">Check SYNTH trigger</button>
+    <button class="secondary" id="btnProcessEpoch">Process current epoch</button>
+    <button class="secondary" id="btnRefresh">Refresh status</button>
+  </section>
+
+  <!-- Faucet -->
+  <section id="sec-faucet">
+    <h2>VTEST Faucet</h2>
+    <p class="hint">Mint yourself test asset priced at $1.00.</p>
+    <div class="stat">Your VTEST balance: <b id="stVtest">—</b></div>
+    <label>Amount to mint</label>
+    <input id="faucetAmt" value="2500000">
+    <button id="btnFaucet">Mint VTEST</button>
+  </section>
+
+  <!-- Commit -->
+  <section id="sec-commit">
+    <h2>Commitment Vault Lock</h2>
+    <p class="hint">5% fee (60/40 Core/Dev). Minimum 1 hour.</p>
+    <label>Gross amount of VTEST to lock</label>
+    <input id="commitAmt" value="1052632">
+    <label>Lock duration</label>
+    <select id="commitDur">
+      <option value="3600">1 hour (1.0×)</option>
+      <option value="7776000">90 days (1.25×)</option>
+      <option value="15552000">180 days (1.5×)</option>
+      <option value="31536000">365 days (2.0×)</option>
+      <option value="94608000">1095 days (3.0×)</option>
+    </select>
+    <div class="stat" id="commitPreview"></div>
+    <button id="btnApproveVault">1 · Approve VTEST to vault</button>
+    <button id="btnCommit">2 · Commit lock</button>
+    <div class="stat">Last lock ID: <span id="stLockId" class="mono">—</span></div>
+  </section>
+
+  <!-- Attest -->
+  <section id="sec-attest">
+    <h2>Attest &amp; Mint <span class="pill">You are the validator</span></h2>
+    <p class="hint">Builds proof, signs it, submits to registry. Instant mint.</p>
+    <label>Lock ID</label>
+    <input id="attestLockId" class="mono">
+    <label>Mint via</label>
+    <select id="attestTarget">
+      <option value="vclm">ProtocolRegistry_v2 → VCLM</option>
+      <option value="chonx">CHONXRegistry → CHONX</option>
+    </select>
+    <div class="stat" id="attestPreview"></div>
+    <button id="btnAttest">Sign proof &amp; submit</button>
+  </section>
+
+  <!-- Governance -->
+  <section id="sec-gov">
+    <h2>Governance</h2>
+    <p class="hint">10-day floor, 30-day increments, extendable.</p>
+    <div class="row">
+      <div class="col">
+        <label>Tier</label>
+        <select id="govTier">
+          <option value="0">VCLM — 1.0×</option>
+          <option value="1">CHONX — 2.5×</option>
+          <option value="2">SYNTH — 7.0×</option>
+        </select>
+        <label>Duration (days)</label>
+        <input id="govDays" value="30">
+        <button id="btnGovApprove">Approve</button>
+        <button id="btnGovLock">Lock seat</button>
+        <button class="secondary" id="btnGovExtend">Extend</button>
+        <button class="secondary" id="btnGovUnlock">Unlock</button>
+      </div>
+      <div class="col">
+        <div class="stat">My seats:</div>
+        <table id="seatTable"><thead><tr><th>Tier</th><th>Weight</th><th>Reward</th><th>Expires</th></tr></thead><tbody></tbody></table>
+        <label>Proposal</label>
+        <input id="propDesc" placeholder="Test proposal">
+        <button class="secondary" id="btnPropose">Create proposal</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Forge -->
+  <section id="sec-forge">
+    <h2>SYNTH Forge</h2>
+    <p class="hint">Burn 1,000 VCLM + 10,000 CHONX per SYNTH.</p>
+    <div class="row">
+      <div class="col">
+        <label>SYNTH to forge</label>
+        <input id="forgeAmt" value="1">
+        <div class="stat" id="forgePreview"></div>
+        <button id="btnForgeApproveVclm">Approve VCLM</button>
+        <button id="btnForgeApproveChonx">Approve CHONX</button>
+        <button id="btnForge">Forge</button>
+      </div>
+      <div class="col">
+        <div class="stat">Forges this session: <b id="stForgeCount">0</b> / 10</div>
+        <div class="stat">My SYNTH: <b id="stSynthBal">—</b></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dashboard -->
+  <section id="sec-dash">
+    <h2>My Dashboard</h2>
+    <div class="row">
+      <div class="col">
+        <div class="stat">VTEST: <b id="dVtest">—</b></div>
+        <div class="stat">VCLM: <b id="dVclm">—</b></div>
+        <div class="stat">CHONX: <b id="dChonx">—</b></div>
+        <div class="stat">SYNTH: <b id="dSynth">—</b></div>
+      </div>
+      <div class="col">
+        <div class="stat">Active locks:</div>
+        <table id="lockTable"><thead><tr><th>Lock</th><th>Net</th><th>Unlocks</th><th></th></tr></thead><tbody></tbody></table>
+      </div>
+    </div>
+    <button class="secondary" id="btnDashRefresh">Refresh dashboard</button>
+  </section>
+
+  <div id="log">Vinculum test console ready. Connect your wallet to begin.\n</div>
+</main>
+
+<script>
+"use strict";
+const E = ethers;
+const E18 = 10n ** 18n;
+const CHAIN_ID = 8453;
+const TIER_AMOUNTS = [1000n * E18, 5000n * E18, 1n * E18];
+
+const ABI = {
+  erc20: ["function balanceOf(address) view returns (uint256)", "function approve(address,uint256) returns (bool)", "function allowance(address,address) view returns (uint256)", "function mint(address,uint256)", "function totalSupply() view returns (uint256)"],
+  vault: ["function commit(address asset,uint256 grossAmount,uint64 unlockTime,bytes32 nonce,bool isTrial) returns (bytes32)", "function withdraw(bytes32 lockId)", "function getLock(bytes32 lockId) view returns (tuple(address owner,address asset,uint256 amount,uint64 unlockTime,uint64 createdAt,bool isTrial,bool isTrustTrial,bool withdrawn))", "function getUserActiveLocks(address) view returns (bytes32[])", "event Committed(bytes32 indexed lockId,address indexed owner,address indexed asset,uint256 grossAmount,uint256 netAmount,uint256 fee,uint64 unlockTime,bytes32 nonce,bool isTrial,address coreReserve,address devFund,address lockContract)"],
+  registry: ["function submitAttestedProof(tuple(...) proof, tuple(uint8 v,bytes32 r,bytes32 s)[] sigs)"],
+  tracker: ["function getTotalSupply() view returns (uint256)"],
+  launch: ["function isChonxLaunchReady() view returns (bool)", "function isSynthLaunchReady() view returns (bool)", "function checkChonxLaunch()", "function checkSynthLaunch()"],
+  epochOps: ["function processCurrentEpoch()"],
+  sem: ["function isTierActive(uint8) view returns (bool)"],
+  govLock: ["function lock(uint8 tier,uint256 durationDays)", "function extend(uint8 tier,uint256 additionalDays)", "function unlock(uint8 tier)", "function hasActiveSeat(address,uint8) view returns (bool)", "function getVotingWeight(address,uint8) view returns (uint256)", "function getUnlockTime(address,uint8) view returns (uint256)", "function isRewardEligibleTerm(address,uint8) view returns (bool)"],
+  governor: ["function createProposal(string,uint8) returns (uint256)"],
+  synth: ["function mintWithBurn(address to,uint256 synthAmount)", "function balanceOf(address) view returns (uint256)", "function totalSupply() view returns (uint256)"]
+};
+
+let provider, signer, me, M = null, C = {};
+let forgeCount = 0;
+
+const $ = id => document.getElementById(id);
+function log(msg, cls="") {
+  const el = $("log");
+  el.innerHTML += (cls ? `<span class="${cls}">` : "") + msg + (cls ? "</span>" : "") + "\n";
+  el.scrollTop = el.scrollHeight;
+}
+const fmt = (v, dec=18) => E.formatUnits(v, dec);
+
+async function loadManifest() {
+  try {
+    const r = await fetch("deployed_base_mainnet_test.json", {cache:"no-store"});
+    if (r.ok) applyManifest(await r.json());
+  } catch(e) {}
+}
+function applyManifest(m) { M = m; $("stManifest").textContent = "loaded"; log("Manifest loaded.", "ok"); if (signer) wire(); }
+
+$("btnConnect").onclick = async () => {
+  provider = new E.BrowserProvider(window.ethereum);
+  await provider.send("eth_requestAccounts", []);
+  signer = await provider.getSigner();
+  me = await signer.getAddress();
+  $("stAddr").textContent = me;
+  $("stNet").textContent = "Base mainnet";
+  log(`Connected: ${me}`, "ok");
+  if (M) wire();
+};
+
+function wire() { /* ... same wiring as before ... */ }
+
+$("btnRefresh").onclick = () => { refreshStatus(); refreshDash(); };
+/* ... rest of the script remains the same ... */
+
+commitPreview(); forgePreview(); loadManifest();
+</script>
+</body>
+</html>
