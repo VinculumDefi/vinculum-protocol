@@ -14,9 +14,9 @@
     --ink-soft: #55554f;
     --hairline: #e4e4de;
     --card: #ffffff;
-    --vclm: #6b7fd7;
-    --chonx: #c9a227;
-    --synth: #2d2a26;
+    --vclm: #6b7fd7;      /* chrome-blue — VCLM */
+    --chonx: #c9a227;     /* golden — CHONX */
+    --synth: #2d2a26;     /* obsidian — SYNTH */
     --ok: #2e7d4f;
     --warn: #b3541e;
     --err: #a83232;
@@ -30,18 +30,12 @@
   header {
     padding: 3.5rem 2rem 2.5rem; text-align: center;
     border-bottom: 1px solid var(--hairline);
-    background: linear-gradient(135deg, #0a0a18 0%, #1a1a2e 100%);
-    color: #fafaf8;
   }
   h1 {
     font-family: 'Cormorant Garamond', serif; font-weight: 300;
     font-size: clamp(2rem, 5vw, 3.2rem); letter-spacing: 0.02em;
   }
-  .sub { color: #b0b0b0; font-weight: 200; margin-top: 0.4rem; font-size: 0.95rem; }
-  .banner {
-    background: #1a1a2e; color: #00d4ff; padding: 0.4rem 0; font-size: 0.75rem;
-    text-align: center; letter-spacing: 0.08em; font-weight: 400;
-  }
+  .sub { color: var(--ink-soft); font-weight: 200; margin-top: 0.4rem; font-size: 0.95rem; }
   main { max-width: 1060px; margin: 0 auto; padding: 0 1.25rem; }
   section {
     background: var(--card); border: 1px solid var(--hairline);
@@ -80,7 +74,7 @@
   .pill.on  { border-color: var(--ok); color: var(--ok); }
   .pill.off { border-color: var(--warn); color: var(--warn); }
 
-  /* Rail styling */
+  /* ── Signature element: the threshold ascent rails ── */
   .rail-wrap { margin: 1.4rem 0 0.6rem; }
   .rail-label {
     display: flex; justify-content: space-between; align-items: baseline;
@@ -116,16 +110,14 @@
 </head>
 <body>
 
-<div class="banner">MAINNET TEST CONSOLE — PRIVATE PROVING RUN</div>
-
 <header>
   <h1>Vinculum Protocol</h1>
-  <div class="sub">Mainnet Test Console — Base (8453)</div>
+  <div class="sub">Mainnet Test Console — private proving run · Base (8453)</div>
 </header>
 
 <main>
 
-  <!-- Connection -->
+  <!-- ── 0. Connection ─────────────────────────────────────────────── -->
   <section id="sec-connect">
     <h2>Connection</h2>
     <p class="hint">Connect the deployer wallet. It is admin, sole validator, and test operator in one.</p>
@@ -138,14 +130,14 @@
     <button class="secondary" id="btnManifestPaste">Load pasted manifest</button>
   </section>
 
-  <!-- Status + Rails -->
+  <!-- ── 1. Protocol status + threshold rails ─────────────────────── -->
   <section id="sec-status">
-    <h2>Protocol Status</h2>
-    <p class="hint">The two ascents this test exists to witness.</p>
+    <h2>Protocol status</h2>
+    <p class="hint">The two ascents this entire test exists to witness. Live from the supply trackers.</p>
 
     <div class="rail-wrap">
       <div class="rail-label">
-        <span>VCLM gross minted → CHONX at 10,000,000</span>
+        <span>VCLM gross minted → CHONX activation at 10,000,000</span>
         <span class="val" id="vclmVal">—</span>
       </div>
       <div class="rail vclm"><div class="fill" id="vclmFill"></div></div>
@@ -153,7 +145,7 @@
 
     <div class="rail-wrap">
       <div class="rail-label">
-        <span>CHONX gross minted → SYNTH at 100,000,000</span>
+        <span>CHONX gross minted → SYNTH threshold at 100,000,000</span>
         <span class="val" id="chonxVal">—</span>
       </div>
       <div class="rail chonx"><div class="fill" id="chonxFill"></div></div>
@@ -163,38 +155,38 @@
       <div class="col">
         <div class="stat">CHONX launch: <span id="stChonxLaunch" class="pill off">…</span></div>
         <div class="stat">SYNTH threshold: <span id="stSynthLaunch" class="pill off">…</span></div>
-        <div class="stat">SYNTH forged: <b id="stSynthSupply">—</b></div>
+        <div class="stat">SYNTH forged (total supply): <b id="stSynthSupply">—</b></div>
       </div>
       <div class="col">
         <div class="stat">Current epoch: <b id="stEpoch">—</b></div>
         <div class="stat">Governance tiers active: <span id="stTiers">—</span></div>
       </div>
     </div>
-    <button class="secondary" id="btnCheckChonx">Check CHONX trigger</button>
-    <button class="secondary" id="btnCheckSynth">Check SYNTH trigger</button>
-    <button class="secondary" id="btnProcessEpoch">Process current epoch</button>
+    <button class="secondary" id="btnCheckChonx">Check CHONX launch trigger</button>
+    <button class="secondary" id="btnCheckSynth">Check SYNTH threshold trigger</button>
+    <button class="secondary" id="btnProcessEpoch">Process current epoch (activates newly launched tiers)</button>
     <button class="secondary" id="btnRefresh">Refresh status</button>
   </section>
 
-  <!-- Faucet -->
+  <!-- ── 2. Test asset faucet ─────────────────────────────────────── -->
   <section id="sec-faucet">
-    <h2>VTEST Faucet</h2>
-    <p class="hint">Mint yourself test asset priced at $1.00.</p>
+    <h2>VTEST faucet</h2>
+    <p class="hint">Mint yourself test asset. Priced at $1.00 by the mock oracle you control.</p>
     <div class="stat">Your VTEST balance: <b id="stVtest">—</b></div>
     <label>Amount to mint</label>
     <input id="faucetAmt" value="2500000">
-    <button id="btnFaucet">Mint VTEST</button>
+    <button id="btnFaucet">Mint VTEST to my wallet</button>
   </section>
 
-  <!-- Commit -->
+  <!-- ── 3. Commit vault lock ─────────────────────────────────────── -->
   <section id="sec-commit">
-    <h2>Commitment Vault Lock</h2>
-    <p class="hint">5% fee (60/40 Core/Dev). Minimum 1 hour.</p>
+    <h2>Commitment vault lock</h2>
+    <p class="hint">Locks VTEST in EVMCommitmentVault. 5% fee (60/40 Core/Dev), net amount locked. The lock ID feeds the attestation below. Minimum duration 1 hour (the handshake).</p>
     <label>Gross amount of VTEST to lock</label>
     <input id="commitAmt" value="1052632">
     <label>Lock duration</label>
     <select id="commitDur">
-      <option value="3600">1 hour (1.0×)</option>
+      <option value="3600">1 hour (1.0× multiplier — the handshake)</option>
       <option value="7776000">90 days (1.25×)</option>
       <option value="15552000">180 days (1.5×)</option>
       <option value="31536000">365 days (2.0×)</option>
@@ -206,62 +198,62 @@
     <div class="stat">Last lock ID: <span id="stLockId" class="mono">—</span></div>
   </section>
 
-  <!-- Attest -->
+  <!-- ── 4. Attest & mint ─────────────────────────────────────────── -->
   <section id="sec-attest">
-    <h2>Attest &amp; Mint <span class="pill">You are the validator</span></h2>
-    <p class="hint">Builds proof, signs it, submits to registry. Instant mint.</p>
-    <label>Lock ID</label>
+    <h2>Attest &amp; mint <span class="pill">you are the validator</span></h2>
+    <p class="hint">Builds the proof from the lock, signs it with your wallet (EIP-712), submits it to the chosen registry, and the tokens mint instantly. This is the exact production mechanism — you're simply the whole validator set.</p>
+    <label>Lock ID (auto-filled from your last commit)</label>
     <input id="attestLockId" class="mono">
     <label>Mint via</label>
     <select id="attestTarget">
-      <option value="vclm">ProtocolRegistry_v2 → VCLM</option>
-      <option value="chonx">CHONXRegistry → CHONX</option>
+      <option value="vclm">ProtocolRegistry_v2 → mints VCLM</option>
+      <option value="chonx">CHONXRegistry → mints CHONX (requires CHONX launch)</option>
     </select>
     <div class="stat" id="attestPreview"></div>
-    <button id="btnAttest">Sign proof &amp; submit</button>
+    <button id="btnAttest">Sign proof &amp; submit — mint now</button>
   </section>
 
-  <!-- Governance -->
+  <!-- ── 5. Governance ────────────────────────────────────────────── -->
   <section id="sec-gov">
     <h2>Governance</h2>
-    <p class="hint">10-day floor, 30-day increments, extendable.</p>
+    <p class="hint">Lock protocol tokens for a seat. 10-day floor grants voting/proposing only; 30-day increments up to 180 per action; extend any time before lapse, stacking freely. Flat weight per tier.</p>
     <div class="row">
       <div class="col">
         <label>Tier</label>
         <select id="govTier">
-          <option value="0">VCLM — 1.0×</option>
-          <option value="1">CHONX — 2.5×</option>
-          <option value="2">SYNTH — 7.0×</option>
+          <option value="0">TIER_VCLM — 1,000 VCLM · 1.0×</option>
+          <option value="1">TIER_CHONX — 5,000 CHONX · 2.5×</option>
+          <option value="2">TIER_SYNTH — 1 SYNTH · 7.0×</option>
         </select>
-        <label>Duration (days)</label>
+        <label>Duration (days) — 10, or 30/60/90/120/150/180</label>
         <input id="govDays" value="30">
-        <button id="btnGovApprove">Approve</button>
-        <button id="btnGovLock">Lock seat</button>
-        <button class="secondary" id="btnGovExtend">Extend</button>
-        <button class="secondary" id="btnGovUnlock">Unlock</button>
+        <button id="btnGovApprove">1 · Approve tier amount</button>
+        <button id="btnGovLock">2 · Lock seat</button>
+        <button class="secondary" id="btnGovExtend">Extend by (days above)</button>
+        <button class="secondary" id="btnGovUnlock">Unlock (after lapse)</button>
       </div>
       <div class="col">
         <div class="stat">My seats:</div>
-        <table id="seatTable"><thead><tr><th>Tier</th><th>Weight</th><th>Reward</th><th>Expires</th></tr></thead><tbody></tbody></table>
-        <label>Proposal</label>
+        <table id="seatTable"><thead><tr><th>Tier</th><th>Weight</th><th>Reward-eligible</th><th>Expires</th></tr></thead><tbody></tbody></table>
+        <label>Proposal description</label>
         <input id="propDesc" placeholder="Test proposal">
-        <button class="secondary" id="btnPropose">Create proposal</button>
+        <button class="secondary" id="btnPropose">Create proposal (uses tier above)</button>
       </div>
     </div>
   </section>
 
-  <!-- Forge -->
+  <!-- ── 6. SYNTH forge ───────────────────────────────────────────── -->
   <section id="sec-forge">
-    <h2>SYNTH Forge</h2>
-    <p class="hint">Burn 1,000 VCLM + 10,000 CHONX per SYNTH.</p>
+    <h2>SYNTH forge</h2>
+    <p class="hint">Burns 1,000 VCLM + 10,000 CHONX per SYNTH, minted to you atomically. Session goal: ten forges.</p>
     <div class="row">
       <div class="col">
         <label>SYNTH to forge</label>
         <input id="forgeAmt" value="1">
         <div class="stat" id="forgePreview"></div>
-        <button id="btnForgeApproveVclm">Approve VCLM</button>
-        <button id="btnForgeApproveChonx">Approve CHONX</button>
-        <button id="btnForge">Forge</button>
+        <button id="btnForgeApproveVclm">1 · Approve VCLM burn</button>
+        <button id="btnForgeApproveChonx">2 · Approve CHONX burn</button>
+        <button id="btnForge">3 · Forge</button>
       </div>
       <div class="col">
         <div class="stat">Forges this session: <b id="stForgeCount">0</b> / 10</div>
@@ -270,9 +262,9 @@
     </div>
   </section>
 
-  <!-- Dashboard -->
+  <!-- ── 7. My dashboard ──────────────────────────────────────────── -->
   <section id="sec-dash">
-    <h2>My Dashboard</h2>
+    <h2>My dashboard</h2>
     <div class="row">
       <div class="col">
         <div class="stat">VTEST: <b id="dVtest">—</b></div>
@@ -281,7 +273,7 @@
         <div class="stat">SYNTH: <b id="dSynth">—</b></div>
       </div>
       <div class="col">
-        <div class="stat">Active locks:</div>
+        <div class="stat">Active vault locks:</div>
         <table id="lockTable"><thead><tr><th>Lock</th><th>Net</th><th>Unlocks</th><th></th></tr></thead><tbody></tbody></table>
       </div>
     </div>
@@ -297,54 +289,353 @@ const E = ethers;
 const E18 = 10n ** 18n;
 const CHAIN_ID = 8453;
 const TIER_AMOUNTS = [1000n * E18, 5000n * E18, 1n * E18];
+const TIER_TOKENS  = ["vclmToken", "chonxToken", "synthToken"];
 
 const ABI = {
-  erc20: ["function balanceOf(address) view returns (uint256)", "function approve(address,uint256) returns (bool)", "function allowance(address,address) view returns (uint256)", "function mint(address,uint256)", "function totalSupply() view returns (uint256)"],
-  vault: ["function commit(address asset,uint256 grossAmount,uint64 unlockTime,bytes32 nonce,bool isTrial) returns (bytes32)", "function withdraw(bytes32 lockId)", "function getLock(bytes32 lockId) view returns (tuple(address owner,address asset,uint256 amount,uint64 unlockTime,uint64 createdAt,bool isTrial,bool isTrustTrial,bool withdrawn))", "function getUserActiveLocks(address) view returns (bytes32[])", "event Committed(bytes32 indexed lockId,address indexed owner,address indexed asset,uint256 grossAmount,uint256 netAmount,uint256 fee,uint64 unlockTime,bytes32 nonce,bool isTrial,address coreReserve,address devFund,address lockContract)"],
-  registry: ["function submitAttestedProof(tuple(...) proof, tuple(uint8 v,bytes32 r,bytes32 s)[] sigs)"],
+  erc20: [
+    "function balanceOf(address) view returns (uint256)",
+    "function approve(address,uint256) returns (bool)",
+    "function allowance(address,address) view returns (uint256)",
+    "function mint(address,uint256)",
+    "function totalSupply() view returns (uint256)",
+  ],
+  vault: [
+    "function commit(address asset,uint256 grossAmount,uint64 unlockTime,bytes32 nonce,bool isTrial) returns (bytes32)",
+    "function withdraw(bytes32 lockId)",
+    "function getLock(bytes32 lockId) view returns (tuple(address owner,address asset,uint256 amount,uint64 unlockTime,uint64 createdAt,bool isTrial,bool isTrustTrial,bool withdrawn))",
+    "function getUserActiveLocks(address) view returns (bytes32[])",
+    "event Committed(bytes32 indexed lockId,address indexed owner,address indexed asset,uint256 grossAmount,uint256 netAmount,uint256 fee,uint64 unlockTime,bytes32 nonce,bool isTrial,address coreReserve,address devFund,address lockContract)",
+  ],
+  registry: [
+    "function submitAttestedProof(tuple(bytes32 lock_id,uint64 chain_id,address asset,uint256 amount,address owner,address evm_recipient,uint64 unlock_time,bytes32 lock_address,bytes32 tx_ref,bytes32 nonce,uint8 finality_status,uint64 confirmed_at,uint64 lock_created_at,uint8 proof_version,uint256 grossUsdValue18,bytes32 assetId,bytes32 nativeChain,bytes32 treasuryWalletHash,bytes32 devWalletHash,bytes32 lockWalletHash,uint16 registryVersion) proof, tuple(uint8 v,bytes32 r,bytes32 s)[] sigs)",
+    "function deployTimestamp() view returns (uint256)",
+  ],
   tracker: ["function getTotalSupply() view returns (uint256)"],
-  launch: ["function isChonxLaunchReady() view returns (bool)", "function isSynthLaunchReady() view returns (bool)", "function checkChonxLaunch()", "function checkSynthLaunch()"],
+  launch: [
+    "function checkChonxLaunch()", "function checkSynthLaunch()",
+    "function isChonxLaunchReady() view returns (bool)",
+    "function isSynthLaunchReady() view returns (bool)",
+  ],
+  epochMgr: ["function getCurrentEpoch() view returns (uint256)"],
   epochOps: ["function processCurrentEpoch()"],
   sem: ["function isTierActive(uint8) view returns (bool)"],
-  govLock: ["function lock(uint8 tier,uint256 durationDays)", "function extend(uint8 tier,uint256 additionalDays)", "function unlock(uint8 tier)", "function hasActiveSeat(address,uint8) view returns (bool)", "function getVotingWeight(address,uint8) view returns (uint256)", "function getUnlockTime(address,uint8) view returns (uint256)", "function isRewardEligibleTerm(address,uint8) view returns (bool)"],
+  govLock: [
+    "function lock(uint8 tier,uint256 durationDays)",
+    "function extend(uint8 tier,uint256 additionalDays)",
+    "function unlock(uint8 tier)",
+    "function hasActiveSeat(address,uint8) view returns (bool)",
+    "function getVotingWeight(address,uint8) view returns (uint256)",
+    "function getUnlockTime(address,uint8) view returns (uint256)",
+    "function isRewardEligibleTerm(address,uint8) view returns (bool)",
+  ],
   governor: ["function createProposal(string,uint8) returns (uint256)"],
-  synth: ["function mintWithBurn(address to,uint256 synthAmount)", "function balanceOf(address) view returns (uint256)", "function totalSupply() view returns (uint256)"]
+  synth: [
+    "function mintWithBurn(address to,uint256 synthAmount)",
+    "function balanceOf(address) view returns (uint256)",
+    "function totalSupply() view returns (uint256)",
+  ],
 };
 
 let provider, signer, me, M = null, C = {};
 let forgeCount = 0;
 
-const $ = id => document.getElementById(id);
-function log(msg, cls="") {
+const $ = (id) => document.getElementById(id);
+function log(msg, cls = "") {
   const el = $("log");
   el.innerHTML += (cls ? `<span class="${cls}">` : "") + msg + (cls ? "</span>" : "") + "\n";
   el.scrollTop = el.scrollHeight;
 }
-const fmt = (v, dec=18) => E.formatUnits(v, dec);
+const fmt = (v, dec = 18) => {
+  const s = E.formatUnits(v, dec);
+  const [i, f] = s.split(".");
+  return Number(i).toLocaleString() + (f && f !== "0" ? "." + f.slice(0, 2) : "");
+};
 
 async function loadManifest() {
   try {
-    const r = await fetch("deployed_base_mainnet_test.json", {cache:"no-store"});
-    if (r.ok) applyManifest(await r.json());
-  } catch(e) {}
+    const r = await fetch("deployed_base_mainnet_test.json", { cache: "no-store" });
+    if (!r.ok) throw new Error(r.status);
+    applyManifest(await r.json());
+  } catch {
+    log("Manifest didn't auto-load — paste it into the box in the Connection section.", "info");
+  }
 }
-function applyManifest(m) { M = m; $("stManifest").textContent = "loaded"; log("Manifest loaded.", "ok"); if (signer) wire(); }
+function applyManifest(m) {
+  M = m;
+  $("stManifest").textContent = `loaded — ${Object.keys(m.contracts).length} contracts`;
+  log("Manifest loaded.", "ok");
+  if (signer) wire();
+}
+$("btnManifestPaste").onclick = () => {
+  try { applyManifest(JSON.parse($("manifestPaste").value)); }
+  catch (e) { log("Could not parse pasted manifest: " + e.message, "err"); }
+};
 
 $("btnConnect").onclick = async () => {
+  if (!window.ethereum) { log("No wallet found. Install MetaMask.", "err"); return; }
   provider = new E.BrowserProvider(window.ethereum);
   await provider.send("eth_requestAccounts", []);
+  const net = await provider.getNetwork();
+  if (Number(net.chainId) !== CHAIN_ID) {
+    log("Wrong network — requesting switch to Base mainnet…", "info");
+    try {
+      await window.ethereum.request({ method: "wallet_switchEthereumChain", params: [{ chainId: "0x2105" }] });
+      provider = new E.BrowserProvider(window.ethereum);
+    } catch (e) { log("Switch to Base mainnet in your wallet, then reconnect.", "err"); return; }
+  }
   signer = await provider.getSigner();
   me = await signer.getAddress();
   $("stAddr").textContent = me;
-  $("stNet").textContent = "Base mainnet";
+  $("stNet").textContent = "Base mainnet (8453)";
   log(`Connected: ${me}`, "ok");
   if (M) wire();
 };
 
-function wire() { /* ... same wiring as before ... */ }
+function wire() {
+  const c = M.contracts;
+  C.vtest   = new E.Contract(c.testAsset, ABI.erc20, signer);
+  C.vclm    = new E.Contract(c.vclmToken, ABI.erc20, signer);
+  C.chonx   = new E.Contract(c.chonxToken, ABI.erc20, signer);
+  C.synth   = new E.Contract(c.synthToken, ABI.synth.concat(ABI.erc20), signer);
+  C.vault   = new E.Contract(c.evmVault, ABI.vault, signer);
+  C.pr2     = new E.Contract(c.protocolRegistry_v2, ABI.registry, signer);
+  C.cr      = new E.Contract(c.chonxRegistry, ABI.registry, signer);
+  C.vclmTr  = new E.Contract(c.vclmTracker, ABI.tracker, signer);
+  C.chonxTr = new E.Contract(c.chonxTracker, ABI.tracker, signer);
+  C.launch  = new E.Contract(c.launchTrigger, ABI.launch, signer);
+  C.epoch   = new E.Contract(c.epochManager, ABI.epochMgr, signer);
+  C.eops    = new E.Contract(c.epochOps, ABI.epochOps, signer);
+  C.sem     = new E.Contract(c.seatExpansion, ABI.sem, signer);
+  C.gov     = new E.Contract(c.govLock, ABI.govLock, signer);
+  C.governor = new E.Contract(c.governor, ABI.governor, signer);
+  log("Contracts wired.", "ok");
+  refreshStatus(); refreshDash();
+}
 
-$("btnRefresh").onclick = () => { refreshStatus(); refreshDash(); };
-/* ... rest of the script remains the same ... */
+// ── Status + rails ──────────────────────────────────────────────────
+async function refreshStatus() {
+  try {
+    const [v, ch, sy, chReady, syReady, ep] = await Promise.all([
+      C.vclmTr.getTotalSupply(), C.chonxTr.getTotalSupply(),
+      C.synth.totalSupply(),
+      C.launch.isChonxLaunchReady(), C.launch.isSynthLaunchReady(),
+      C.epoch.getCurrentEpoch(),
+    ]);
+    const vPct = Math.min(100, Number(v * 10000n / (10_000_000n * E18)) / 100);
+    const cPct = Math.min(100, Number(ch * 10000n / (100_000_000n * E18)) / 100);
+    $("vclmVal").textContent = fmt(v);
+    $("chonxVal").textContent = fmt(ch);
+    $("vclmFill").style.width = vPct + "%";
+    $("chonxFill").style.width = cPct + "%";
+    if (vPct >= 100) $("vclmVal").classList.add("crossed");
+    if (cPct >= 100) $("chonxVal").classList.add("crossed");
+    $("stChonxLaunch").textContent = chReady ? "LIVE" : "pending";
+    $("stChonxLaunch").className = "pill " + (chReady ? "on" : "off");
+    $("stSynthLaunch").textContent = syReady ? "CROSSED" : "pending";
+    $("stSynthLaunch").className = "pill " + (syReady ? "on" : "off");
+    $("stSynthSupply").textContent = fmt(sy);
+    $("stEpoch").textContent = ep.toString();
+    const tiers = await Promise.all([0,1,2].map(t => C.sem.isTierActive(t)));
+    $("stTiers").textContent = ["VCLM","CHONX","SYNTH"].filter((_,i)=>tiers[i]).join(", ") || "none";
+  } catch (e) { log("Status refresh failed: " + (e.shortMessage || e.message), "err"); }
+}
+$("btnRefresh").onclick = refreshStatus;
+$("btnCheckChonx").onclick = () => sendTx("checkChonxLaunch", C.launch.checkChonxLaunch());
+$("btnCheckSynth").onclick = () => sendTx("checkSynthLaunch", C.launch.checkSynthLaunch());
+$("btnProcessEpoch").onclick = () => sendTx("processCurrentEpoch", C.eops.processCurrentEpoch());
+
+async function sendTx(label, promise) {
+  try {
+    log(`${label}: sending…`);
+    const tx = await promise;
+    const rc = await tx.wait();
+    log(`${label}: ✓ ${rc.hash}`, "ok");
+    refreshStatus(); refreshDash();
+    return rc;
+  } catch (e) { log(`${label}: ✗ ${e.shortMessage || e.message}`, "err"); throw e; }
+}
+
+// ── Faucet ──────────────────────────────────────────────────────────
+$("btnFaucet").onclick = () =>
+  sendTx("mint VTEST", C.vtest.mint(me, E.parseUnits($("faucetAmt").value || "0", 18)));
+
+// ── Commit ──────────────────────────────────────────────────────────
+function commitPreview() {
+  const g = Number($("commitAmt").value || 0);
+  const net = g * 0.95;
+  const dur = Number($("commitDur").value);
+  const dm = dur >= 94608000 ? 3.0 : dur >= 31536000 ? 2.0 : dur >= 15552000 ? 1.5 : dur >= 7776000 ? 1.25 : 1.0;
+  $("commitPreview").innerHTML =
+    `Net locked after 5% fee: <b>${net.toLocaleString()}</b> VTEST ≈ $${net.toLocaleString()} · ` +
+    `VCLM if attested at launch rate: <b>${(net * 10 * dm).toLocaleString()}</b> · ` +
+    `CHONX if attested: <b>${(net * 100 * dm).toLocaleString()}</b>`;
+}
+$("commitAmt").oninput = commitPreview;
+$("commitDur").onchange = commitPreview;
+
+$("btnApproveVault").onclick = () =>
+  sendTx("approve VTEST→vault", C.vtest.approve(M.contracts.evmVault, E.parseUnits($("commitAmt").value, 18)));
+
+$("btnCommit").onclick = async () => {
+  const gross = E.parseUnits($("commitAmt").value, 18);
+  const unlockTime = BigInt(Math.floor(Date.now() / 1000)) + BigInt($("commitDur").value) + 120n;
+  const nonce = E.hexlify(E.randomBytes(32));
+  const rc = await sendTx("commit", C.vault.commit(M.contracts.testAsset, gross, unlockTime, nonce, false));
+  for (const lg of rc.logs) {
+    try {
+      const p = C.vault.interface.parseLog(lg);
+      if (p && p.name === "Committed") {
+        $("stLockId").textContent = p.args.lockId;
+        $("attestLockId").value = p.args.lockId;
+        log(`Lock ID: ${p.args.lockId}`, "info");
+      }
+    } catch {}
+  }
+};
+
+// ── Attest & mint ───────────────────────────────────────────────────
+const PROOF_TYPES = { Proof: [
+  { name: "lock_id", type: "bytes32" }, { name: "chain_id", type: "uint64" },
+  { name: "asset", type: "address" }, { name: "amount", type: "uint256" },
+  { name: "owner", type: "address" }, { name: "evm_recipient", type: "address" },
+  { name: "unlock_time", type: "uint64" }, { name: "lock_address", type: "bytes32" },
+  { name: "tx_ref", type: "bytes32" }, { name: "nonce", type: "bytes32" },
+  { name: "finality_status", type: "uint8" }, { name: "confirmed_at", type: "uint64" },
+  { name: "lock_created_at", type: "uint64" }, { name: "proof_version", type: "uint8" },
+  { name: "grossUsdValue18", type: "uint256" }, { name: "assetId", type: "bytes32" },
+  { name: "nativeChain", type: "bytes32" }, { name: "treasuryWalletHash", type: "bytes32" },
+  { name: "devWalletHash", type: "bytes32" }, { name: "lockWalletHash", type: "bytes32" },
+  { name: "registryVersion", type: "uint16" },
+]};
+const strHash = (s) => E.keccak256(E.toUtf8Bytes(s));
+
+$("btnAttest").onclick = async () => {
+  try {
+    const lockId = $("attestLockId").value.trim();
+    if (!/^0x[0-9a-fA-F]{64}$/.test(lockId)) { log("Enter a valid lock ID.", "err"); return; }
+    const target = $("attestTarget").value;
+    const registry = target === "vclm" ? C.pr2 : C.cr;
+    const registryAddr = target === "vclm" ? M.contracts.protocolRegistry_v2 : M.contracts.chonxRegistry;
+    const domain = target === "vclm"
+      ? { name: "VinculumProtocolRegistry", version: "2", chainId: CHAIN_ID, verifyingContract: registryAddr }
+      : { name: "VinculumCHONXRegistry",   version: "1", chainId: CHAIN_ID, verifyingContract: registryAddr };
+
+    const lock = await C.vault.getLock(lockId);
+    if (lock.owner === E.ZeroAddress) { log("Lock not found on the vault.", "err"); return; }
+
+    // The vault computed lockId over the NET amount; the registry integrity
+    // check recomputes the same hash — but it needs the original commit nonce,
+    // which isn't stored in the Lock struct. Recover it from the Committed event.
+    const fromBlock = M.deployBlock || 0;
+    const evs = await C.vault.queryFilter(C.vault.filters.Committed(lockId), fromBlock, "latest");
+    if (evs.length === 0) { log("Committed event not found for this lock.", "err"); return; }
+    const ev = evs[0].args;
+
+    const proof = {
+      lock_id: lockId,
+      chain_id: CHAIN_ID,
+      asset: lock.asset,
+      amount: lock.amount,                       // NET amount — matches lockId hash
+      owner: lock.owner,
+      evm_recipient: me,
+      unlock_time: lock.unlockTime,
+      lock_address: E.zeroPadValue(M.contracts.evmVault, 32),
+      tx_ref: evs[0].transactionHash,
+      nonce: ev.nonce,
+      finality_status: 2,
+      confirmed_at: BigInt(Math.floor(Date.now() / 1000)),
+      lock_created_at: lock.createdAt,
+      proof_version: 1,
+      grossUsdValue18: lock.amount,              // VTEST = $1.00, 18 decimals
+      assetId: strHash("VTEST"),
+      nativeChain: strHash("Base"),
+      treasuryWalletHash: strHash(M.safeTreasury || ""),
+      devWalletHash: strHash(M.contracts.evmVault),
+      lockWalletHash: strHash(M.contracts.evmVault),
+      registryVersion: M.registryVersion || 1,
+    };
+
+    $("attestPreview").innerHTML = `Attesting <b>$${fmt(lock.amount)}</b> gross USD value → ${target.toUpperCase()} mint`;
+    log("Requesting EIP-712 signature from your wallet…", "info");
+    const sig = await signer.signTypedData(domain, PROOF_TYPES, proof);
+    const { v, r, s } = E.Signature.from(sig);
+    await sendTx(`submitAttestedProof (${target.toUpperCase()})`,
+      registry.submitAttestedProof(proof, [{ v, r, s }]));
+  } catch (e) { log("Attest failed: " + (e.shortMessage || e.message), "err"); }
+};
+
+// ── Governance ──────────────────────────────────────────────────────
+$("btnGovApprove").onclick = () => {
+  const t = Number($("govTier").value);
+  const token = [C.vclm, C.chonx, C.synth][t];
+  return sendTx("approve tier amount", token.approve(M.contracts.govLock, TIER_AMOUNTS[t]));
+};
+$("btnGovLock").onclick = () =>
+  sendTx("governance lock", C.gov.lock(Number($("govTier").value), BigInt($("govDays").value)));
+$("btnGovExtend").onclick = () =>
+  sendTx("governance extend", C.gov.extend(Number($("govTier").value), BigInt($("govDays").value)));
+$("btnGovUnlock").onclick = () =>
+  sendTx("governance unlock", C.gov.unlock(Number($("govTier").value)));
+$("btnPropose").onclick = () =>
+  sendTx("createProposal", C.governor.createProposal($("propDesc").value || "Test proposal", Number($("govTier").value)));
+
+async function refreshSeats() {
+  const tb = $("seatTable").querySelector("tbody");
+  tb.innerHTML = "";
+  for (let t = 0; t <= 2; t++) {
+    const active = await C.gov.hasActiveSeat(me, t);
+    if (!active) continue;
+    const [w, elig, unlockT] = await Promise.all([
+      C.gov.getVotingWeight(me, t), C.gov.isRewardEligibleTerm(me, t), C.gov.getUnlockTime(me, t),
+    ]);
+    const row = tb.insertRow();
+    row.innerHTML = `<td>${["VCLM","CHONX","SYNTH"][t]}</td><td>${E.formatUnits(w,18)}×</td>` +
+      `<td>${elig ? "yes" : "no (10-day floor)"}</td><td>${new Date(Number(unlockT)*1000).toLocaleString()}</td>`;
+  }
+}
+
+// ── Forge ───────────────────────────────────────────────────────────
+function forgePreview() {
+  const n = Number($("forgeAmt").value || 0);
+  $("forgePreview").innerHTML = `Burns <b>${(n*1000).toLocaleString()} VCLM</b> + <b>${(n*10000).toLocaleString()} CHONX</b>`;
+}
+$("forgeAmt").oninput = forgePreview;
+$("btnForgeApproveVclm").onclick = () =>
+  sendTx("approve VCLM→SYNTH", C.vclm.approve(M.contracts.synthToken, BigInt($("forgeAmt").value) * 1000n * E18));
+$("btnForgeApproveChonx").onclick = () =>
+  sendTx("approve CHONX→SYNTH", C.chonx.approve(M.contracts.synthToken, BigInt($("forgeAmt").value) * 10000n * E18));
+$("btnForge").onclick = async () => {
+  await sendTx("forge SYNTH", C.synth.mintWithBurn(me, BigInt($("forgeAmt").value) * E18));
+  forgeCount += Number($("forgeAmt").value);
+  $("stForgeCount").textContent = forgeCount;
+};
+
+// ── Dashboard ───────────────────────────────────────────────────────
+async function refreshDash() {
+  try {
+    const [vt, v, ch, sy] = await Promise.all([
+      C.vtest.balanceOf(me), C.vclm.balanceOf(me), C.chonx.balanceOf(me), C.synth.balanceOf(me),
+    ]);
+    $("stVtest").textContent = fmt(vt); $("dVtest").textContent = fmt(vt);
+    $("dVclm").textContent = fmt(v); $("dChonx").textContent = fmt(ch);
+    $("dSynth").textContent = fmt(sy); $("stSynthBal").textContent = fmt(sy);
+    const tb = $("lockTable").querySelector("tbody");
+    tb.innerHTML = "";
+    const ids = await C.vault.getUserActiveLocks(me);
+    for (const id of ids) {
+      const l = await C.vault.getLock(id);
+      const matured = BigInt(Math.floor(Date.now()/1000)) >= l.unlockTime;
+      const row = tb.insertRow();
+      row.innerHTML = `<td class="mono">${id.slice(0,10)}…</td><td>${fmt(l.amount)}</td>` +
+        `<td>${new Date(Number(l.unlockTime)*1000).toLocaleString()}</td>` +
+        `<td>${matured ? `<button data-id="${id}" class="wd secondary">Withdraw</button>` : "locked"}</td>`;
+    }
+    tb.querySelectorAll("button.wd").forEach(b =>
+      b.onclick = () => sendTx("withdraw", C.vault.withdraw(b.dataset.id)));
+    refreshSeats();
+  } catch (e) { log("Dashboard refresh failed: " + (e.shortMessage || e.message), "err"); }
+}
+$("btnDashRefresh").onclick = refreshDash;
 
 commitPreview(); forgePreview(); loadManifest();
 </script>
