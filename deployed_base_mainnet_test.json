@@ -1,0 +1,43 @@
+{
+  "network": "base_mainnet",
+  "chainId": 8453,
+  "deployedAt": "2026-07-11T12:35:00.000Z",
+  "deployBlock": 0,
+  "deployer": "0xE76FC4aa5fbAdC14d2eB8Bec2FcE21cB59ae55E4",
+  "admin": "0xE76FC4aa5fbAdC14d2eB8Bec2FcE21cB59ae55E4",
+  "safeTreasury": "0x97bD7a06304c50d6071a3C52B444f88D0E02207C",
+  "registryVersion": 1,
+  "quorum": "1/1",
+  "validators": [
+    "0xE76FC4aa5fbAdC14d2eB8Bec2FcE21cB59ae55E4"
+  ],
+  "contracts": {
+    "testAsset": "0x78e9Cf540f659625729430b366AaF845Efd9f76f",
+    "vclmTracker": "0x4B4b5B0A0465e116C19465503FAe099B5203A49c",
+    "chonxTracker": "0x49bC25f16Ec4D04042Cb92F94Fc1E349a063F5CD",
+    "vclmToken": "0x792c841e2408A3b21C3A997398dd13C8D221Fe95",
+    "chonxToken": "0x1F1388eFfab30ca5C01b655F9390F72511dcF5a7",
+    "synthToken": "0x056883A4EE8BeF893FE87ec38bB92b6550F02EC7",
+    "assetRegistry": "0x2d4e37814D3534cC231f272a81F2db46e33874A5",
+    "oracleAdapter": "0xb9e945406F1548f940EcF8dED417045891D97cAB",
+    "treasuryCustody": "0xD0bf42abc9D9c9985410a559F738c72eEf5F4cCA",
+    "testAssetFeed": "0xF6896C5a3938D97BAC035315a0E3931e16671555",
+    "lockVault": "0xCa0FBBc1EAB01a166d3BBA9D7264Dc88182B3551",
+    "mintDispatcher": "0x0D18F205040d65f01CffB8deB47b18f9d78b76fc",
+    "vaultEngine": "0x2bc12a05DF82de3A853BdB23dc524E512Af13aAB",
+    "evmVault": "0x12E9143D77E82A522b4E3B91C2659F85850dcb6b",
+    "validatorRegistry": "0xD141a268174a2F1fAe6e8b484543c3757aED5d9d",
+    "protocolRegistry_v2": "0xFF23CC18C51e720C9b6368f3454CdfBB3B779916",
+    "epochManager": "0xfDB35C15895fe7875b9D6b523282F43aee7E1068",
+    "launchTrigger": "0x639E0DFB9aD036677743D3eEB6D988C40D1b8C3A",
+    "seatExpansion": "0x308d76517b847F715942Ca6e9db44FC88e81a754",
+    "epochOps": "0x585b8c64627a73e41528451C57a7Ac495D7a8050",
+    "govLock": "0x66Fc65137983Ce2c26477153E13d917a97328e20",
+    "governor": "0x89321C705269E5312ea5716362Dd4944AF0AbDdD",
+    "valuationCtrl": "0x352Af94432F5c7910105Fe39EEA76f6526B476e4",
+    "treasuryExecutor": "0xfFD1E59e4F66189C3639269e49f9f081755540c3",
+    "treasuryRewards": "0x5bAB1bb63E5586c7F8136fc9a8C76893cecCe7c5",
+    "rewardAlloc": "0x93b3534b4fe72fbb8f4cdE0C0519BAA04c268139",
+    "chonxRegistry": "0x34Fa7111b2Ce5d196417086982821c097D4C20C1"
+  }
+}
