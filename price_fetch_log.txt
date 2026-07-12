@@ -1,104 +1,36 @@
-[18:51:32] === Vinculum Price Fetcher v9 ===
-[18:51:32] Assets: 1001 | Purpose: vault reference rates (2x/day)
-[18:51:32] Input:  approved_assets_final.json
-[18:51:32] 
-[18:51:32] Step 1: CoinGecko batch...
-[18:51:32]   881 unique CoinGecko IDs across 1001 assets
-[18:51:32]   429 rate-limit -- waiting 12s
-[18:51:44]   429 rate-limit -- waiting 24s
-[18:52:21]   429 rate-limit -- waiting 12s
-[18:52:33]   429 rate-limit -- waiting 24s
-[18:52:57]   429 rate-limit -- waiting 36s
-[18:53:37]   Got 658 prices -> 773 assets covered (223 IDs returned no price)
-[18:53:37] Step 2: DexScreener (contract address)...
-[18:53:37]   225 assets to try...
-[18:56:26]   DexScreener contract: 149 prices found
-[18:56:26] Step 3: DexScreener symbol search...
-[18:56:26]   76 assets to try...
-[18:57:25]   DexScreener search: 12 prices found
-[18:57:25] Step 4: Community tokens (DexScreener -> GeckoTerminal)...
-[18:57:25]   TigerOG@Base: $8.738e-19 [DexScreener]
-[18:57:26]   LionOG@Base: $1.059e-19 [DexScreener]
-[18:57:27]   FrogOG@Base: $8.355e-20 [DexScreener]
-[18:57:27]   WKC@Ethereum: already priced
-[18:57:27]   Community tokens: 3 priced
-[18:57:27] 
-[18:57:27] === FINAL SUMMARY ===
-[18:57:27] Total assets:  1001
-[18:57:27] Priced:        937 (93.6%)
-[18:57:27] No price:      64
-[18:57:27] 
-[18:57:27]   CoinGecko                      773
-[18:57:27]   DexScreener                    152
-[18:57:27]   DexScreener_search             12
-[18:57:27] 
-Not priced (64):
-[18:57:27]   sUSD@Ethereum
-[18:57:27]   AMAAVE@Polygon
-[18:57:27]   ANRX@Polygon
-[18:57:27]   ARIA20@Polygon
-[18:57:27]   AUC@Ethereum
-[18:57:27]   AXIAL@Avalanche
-[18:57:27]   BONDLY@BSC
-[18:57:27]   COMBO@Ethereum
-[18:57:27]   CORE@Ethereum
-[18:57:27]   CYCLE@Avalanche
-[18:57:27]   DDX@Ethereum
-[18:57:27]   DERC@Ethereum
-[18:57:27]   DEV@Ethereum
-[18:57:27]   DFX@Polygon
-[18:57:27]   DHT@Ethereum
-[18:57:27]   DVF@Ethereum
-[18:57:27]   FEED@Avalanche
-[18:57:27]   GDL@Avalanche
-[18:57:27]   GYEN@Ethereum
-[18:57:27]   HEC@Avalanche
-[18:57:27]   HND@Arbitrum
-[18:57:27]   HON@Avalanche
-[18:57:27]   HUSD@Ethereum
-[18:57:27]   INSUR@BSC
-[18:57:27]   IRIS@Polygon
-[18:57:27]   LOST@Avalanche
-[18:57:27]   MAHA@Ethereum
-[18:57:27]   MASQ@Ethereum
-[18:57:27]   MOD@Polygon
-[18:57:27]   OOE@Avalanche
-[18:57:27]   OPIUM@Ethereum
-[18:57:27]   ORCA@Avalanche
-[18:57:27]   PECO@Polygon
-[18:57:27]   PICKLE@Ethereum
-[18:57:27]   POLAR@Avalanche
-[18:57:27]   POLYBUNNY@Polygon
-[18:57:27]   PPDEX@Polygon
-[18:57:27]   PRQ@Ethereum
-[18:57:27]   RACEX@Avalanche
-[18:57:27]   RENBCH@Ethereum
-[18:57:27]   RFG@BSC
-[18:57:27]   SAFLE@Polygon
-[18:57:27]   SETH2@Ethereum
-[18:57:27]   SMRTR@Avalanche
-[18:57:27]   SPANK@Ethereum
-[18:57:27]   STAKE@Ethereum
-[18:57:27]   STRP@Arbitrum
-[18:57:27]   VTX@Avalanche
-[18:57:27]   WRX@Polygon
-[18:57:27]   XCHF@Ethereum
-[18:57:27]   XDEFI@Ethereum
-[18:57:27]   XGEM@Polygon
-[18:57:27]   YAY@Avalanche
-[18:57:27]   YUSD@Avalanche
-[18:57:27]   0XMR@Ethereum
-[18:57:27]   2KEY@Ethereum
-[18:57:27]   ABAT@Ethereum
-[18:57:27]   ABI@Polygon
-[18:57:27]   ABLOCK@Avalanche
-[18:57:27]   ACAR@Polygon
-[18:57:27]   ACRE@Avalanche
-[18:57:27]   ACSI@BSC
-[18:57:27]   ADAI@Ethereum
-[18:57:27]   ADAI@Avalanche
-[18:57:27] 
+[08:06:09] === Vinculum Price Fetcher v9 ===
+[08:06:09] Assets: 1001 | Purpose: vault reference rates (2x/day)
+[08:06:09] Input:  approved_assets_final.json
+[08:06:09] 
+[08:06:09] Step 1: CoinGecko batch...
+[08:06:09]   881 unique CoinGecko IDs across 1001 assets
+[08:06:25]   Got 856 prices -> 971 assets covered (25 IDs returned no price)
+[08:06:25] Step 2: DexScreener (contract address)...
+[08:06:25]   27 assets to try...
+[08:06:44]   DexScreener contract: 24 prices found
+[08:06:44] Step 3: DexScreener symbol search...
+[08:06:44]   3 assets to try...
+[08:06:46]   DexScreener search: 2 prices found
+[08:06:46] Step 4: Community tokens (DexScreener -> GeckoTerminal)...
+[08:06:47]   TigerOG@Base: $8.521e-19 [DexScreener]
+[08:06:47]   LionOG@Base: $1.033e-19 [DexScreener]
+[08:06:48]   FrogOG@Base: $8.576e-20 [DexScreener]
+[08:06:48]   WKC@Ethereum: already priced
+[08:06:48]   Community tokens: 3 priced
+[08:06:48] 
+[08:06:48] === FINAL SUMMARY ===
+[08:06:48] Total assets:  1001
+[08:06:48] Priced:        1000 (99.9%)
+[08:06:48] No price:      1
+[08:06:48] 
+[08:06:48]   CoinGecko                      971
+[08:06:48]   DexScreener                    27
+[08:06:48]   DexScreener_search             2
+[08:06:48] 
+Not priced (1):
+[08:06:48]   sUSD@Ethereum
+[08:06:48] 
 JSON saved: vinculum_prices.json
-[18:57:27] Excel saved: vinculum_prices.xlsx
-[18:57:27] 
-Done. 937/1001 assets priced (93.6% coverage).
+[08:06:49] Excel saved: vinculum_prices.xlsx
+[08:06:49] 
+Done. 1000/1001 assets priced (99.9% coverage).
