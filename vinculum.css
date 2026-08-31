@@ -1,0 +1,209 @@
+@charset "utf-8";
+/* Vinculum — shared public design system.
+   Governed by Homepage Visual Design Specification v1, Homepage Implementation
+   Specification v1, and Reading Environments Amendment v2.
+   Attribution: Vinculum Protocol DAO LLC. */
+
+/* ---- Faces. Self-hosted, no third-party request. VISUAL 3.2, 3.3; IMPL 7.2 ---- */
+@font-face{font-family:"Source Serif 4";src:url(fonts/source-serif-4-latin-wght-normal.woff2)format("woff2");font-weight:200 900;font-style:normal;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"IBM Plex Mono";src:url(fonts/ibm-plex-mono-latin-400-normal.woff2)format("woff2");font-weight:400;font-style:normal;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+/* Metric-matched fallbacks: the swap produces no reflow. IMPL 5.3, 7.4 */
+@font-face{font-family:"Serif Fallback";src:local("Georgia"),local("Times New Roman"),local("Liberation Serif");size-adjust:105.5%;ascent-override:103.6%;descent-override:33.5%;line-gap-override:0%}
+@font-face{font-family:"Mono Fallback";src:local("Menlo"),local("Consolas"),local("DejaVu Sans Mono"),local("Courier New");size-adjust:100%;ascent-override:102.5%;descent-override:27.5%;line-gap-override:0%}
+
+/* ---- Reading Environments. Eight tokens substituted uniformly, nothing else.
+   AMEND 2.3, 4.1-4.5. No token exists outside this set. IMPL 5.4 ---- */
+:root{
+  --paper:#FAFAF8; --paper-recessed:#F2F1EC;
+  --ink:#191814; --ink-quiet:#5C594F;
+  --rule:#D9D6CC; --rule-structural:#191814;
+  --route:#2E3159; --route-visited:#4A4560;
+}
+@media (prefers-color-scheme:dark){:root{
+  --paper:#141310; --paper-recessed:#1C1B17;
+  --ink:#E9E6DD; --ink-quiet:#96917F;
+  --rule:#33312A; --rule-structural:#E9E6DD;
+  --route:#A8AEDC; --route-visited:#BFB6D0;
+}}
+/* A need outranks a condition: prefers-contrast wins over prefers-color-scheme.
+   AMEND 4.5 — later source order, same specificity. */
+@media (prefers-contrast:more){:root{
+  --paper:#FFF; --paper-recessed:#FFF;
+  --ink:#000; --ink-quiet:#000;
+  --rule:#000; --rule-structural:#000;
+  --route:#00C; --route-visited:#551A8B;
+}}
+/* An explicit selection wins over everything. AMEND 4.5 */
+html[data-reading-environment=paper]{
+  --paper:#FAFAF8; --paper-recessed:#F2F1EC;
+  --ink:#191814; --ink-quiet:#5C594F;
+  --rule:#D9D6CC; --rule-structural:#191814;
+  --route:#2E3159; --route-visited:#4A4560;
+}
+html[data-reading-environment=night]{
+  --paper:#141310; --paper-recessed:#1C1B17;
+  --ink:#E9E6DD; --ink-quiet:#96917F;
+  --rule:#33312A; --rule-structural:#E9E6DD;
+  --route:#A8AEDC; --route-visited:#BFB6D0;
+}
+html[data-reading-environment=high-contrast]{
+  --paper:#FFF; --paper-recessed:#FFF;
+  --ink:#000; --ink-quiet:#000;
+  --rule:#000; --rule-structural:#000;
+  --route:#00C; --route-visited:#551A8B;
+}
+html[data-reading-environment=warm-paper]{
+  --paper:#FBF6EA; --paper-recessed:#F4EEDE;
+  --ink:#1C1813; --ink-quiet:#5E5949;
+  --rule:#DED5BF; --rule-structural:#1C1813;
+  --route:#2F3156; --route-visited:#4B4459;
+}
+
+/* ---- Ground ---- */
+*,*::before,*::after{box-sizing:border-box}
+html{background:var(--paper);-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:"Source Serif 4","Serif Fallback",serif;
+  font-size:19px; line-height:32px; font-weight:400;
+  font-variant-numeric:lining-nums;
+  text-align:left; hyphens:none;
+}
+
+/* ---- Type scale. Absolute line heights on a 4px baseline. VISUAL 3.5 ---- */
+h1,h2{margin:0; font-weight:600}
+h1{font-size:26px; line-height:36px; letter-spacing:-0.01em}
+h2{font-size:22px; line-height:32px; letter-spacing:-0.005em}
+p,ul,ol,dl{margin:0}
+p+p,p+div,div+p{margin-top:16px}
+h1+p,h2+p,h2+div,h2+ul,h2+ol,h2+dl,h2+nav{margin-top:16px}
+strong,b{font-weight:600}
+em,i{font-style:italic}
+
+/* ---- Shell and measure. VISUAL 6.3; IMPL 3.4, 3.8 ---- */
+.shell{max-width:1180px; margin:0 auto; padding:0 48px}
+.measure{max-width:872px}          /* citation margin 180 + gutter 32 + prose 660 */
+
+/* ---- Regions: rule -> heading -> prose -> routes. VISUAL 6.5 ---- */
+.region{border-top:1px solid var(--rule-structural); margin-top:96px; padding-top:12px; scroll-margin-top:24px; max-width:872px}
+.region>h1,.region>h2{max-width:660px}
+/* Sub-group break: statement to routing. VISUAL 6.1 */
+.routes-line{margin-top:32px}
+.block>.lifecycle{margin:0}
+
+/* ---- The citation apparatus. VISUAL 2.2; IMPL 2.4, 5.7 ---- */
+.block{display:block; max-width:660px}
+.claim{display:block}
+.cite{font-family:"IBM Plex Mono","Mono Fallback",monospace; font-size:14px; line-height:20px; color:var(--ink); font-variant-numeric:tabular-nums}
+@media (min-width:1080px){
+  .block{display:grid; grid-template-columns:180px 32px minmax(0,660px); align-items:start; max-width:872px}
+  .block>*{grid-column:3}
+  .block>.cite{grid-column:1; grid-row:1; line-height:32px}
+}
+@media (max-width:1079px){
+  span.claim{display:inline}
+  span.claim::after{content:" "}
+  span.claim+.cite{display:inline}
+}
+
+/* ---- Lists. VISUAL 9.11 ---- */
+.marked,.lifecycle{list-style:none; padding:0; margin:16px 0}
+.marked>li,.lifecycle>li{margin:0}
+.marked>li+li,.lifecycle>li+li{margin-top:8px}
+.marked .claim,.lifecycle>li{position:relative; padding-left:28px}
+.marked .claim::before{content:"–"; position:absolute; left:0; top:0; color:var(--ink)}
+.lifecycle{counter-reset:step}
+.lifecycle>li{counter-increment:step; max-width:660px}
+.lifecycle>li::before{content:counter(step) "."; position:absolute; left:0; top:0; font-variant-numeric:lining-nums tabular-nums}
+@media (min-width:1080px){.marked>li.block .claim{padding-left:28px}}
+
+/* ---- Routes. Every route is a link; there are no buttons. VISUAL 8.1 ---- */
+a{color:var(--route); text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:3px; font-weight:inherit}
+a:visited{color:var(--route-visited)}
+a:hover{text-decoration-thickness:2px; transition:text-decoration-thickness 90ms linear}
+a:focus-visible{outline:2px solid var(--ink); outline-offset:2px}
+.ext{margin-left:4px; width:.6em; height:.6em; vertical-align:baseline; fill:none; stroke:currentColor; stroke-width:1.5}
+
+/* ---- Navigation. Five entries, beneath a hairline binding them. VISUAL 8.2 ---- */
+.masthead{padding-top:64px}
+.nav{border-top:1px solid var(--rule); padding:12px 0 0; margin:0; list-style:none; display:flex; flex-wrap:wrap; gap:4px 32px}
+.nav a{font-size:14px; line-height:20px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink-quiet)}
+.nav a:visited{color:var(--ink-quiet)}
+.nav a:hover,.nav a:focus-visible{color:var(--ink)}
+
+/* ---- H-05 description list. IMPL 4.5 ---- */
+.checkable{margin:16px 0 0}
+.checkable>div+div{margin-top:32px}
+.checkable dt{font-weight:600; max-width:660px}
+.checkable dt .cite{font-weight:400; margin-left:8px}
+.checkable dd{margin:0}
+.checkable dd+dd{margin-top:16px}
+@media (min-width:1080px){
+  .checkable dt,.region>h1,.region>h2,.region>nav,footer>nav,.attribution{padding-left:212px}
+}
+
+/* ---- Evidence block: the hash. VISUAL 5.3, 9.12; IMPL 2.8 ---- */
+.evidence{margin:16px 0 0; max-width:660px; border-top:1px solid var(--rule); background:var(--paper-recessed); padding:16px}
+.evidence figcaption{font-family:"IBM Plex Mono","Mono Fallback",monospace; font-size:14px; line-height:20px; color:var(--ink)}
+.evidence code{display:block; margin-top:8px; font-family:"IBM Plex Mono","Mono Fallback",monospace; font-size:14px; line-height:20px; color:var(--ink); overflow-wrap:anywhere; font-variant-numeric:tabular-nums}
+.evidence .copy{margin-top:12px; min-height:20px}
+.evidence .copy button{font-family:inherit; font-size:19px; line-height:32px; color:var(--ink); background:var(--paper); border:1px solid var(--ink); border-radius:2px; padding:12px 20px; cursor:pointer}
+.evidence .copy button:hover{border-width:2px; padding:11px 19px}
+.evidence .copy button:focus-visible{outline:2px solid var(--ink); outline-offset:2px}
+.evidence .copy p{margin:0; font-family:"IBM Plex Mono","Mono Fallback",monospace; font-size:14px; line-height:20px}
+
+/* ---- Route lists. Text, one per line, identical treatment. VISUAL 9.8 ---- */
+.routes{list-style:none; padding:0; margin:0}
+.routes>li+li{margin-top:8px}
+
+/* ---- Footer. VISUAL 4.7 ---- */
+footer{border-top:1px solid var(--rule-structural); margin-top:96px; padding:12px 0 96px; font-size:15px; line-height:24px; max-width:872px}
+footer .claim{max-width:660px}
+.footer-routes{list-style:none; padding:0; margin:16px 0 0; display:flex; flex-wrap:wrap; gap:0 4px}
+.footer-routes>li+li::before{content:"· "}
+.attribution{margin-top:16px; color:var(--ink-quiet)}
+
+/* ---- Skip link. IMPL 4.7 ---- */
+.skip{position:absolute; left:-9999px; top:0}
+.skip:focus{left:0; top:0; z-index:1; display:block; padding:12px 16px; background:var(--paper); color:var(--route); outline:2px solid var(--ink); outline-offset:2px}
+main:focus{outline:none}
+main:focus-visible{outline:2px solid var(--ink); outline-offset:2px}
+
+/* ---- Column layout: 640-1079. IMPL 3.1, 3.5 ---- */
+@media (max-width:1079px){
+  .shell{padding:0 32px}
+}
+/* ---- Narrow: <640. IMPL 3.1, 3.6 ---- */
+@media (max-width:639px){
+  .shell{padding:0 20px}
+  body{font-size:17px; line-height:28px}
+  h1{font-size:23px; line-height:32px}
+  h2{font-size:20px; line-height:28px}
+  .cite,.nav a,.evidence figcaption,.evidence code,.evidence .copy button,.evidence .copy p{font-size:13px; line-height:20px}
+  footer{font-size:14px; line-height:24px}
+  .masthead{padding-top:40px}
+  .region{margin-top:64px}
+  footer{margin-top:64px; padding-bottom:64px}
+  .checkable>div+div{margin-top:24px}
+}
+
+/* ---- Motion. Stillness is the default. VISUAL 10.1, 10.4 ---- */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{transition:none!important; animation:none!important; scroll-behavior:auto!important}
+}
+
+/* ---- Print: a printed page preserves every claim's route to its source. IMPL 4.9 ---- */
+@media print{
+  html,body{background:#fff; color:#000}
+  .masthead,.skip,.evidence .copy{display:none}
+  a{color:#000}
+  a[href^="http"]::after,a[href^="/"]::after{content:" <" attr(href) ">"; font-family:"IBM Plex Mono","Mono Fallback",monospace; font-size:0.72em; overflow-wrap:anywhere}
+  .block{display:block}
+  .block>.cite{display:inline}
+  .block>.claim{display:inline}
+  .evidence{background:none; border-top:1px solid #000}
+  .region{break-inside:auto; page-break-inside:auto}
+  .region>h2{break-after:avoid; page-break-after:avoid}
+  #no-one-controls-this .block{break-inside:avoid; page-break-inside:avoid}
+  #no-one-controls-this{break-inside:avoid; page-break-inside:avoid}
+}
