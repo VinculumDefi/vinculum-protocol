@@ -1,209 +1,432 @@
-@charset "utf-8";
-/* Vinculum — shared public design system.
-   Governed by Homepage Visual Design Specification v1, Homepage Implementation
-   Specification v1, and Reading Environments Amendment v2.
-   Attribution: Vinculum Protocol DAO LLC. */
+/* ═══════════════════════════════════════════════════════════════════════════
+   VINCULUM — DESIGN SYSTEM
+   Extracted from the original minimal site and asset-registry.html.
+   Design only. No page content, no copy, no protocol claims.
 
-/* ---- Faces. Self-hosted, no third-party request. VISUAL 3.2, 3.3; IMPL 7.2 ---- */
-@font-face{font-family:"Source Serif 4";src:url(fonts/source-serif-4-latin-wght-normal.woff2)format("woff2");font-weight:200 900;font-style:normal;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
-@font-face{font-family:"IBM Plex Mono";src:url(fonts/ibm-plex-mono-latin-400-normal.woff2)format("woff2");font-weight:400;font-style:normal;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
-/* Metric-matched fallbacks: the swap produces no reflow. IMPL 5.3, 7.4 */
-@font-face{font-family:"Serif Fallback";src:local("Georgia"),local("Times New Roman"),local("Liberation Serif");size-adjust:105.5%;ascent-override:103.6%;descent-override:33.5%;line-gap-override:0%}
-@font-face{font-family:"Mono Fallback";src:local("Menlo"),local("Consolas"),local("DejaVu Sans Mono"),local("Courier New");size-adjust:100%;ascent-override:102.5%;descent-override:27.5%;line-gap-override:0%}
+   FOUR RULES. Break any one and you get a generic dark crypto site:
 
-/* ---- Reading Environments. Eight tokens substituted uniformly, nothing else.
-   AMEND 2.3, 4.1-4.5. No token exists outside this set. IMPL 5.4 ---- */
-:root{
-  --paper:#FAFAF8; --paper-recessed:#F2F1EC;
-  --ink:#191814; --ink-quiet:#5C594F;
-  --rule:#D9D6CC; --rule-structural:#191814;
-  --route:#2E3159; --route-visited:#4A4560;
-}
-@media (prefers-color-scheme:dark){:root{
-  --paper:#141310; --paper-recessed:#1C1B17;
-  --ink:#E9E6DD; --ink-quiet:#96917F;
-  --rule:#33312A; --rule-structural:#E9E6DD;
-  --route:#A8AEDC; --route-visited:#BFB6D0;
-}}
-/* A need outranks a condition: prefers-contrast wins over prefers-color-scheme.
-   AMEND 4.5 — later source order, same specificity. */
-@media (prefers-contrast:more){:root{
-  --paper:#FFF; --paper-recessed:#FFF;
-  --ink:#000; --ink-quiet:#000;
-  --rule:#000; --rule-structural:#000;
-  --route:#00C; --route-visited:#551A8B;
-}}
-/* An explicit selection wins over everything. AMEND 4.5 */
-html[data-reading-environment=paper]{
-  --paper:#FAFAF8; --paper-recessed:#F2F1EC;
-  --ink:#191814; --ink-quiet:#5C594F;
-  --rule:#D9D6CC; --rule-structural:#191814;
-  --route:#2E3159; --route-visited:#4A4560;
-}
-html[data-reading-environment=night]{
-  --paper:#141310; --paper-recessed:#1C1B17;
-  --ink:#E9E6DD; --ink-quiet:#96917F;
-  --rule:#33312A; --rule-structural:#E9E6DD;
-  --route:#A8AEDC; --route-visited:#BFB6D0;
-}
-html[data-reading-environment=high-contrast]{
-  --paper:#FFF; --paper-recessed:#FFF;
-  --ink:#000; --ink-quiet:#000;
-  --rule:#000; --rule-structural:#000;
-  --route:#00C; --route-visited:#551A8B;
-}
-html[data-reading-environment=warm-paper]{
-  --paper:#FBF6EA; --paper-recessed:#F4EEDE;
-  --ink:#1C1813; --ink-quiet:#5E5949;
-  --rule:#DED5BF; --rule-structural:#1C1813;
-  --route:#2F3156; --route-visited:#4B4459;
+     1. Dark is a SECTION treatment, never the page background.
+     2. Orb colours never leave the orbs. Never text, link, or border.
+     3. Section padding never drops below 10rem vertical.
+     4. Every heading is Cormorant Garamond 300.
+
+   Fonts required in <head>:
+   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=DM+Sans:wght@200;300;400&display=swap" rel="stylesheet">
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+:root {
+  /* Surface */
+  --white:      #fafaf8;
+  --off-white:  #f4f3ef;
+  --black:      #0a0a0a;
+  --mid:        #6b6b65;
+
+  /* Rules — the only borders in the system */
+  --rule:       rgba(0, 0, 0, 0.06);
+  --rule-strong:rgba(0, 0, 0, 0.08);
+
+  /* On dark */
+  --on-dark:        rgba(255, 255, 255, 0.85);
+  --on-dark-mid:    rgba(255, 255, 255, 0.30);
+  --on-dark-faint:  rgba(255, 255, 255, 0.25);
+  --on-dark-rule:   rgba(255, 255, 255, 0.06);
+
+  /* Orb colours. RULE 2: these appear nowhere except .orb. */
+  --orb-cyan:  #00d4ff;
+  --orb-blue:  #0066ff;
+  --orb-green: #00e887;
+
+  --hero-gradient: linear-gradient(135deg, #060a10 0%, #0d1b2a 40%, #1a1a2e 70%, #060a10 100%);
+
+  /* Type */
+  --display: 'Cormorant Garamond', Georgia, serif;
+  --body:    'DM Sans', system-ui, sans-serif;
+
+  /* Space */
+  --measure:   1400px;
+  --section-y: 10rem;
+  --section-x: 3rem;
+  --gap-wide:  8rem;
+  --gap:       6rem;
 }
 
-/* ---- Ground ---- */
-*,*::before,*::after{box-sizing:border-box}
-html{background:var(--paper);-webkit-text-size-adjust:100%}
-body{
-  margin:0; background:var(--paper); color:var(--ink);
-  font-family:"Source Serif 4","Serif Fallback",serif;
-  font-size:19px; line-height:32px; font-weight:400;
-  font-variant-numeric:lining-nums;
-  text-align:left; hyphens:none;
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--white);
+  color: var(--black);
+  font-family: var(--body);
+  font-weight: 300;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* ---- Type scale. Absolute line heights on a 4px baseline. VISUAL 3.5 ---- */
-h1,h2{margin:0; font-weight:600}
-h1{font-size:26px; line-height:36px; letter-spacing:-0.01em}
-h2{font-size:22px; line-height:32px; letter-spacing:-0.005em}
-p,ul,ol,dl{margin:0}
-p+p,p+div,div+p{margin-top:16px}
-h1+p,h2+p,h2+div,h2+ul,h2+ol,h2+dl,h2+nav{margin-top:16px}
-strong,b{font-weight:600}
-em,i{font-style:italic}
+a { color: inherit; }
+:focus-visible { outline: 1px solid currentColor; outline-offset: 4px; }
 
-/* ---- Shell and measure. VISUAL 6.3; IMPL 3.4, 3.8 ---- */
-.shell{max-width:1180px; margin:0 auto; padding:0 48px}
-.measure{max-width:872px}          /* citation margin 180 + gutter 32 + prose 660 */
+/* ── Custom cursor ─────────────────────────────────────────────────────────
+   Opt in per page with <body class="has-cursor">. Pointer devices only —
+   never hide the cursor on touch. */
 
-/* ---- Regions: rule -> heading -> prose -> routes. VISUAL 6.5 ---- */
-.region{border-top:1px solid var(--rule-structural); margin-top:96px; padding-top:12px; scroll-margin-top:24px; max-width:872px}
-.region>h1,.region>h2{max-width:660px}
-/* Sub-group break: statement to routing. VISUAL 6.1 */
-.routes-line{margin-top:32px}
-.block>.lifecycle{margin:0}
-
-/* ---- The citation apparatus. VISUAL 2.2; IMPL 2.4, 5.7 ---- */
-.block{display:block; max-width:660px}
-.claim{display:block}
-.cite{font-family:"IBM Plex Mono","Mono Fallback",monospace; font-size:14px; line-height:20px; color:var(--ink); font-variant-numeric:tabular-nums}
-@media (min-width:1080px){
-  .block{display:grid; grid-template-columns:180px 32px minmax(0,660px); align-items:start; max-width:872px}
-  .block>*{grid-column:3}
-  .block>.cite{grid-column:1; grid-row:1; line-height:32px}
-}
-@media (max-width:1079px){
-  span.claim{display:inline}
-  span.claim::after{content:" "}
-  span.claim+.cite{display:inline}
+@media (hover: hover) and (pointer: fine) {
+  body.has-cursor { cursor: none; }
+  body.has-cursor a,
+  body.has-cursor button { cursor: none; }
 }
 
-/* ---- Lists. VISUAL 9.11 ---- */
-.marked,.lifecycle{list-style:none; padding:0; margin:16px 0}
-.marked>li,.lifecycle>li{margin:0}
-.marked>li+li,.lifecycle>li+li{margin-top:8px}
-.marked .claim,.lifecycle>li{position:relative; padding-left:28px}
-.marked .claim::before{content:"–"; position:absolute; left:0; top:0; color:var(--ink)}
-.lifecycle{counter-reset:step}
-.lifecycle>li{counter-increment:step; max-width:660px}
-.lifecycle>li::before{content:counter(step) "."; position:absolute; left:0; top:0; font-variant-numeric:lining-nums tabular-nums}
-@media (min-width:1080px){.marked>li.block .claim{padding-left:28px}}
+.cursor {
+  width: 8px; height: 8px;
+  background: var(--black);
+  border-radius: 50%;
+  position: fixed; top: 0; left: 0;
+  pointer-events: none; z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: width .3s ease, height .3s ease, background .3s ease, border-color .3s ease;
+}
+.cursor.hovering {
+  width: 40px; height: 40px;
+  background: transparent;
+  border: 1px solid var(--black);
+}
+.cursor.on-dark { background: var(--white); }
+.cursor.on-dark.hovering { background: transparent; border-color: var(--white); }
 
-/* ---- Routes. Every route is a link; there are no buttons. VISUAL 8.1 ---- */
-a{color:var(--route); text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:3px; font-weight:inherit}
-a:visited{color:var(--route-visited)}
-a:hover{text-decoration-thickness:2px; transition:text-decoration-thickness 90ms linear}
-a:focus-visible{outline:2px solid var(--ink); outline-offset:2px}
-.ext{margin-left:4px; width:.6em; height:.6em; vertical-align:baseline; fill:none; stroke:currentColor; stroke-width:1.5}
+@media (hover: none), (pointer: coarse) { .cursor { display: none; } }
 
-/* ---- Navigation. Five entries, beneath a hairline binding them. VISUAL 8.2 ---- */
-.masthead{padding-top:64px}
-.nav{border-top:1px solid var(--rule); padding:12px 0 0; margin:0; list-style:none; display:flex; flex-wrap:wrap; gap:4px 32px}
-.nav a{font-size:14px; line-height:20px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink-quiet)}
-.nav a:visited{color:var(--ink-quiet)}
-.nav a:hover,.nav a:focus-visible{color:var(--ink)}
+/* ── Navigation ───────────────────────────────────────────────────────────
+   mix-blend-mode: difference lets one nav sit over both light and dark. */
 
-/* ---- H-05 description list. IMPL 4.5 ---- */
-.checkable{margin:16px 0 0}
-.checkable>div+div{margin-top:32px}
-.checkable dt{font-weight:600; max-width:660px}
-.checkable dt .cite{font-weight:400; margin-left:8px}
-.checkable dd{margin:0}
-.checkable dd+dd{margin-top:16px}
-@media (min-width:1080px){
-  .checkable dt,.region>h1,.region>h2,.region>nav,footer>nav,.attribution{padding-left:212px}
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 2rem var(--section-x);
+  mix-blend-mode: difference;
+}
+.nav-logo {
+  font-family: var(--display);
+  font-weight: 300; font-size: 1.1rem;
+  letter-spacing: .15em; text-transform: uppercase;
+  color: var(--white); text-decoration: none;
+}
+.nav-links { display: flex; gap: 3rem; list-style: none; flex-wrap: wrap; }
+.nav-links a {
+  font-size: .7rem; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--white); text-decoration: none; opacity: .8;
+  transition: opacity .3s;
+}
+.nav-links a:hover, .nav-links a.active { opacity: 1; }
+
+/* Solid variant for pages without a hero. */
+.nav--solid {
+  mix-blend-mode: normal;
+  background: rgba(250, 250, 248, .95);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--rule);
+}
+.nav--solid .nav-logo, .nav--solid .nav-links a { color: var(--black); }
+
+/* ── Hero ─────────────────────────────────────────────────────────────────── */
+
+.hero {
+  position: relative; height: 100vh; width: 100%;
+  overflow: hidden; background: var(--black);
+}
+.hero-bg { position: absolute; inset: 0; background: var(--hero-gradient); }
+.hero-grid {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+  background-size: 80px 80px;
+  animation: gridDrift 20s linear infinite;
+}
+.hero-content {
+  position: relative; z-index: 10; height: 100%;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  padding: 0 var(--section-x) 4rem;
+}
+.hero-eyebrow {
+  font-size: .65rem; letter-spacing: .2em; text-transform: uppercase;
+  color: rgba(255,255,255,.5); margin-bottom: 1.5rem;
+}
+.hero h1, .hero-title {
+  font-family: var(--display); font-weight: 300;
+  font-size: clamp(3.5rem, 8vw, 7rem); line-height: 1;
+  color: var(--white); margin-bottom: 2rem;
+}
+.hero h1 em, .hero-title em { font-style: italic; opacity: .6; }
+.hero-sub {
+  font-size: .75rem; letter-spacing: .1em; text-transform: uppercase;
+  color: rgba(255,255,255,.4);
 }
 
-/* ---- Evidence block: the hash. VISUAL 5.3, 9.12; IMPL 2.8 ---- */
-.evidence{margin:16px 0 0; max-width:660px; border-top:1px solid var(--rule); background:var(--paper-recessed); padding:16px}
-.evidence figcaption{font-family:"IBM Plex Mono","Mono Fallback",monospace; font-size:14px; line-height:20px; color:var(--ink)}
-.evidence code{display:block; margin-top:8px; font-family:"IBM Plex Mono","Mono Fallback",monospace; font-size:14px; line-height:20px; color:var(--ink); overflow-wrap:anywhere; font-variant-numeric:tabular-nums}
-.evidence .copy{margin-top:12px; min-height:20px}
-.evidence .copy button{font-family:inherit; font-size:19px; line-height:32px; color:var(--ink); background:var(--paper); border:1px solid var(--ink); border-radius:2px; padding:12px 20px; cursor:pointer}
-.evidence .copy button:hover{border-width:2px; padding:11px 19px}
-.evidence .copy button:focus-visible{outline:2px solid var(--ink); outline-offset:2px}
-.evidence .copy p{margin:0; font-family:"IBM Plex Mono","Mono Fallback",monospace; font-size:14px; line-height:20px}
-
-/* ---- Route lists. Text, one per line, identical treatment. VISUAL 9.8 ---- */
-.routes{list-style:none; padding:0; margin:0}
-.routes>li+li{margin-top:8px}
-
-/* ---- Footer. VISUAL 4.7 ---- */
-footer{border-top:1px solid var(--rule-structural); margin-top:96px; padding:12px 0 96px; font-size:15px; line-height:24px; max-width:872px}
-footer .claim{max-width:660px}
-.footer-routes{list-style:none; padding:0; margin:16px 0 0; display:flex; flex-wrap:wrap; gap:0 4px}
-.footer-routes>li+li::before{content:"· "}
-.attribution{margin-top:16px; color:var(--ink-quiet)}
-
-/* ---- Skip link. IMPL 4.7 ---- */
-.skip{position:absolute; left:-9999px; top:0}
-.skip:focus{left:0; top:0; z-index:1; display:block; padding:12px 16px; background:var(--paper); color:var(--route); outline:2px solid var(--ink); outline-offset:2px}
-main:focus{outline:none}
-main:focus-visible{outline:2px solid var(--ink); outline-offset:2px}
-
-/* ---- Column layout: 640-1079. IMPL 3.1, 3.5 ---- */
-@media (max-width:1079px){
-  .shell{padding:0 32px}
+/* Staggered entrance */
+.hero-eyebrow, .hero-title, .hero h1, .hero-sub, .hero-scroll {
+  opacity: 0; animation: fadeUp 1.2s ease forwards;
 }
-/* ---- Narrow: <640. IMPL 3.1, 3.6 ---- */
-@media (max-width:639px){
-  .shell{padding:0 20px}
-  body{font-size:17px; line-height:28px}
-  h1{font-size:23px; line-height:32px}
-  h2{font-size:20px; line-height:28px}
-  .cite,.nav a,.evidence figcaption,.evidence code,.evidence .copy button,.evidence .copy p{font-size:13px; line-height:20px}
-  footer{font-size:14px; line-height:24px}
-  .masthead{padding-top:40px}
-  .region{margin-top:64px}
-  footer{margin-top:64px; padding-bottom:64px}
-  .checkable>div+div{margin-top:24px}
+.hero-eyebrow { animation-delay: .3s; }
+.hero-title, .hero h1 { animation-delay: .5s; }
+.hero-sub { animation-delay: .8s; }
+.hero-scroll { animation-delay: 1.2s; }
+
+.hero-scroll {
+  position: absolute; bottom: 3rem; right: var(--section-x);
+  display: flex; flex-direction: column; align-items: center; gap: .5rem;
+  color: rgba(255,255,255,.3);
+  font-size: .6rem; letter-spacing: .15em; text-transform: uppercase;
+}
+.scroll-line {
+  width: 1px; height: 60px;
+  background: rgba(255,255,255,.2);
+  position: relative; overflow: hidden;
+}
+.scroll-line::after {
+  content: ''; position: absolute; top: -100%; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(255,255,255,.6);
+  animation: scrollDrop 2s ease infinite;
 }
 
-/* ---- Motion. Stillness is the default. VISUAL 10.1, 10.4 ---- */
-@media (prefers-reduced-motion:reduce){
-  *,*::before,*::after{transition:none!important; animation:none!important; scroll-behavior:auto!important}
+/* ── Orbs. RULE 2 lives here. ─────────────────────────────────────────────── */
+
+.orb {
+  position: absolute; border-radius: 50%;
+  filter: blur(80px); opacity: .15;
+  animation: orbFloat 12s ease-in-out infinite;
+  pointer-events: none;
+}
+.orb-1 { width: 600px; height: 600px; background: var(--orb-cyan);  top: -100px; left: -100px; }
+.orb-2 { width: 400px; height: 400px; background: var(--orb-blue);  bottom: -50px; right: 10%; animation-delay: -4s; }
+.orb-3 { width: 300px; height: 300px; background: var(--orb-green); top: 40%; left: 50%; animation-delay: -8s; }
+
+.section--dark .orb, .manifesto .orb { opacity: .08; }
+
+/* ── Sections ─────────────────────────────────────────────────────────────── */
+
+.section {
+  padding: var(--section-y) var(--section-x);
+  max-width: var(--measure); margin: 0 auto;
+}
+.section--tint { background: var(--off-white); max-width: none; }
+.section--tint > .inner { max-width: var(--measure); margin-inline: auto; }
+
+.section--dark {
+  background: var(--black);
+  padding: var(--section-y) var(--section-x);
+  position: relative; overflow: hidden;
+  max-width: none;
+}
+.section--dark .inner { max-width: var(--measure); margin: 0 auto; position: relative; z-index: 2; }
+.section--dark, .section--dark p { color: var(--on-dark); }
+
+.divider { width: 100%; height: 1px; background: var(--rule); }
+
+.section-header {
+  display: flex; justify-content: space-between; align-items: baseline;
+  margin-bottom: var(--gap);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 2rem;
+}
+.eyebrow, .section-label {
+  font-size: .65rem; letter-spacing: .2em; text-transform: uppercase;
+  color: var(--mid);
+}
+.section-count { font-family: var(--display); font-size: .9rem; color: var(--mid); font-weight: 300; }
+
+/* ── Type ─────────────────────────────────────────────────────────────────── */
+
+h1, h2, h3, h4 { font-family: var(--display); font-weight: 300; }
+h1 { font-size: clamp(2.4rem, 5vw, 4rem);  line-height: 1.1; }
+h2 { font-size: clamp(2rem, 3.5vw, 3rem);  line-height: 1.2; }
+h3 { font-size: 1.6rem; line-height: 1.3; margin-bottom: 1rem; }
+h1 em, h2 em, h3 em { font-style: italic; color: var(--mid); }
+.section--dark h1 em, .section--dark h2 em { color: inherit; opacity: .4; }
+
+.headline--dark {
+  font-family: var(--display); font-weight: 300;
+  font-size: clamp(2.5rem, 5vw, 4.5rem); line-height: 1.15;
+  color: var(--white); max-width: 800px; margin-bottom: var(--gap);
 }
 
-/* ---- Print: a printed page preserves every claim's route to its source. IMPL 4.9 ---- */
-@media print{
-  html,body{background:#fff; color:#000}
-  .masthead,.skip,.evidence .copy{display:none}
-  a{color:#000}
-  a[href^="http"]::after,a[href^="/"]::after{content:" <" attr(href) ">"; font-family:"IBM Plex Mono","Mono Fallback",monospace; font-size:0.72em; overflow-wrap:anywhere}
-  .block{display:block}
-  .block>.cite{display:inline}
-  .block>.claim{display:inline}
-  .evidence{background:none; border-top:1px solid #000}
-  .region{break-inside:auto; page-break-inside:auto}
-  .region>h2{break-after:avoid; page-break-after:avoid}
-  #no-one-controls-this .block{break-inside:avoid; page-break-inside:avoid}
-  #no-one-controls-this{break-inside:avoid; page-break-inside:avoid}
+.body, .prose { font-size: .95rem; line-height: 1.9; color: var(--mid); max-width: 62ch; }
+.prose p + p { margin-top: 1.5rem; }
+.section--dark .body { color: var(--on-dark-mid); }
+
+.tagline--dark {
+  font-size: .7rem; letter-spacing: .15em; text-transform: uppercase;
+  color: var(--on-dark-mid);
+  border-top: 1px solid var(--on-dark-rule); padding-top: 3rem;
+}
+
+/* ── Grids ────────────────────────────────────────────────────────────────── */
+
+.split      { display: grid; grid-template-columns: 1fr 1fr; gap: var(--gap); align-items: start; }
+.split--wide{ gap: var(--gap-wide); align-items: center; }
+.split--offset > :last-child { padding-top: 4rem; }
+
+/* Full-bleed cell grids. Hairlines, no cards, no shadows. */
+.cells { display: grid; gap: 0; border-top: 1px solid var(--rule); }
+.cells--3 { grid-template-columns: repeat(3, 1fr); }
+.cells--5 { grid-template-columns: repeat(5, 1fr); }
+.cell {
+  padding: 3rem;
+  border-right: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  transition: background .4s ease;
+}
+.cell:hover { background: var(--off-white); }
+.cells--3 .cell:nth-child(3n) { border-right: none; }
+.cells--5 .cell { padding: 2rem 1.5rem; }
+.cells--5 .cell:nth-child(5n) { border-right: none; }
+
+.cell-num {
+  font-family: var(--display); font-size: 4rem; font-weight: 300;
+  color: rgba(0,0,0,.06); line-height: 1; margin-bottom: 2rem;
+}
+
+/* Dark cell grid — 1px gaps show the backing through. */
+.cells--dark {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 1px; background: rgba(255,255,255,.05);
+  border: none; margin-bottom: var(--gap);
+}
+.cells--dark .cell {
+  background: var(--black); border: none; padding: 2rem;
+  transition: background .3s ease;
+}
+.cells--dark .cell:hover { background: rgba(255,255,255,.04); }
+.cell-label--dark {
+  font-size: .55rem; letter-spacing: .2em; text-transform: uppercase;
+  color: var(--on-dark-faint); margin-bottom: .75rem;
+}
+.cell-title--dark { font-family: var(--display); font-size: 1.4rem; font-weight: 300; color: var(--white); }
+
+/* ── Statistics ───────────────────────────────────────────────────────────── */
+
+.stat { display: flex; flex-direction: column;
+        border-top: 1px solid var(--rule-strong); padding-top: 2rem; margin-top: 2rem; }
+.stat-number { font-family: var(--display); font-weight: 300; font-size: 3rem; line-height: 1; }
+.stat-label  { font-size: .65rem; letter-spacing: .15em; text-transform: uppercase;
+               color: var(--mid); margin-top: .5rem; }
+
+.stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;
+             margin-top: 4rem; border-top: 1px solid var(--rule); padding-top: 3rem; }
+.stat-grid .stat-number { font-size: 2.2rem; }
+.stat-grid .stat-label  { font-size: .6rem; }
+
+/* ── Manifesto ────────────────────────────────────────────────────────────── */
+
+.manifesto {
+  padding: 12rem var(--section-x);
+  background: var(--black); text-align: center;
+  position: relative; overflow: hidden;
+}
+.manifesto-inner { position: relative; z-index: 2; max-width: 900px; margin: 0 auto; }
+.manifesto-label {
+  font-size: .6rem; letter-spacing: .25em; text-transform: uppercase;
+  color: var(--on-dark-faint); margin-bottom: 3rem;
+}
+.manifesto-text {
+  font-family: var(--display); font-weight: 300;
+  font-size: clamp(1.8rem, 4vw, 3.5rem); line-height: 1.3;
+  color: var(--white); margin-bottom: 4rem;
+}
+.manifesto-text em { font-style: italic; opacity: .4; }
+.manifesto-rules {
+  display: flex; justify-content: center; gap: 4rem; flex-wrap: wrap;
+  border-top: 1px solid var(--on-dark-rule); padding-top: 3rem;
+}
+.rule-item {
+  font-size: .65rem; letter-spacing: .15em; text-transform: uppercase;
+  color: var(--on-dark-mid);
+}
+
+/* ── Data tables ──────────────────────────────────────────────────────────── */
+
+.data-table { width: 100%; border-collapse: collapse; font-size: .85rem; }
+.data-table th {
+  text-align: left; font-weight: 400;
+  font-size: .65rem; letter-spacing: .15em; text-transform: uppercase;
+  color: var(--mid); padding: 1rem 1rem 1rem 0;
+  border-bottom: 1px solid var(--rule-strong);
+}
+.data-table td { padding: 1rem 1rem 1rem 0; border-bottom: 1px solid var(--rule); }
+.data-table td.num { font-variant-numeric: tabular-nums; }
+.data-table tbody tr { transition: background .3s ease; }
+.data-table tbody tr:hover { background: var(--off-white); }
+
+.state-empty { text-align: center; padding: 4rem 2rem; color: var(--mid);
+               font-size: .8rem; letter-spacing: .1em; text-transform: uppercase; }
+
+/* ── Footer ───────────────────────────────────────────────────────────────── */
+
+.footer {
+  padding: 4rem var(--section-x);
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 2rem;
+  border-top: 1px solid var(--rule);
+}
+.footer-logo {
+  font-family: var(--display); font-weight: 300; font-size: 1rem;
+  letter-spacing: .15em; text-transform: uppercase; text-decoration: none;
+}
+.footer-links { display: flex; gap: 2.5rem; list-style: none; flex-wrap: wrap; }
+.footer-links a {
+  font-size: .65rem; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--mid); text-decoration: none; transition: color .3s;
+}
+.footer-links a:hover { color: var(--black); }
+.footer-copy { font-size: .65rem; color: var(--mid); letter-spacing: .05em; }
+
+/* ── Scroll reveal ────────────────────────────────────────────────────────── */
+
+.reveal { opacity: 0; transform: translateY(40px);
+          transition: opacity .9s ease, transform .9s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-delay-1 { transition-delay: .1s; }
+.reveal-delay-2 { transition-delay: .2s; }
+.reveal-delay-3 { transition-delay: .3s; }
+.reveal-delay-4 { transition-delay: .4s; }
+
+/* Without JavaScript the page must still be readable. */
+.no-js .reveal { opacity: 1; transform: none; }
+
+/* ── Keyframes ────────────────────────────────────────────────────────────── */
+
+@keyframes fadeUp    { from { opacity: 0; transform: translateY(30px); }
+                       to   { opacity: 1; transform: translateY(0); } }
+@keyframes gridDrift { from { transform: translateY(0); } to { transform: translateY(80px); } }
+@keyframes scrollDrop{ from { top: -100%; } to { top: 100%; } }
+@keyframes orbFloat  {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33%      { transform: translate(30px, -40px) scale(1.05); }
+  66%      { transform: translate(-20px, 20px) scale(.95); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+  .reveal { opacity: 1; transform: none; }
+  .hero-eyebrow, .hero-title, .hero h1, .hero-sub, .hero-scroll { opacity: 1; }
+}
+
+/* ── Responsive ───────────────────────────────────────────────────────────── */
+
+@media (max-width: 900px) {
+  :root { --section-y: 5rem; --section-x: 1.5rem; --gap: 3rem; --gap-wide: 3rem; }
+  .nav { padding: 1.5rem; }
+  .nav-links { gap: 1.25rem; }
+  .split, .split--wide { grid-template-columns: 1fr; }
+  .split--offset > :last-child { padding-top: 0; }
+  .cells--3, .cells--5 { grid-template-columns: 1fr; }
+  .cell { border-right: none; }
+  .cells--dark { grid-template-columns: repeat(2, 1fr); }
+  .manifesto { padding: 6rem 1.5rem; }
+  .manifesto-rules { gap: 2rem; }
+  .footer { flex-direction: column; text-align: center; }
+  .footer-links { justify-content: center; }
 }
