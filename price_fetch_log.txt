@@ -1,79 +1,36 @@
-[10:21:23] === Vinculum Price Fetcher v9 ===
-[10:21:23] Assets: 1001 | Purpose: vault reference rates (2x/day)
-[10:21:23] Input:  approved_assets_final.json
-[10:21:23] 
-[10:21:23] Step 1: CoinGecko batch...
-[10:21:23]   881 unique CoinGecko IDs across 1001 assets
-[10:21:23]   429 rate-limit -- waiting 12s
-[10:21:52]   429 rate-limit -- waiting 12s
-[10:22:04]   429 rate-limit -- waiting 24s
-[10:22:28]   429 rate-limit -- waiting 36s
-[10:23:04]   Got 777 prices -> 894 assets covered (104 IDs returned no price)
-[10:23:04] Step 2: DexScreener (contract address)...
-[10:23:04]   104 assets to try...
-[10:24:25]   DexScreener contract: 51 prices found
-[10:24:25] Step 3: DexScreener symbol search...
-[10:24:25]   53 assets to try...
-[10:25:06]   DexScreener search: 13 prices found
-[10:25:06] Step 4: Community tokens (DexScreener -> GeckoTerminal)...
-[10:25:07]   TigerOG@Base: $9.439e-19 [DexScreener]
-[10:25:07]   LionOG@Base: $9.343e-20 [DexScreener]
-[10:25:08]   FrogOG@Base: $7.615e-20 [DexScreener]
-[10:25:08]   WKC@Ethereum: already priced
-[10:25:08]   Community tokens: 3 priced
-[10:25:08] 
-[10:25:08] === FINAL SUMMARY ===
-[10:25:08] Total assets:  1001
-[10:25:08] Priced:        961 (96.0%)
-[10:25:08] No price:      40
-[10:25:08] 
-[10:25:08]   CoinGecko                      894
-[10:25:08]   DexScreener                    54
-[10:25:08]   DexScreener_search             13
-[10:25:08] 
-Not priced (40):
-[10:25:08]   sUSD@Ethereum
-[10:25:08]   ADS@BSC
-[10:25:08]   AGAC@Polygon
-[10:25:08]   AGF@Avalanche
-[10:25:08]   AGLD@Ethereum
-[10:25:08]   AKNC@Ethereum
-[10:25:08]   ALBT@Avalanche
-[10:25:08]   ALINK@Avalanche
-[10:25:08]   ALINK@Ethereum
-[10:25:08]   AMANA@Ethereum
-[10:25:08]   AMATICC@Polygon
-[10:25:08]   AMKR@Ethereum
-[10:25:08]   AMWETH@Polygon
-[10:25:08]   AMWMATIC@Polygon
-[10:25:08]   APEIN@Avalanche
-[10:25:08]   ARCH@Ethereum
-[10:25:08]   ARCX@Ethereum
-[10:25:08]   ASKO@Ethereum
-[10:25:08]   ASNX@Ethereum
-[10:25:08]   ASUSD@Ethereum
-[10:25:08]   ATIS@Ethereum
-[10:25:08]   ATUSD@Ethereum
-[10:25:08]   AUSDC@Avalanche
-[10:25:08]   AUSDT@Ethereum
-[10:25:08]   AWBTC@Ethereum
-[10:25:08]   AWBTC@Avalanche
-[10:25:08]   AWETH@Avalanche
-[10:25:08]   AZRX@Ethereum
-[10:25:08]   BASK@Ethereum
-[10:25:08]   BCDT@Ethereum
-[10:25:08]   BCMC@Polygon
-[10:25:08]   APT@Ethereum
-[10:25:08]   XTZ@Ethereum
-[10:25:08]   MINA@Ethereum
-[10:25:08]   KAVA@Ethereum
-[10:25:08]   HBAR@Ethereum
-[10:25:08]   XDC@Ethereum
-[10:25:08]   STEEM@Ethereum
-[10:25:08]   KSM@Ethereum
-[10:25:08]   ICX@Ethereum
-[10:25:08] 
+[20:22:21] === Vinculum Price Fetcher v9 ===
+[20:22:21] Assets: 1001 | Purpose: vault reference rates (2x/day)
+[20:22:21] Input:  approved_assets_final.json
+[20:22:21] 
+[20:22:21] Step 1: CoinGecko batch...
+[20:22:21]   881 unique CoinGecko IDs across 1001 assets
+[20:22:37]   Got 858 prices -> 975 assets covered (23 IDs returned no price)
+[20:22:37] Step 2: DexScreener (contract address)...
+[20:22:37]   23 assets to try...
+[20:22:54]   DexScreener contract: 20 prices found
+[20:22:54] Step 3: DexScreener symbol search...
+[20:22:54]   3 assets to try...
+[20:22:56]   DexScreener search: 2 prices found
+[20:22:56] Step 4: Community tokens (DexScreener -> GeckoTerminal)...
+[20:22:57]   TigerOG@Base: $9.579e-19 [DexScreener]
+[20:22:58]   LionOG@Base: $9.353e-20 [DexScreener]
+[20:22:58]   FrogOG@Base: $7.649e-20 [DexScreener]
+[20:22:58]   WKC@Ethereum: already priced
+[20:22:58]   Community tokens: 3 priced
+[20:22:58] 
+[20:22:58] === FINAL SUMMARY ===
+[20:22:58] Total assets:  1001
+[20:22:58] Priced:        1000 (99.9%)
+[20:22:58] No price:      1
+[20:22:58] 
+[20:22:58]   CoinGecko                      975
+[20:22:58]   DexScreener                    23
+[20:22:58]   DexScreener_search             2
+[20:22:58] 
+Not priced (1):
+[20:22:58]   sUSD@Ethereum
+[20:22:58] 
 JSON saved: vinculum_prices.json
-[10:25:09] Excel saved: vinculum_prices.xlsx
-[10:25:09] 
-Done. 961/1001 assets priced (96.0% coverage).
+[20:22:59] Excel saved: vinculum_prices.xlsx
+[20:22:59] 
+Done. 1000/1001 assets priced (99.9% coverage).
