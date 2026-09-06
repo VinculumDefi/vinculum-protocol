@@ -1,5008 +1,5008 @@
 {
  "USDC@Ethereum": {
-  "usd": 0.999967,
+  "usd": 0.999919,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "USDC_ARB@Arbitrum": {
-  "usd": 0.999967,
+  "usd": 0.999919,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "USDC_SOL@Solana": {
-  "usd": 0.999967,
+  "usd": 0.999919,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "USDC_OP@Optimism": {
-  "usd": 0.999967,
+  "usd": 0.999919,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "USDC_POL@Polygon": {
-  "usd": 0.999967,
+  "usd": 0.999919,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "USDC_BSC@BSC": {
-  "usd": 0.999967,
+  "usd": 0.999919,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "USDC_AVAX@Avalanche": {
-  "usd": 0.999967,
+  "usd": 0.999919,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "USDC_BASE@Base": {
-  "usd": 0.999967,
+  "usd": 0.999919,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "USDC_ETH@Ethereum": {
-  "usd": 0.999967,
+  "usd": 0.999919,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ETH@Ethereum": {
-  "usd": 2499.23,
+  "usd": 2489.96,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "BTC@Bitcoin": {
-  "usd": 79895.0,
+  "usd": 79802.0,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "DOGE@Dogecoin": {
-  "usd": 0.090194,
+  "usd": 0.089512,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "DOGE2@Solana": {
-  "usd": 0.090194,
+  "usd": 0.089512,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "SOL@Solana": {
-  "usd": 106.45,
+  "usd": 105.49,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "USDT@Ethereum": {
-  "usd": 1.0,
+  "usd": 0.999942,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "USDT_ARB@Arbitrum": {
-  "usd": 1.0,
+  "usd": 0.999942,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "USDT_POL@Polygon": {
-  "usd": 1.0,
+  "usd": 0.999942,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "USDT_BSC@BSC": {
-  "usd": 1.0,
+  "usd": 0.999942,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "USDT_OP@Optimism": {
-  "usd": 1.0,
+  "usd": 0.999942,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "USDT_AVAX@Avalanche": {
-  "usd": 1.0,
+  "usd": 0.999942,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "USDT_ETH@Ethereum": {
-  "usd": 1.0,
+  "usd": 0.999942,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "WBTC@Ethereum": {
-  "usd": 79823.0,
+  "usd": 79678.0,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "WBTC_ARB@Arbitrum": {
-  "usd": 79823.0,
+  "usd": 79678.0,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "WBTC_OP@Optimism": {
-  "usd": 79823.0,
+  "usd": 79678.0,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "WBTC_POL@Polygon": {
-  "usd": 79823.0,
+  "usd": 79678.0,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "WBTC_ETH@Ethereum": {
-  "usd": 79823.0,
+  "usd": 79678.0,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "LINK@Ethereum": {
-  "usd": 12.29,
+  "usd": 12.36,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "LINK_ARB@Arbitrum": {
-  "usd": 12.29,
+  "usd": 12.36,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "LINK_POL@Polygon": {
-  "usd": 12.29,
+  "usd": 12.36,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "LINK_BSC@BSC": {
-  "usd": 12.29,
+  "usd": 12.36,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "LINK_AVAX@Avalanche": {
-  "usd": 12.29,
+  "usd": 12.36,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "LINK_OP@Optimism": {
-  "usd": 12.29,
+  "usd": 12.36,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "LINK_ETH@Ethereum": {
-  "usd": 12.29,
+  "usd": 12.36,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "stETH@Ethereum": {
-  "usd": 2498.44,
+  "usd": 2490.02,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "STETH_ETH@Ethereum": {
-  "usd": 2498.44,
+  "usd": 2490.02,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "DAI@Ethereum": {
-  "usd": 1.0,
+  "usd": 0.999784,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "DAI_ARB@Arbitrum": {
-  "usd": 1.0,
+  "usd": 0.999784,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "DAI_OP@Optimism": {
-  "usd": 1.0,
+  "usd": 0.999784,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "DAI_POL@Polygon": {
-  "usd": 1.0,
+  "usd": 0.999784,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "DAI_BSC@BSC": {
-  "usd": 1.0,
+  "usd": 0.999784,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "DAI_AVAX@Avalanche": {
-  "usd": 1.0,
+  "usd": 0.999784,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "XRP@XRPL": {
-  "usd": 1.42,
+  "usd": 1.41,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "UNI@Ethereum": {
-  "usd": 7.0,
+  "usd": 7.14,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "UNI_ARB@Arbitrum": {
-  "usd": 7.0,
+  "usd": 7.14,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "UNI_OP@Optimism": {
-  "usd": 7.0,
+  "usd": 7.14,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "UNI_POL@Polygon": {
-  "usd": 7.0,
+  "usd": 7.14,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "UNI_ETH@Ethereum": {
-  "usd": 7.0,
+  "usd": 7.14,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "AAVE@Ethereum": {
-  "usd": 134.47,
+  "usd": 132.74,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "AAVE_ARB@Arbitrum": {
-  "usd": 134.47,
+  "usd": 132.74,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "AAVE_OP@Optimism": {
-  "usd": 134.47,
+  "usd": 132.74,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "AAVE_POL@Polygon": {
-  "usd": 134.47,
+  "usd": 132.74,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "AAVE_AVAX@Avalanche": {
-  "usd": 134.47,
+  "usd": 132.74,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "LDO@Ethereum": {
-  "usd": 0.403741,
+  "usd": 0.417307,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "LDO_ETH@Ethereum": {
-  "usd": 0.403741,
+  "usd": 0.417307,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "SHIB@Ethereum": {
-  "usd": 5.44e-06,
+  "usd": 5.42e-06,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "SHIB2@BSC": {
-  "usd": 5.44e-06,
+  "usd": 5.42e-06,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "SHIB_ETH@Ethereum": {
-  "usd": 5.44e-06,
+  "usd": 5.42e-06,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "BNB@BSC": {
-  "usd": 757.51,
+  "usd": 748.69,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "LTC@Litecoin": {
-  "usd": 54.23,
+  "usd": 54.02,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "PEPE@Ethereum": {
-  "usd": 3.63e-06,
+  "usd": 3.6e-06,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ARB@Arbitrum": {
-  "usd": 0.193728,
+  "usd": 0.182712,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ARB_TOKEN@Arbitrum": {
-  "usd": 0.193728,
+  "usd": 0.182712,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ARB_ETH@Ethereum": {
-  "usd": 0.193728,
+  "usd": 0.182712,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "AVAX@Avalanche": {
   "usd": 7.66,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "AVAX_MEME@Avalanche": {
   "usd": 7.66,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "AVAX_NATIVE@Avalanche": {
   "usd": 7.66,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "wstETH@Ethereum": {
-  "usd": 3107.18,
+  "usd": 3096.14,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "CBETH@Base": {
-  "usd": 2846.02,
+  "usd": 2835.7,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "CBETH_BASE@Base": {
-  "usd": 2846.02,
+  "usd": 2835.7,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "OP@Optimism": {
-  "usd": 0.11088,
+  "usd": 0.109025,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "OP_TOKEN@Optimism": {
-  "usd": 0.11088,
+  "usd": 0.109025,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "OP_ETH@Ethereum": {
-  "usd": 0.11088,
+  "usd": 0.109025,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "SKY@Ethereum": {
-  "usd": 0.071041,
+  "usd": 0.070093,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "CBBTC@Base": {
-  "usd": 79887.0,
+  "usd": 79809.0,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "cbBTC@Base": {
-  "usd": 79887.0,
+  "usd": 79809.0,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "CBBTC_ETH@Ethereum": {
-  "usd": 79887.0,
+  "usd": 79809.0,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "USDS@Ethereum": {
-  "usd": 0.999707,
+  "usd": 0.999906,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "BONK@Solana": {
-  "usd": 3.39e-06,
+  "usd": 3.44e-06,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "PENGU@Solana": {
-  "usd": 0.00877423,
+  "usd": 0.00867383,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "MKR@Ethereum": {
-  "usd": 1636.61,
+  "usd": 1622.2,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "MKR_ETH@Ethereum": {
-  "usd": 1636.61,
+  "usd": 1622.2,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "WIF@Solana": {
-  "usd": 0.212536,
+  "usd": 0.214934,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "AERO@Base": {
-  "usd": 0.554253,
+  "usd": 0.547258,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "GRT@Ethereum": {
-  "usd": 0.02058479,
+  "usd": 0.01931386,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "GRT_ARB@Arbitrum": {
-  "usd": 0.02058479,
+  "usd": 0.01931386,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "GRT_ETH@Ethereum": {
-  "usd": 0.02058479,
+  "usd": 0.01931386,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ENS@Ethereum": {
-  "usd": 6.1,
+  "usd": 6.19,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "PAXG@Ethereum": {
-  "usd": 4429.46,
+  "usd": 4419.1,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "IMX@Ethereum": {
-  "usd": 0.134375,
+  "usd": 0.130267,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "IMX_ETH@Ethereum": {
-  "usd": 0.134375,
+  "usd": 0.130267,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "PENDLE@Ethereum": {
-  "usd": 2.11,
+  "usd": 2.1,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "PENDLE_ARB@Arbitrum": {
-  "usd": 2.11,
+  "usd": 2.1,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "PENDLE_B@Base": {
-  "usd": 2.11,
+  "usd": 2.1,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "EIGEN@Ethereum": {
-  "usd": 0.209086,
+  "usd": 0.212478,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "GMX@Arbitrum": {
-  "usd": 8.07,
+  "usd": 7.9,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "MATIC@Ethereum": {
   "usd": 0.126156,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "POL@Ethereum": {
   "usd": 0.126156,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "MATIC_ETH@Ethereum": {
   "usd": 0.126156,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "RNDR@Ethereum": {
-  "usd": 1.47,
+  "usd": 1.53,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "RNDR@Solana": {
-  "usd": 1.47,
+  "usd": 1.53,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "RNDR_SOL@Solana": {
-  "usd": 1.47,
+  "usd": 1.53,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "RENDER@Ethereum": {
-  "usd": 1.47,
+  "usd": 1.53,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "BCH@Bitcoin": {
-  "usd": 260.49,
+  "usd": 256.23,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "SNX@Ethereum": {
-  "usd": 0.221936,
+  "usd": 0.225797,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "SNS@Optimism": {
-  "usd": 0.221936,
+  "usd": 0.225797,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "SNX_ARB@Arbitrum": {
-  "usd": 0.221936,
+  "usd": 0.225797,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "SNS_OP@Optimism": {
-  "usd": 0.221936,
+  "usd": 0.225797,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "SNX_ETH@Ethereum": {
-  "usd": 0.221936,
+  "usd": 0.225797,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "CRV@Ethereum": {
-  "usd": 0.372835,
+  "usd": 0.376363,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "CRV_ARB@Arbitrum": {
-  "usd": 0.372835,
+  "usd": 0.376363,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "CRV_ETH@Ethereum": {
-  "usd": 0.372835,
+  "usd": 0.376363,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "1INCH@Ethereum": {
-  "usd": 0.094664,
+  "usd": 0.095814,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "RPL@Ethereum": {
-  "usd": 1.72,
+  "usd": 1.75,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "RPL_ETH@Ethereum": {
-  "usd": 1.72,
+  "usd": 1.75,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "rETH@Ethereum": {
-  "usd": 2920.82,
+  "usd": 2911.51,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "RETH_ETH@Ethereum": {
-  "usd": 2920.82,
+  "usd": 2911.51,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ENA@Ethereum": {
-  "usd": 0.176248,
+  "usd": 0.176005,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "RON@Ethereum": {
-  "usd": 0.053461,
+  "usd": 0.054039,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "CAKE@BSC": {
   "usd": 2.19,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "CAKE_BSC@BSC": {
   "usd": 2.19,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "CHZ@Ethereum": {
-  "usd": 0.01397731,
+  "usd": 0.01386903,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "CHZ_ETH@Ethereum": {
-  "usd": 0.01397731,
+  "usd": 0.01386903,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "FET@Ethereum": {
-  "usd": 0.168874,
+  "usd": 0.173165,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "FET_ETH@Ethereum": {
-  "usd": 0.168874,
+  "usd": 0.173165,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "USDe@Ethereum": {
-  "usd": 0.999903,
+  "usd": 0.999838,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ONDO@Ethereum": {
-  "usd": 0.375206,
+  "usd": 0.37729,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "OKB@Ethereum": {
-  "usd": 113.85,
+  "usd": 113.11,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "GHO@Ethereum": {
-  "usd": 0.999239,
+  "usd": 0.998937,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "COMP@Ethereum": {
-  "usd": 20.8,
+  "usd": 20.99,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "COMP_ETH@Ethereum": {
-  "usd": 20.8,
+  "usd": 20.99,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "FLOKI@Ethereum": {
-  "usd": 2.64e-05,
+  "usd": 2.605e-05,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "FLOKI2@BSC": {
-  "usd": 2.64e-05,
+  "usd": 2.605e-05,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "PYTH@Solana": {
-  "usd": 0.055013,
+  "usd": 0.054419,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "VIRTUAL@Base": {
-  "usd": 0.683103,
+  "usd": 0.698559,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "VIRTUAL2@Solana": {
-  "usd": 0.683103,
+  "usd": 0.698559,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "VIRTUAL_BASE@Base": {
-  "usd": 0.683103,
+  "usd": 0.698559,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "BLUR@Ethereum": {
-  "usd": 0.01711863,
+  "usd": 0.01737731,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "BRETT@Base": {
-  "usd": 0.00014067,
+  "usd": 0.00013961,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "PSG@Ethereum": {
-  "usd": 0.484549,
+  "usd": 0.484757,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "BAR@Ethereum": {
-  "usd": 0.278253,
+  "usd": 0.274475,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "JTO@Solana": {
-  "usd": 0.441692,
+  "usd": 0.449552,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "JUP@Solana": {
-  "usd": 0.253244,
+  "usd": 0.263909,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "RAY@Solana": {
-  "usd": 1.15,
+  "usd": 1.27,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "PYUSD@Ethereum": {
-  "usd": 0.999949,
+  "usd": 0.999945,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "PYUSD_ETH@Ethereum": {
-  "usd": 0.999949,
+  "usd": 0.999945,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "BAL@Ethereum": {
-  "usd": 0.111556,
+  "usd": 0.109433,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "BAL_ETH@Ethereum": {
-  "usd": 0.111556,
+  "usd": 0.109433,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "SPX@Ethereum": {
-  "usd": 0.607147,
+  "usd": 0.564537,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "WLD@Ethereum": {
-  "usd": 0.402757,
+  "usd": 0.413879,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "DEGEN@Base": {
-  "usd": 0.00110356,
+  "usd": 0.00110842,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "DGB@DigiByte": {
-  "usd": 0.00513851,
+  "usd": 0.00505319,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "BAT@Ethereum": {
-  "usd": 0.071503,
+  "usd": 0.073469,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "BAT_ETH@Ethereum": {
-  "usd": 0.071503,
+  "usd": 0.073469,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "LUSD@Ethereum": {
   "usd": 1.009,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "POPCAT@Solana": {
-  "usd": 0.053115,
+  "usd": 0.053734,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "FARTCOIN@Solana": {
-  "usd": 0.176739,
+  "usd": 0.179783,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "MEW@Solana": {
-  "usd": 0.00043294,
+  "usd": 0.00043972,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "COW@Ethereum": {
-  "usd": 0.132943,
+  "usd": 0.132261,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "MNT@Ethereum": {
-  "usd": 0.609464,
+  "usd": 0.597771,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "STRK@Ethereum": {
-  "usd": 0.03029918,
+  "usd": 0.03033833,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ZK@Ethereum": {
-  "usd": 0.01086441,
+  "usd": 0.01095376,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "CRO@Ethereum": {
-  "usd": 0.057157,
+  "usd": 0.057368,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "VELO@Optimism": {
-  "usd": 0.02541404,
+  "usd": 0.02526676,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "YFI@Ethereum": {
-  "usd": 2340.83,
+  "usd": 2317.43,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "YFI_ETH@Ethereum": {
-  "usd": 2340.83,
+  "usd": 2317.43,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "FXS@Ethereum": {
-  "usd": 0.296774,
+  "usd": 0.295357,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "FXS_ETH@Ethereum": {
-  "usd": 0.296774,
+  "usd": 0.295357,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "FRAX@Ethereum": {
-  "usd": 0.991155,
+  "usd": 0.991088,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "FRAX_BSC@BSC": {
-  "usd": 0.991155,
+  "usd": 0.991088,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "CRVUSD@Ethereum": {
-  "usd": 1.0,
+  "usd": 0.99988,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "CVX@Ethereum": {
-  "usd": 2.32,
+  "usd": 2.33,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "CVX_ETH@Ethereum": {
-  "usd": 2.32,
+  "usd": 2.33,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ai16Z@Solana": {
-  "usd": 0.00054291,
+  "usd": 0.0005359,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "MOG@Ethereum": {
-  "usd": 1.0579e-07,
+  "usd": 1.08624e-07,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "APE@Ethereum": {
-  "usd": 0.142842,
+  "usd": 0.142133,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "BLAST@Ethereum": {
-  "usd": 0.0002956,
+  "usd": 0.00029578,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "JOE@Avalanche": {
-  "usd": 0.03152474,
+  "usd": 0.03221196,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "JOE_AVAX2@Avalanche": {
-  "usd": 0.03152474,
+  "usd": 0.03221196,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "MANA@Ethereum": {
-  "usd": 0.075112,
+  "usd": 0.075114,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "MANA_ETH@Ethereum": {
-  "usd": 0.075112,
+  "usd": 0.075114,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "SAND@Ethereum": {
-  "usd": 0.04000211,
+  "usd": 0.03971411,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "SAND_ETH@Ethereum": {
-  "usd": 0.04000211,
+  "usd": 0.03971411,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "AXS@Ethereum": {
-  "usd": 0.956253,
+  "usd": 0.949743,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "AXS_ETH@Ethereum": {
-  "usd": 0.956253,
+  "usd": 0.949743,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "OCEAN@Ethereum": {
-  "usd": 0.148349,
+  "usd": 0.149433,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "OCEAN_ETH@Ethereum": {
-  "usd": 0.148349,
+  "usd": 0.149433,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ETHFI@Ethereum": {
-  "usd": 0.589973,
+  "usd": 0.569816,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "sUSDe@Ethereum": {
   "usd": 1.25,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "WEETH@Ethereum": {
-  "usd": 2756.15,
+  "usd": 2747.82,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "eETH@Ethereum": {
-  "usd": 2499.31,
+  "usd": 2490.55,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "MORPHO@Ethereum": {
-  "usd": 2.55,
+  "usd": 2.58,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "LQTY@Ethereum": {
-  "usd": 0.236365,
+  "usd": 0.234628,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "DYDX@Ethereum": {
-  "usd": 0.122159,
+  "usd": 0.121491,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "WOO@Arbitrum": {
-  "usd": 0.01246193,
+  "usd": 0.01205985,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "FRXETH@Ethereum": {
-  "usd": 2492.2,
+  "usd": 2484.54,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "PNUT@Solana": {
-  "usd": 0.050926,
+  "usd": 0.050663,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "BOME@Solana": {
-  "usd": 0.00092353,
+  "usd": 0.00090503,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "TOSHI@Base": {
-  "usd": 0.00012089,
+  "usd": 0.00012867,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "PRIME@Ethereum": {
-  "usd": 0.237937,
+  "usd": 0.242447,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "MAGIC@Arbitrum": {
-  "usd": 0.04676658,
+  "usd": 0.04677142,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "GMT@BSC": {
-  "usd": 0.00748857,
+  "usd": 0.0074737,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "GMT2@BSC": {
-  "usd": 0.00748857,
+  "usd": 0.0074737,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "sfrxETH@Ethereum": {
-  "usd": 2904.2,
+  "usd": 2903.83,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "TRUMP@Solana": {
-  "usd": 2.36,
+  "usd": 2.31,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "TNSR@Solana": {
-  "usd": 0.03634181,
+  "usd": 0.0362427,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "TNSR2@Solana": {
-  "usd": 0.03634181,
+  "usd": 0.0362427,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "JUV@Ethereum": {
-  "usd": 0.319155,
+  "usd": 0.31829,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ACM@Ethereum": {
-  "usd": 0.287767,
+  "usd": 0.286952,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "CITY@Ethereum": {
-  "usd": 0.37116,
+  "usd": 0.368757,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "AGIX@Ethereum": {
-  "usd": 0.07238,
+  "usd": 0.074724,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "AGIX_ETH@Ethereum": {
-  "usd": 0.07238,
+  "usd": 0.074724,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "SUSHI@Ethereum": {
-  "usd": 0.243637,
+  "usd": 0.259053,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "W@Ethereum": {
-  "usd": 0.01009808,
+  "usd": 0.01032368,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "AXL@Ethereum": {
-  "usd": 0.0445644,
+  "usd": 0.04483513,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "FLUID@Ethereum": {
-  "usd": 1.27,
+  "usd": 1.28,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "INST@Ethereum": {
-  "usd": 1.27,
+  "usd": 1.28,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "STG@Ethereum": {
-  "usd": 0.169537,
+  "usd": 0.169393,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "BABYDOGE@BSC": {
-  "usd": 4.07448e-10,
+  "usd": 4.07293e-10,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "jitoSOL@Solana": {
-  "usd": 138.3,
+  "usd": 137.18,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "NEIRO@Ethereum": {
   "usd": 0.00699717,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "TURBO@Ethereum": {
-  "usd": 0.00101237,
+  "usd": 0.00100836,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ZEC@Zcash": {
-  "usd": 1183.39,
+  "usd": 1217.2,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "BANANA@Ethereum": {
-  "usd": 4.07,
+  "usd": 4.04,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "UNIBOT@Ethereum": {
-  "usd": 0.824114,
+  "usd": 0.822432,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "KAITO@Ethereum": {
-  "usd": 0.310752,
+  "usd": 0.314096,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "HNT@Solana": {
-  "usd": 0.585831,
+  "usd": 0.561607,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ORCA@Solana": {
-  "usd": 1.35,
+  "usd": 1.42,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "DRIFT@Solana": {
-  "usd": 0.0126246,
+  "usd": 0.01266199,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "GALA@Ethereum": {
-  "usd": 0.00189068,
+  "usd": 0.00190024,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ARKM@Ethereum": {
-  "usd": 0.107614,
+  "usd": 0.107923,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "FIL@Ethereum": {
-  "usd": 0.798779,
+  "usd": 0.79766,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "KMNO@Solana": {
-  "usd": 0.02515676,
+  "usd": 0.02503609,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "mSOL@Solana": {
-  "usd": 149.38,
+  "usd": 148.12,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "SLP@Ethereum": {
-  "usd": 0.00066819,
+  "usd": 0.0006625,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ELIZA@Solana": {
-  "usd": 0.0001604,
+  "usd": 0.00015814,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "PONKE@Solana": {
-  "usd": 0.02265853,
+  "usd": 0.02317344,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "PONKE@Base": {
-  "usd": 0.02265853,
+  "usd": 0.02317344,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "MOODENG@Solana": {
-  "usd": 0.04491073,
+  "usd": 0.04399632,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "BGB@Ethereum": {
-  "usd": 2.0,
+  "usd": 2.01,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "MUMU@Solana": {
-  "usd": 8.2035e-08,
+  "usd": 8.125e-08,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "FDUSD@BSC": {
-  "usd": 0.99879,
+  "usd": 0.998984,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "KCS@Ethereum": {
-  "usd": 7.16,
+  "usd": 7.08,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "GT@Ethereum": {
   "usd": 0.00015541,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "USUAL@Ethereum": {
-  "usd": 0.01138028,
+  "usd": 0.01181398,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "EUROC@Ethereum": {
   "usd": 1.16,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "EUROC_ETH@Ethereum": {
   "usd": 1.16,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "PIPPIN@Solana": {
-  "usd": 0.01997183,
+  "usd": 0.01974925,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "LUNC@BSC": {
-  "usd": 5.223e-05,
+  "usd": 5.152e-05,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "LUNC_BSC@BSC": {
-  "usd": 5.223e-05,
+  "usd": 5.152e-05,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "HIGHER@Base": {
-  "usd": 0.00018158,
+  "usd": 0.00018304,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "GOAT@Solana": {
-  "usd": 0.01619943,
+  "usd": 0.01585282,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "CHILLGUY@Solana": {
-  "usd": 0.01380531,
+  "usd": 0.01583738,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "PEOPLE@Ethereum": {
-  "usd": 0.00825431,
+  "usd": 0.00804269,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "STEPN@Solana": {
-  "usd": 0.00121242,
+  "usd": 0.00120579,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "NMR@Ethereum": {
-  "usd": 9.4,
+  "usd": 9.39,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "NMR_ETH@Ethereum": {
-  "usd": 9.4,
+  "usd": 9.39,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "API3@Ethereum": {
-  "usd": 0.235793,
+  "usd": 0.234234,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "TRB@Ethereum": {
-  "usd": 18.26,
+  "usd": 18.28,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "TRB_ETH@Ethereum": {
-  "usd": 18.26,
+  "usd": 18.28,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "UMA@Ethereum": {
-  "usd": 0.396681,
+  "usd": 0.393763,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "tBTC@Ethereum": {
-  "usd": 79887.0,
+  "usd": 79759.0,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "TBTC2@Arbitrum": {
-  "usd": 79887.0,
+  "usd": 79759.0,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "LPT@Ethereum": {
-  "usd": 1.46,
+  "usd": 1.43,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "GLM@Ethereum": {
-  "usd": 0.11183,
+  "usd": 0.112242,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "GLM_ETH@Ethereum": {
-  "usd": 0.11183,
+  "usd": 0.112242,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "MILADY@Ethereum": {
-  "usd": 7.191e-09,
+  "usd": 7.179e-09,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "WOJAK@Ethereum": {
-  "usd": 1.982e-05,
+  "usd": 1.964e-05,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "GRASS@Solana": {
-  "usd": 0.34608,
+  "usd": 0.340554,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ETHX@Ethereum": {
-  "usd": 2738.52,
+  "usd": 2728.24,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ILV@Ethereum": {
-  "usd": 3.24,
+  "usd": 3.27,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "GODS@Ethereum": {
-  "usd": 0.02073494,
+  "usd": 0.02071752,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "PUFFER@Ethereum": {
-  "usd": 0.01594422,
+  "usd": 0.01559982,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "SWELL@Ethereum": {
-  "usd": 0.0007588,
+  "usd": 0.00075858,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "METIS@Ethereum": {
-  "usd": 3.24,
+  "usd": 3.39,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ANKR@Ethereum": {
-  "usd": 0.00430339,
+  "usd": 0.00437689,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "TRAC@Ethereum": {
-  "usd": 0.335881,
+  "usd": 0.348686,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "BIFI@Ethereum": {
-  "usd": 54.71,
+  "usd": 56.28,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "BIFI@Polygon": {
-  "usd": 54.71,
+  "usd": 56.28,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "SYN@Ethereum": {
-  "usd": 0.089712,
+  "usd": 0.08986,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "GNS@Arbitrum": {
-  "usd": 0.496059,
+  "usd": 0.491348,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "sAVAX@Avalanche": {
-  "usd": 9.83,
+  "usd": 9.82,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "LRC@Ethereum": {
-  "usd": 0.00837027,
+  "usd": 0.00834299,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "TAIKO@Ethereum": {
-  "usd": 0.082927,
+  "usd": 0.081145,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "SCROLL@Ethereum": {
-  "usd": 0.02161443,
+  "usd": 0.02129423,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "GRAIL@Arbitrum": {
-  "usd": 43.36,
+  "usd": 43.29,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "DIA@Ethereum": {
-  "usd": 0.143529,
+  "usd": 0.143418,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "OETH@Ethereum": {
-  "usd": 2498.75,
+  "usd": 2490.9,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "QI@Avalanche": {
-  "usd": 0.00124999,
+  "usd": 0.00126661,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "STORJ@Ethereum": {
-  "usd": 0.03081694,
+  "usd": 0.03001248,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "QUICK@Polygon": {
-  "usd": 10.34,
+  "usd": 10.31,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "NOT@Ethereum": {
-  "usd": 0.00045381,
+  "usd": 0.0004591,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "MPLX@Solana": {
-  "usd": 0.03311289,
+  "usd": 0.03295692,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "MOBILE@Solana": {
-  "usd": 7.953e-05,
+  "usd": 7.795e-05,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "MNDE@Solana": {
-  "usd": 0.01984522,
+  "usd": 0.01976259,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "BAND@Ethereum": {
-  "usd": 0.19211,
+  "usd": 0.191132,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "BAND_ETH@Ethereum": {
-  "usd": 0.19211,
+  "usd": 0.191132,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "LAYER3@Ethereum": {
-  "usd": 0.00373045,
+  "usd": 0.0037173,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "XAUT@Ethereum": {
-  "usd": 4424.53,
+  "usd": 4415.39,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "DODO@Ethereum": {
-  "usd": 0.01794914,
+  "usd": 0.01792594,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "GHST@Polygon": {
-  "usd": 0.062506,
+  "usd": 0.062523,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "GHST2@Ethereum": {
-  "usd": 0.062506,
+  "usd": 0.062523,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "CLOUD@Solana": {
-  "usd": 0.02923752,
+  "usd": 0.03127668,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "MOCHI@Base": {
-  "usd": 1.19e-06,
+  "usd": 1.15e-06,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "OHM@Ethereum": {
-  "usd": 20.27,
+  "usd": 20.31,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "PIXEL@Ethereum": {
-  "usd": 0.00515965,
+  "usd": 0.00515871,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "OLAS@Ethereum": {
-  "usd": 0.02660515,
+  "usd": 0.02692204,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "FLUX@Ethereum": {
-  "usd": 0.051704,
+  "usd": 0.051206,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ACH@Ethereum": {
-  "usd": 0.00539287,
+  "usd": 0.0053418,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "AKT@Ethereum": {
-  "usd": 0.554682,
+  "usd": 0.557649,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "XVS@BSC": {
-  "usd": 3.19,
+  "usd": 3.33,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "MPL@Ethereum": {
   "usd": 0.380822,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "MANTA@Ethereum": {
-  "usd": 0.06165,
+  "usd": 0.061854,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ALT@Ethereum": {
-  "usd": 0.00645259,
+  "usd": 0.00643774,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "CELO@Ethereum": {
-  "usd": 0.08002,
+  "usd": 0.079503,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ZRC20@Ethereum": {
-  "usd": 0.03540603,
+  "usd": 0.03601746,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "IOTX@Ethereum": {
-  "usd": 0.00309025,
+  "usd": 0.00307964,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "rswETH@Ethereum": {
-  "usd": 2687.96,
+  "usd": 2682.61,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ALPACA@BSC": {
-  "usd": 0.00078577,
+  "usd": 0.00077154,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "CFG@Ethereum": {
-  "usd": 0.105642,
+  "usd": 0.105162,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "CLANKER@Base": {
   "usd": 3.48e-06,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "OG@Ethereum": {
-  "usd": 2.87,
+  "usd": 2.83,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "RARE@Ethereum": {
-  "usd": 0.01259534,
+  "usd": 0.01252458,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "CARV@Ethereum": {
-  "usd": 0.03609348,
+  "usd": 0.03613936,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "TLM@BSC": {
-  "usd": 0.00145176,
+  "usd": 0.00144926,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "TLM2@Ethereum": {
-  "usd": 0.00145176,
+  "usd": 0.00144926,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "RDNT@Arbitrum": {
-  "usd": 0.00052909,
+  "usd": 0.00052157,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ZEREBRO@Solana": {
-  "usd": 0.03889658,
+  "usd": 0.03788287,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ZEREBRO2@Ethereum": {
-  "usd": 0.03889658,
+  "usd": 0.03788287,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ARC@Solana": {
-  "usd": 0.072834,
+  "usd": 0.072918,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ELON@Ethereum": {
-  "usd": 3.29e-08,
+  "usd": 3.2324e-08,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ELON2@BSC": {
-  "usd": 3.29e-08,
+  "usd": 3.2324e-08,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "HONEY_HM@Solana": {
-  "usd": 0.00139772,
+  "usd": 0.00140541,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "HONEY_SOL@Solana": {
-  "usd": 0.00139772,
+  "usd": 0.00140541,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ATLAS@Solana": {
-  "usd": 0.00013686,
+  "usd": 0.0001352,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "INTER@Ethereum": {
-  "usd": 0.209124,
+  "usd": 0.209864,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "LAZIO@BSC": {
-  "usd": 0.392332,
+  "usd": 0.388702,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "PORTO@BSC": {
-  "usd": 0.455631,
+  "usd": 0.454126,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "MFER@Ethereum": {
-  "usd": 0.00066391,
+  "usd": 0.00074871,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "NORMIE@Base": {
   "usd": 6.7772e-11,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "NORMIE2@Ethereum": {
   "usd": 6.7772e-11,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "DEGENAI@Solana": {
   "usd": 8.707e-05,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "MX@Ethereum": {
   "usd": 1.73,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ALICE@Ethereum": {
-  "usd": 0.138404,
+  "usd": 0.138101,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "BEAM@Ethereum": {
-  "usd": 0.00158209,
+  "usd": 0.00159998,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "YGG@Ethereum": {
-  "usd": 0.02402894,
+  "usd": 0.02421859,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "MC@Ethereum": {
   "usd": 0.01777202,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "SANTOS@BSC": {
-  "usd": 0.534702,
+  "usd": 0.530234,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ALPINE@BSC": {
-  "usd": 0.358003,
+  "usd": 0.354366,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "MASK@Ethereum": {
-  "usd": 0.456764,
+  "usd": 0.468973,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "CYBER@Ethereum": {
-  "usd": 0.31175,
+  "usd": 0.313047,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "AIOZ@Ethereum": {
-  "usd": 0.058642,
+  "usd": 0.059459,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ID@BSC": {
-  "usd": 0.03296517,
+  "usd": 0.03365431,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ACT@Solana": {
-  "usd": 0.01104317,
+  "usd": 0.01095793,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "MYRO@Solana": {
-  "usd": 0.00231229,
+  "usd": 0.00229671,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "WEN@Solana": {
-  "usd": 9.76e-06,
+  "usd": 1.034e-05,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "WEN@Ethereum": {
-  "usd": 9.76e-06,
+  "usd": 1.034e-05,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ANDY@Ethereum": {
   "usd": 0.00216407,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "POOL@Ethereum": {
-  "usd": 0.03147853,
+  "usd": 0.02435842,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "TROLL@Solana": {
-  "usd": 0.057715,
+  "usd": 0.050078,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "GIGA@Solana": {
-  "usd": 0.00252392,
+  "usd": 0.0024539,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "MAGA@Ethereum": {
-  "usd": 0.03083367,
+  "usd": 0.02959352,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ACROSS@Ethereum": {
-  "usd": 0.04129274,
+  "usd": 0.04073931,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "USDM@Ethereum": {
-  "usd": 1.009,
+  "usd": 0.995082,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "agEUR@Ethereum": {
   "usd": 1.16,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "T@Ethereum": {
-  "usd": 0.0046406,
+  "usd": 0.00450097,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "HOP@Ethereum": {
   "usd": 0.00055928,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "MELANIA@Solana": {
-  "usd": 0.113296,
+  "usd": 0.11268,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "JONES@Arbitrum": {
-  "usd": 0.098085,
+  "usd": 0.097489,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "MEMECORE@Ethereum": {
-  "usd": 1.14,
+  "usd": 1.12,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "RLC@Ethereum": {
-  "usd": 0.316545,
+  "usd": 0.30974,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "RLC_ETH@Ethereum": {
-  "usd": 0.316545,
+  "usd": 0.30974,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "BADGER@Ethereum": {
-  "usd": 0.379596,
+  "usd": 0.377738,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "SPELL@Ethereum": {
-  "usd": 8.502e-05,
+  "usd": 8.523e-05,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "REQ@Ethereum": {
-  "usd": 0.055998,
+  "usd": 0.053062,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "PERP@Optimism": {
-  "usd": 0.02124351,
+  "usd": 0.0219593,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ALCX@Ethereum": {
   "usd": 2.16,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "PUNCH@Solana": {
   "usd": 3.3854e-08,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "SLERF@Solana": {
-  "usd": 0.02041753,
+  "usd": 0.02014683,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "VVAIFU@Solana": {
-  "usd": 0.00025931,
+  "usd": 0.00025552,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "HARAMBE@Solana": {
   "usd": 1.492e-05,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "FWOG@Solana": {
-  "usd": 0.00535817,
+  "usd": 0.00520701,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "KNINE@Solana": {
-  "usd": 3.00603e-07,
+  "usd": 3.09585e-07,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "WKC@Ethereum": {
-  "usd": 9.0423e-08,
+  "usd": 8.9832e-08,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "JPEG@Ethereum": {
   "usd": 4.84e-06,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "OMNI@Ethereum": {
-  "usd": 0.149151,
+  "usd": 0.150222,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "XBORG@Ethereum": {
-  "usd": 0.01592903,
+  "usd": 0.01580009,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "WILD@Ethereum": {
-  "usd": 0.01477361,
+  "usd": 0.01483925,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ASR@Ethereum": {
-  "usd": 0.888099,
+  "usd": 0.893307,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "XCAD@Ethereum": {
-  "usd": 0.0001218,
+  "usd": 0.00012341,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "HOOK@BSC": {
-  "usd": 0.00438593,
+  "usd": 0.00434822,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "AURORA@Ethereum": {
-  "usd": 0.01741347,
+  "usd": 0.01749568,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "SUPRA@Ethereum": {
-  "usd": 0.00018306,
+  "usd": 0.0001851,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "XYO@Ethereum": {
-  "usd": 0.00355235,
+  "usd": 0.0036016,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "LUMIA@Ethereum": {
-  "usd": 0.083131,
+  "usd": 0.082146,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "LOOKS@Ethereum": {
-  "usd": 0.0001225,
+  "usd": 0.00011345,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "KWENTA@Optimism": {
   "usd": 3.01,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "BSW@BSC": {
-  "usd": 0.00042449,
+  "usd": 0.00041526,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "UNFI@BSC": {
-  "usd": 0.0354997,
+  "usd": 0.03573133,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "TKO@BSC": {
-  "usd": 0.052744,
+  "usd": 0.053311,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ggAVAX@Avalanche": {
   "usd": 0.00651397,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "PYR@Ethereum": {
-  "usd": 0.02115586,
+  "usd": 0.02493091,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "MODE@Ethereum": {
-  "usd": 5.036e-05,
+  "usd": 5.116e-05,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "FUEL@Ethereum": {
-  "usd": 0.00078071,
+  "usd": 0.00078114,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "LSK@Ethereum": {
-  "usd": 0.103707,
+  "usd": 0.103231,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "PLA@Ethereum": {
-  "usd": 0.00090833,
+  "usd": 0.00090847,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "HIGH@Ethereum": {
-  "usd": 0.02958116,
+  "usd": 0.03011588,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "VOXEL@Ethereum": {
-  "usd": 0.0037339,
+  "usd": 0.00387596,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "BTRST@Ethereum": {
-  "usd": 0.058364,
+  "usd": 0.058536,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "POWR@Ethereum": {
-  "usd": 0.04910623,
+  "usd": 0.0494995,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "SUB@Ethereum": {
-  "usd": 1.046e-05,
+  "usd": 1.017e-05,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "MOBY@Arbitrum": {
   "usd": 0.00312944,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "NOTIONAL@Arbitrum": {
   "usd": 0.00637201,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "SAMO@Solana": {
-  "usd": 0.00034375,
+  "usd": 0.00035682,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "HXRO@Solana": {
-  "usd": 0.00257826,
+  "usd": 0.00256555,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "POLIS@Solana": {
-  "usd": 0.0100117,
+  "usd": 0.01007626,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "TSUKA@Ethereum": {
-  "usd": 0.00117193,
+  "usd": 0.00116577,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "IOT@Solana": {
-  "usd": 8.87e-05,
+  "usd": 8.592e-05,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "DIMO@Polygon": {
-  "usd": 0.00815274,
+  "usd": 0.00813051,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "GRIFFAIN@Solana": {
-  "usd": 0.01237384,
+  "usd": 0.0119861,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "RETARDIO@Solana": {
-  "usd": 0.0019201,
+  "usd": 0.00194151,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "AKITA@Ethereum": {
-  "usd": 4.434e-09,
+  "usd": 4.39e-09,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ANON@Base": {
   "usd": 0.00205554,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "PNG@Avalanche": {
-  "usd": 0.02415588,
+  "usd": 0.02403874,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "LUNA_AI@Solana": {
-  "usd": 0.00536217,
+  "usd": 0.00546456,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "LUNA_AI@Base": {
-  "usd": 0.00536217,
+  "usd": 0.00546456,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "BODEN@Solana": {
-  "usd": 0.00133924,
+  "usd": 0.00139712,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "BASED@Base": {
   "usd": 0.02236448,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "CULT@Ethereum": {
-  "usd": 9.34115e-07,
+  "usd": 9.31132e-07,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ANGLE@Ethereum": {
-  "usd": 0.00017378,
+  "usd": 0.00017127,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "COQ@Avalanche": {
-  "usd": 9.7768e-08,
+  "usd": 9.7104e-08,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "FREYSA@Ethereum": {
-  "usd": 0.00245275,
+  "usd": 0.00237414,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "SKI@Base": {
-  "usd": 0.00353251,
+  "usd": 0.00316661,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "MIGGLES@Base": {
-  "usd": 0.0026077,
+  "usd": 0.00254241,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "PAAL@Ethereum": {
-  "usd": 0.00578852,
+  "usd": 0.00581556,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "rsETH@Ethereum": {
-  "usd": 2637.2,
+  "usd": 2671.52,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "MENCHESTER@Ethereum": {
   "usd": 1.013,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "STEP@Solana": {
-  "usd": 0.0001324,
+  "usd": 0.00013234,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ezETH@Ethereum": {
-  "usd": 2705.19,
+  "usd": 2696.24,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "IPOR@Ethereum": {
   "usd": 0.02205754,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "SPECTRA@Ethereum": {
-  "usd": 0.00361129,
+  "usd": 0.00411997,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "MNGO@Ethereum": {
-  "usd": 0.03182168,
+  "usd": 0.03181453,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "MNGO@Solana": {
-  "usd": 0.03182168,
+  "usd": 0.03181453,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "KIMBO@Avalanche": {
-  "usd": 2.27e-06,
+  "usd": 2.25e-06,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "NATIX@Solana": {
-  "usd": 0.00011093,
+  "usd": 0.00011133,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "GEOD@Polygon": {
-  "usd": 0.226204,
+  "usd": 0.228038,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "REVV@Polygon": {
-  "usd": 8.726e-05,
+  "usd": 8.73e-05,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "LAYER@Ethereum": {
-  "usd": 1.077,
+  "usd": 1.091,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "EULER@Ethereum": {
-  "usd": 1.29,
+  "usd": 1.31,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "RAIL@Ethereum": {
-  "usd": 2.21,
+  "usd": 2.28,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "BERA@Ethereum": {
-  "usd": 0.186892,
+  "usd": 0.189732,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "KEYCAT@Base": {
-  "usd": 0.00079572,
+  "usd": 0.00076736,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "WETH_ARB@Arbitrum": {
-  "usd": 2498.79,
+  "usd": 2491.26,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "WETH_OP@Optimism": {
-  "usd": 2498.79,
+  "usd": 2491.26,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "WETH_POL@Polygon": {
-  "usd": 2498.79,
+  "usd": 2491.26,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "WETH_BSC@BSC": {
-  "usd": 2498.79,
+  "usd": 2491.26,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "WETH_AVAX@Avalanche": {
-  "usd": 2498.79,
+  "usd": 2491.26,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "2Z@Solana": {
-  "usd": 0.051718,
+  "usd": 0.051665,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ASTER@BSC": {
-  "usd": 0.780312,
+  "usd": 0.772061,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ATOM@Cosmos": {
-  "usd": 1.6,
+  "usd": 1.59,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "AUSD@Ethereum": {
-  "usd": 1.0,
+  "usd": 0.999818,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "BMX@Ethereum": {
-  "usd": 0.05487,
+  "usd": 0.054564,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "BTSE@Ethereum": {
-  "usd": 0.841707,
+  "usd": 0.820237,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "CHEEMS@BSC": {
-  "usd": 5.50375e-07,
+  "usd": 5.42659e-07,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "DEXE@Ethereum": {
-  "usd": 1.97,
+  "usd": 1.98,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "DOLA@Ethereum": {
-  "usd": 0.997547,
+  "usd": 0.997499,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "FTM@Ethereum": {
-  "usd": 0.02998418,
+  "usd": 0.02832949,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "FTT@Ethereum": {
-  "usd": 0.223319,
+  "usd": 0.220253,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "GNO@Ethereum": {
-  "usd": 118.19,
+  "usd": 116.35,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "GOMINING@Ethereum": {
-  "usd": 0.365251,
+  "usd": 0.359297,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "HEX@Ethereum": {
-  "usd": 0.00108871,
+  "usd": 0.00112131,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "INJ@Ethereum": {
-  "usd": 5.17,
+  "usd": 5.2,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "JASMY@Ethereum": {
-  "usd": 0.00430587,
+  "usd": 0.00434257,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "KTA@Base": {
-  "usd": 0.076984,
+  "usd": 0.074592,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "LEO@Ethereum": {
-  "usd": 9.34,
+  "usd": 9.33,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "LSETH@Ethereum": {
-  "usd": 2747.56,
+  "usd": 2776.93,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "NEXO@Ethereum": {
-  "usd": 0.836969,
+  "usd": 0.829445,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "NXPC@Ethereum": {
-  "usd": 0.207982,
+  "usd": 0.206881,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "QNT@Ethereum": {
-  "usd": 65.6,
+  "usd": 65.98,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "RLB@Ethereum": {
-  "usd": 0.077053,
+  "usd": 0.078611,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "RLUSD@Ethereum": {
-  "usd": 0.999965,
+  "usd": 0.99997,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "RSR@Ethereum": {
-  "usd": 0.00145988,
+  "usd": 0.00143279,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "SFP@BSC": {
-  "usd": 0.282914,
+  "usd": 0.283736,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "SHFL@Ethereum": {
-  "usd": 0.299917,
+  "usd": 0.299854,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "SKYAI@BSC": {
-  "usd": 0.058594,
+  "usd": 0.059646,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "SOSO@Base": {
-  "usd": 0.311555,
+  "usd": 0.310965,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "TEL@Polygon": {
-  "usd": 0.0017054,
+  "usd": 0.00173118,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "TIBBIR@Base": {
-  "usd": 0.244023,
+  "usd": 0.243259,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "TUSD@Ethereum": {
-  "usd": 0.999634,
+  "usd": 0.999378,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "TWT@BSC": {
-  "usd": 0.616089,
+  "usd": 0.582307,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "USDD@Ethereum": {
-  "usd": 0.998386,
+  "usd": 0.999643,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "USDG@Ethereum": {
-  "usd": 0.999954,
+  "usd": 1.0,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "VVV@Base": {
   "usd": 17.0,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "WBETH@BSC": {
-  "usd": 2755.93,
+  "usd": 2745.09,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "WBNB@BSC": {
-  "usd": 755.63,
+  "usd": 746.92,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "XCN@Ethereum": {
-  "usd": 0.00410027,
+  "usd": 0.0041709,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "XLM@Stellar": {
-  "usd": 0.186103,
+  "usd": 0.183641,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "YZY@Solana": {
-  "usd": 0.28826,
+  "usd": 0.294081,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ZBCN@Solana": {
-  "usd": 0.00190959,
+  "usd": 0.00185482,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ZIG@Ethereum": {
-  "usd": 0.050913,
+  "usd": 0.051187,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "sUSDS@Ethereum": {
   "usd": 1.11,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "WMATIC@Polygon": {
-  "usd": 0.096476,
+  "usd": 0.097245,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "MIM@Avalanche": {
-  "usd": 0.051054,
+  "usd": 0.050413,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "MIMATIC@Polygon": {
-  "usd": 0.981352,
+  "usd": 0.974013,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "TIME@Avalanche": {
   "usd": 0.01163993,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "USDTE@Avalanche": {
-  "usd": 1.0,
+  "usd": 0.999924,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "WAVAX@Avalanche": {
   "usd": 7.66,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "BTCB@BSC": {
-  "usd": 79735.0,
+  "usd": 79670.0,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "BUSD@BSC": {
-  "usd": 0.99882,
+  "usd": 0.998789,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ENJ@Ethereum": {
-  "usd": 0.02774391,
+  "usd": 0.02688096,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "FISH@Polygon": {
-  "usd": 0.00604837,
+  "usd": 0.00604901,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "MELT@Avalanche": {
   "usd": 0.00015676,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "RAI@Ethereum": {
-  "usd": 2.85,
+  "usd": 2.84,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "YAK@Avalanche": {
-  "usd": 75.3,
+  "usd": 74.92,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ZRX@Ethereum": {
-  "usd": 0.106096,
+  "usd": 0.106076,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ADA@BSC": {
-  "usd": 0.219274,
+  "usd": 0.218101,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ADDY@Polygon": {
-  "usd": 0.00969175,
+  "usd": 0.00971264,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "AMP@Ethereum": {
-  "usd": 0.00044924,
+  "usd": 0.00045204,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "BNT@Ethereum": {
-  "usd": 0.324931,
+  "usd": 0.324174,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "BOND@Ethereum": {
-  "usd": 0.00757852,
+  "usd": 0.00748434,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "DOT@BSC": {
-  "usd": 0.941311,
+  "usd": 0.959276,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "DPX@Arbitrum": {
   "usd": 6.22e-06,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "HELMET@BSC": {
-  "usd": 0.00245424,
+  "usd": 0.00242631,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "KLO@Avalanche": {
-  "usd": 1.96e-05,
+  "usd": 1.944e-05,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "LTC@BSC": {
-  "usd": 54.24,
+  "usd": 54.0,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "MBOX@BSC": {
-  "usd": 0.00070042,
+  "usd": 0.00066293,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "PEFI@Avalanche": {
-  "usd": 0.00167873,
+  "usd": 0.0016558,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "PTP@Avalanche": {
-  "usd": 5.043e-05,
+  "usd": 5.045e-05,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "REN@Ethereum": {
-  "usd": 0.00348962,
+  "usd": 0.00360373,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "RGT@Ethereum": {
   "usd": 0.02419964,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "SNOB@Avalanche": {
   "usd": 0.00029524,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "SX@Polygon": {
-  "usd": 0.02084571,
+  "usd": 0.02076476,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "SXP@BSC": {
-  "usd": 0.00293651,
+  "usd": 0.00413523,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "TUS@Avalanche": {
   "usd": 2.07e-06,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "USTC@BSC": {
-  "usd": 0.00535654,
+  "usd": 0.00539454,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "VSO@Avalanche": {
   "usd": 0.00016051,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "XAVA@Avalanche": {
-  "usd": 0.207286,
+  "usd": 0.208751,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "XRP@BSC": {
-  "usd": 1.42,
+  "usd": 1.41,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "AGA@Polygon": {
-  "usd": 0.04861412,
+  "usd": 0.04817955,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "AGAR@Polygon": {
   "usd": 10.17,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ALPHA@BSC": {
-  "usd": 0.00045571,
+  "usd": 0.00047554,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "AVE@Avalanche": {
   "usd": 5.463e-05,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "BAKE@BSC": {
-  "usd": 0.00050908,
+  "usd": 0.00041268,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "BANANA@BSC": {
-  "usd": 0.00051478,
+  "usd": 0.00051379,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "BCH@BSC": {
-  "usd": 259.95,
+  "usd": 256.17,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "BSCX@BSC": {
-  "usd": 3.4,
+  "usd": 3.37,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "BTCST@BSC": {
-  "usd": 0.00983626,
+  "usd": 0.00974997,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "BURGER@BSC": {
-  "usd": 0.00068543,
+  "usd": 0.00068123,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "CEL@Ethereum": {
-  "usd": 0.00553812,
+  "usd": 0.00521742,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "CELR@Arbitrum": {
-  "usd": 0.00229885,
+  "usd": 0.00227926,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "CRA@Avalanche": {
   "usd": 7.651e-05,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "CRAFT@Avalanche": {
   "usd": 0.00030018,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "DCAU@Avalanche": {
-  "usd": 0.17813,
+  "usd": 0.177743,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "DOGE@BSC": {
-  "usd": 0.089871,
+  "usd": 0.089346,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "DXD@Arbitrum": {
   "usd": 7.39,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "EOS@BSC": {
-  "usd": 0.160452,
+  "usd": 0.157231,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "EPS@BSC": {
-  "usd": 0.01697109,
+  "usd": 0.0167477,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "FIL@BSC": {
-  "usd": 0.797432,
+  "usd": 0.795959,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "FIRE@Avalanche": {
   "usd": 0.092916,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "FRONT@BSC": {
-  "usd": 0.01772281,
+  "usd": 0.01753997,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "FUEL@BSC": {
   "usd": 10.83,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "GOHM@Avalanche": {
-  "usd": 5511.13,
+  "usd": 5456.92,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "HERO@BSC": {
-  "usd": 0.00056336,
+  "usd": 0.00055521,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "HUSKY@Avalanche": {
-  "usd": 1.843e-09,
+  "usd": 1.819e-09,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "IGG@Polygon": {
   "usd": 1.95e-05,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "IME@Avalanche": {
   "usd": 1.58814e-07,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "KNCL@Ethereum": {
-  "usd": 0.114742,
+  "usd": 0.115402,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "LYD@Avalanche": {
-  "usd": 5.683e-05,
+  "usd": 5.651e-05,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "MATH@Arbitrum": {
-  "usd": 0.02407382,
+  "usd": 0.02342971,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "MCB@Arbitrum": {
-  "usd": 1.97,
+  "usd": 1.96,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "MUST@Polygon": {
-  "usd": 0.370235,
+  "usd": 0.369521,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "O3@BSC": {
-  "usd": 0.00088466,
+  "usd": 0.00089771,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "OM@Polygon": {
-  "usd": 0.04288352,
+  "usd": 0.04372383,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "OMG@Ethereum": {
-  "usd": 0.04733264,
+  "usd": 0.04694767,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ORN@Ethereum": {
-  "usd": 0.01449785,
+  "usd": 0.01435502,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "PREMIA@Arbitrum": {
-  "usd": 0.01006754,
+  "usd": 0.00971718,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "QI@Polygon": {
-  "usd": 0.00566694,
+  "usd": 0.00626487,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "RDPX@Arbitrum": {
   "usd": 0.692458,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "REEF@BSC": {
-  "usd": 4.756e-05,
+  "usd": 5.172e-05,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "SPORE@Avalanche": {
-  "usd": 9.44e-12,
+  "usd": 9.013e-12,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "THOR@Avalanche": {
   "usd": 0.0008683,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "TOKE@Ethereum": {
-  "usd": 0.052386,
+  "usd": 0.051916,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "VAI@BSC": {
-  "usd": 0.998532,
+  "usd": 0.998336,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "WEGLD@BSC": {
-  "usd": 4.55,
+  "usd": 4.49,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "WOLF@Polygon": {
-  "usd": 3.333e-08,
+  "usd": 3.3228e-08,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "0XBTC@Ethereum": {
-  "usd": 0.02734497,
+  "usd": 0.02665577,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ADX@Ethereum": {
-  "usd": 0.061694,
+  "usd": 0.061682,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ALEPH@Ethereum": {
-  "usd": 0.01191544,
+  "usd": 0.01188238,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "AMPL@Ethereum": {
-  "usd": 1.25,
+  "usd": 1.24,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ANY@Polygon": {
-  "usd": 0.648383,
+  "usd": 0.637403,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ARV@BSC": {
-  "usd": 1.62e-06,
+  "usd": 1.6e-06,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "AUTO@BSC": {
-  "usd": 2.28,
+  "usd": 2.49,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "AVAI@Avalanche": {
-  "usd": 0.408799,
+  "usd": 0.408741,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "AVME@Avalanche": {
   "usd": 0.00057996,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "AVXT@Avalanche": {
   "usd": 9.11e-06,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "BAC@Ethereum": {
-  "usd": 0.00110501,
+  "usd": 0.00110088,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "BDO@BSC": {
-  "usd": 0.00113536,
+  "usd": 0.00112686,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "BELT@BSC": {
-  "usd": 0.03720726,
+  "usd": 0.03677713,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "BETH@BSC": {
-  "usd": 2747.54,
+  "usd": 2738.22,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "BOOFI@Avalanche": {
   "usd": 0.00079379,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "BRY@BSC": {
   "usd": 0.01085366,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "BSCPAD@BSC": {
-  "usd": 0.00481626,
+  "usd": 0.00472938,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "BTCB@Avalanche": {
-  "usd": 79895.0,
+  "usd": 79802.0,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "BUNNY@BSC": {
-  "usd": 0.01974869,
+  "usd": 0.01958672,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "C98@BSC": {
-  "usd": 0.01496772,
+  "usd": 0.01493475,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "CAP@Arbitrum": {
   "usd": 0.0201735,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "CGG@BSC": {
-  "usd": 0.00121426,
+  "usd": 0.00120658,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "CHESS@BSC": {
-  "usd": 7.161e-05,
+  "usd": 7.129e-05,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "COOK@Avalanche": {
-  "usd": 4.485e-05,
+  "usd": 4.491e-05,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "COTI@Ethereum": {
-  "usd": 0.01702994,
+  "usd": 0.0174937,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "CREAM@Ethereum": {
-  "usd": 0.649279,
+  "usd": 0.665368,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "CTSI@Ethereum": {
-  "usd": 0.02578671,
+  "usd": 0.02559412,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "CTX@Ethereum": {
-  "usd": 0.426924,
+  "usd": 0.39208,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "CWS@BSC": {
-  "usd": 0.00493104,
+  "usd": 0.00493046,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "DEXT@Ethereum": {
-  "usd": 0.097555,
+  "usd": 0.096392,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "DOG@Arbitrum": {
-  "usd": 0.00045158,
+  "usd": 0.00044673,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "DOME@BSC": {
-  "usd": 3.04e-06,
+  "usd": 3.01e-06,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "DPI@Ethereum": {
-  "usd": 58.48,
+  "usd": 58.76,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "DYP@Avalanche": {
-  "usd": 0.0226027,
+  "usd": 0.02248437,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "EDEN@Ethereum": {
-  "usd": 0.00171644,
+  "usd": 0.00171941,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "EGG@Avalanche": {
-  "usd": 0.00021063,
+  "usd": 0.00020757,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "EZ@BSC": {
   "usd": 0.00079959,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "FARM@Ethereum": {
-  "usd": 5.88,
+  "usd": 5.89,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "FEI@Ethereum": {
-  "usd": 0.99984,
+  "usd": 0.99962,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "FINE@BSC": {
-  "usd": 0.00028893,
+  "usd": 0.00028192,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "FODL@Ethereum": {
-  "usd": 0.00031664,
+  "usd": 0.00031276,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "FUSE@Ethereum": {
-  "usd": 0.00461878,
+  "usd": 0.00461596,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "GAJ@Polygon": {
-  "usd": 0.00249776,
+  "usd": 0.00249752,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "GB@Avalanche": {
   "usd": 0.00297527,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "GUSD@Ethereum": {
-  "usd": 0.999438,
+  "usd": 0.999398,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "H2O@Avalanche": {
   "usd": 8.361e-05,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "IFARM@Polygon": {
-  "usd": 10.13,
+  "usd": 9.99,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "IOTX@BSC": {
-  "usd": 0.00307982,
+  "usd": 0.00309747,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ISA@Avalanche": {
   "usd": 1.52e-06,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "JGN@BSC": {
-  "usd": 0.00187415,
+  "usd": 0.00187079,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "KEEP@Ethereum": {
-  "usd": 0.02205801,
+  "usd": 0.02121162,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "KP3R@Ethereum": {
-  "usd": 0.964443,
+  "usd": 0.971414,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "KRILL@Polygon": {
   "usd": 0.00046336,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "KUN@BSC": {
   "usd": 0.0036514,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "LINA@BSC": {
-  "usd": 1.233e-05,
+  "usd": 1.235e-05,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "LTO@BSC": {
-  "usd": 0.00166742,
+  "usd": 0.00160219,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "MCRN@BSC": {
   "usd": 0.00403451,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "MLN@Ethereum": {
-  "usd": 1.38,
+  "usd": 1.4,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "MONA@Polygon": {
-  "usd": 13.95,
+  "usd": 13.88,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "MTA@Ethereum": {
-  "usd": 0.03162698,
+  "usd": 0.03138237,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "NRV@BSC": {
-  "usd": 0.00041725,
+  "usd": 0.00041649,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "NU@Ethereum": {
-  "usd": 0.01507222,
+  "usd": 0.01480789,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "OGN@Ethereum": {
-  "usd": 0.01877548,
+  "usd": 0.0187362,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ONT@BSC": {
-  "usd": 0.056088,
+  "usd": 0.055519,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "PERL@BSC": {
-  "usd": 0.00012517,
+  "usd": 0.0001403,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "PLOT@Polygon": {
-  "usd": 0.00355356,
+  "usd": 0.00355257,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "PNK@Ethereum": {
-  "usd": 0.00825299,
+  "usd": 0.00830404,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "POLY@Ethereum": {
-  "usd": 0.00918118,
+  "usd": 0.00932486,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "POTS@BSC": {
-  "usd": 0.00382062,
+  "usd": 0.0037847,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "RACA@BSC": {
-  "usd": 1.39e-05,
+  "usd": 1.394e-05,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "RAMP@BSC": {
-  "usd": 0.02297643,
+  "usd": 0.02179156,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "RARI@Ethereum": {
-  "usd": 0.091255,
+  "usd": 0.091844,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "RENBTC@Ethereum": {
-  "usd": 23265.0,
+  "usd": 23311.0,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "REP@Ethereum": {
-  "usd": 1.079,
+  "usd": 1.032,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ROCO@Avalanche": {
-  "usd": 0.01314941,
+  "usd": 0.01320805,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ROOK@Ethereum": {
-  "usd": 0.062465,
+  "usd": 0.062573,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ROUTE@Polygon": {
-  "usd": 0.04655614,
+  "usd": 0.04659278,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "SDT@Ethereum": {
-  "usd": 0.108563,
+  "usd": 0.10819,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "SFUND@BSC": {
-  "usd": 0.00171006,
+  "usd": 0.00167193,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "SHIBX@Avalanche": {
   "usd": 2.34e-06,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "SOS@Ethereum": {
   "usd": 2.578e-09,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "SRM@Ethereum": {
-  "usd": 0.00944173,
+  "usd": 0.00815375,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "STARL@Ethereum": {
-  "usd": 1.44032e-07,
+  "usd": 1.44066e-07,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "SUPER@Ethereum": {
-  "usd": 0.117747,
+  "usd": 0.118172,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "SUSD@Arbitrum": {
   "usd": 0.00857976,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "SWPR@Arbitrum": {
-  "usd": 0.00574691,
+  "usd": 0.0057288,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "TITAN@Polygon": {
-  "usd": 2.451e-09,
+  "usd": 2.442e-09,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "TPT@BSC": {
-  "usd": 0.00745562,
+  "usd": 0.00789165,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "TRADE@BSC": {
   "usd": 0.0006454,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "TRIBE@Ethereum": {
-  "usd": 0.384814,
+  "usd": 0.383415,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "TRU@Ethereum": {
-  "usd": 0.0009242,
+  "usd": 0.0008904,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "TRX@BSC": {
-  "usd": 0.327991,
+  "usd": 0.327647,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "TSD@Avalanche": {
-  "usd": 0.33078,
+  "usd": 0.328086,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "UBT@Ethereum": {
-  "usd": 0.0273803,
+  "usd": 0.02812246,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "UFO@Ethereum": {
-  "usd": 3.4976e-08,
+  "usd": 3.4863e-08,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "USDP@Ethereum": {
-  "usd": 1.0,
+  "usd": 1.001,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "UST@Ethereum": {
-  "usd": 0.00540023,
+  "usd": 0.00540811,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "VISION@Polygon": {
-  "usd": 0.155307,
+  "usd": 0.154993,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "VISR@Arbitrum": {
   "usd": 0.0001181,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "WET@Avalanche": {
   "usd": 0.106885,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "WEX@BSC": {
-  "usd": 6.54e-06,
+  "usd": 6.49e-06,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "XFT@Ethereum": {
-  "usd": 0.059718,
+  "usd": 0.059327,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ZIL@BSC": {
-  "usd": 0.00289768,
+  "usd": 0.00289779,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ZIL@Ethereum": {
-  "usd": 0.00289768,
+  "usd": 0.00289779,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "8PAY@BSC": {
   "usd": 0.00056539,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ABNBC@BSC": {
   "usd": 1.53,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "AELIN@Optimism": {
   "usd": 356.48,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "AETHC@Ethereum": {
   "usd": 2983.47,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "AKRO@Ethereum": {
-  "usd": 5.43e-06,
+  "usd": 5.47e-06,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ALGB@Polygon": {
   "usd": 0.0033104,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ALPA@BSC": {
-  "usd": 0.00551929,
+  "usd": 0.00530134,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "AMAAVE@Polygon": {
-  "usd": 135.29,
+  "usd": 133.41,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ANRX@Polygon": {
   "usd": 4.259e-05,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ANT@Ethereum": {
   "usd": 0.240446,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ARIA20@Polygon": {
-  "usd": 0.0100332,
+  "usd": 0.01009825,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ARPA@BSC": {
-  "usd": 0.00976445,
+  "usd": 0.00974795,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "AST@Ethereum": {
-  "usd": 0.00673294,
+  "usd": 0.00677372,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "AUC@Ethereum": {
-  "usd": 0.00037252,
+  "usd": 0.00037317,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "AUCTION@Ethereum": {
   "usd": 3.43,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "AUDIO@Ethereum": {
-  "usd": 0.01333595,
+  "usd": 0.01336179,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "AXIAL@Avalanche": {
   "usd": 4.72e-06,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "AZUKI@Polygon": {
   "usd": 0.00045764,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "BABYCAKE@BSC": {
   "usd": 6.66e-06,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "BANK@Ethereum": {
   "usd": 0.00010825,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "BAO@Ethereum": {
   "usd": 1.07308e-07,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "BEL@BSC": {
-  "usd": 0.120177,
+  "usd": 0.121241,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "BFI@BSC": {
   "usd": 0.085234,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "BICO@Ethereum": {
-  "usd": 0.02223722,
+  "usd": 0.02286676,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "BIT@Ethereum": {
-  "usd": 0.595176,
+  "usd": 0.592836,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "BLZ@Ethereum": {
-  "usd": 0.01127098,
+  "usd": 0.01115345,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "BMON@BSC": {
-  "usd": 0.001715,
+  "usd": 0.00174973,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "BONDLY@BSC": {
-  "usd": 0.0001244,
+  "usd": 0.00028273,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "BORING@BSC": {
   "usd": 5.749e-05,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "BPT@Avalanche": {
   "usd": 2.639e-05,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "BSGG@Avalanche": {
   "usd": 0.0007367,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "BTTOLD@BSC": {
-  "usd": 0.0003324,
+  "usd": 0.00032903,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "BUX@BSC": {
   "usd": 0.00124704,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "BZRX@Ethereum": {
   "usd": 0.00074243,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "CETH@Ethereum": {
-  "usd": 50.26,
+  "usd": 50.06,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "CLY@Avalanche": {
   "usd": 0.00029411,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "COMBO@Ethereum": {
   "usd": 0.0002604,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "CORE@Ethereum": {
-  "usd": 5829.84,
+  "usd": 5793.25,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "COVAL@Ethereum": {
-  "usd": 2.121e-05,
+  "usd": 2.109e-05,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "CQT@Ethereum": {
-  "usd": 8.13e-05,
+  "usd": 0.00010227,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "CUSDC@Ethereum": {
-  "usd": 0.02532645,
+  "usd": 0.02531598,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "CVC@Ethereum": {
-  "usd": 0.02148081,
+  "usd": 0.02119053,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "CVP@Ethereum": {
-  "usd": 0.00238327,
+  "usd": 0.00240653,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "CYC@BSC": {
-  "usd": 1.28,
+  "usd": 1.29,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "CYCLE@Avalanche": {
   "usd": 0.0169205,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "DDX@Ethereum": {
   "usd": 0.050049,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "DEGEN@Ethereum": {
   "usd": 3.24e-06,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "DERC@Ethereum": {
   "usd": 0.00273764,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "DEV@Ethereum": {
   "usd": 5.961e-11,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "DF@Ethereum": {
   "usd": 9.71e-05,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "DFX@Polygon": {
   "usd": 0.00050624,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "DFYN@Polygon": {
-  "usd": 0.00030135,
+  "usd": 0.00030991,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "DG@Polygon": {
   "usd": 0.099241,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "DHT@Ethereum": {
-  "usd": 0.04888482,
+  "usd": 0.04871628,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "DMT@Polygon": {
   "usd": 2.15,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "DNT@Ethereum": {
-  "usd": 0.00671415,
+  "usd": 0.00668222,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "DSLA@Polygon": {
-  "usd": 5.438e-05,
+  "usd": 5.42e-05,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "DUCK@Ethereum": {
   "usd": 0.00061866,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "DVF@Ethereum": {
   "usd": 0.544063,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ERSDL@Ethereum": {
   "usd": 3.46e-06,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ETH2X-FLI-P@Polygon": {
-  "usd": 6.25,
+  "usd": 6.23,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "EXRD@Ethereum": {
-  "usd": 0.0005946,
+  "usd": 0.00059359,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "FEED@Avalanche": {
-  "usd": 8.086e-05,
+  "usd": 7.948e-05,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "FOR@BSC": {
   "usd": 6.271e-05,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "FUN@Ethereum": {
-  "usd": 0.00629106,
+  "usd": 0.0061099,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "GAME@Polygon": {
   "usd": 0.00038661,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "GDL@Avalanche": {
   "usd": 2.165e-05,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "GFARM2@Polygon": {
   "usd": 732.79,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "GTC@Ethereum": {
-  "usd": 0.082455,
+  "usd": 0.081808,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "GUM@BSC": {
-  "usd": 0.00665436,
+  "usd": 0.00654052,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "GYEN@Ethereum": {
-  "usd": 0.00641694,
+  "usd": 0.00636565,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "HAY@BSC": {
-  "usd": 0.997786,
+  "usd": 0.997976,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "HEC@Avalanche": {
   "usd": 0.00023432,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "HEZ@Ethereum": {
-  "usd": 3.32,
+  "usd": 3.33,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "HND@Arbitrum": {
   "usd": 0.00058671,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "HON@Avalanche": {
-  "usd": 0.00134339,
+  "usd": 0.00133208,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "HOT@Ethereum": {
-  "usd": 0.00038345,
+  "usd": 0.00038108,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "HT@Ethereum": {
-  "usd": 0.118921,
+  "usd": 0.119346,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "HUSD@Ethereum": {
   "usd": 0.03745535,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ICE@Ethereum": {
-  "usd": 0.156731,
+  "usd": 0.154681,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "IF@BSC": {
-  "usd": 0.00266911,
+  "usd": 0.00266768,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "INSUR@BSC": {
   "usd": 0.00111173,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "INV@Ethereum": {
-  "usd": 9.65,
+  "usd": 9.73,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "IRIS@Polygon": {
   "usd": 0.00095314,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "IRON@Polygon": {
   "usd": 7.26e-05,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "JPYC@Polygon": {
-  "usd": 0.00964792,
+  "usd": 0.00970556,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "JRT@Ethereum": {
-  "usd": 0.00084889,
+  "usd": 0.00085036,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "KISHU@Ethereum": {
-  "usd": 1.07155e-10,
+  "usd": 1.11573e-10,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "KLIMA@Polygon": {
-  "usd": 0.00232865,
+  "usd": 0.00231982,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "KNC@Polygon": {
-  "usd": 0.117401,
+  "usd": 0.118785,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "KOM@Polygon": {
-  "usd": 0.00039985,
+  "usd": 0.00034995,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "LCX@Ethereum": {
-  "usd": 0.02414381,
+  "usd": 0.02416843,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "LEND@Ethereum": {
-  "usd": 0.111835,
+  "usd": 0.111673,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "LIEN@BSC": {
-  "usd": 0.059426,
+  "usd": 0.066592,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "LON@Ethereum": {
-  "usd": 0.198812,
+  "usd": 0.197313,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "LOST@Avalanche": {
   "usd": 0.00014524,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "LUNC@Ethereum": {
-  "usd": 9.82e-06,
+  "usd": 9.84e-06,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "LYRA@Optimism": {
-  "usd": 0.00015346,
+  "usd": 0.00015295,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "MAHA@Ethereum": {
   "usd": 0.234418,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "MARSH@BSC": {
   "usd": 0.00028578,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "MASQ@Ethereum": {
   "usd": 0.00825272,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "MDT@Ethereum": {
-  "usd": 0.01003936,
+  "usd": 0.00972429,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "MIR@Ethereum": {
-  "usd": 0.00119707,
+  "usd": 0.00176676,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "MIST@Ethereum": {
-  "usd": 0.229553,
+  "usd": 0.228761,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "MOD@Polygon": {
   "usd": 0.02251501,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "MTL@Ethereum": {
-  "usd": 0.244219,
+  "usd": 0.246099,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "MULTI@Ethereum": {
-  "usd": 0.03798208,
+  "usd": 0.03773136,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "MYST@Polygon": {
-  "usd": 0.103971,
+  "usd": 0.102334,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "NCT@Ethereum": {
-  "usd": 0.01156127,
+  "usd": 0.0115151,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "NDX@Ethereum": {
-  "usd": 0.00180362,
+  "usd": 0.00180673,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "NFTX@Ethereum": {
-  "usd": 10.93,
+  "usd": 10.96,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "NYAN@Arbitrum": {
-  "usd": 0.00142705,
+  "usd": 0.00160302,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ODDZ@BSC": {
   "usd": 0.000171,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "OMEN@Polygon": {
-  "usd": 0.00076005,
+  "usd": 0.00075874,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "OOE@Avalanche": {
-  "usd": 0.00033,
+  "usd": 0.00032997,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "OPIUM@Ethereum": {
-  "usd": 0.01013373,
+  "usd": 0.01015123,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ORBS@BSC": {
-  "usd": 0.00619311,
+  "usd": 0.00619628,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ORCA@Avalanche": {
   "usd": 7.544e-05,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "OXT@Ethereum": {
-  "usd": 0.00793345,
+  "usd": 0.00793612,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "PBTC@BSC": {
-  "usd": 66776.0,
+  "usd": 67102.0,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "PECO@Polygon": {
   "usd": 2.64,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "PICKLE@Ethereum": {
-  "usd": 0.01396069,
+  "usd": 0.01394248,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "PLU@Ethereum": {
-  "usd": 0.144463,
+  "usd": 0.146336,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "POLAR@Avalanche": {
   "usd": 3.55e-06,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "POLS@Ethereum": {
-  "usd": 0.06276,
+  "usd": 0.061606,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "POLYBUNNY@Polygon": {
   "usd": 0.00339942,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "POND@Ethereum": {
-  "usd": 0.00092004,
+  "usd": 0.00092403,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "PPDEX@Polygon": {
   "usd": 0.01317957,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "PRE@Ethereum": {
-  "usd": 0.00020287,
+  "usd": 0.00019876,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "PROM@BSC": {
-  "usd": 5.45,
+  "usd": 5.49,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "PRQ@Ethereum": {
   "usd": 0.00043075,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "PSP@Ethereum": {
-  "usd": 0.00110944,
+  "usd": 0.00094997,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "QRDO@Ethereum": {
   "usd": 9.167e-05,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "RACEX@Avalanche": {
   "usd": 1.563e-05,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "RAD@Ethereum": {
-  "usd": 0.237527,
+  "usd": 0.237294,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "RBC@Ethereum": {
-  "usd": 0.00177108,
+  "usd": 0.00177849,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "RCN@Ethereum": {
   "usd": 0.0012367,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "RENBCH@Ethereum": {
   "usd": 1354.5,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "RENZEC@Ethereum": {
   "usd": 58.34,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "RFG@BSC": {
   "usd": 4.447e-11,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "RFOX@BSC": {
-  "usd": 0.00015964,
+  "usd": 0.00016107,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "RLY@Ethereum": {
-  "usd": 1.764e-05,
+  "usd": 1.74e-05,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "RUNE@Ethereum": {
   "usd": 0.01544611,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "SAFLE@Polygon": {
   "usd": 1.82e-06,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "SBDO@BSC": {
   "usd": 2.25,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "SETH@Optimism": {
   "usd": 318.87,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "SETH2@Ethereum": {
   "usd": 2429.94,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "SFI@Ethereum": {
-  "usd": 159.96,
+  "usd": 159.23,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "SI@Ethereum": {
   "usd": 0.0036665,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "SKILL@BSC": {
-  "usd": 0.10186,
+  "usd": 0.100857,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "SKL@Ethereum": {
-  "usd": 0.00384523,
+  "usd": 0.00384831,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "SMRTR@Avalanche": {
-  "usd": 1.3136e-08,
+  "usd": 1.3589e-08,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "SNT@Ethereum": {
-  "usd": 0.00718057,
+  "usd": 0.00723513,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "SPANK@Ethereum": {
   "usd": 0.00692129,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "SPS@BSC": {
-  "usd": 0.003783,
+  "usd": 0.00373321,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "STACK@BSC": {
   "usd": 0.00203013,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "STAKE@Ethereum": {
   "usd": 0.03853148,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "STAX@BSC": {
-  "usd": 0.089456,
+  "usd": 0.088957,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "STMATIC@Polygon": {
-  "usd": 0.11111,
+  "usd": 0.111421,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "STRONG@Ethereum": {
-  "usd": 0.524414,
+  "usd": 0.523158,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "STRP@Arbitrum": {
   "usd": 0.00783226,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "SUKU@Ethereum": {
-  "usd": 0.00476624,
+  "usd": 0.00478853,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "SWAP@Ethereum": {
-  "usd": 0.04203272,
+  "usd": 0.04199978,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "SWINGBY@BSC": {
-  "usd": 1.404e-05,
+  "usd": 1.387e-05,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "TCR@Arbitrum": {
   "usd": 2.565e-05,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "THG@BSC": {
-  "usd": 0.0001409,
+  "usd": 0.00013928,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "TIME@Ethereum": {
-  "usd": 0.217693,
+  "usd": 0.201552,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "TUNDRA@Avalanche": {
   "usd": 0.050674,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "TVK@Ethereum": {
   "usd": 0.00040253,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "TXL@BSC": {
-  "usd": 0.00165597,
+  "usd": 0.00164658,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "UBXT@BSC": {
   "usd": 7.115e-05,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "VTX@Avalanche": {
   "usd": 0.00092772,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "WATCH@BSC": {
-  "usd": 0.00781023,
+  "usd": 0.00772146,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "WMEMO@Avalanche": {
   "usd": 134.8,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "WNXM@Ethereum": {
-  "usd": 63.74,
+  "usd": 63.63,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "WOM@BSC": {
-  "usd": 0.00053624,
+  "usd": 0.00053614,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "WONE@BSC": {
   "usd": 0.269074,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "WOOP@BSC": {
   "usd": 0.00065941,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "WRX@Polygon": {
-  "usd": 0.01719969,
+  "usd": 0.0184403,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "X2Y2@Ethereum": {
-  "usd": 0.00100613,
+  "usd": 0.0010031,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "XCHF@Ethereum": {
   "usd": 0.784108,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "XDEFI@Ethereum": {
   "usd": 0.00116841,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "XED@BSC": {
   "usd": 0.00088777,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "XEND@BSC": {
-  "usd": 0.00166316,
+  "usd": 0.00165282,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "XGEM@Polygon": {
   "usd": 1.584e-05,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "XMARK@BSC": {
   "usd": 0.00687065,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "XPR@Ethereum": {
-  "usd": 0.0028889,
+  "usd": 0.00284812,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "XSUSHI@Ethereum": {
-  "usd": 0.385255,
+  "usd": 0.40745,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "YAY@Avalanche": {
-  "usd": 0.00012229,
+  "usd": 0.00012275,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "YFII@Ethereum": {
-  "usd": 27.3,
+  "usd": 28.09,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "YTS@Avalanche": {
   "usd": 0.00079826,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "YUSD@Avalanche": {
-  "usd": 0.99682,
+  "usd": 0.996716,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ZOO@Avalanche": {
   "usd": 9.763e-05,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "aAVAXb@Avalanche": {
   "usd": 10.66,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "0XMR@Ethereum": {
   "usd": 0.01221725,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "2KEY@Ethereum": {
   "usd": 0.00029422,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ABAT@Ethereum": {
-  "usd": 0.071812,
+  "usd": 0.073055,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ABI@Polygon": {
   "usd": 2.32,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ABLOCK@Avalanche": {
   "usd": 0.124028,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ABYSS@Ethereum": {
-  "usd": 0.00414046,
+  "usd": 0.00411939,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ACAR@Polygon": {
   "usd": 1.83,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ACRE@Avalanche": {
   "usd": 1.075e-05,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ACS@BSC": {
   "usd": 0.138389,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ACSI@BSC": {
   "usd": 0.11922,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ADAI@Ethereum": {
-  "usd": 1.001,
+  "usd": 0.999427,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ADAI@Avalanche": {
-  "usd": 1.001,
+  "usd": 0.999427,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ADOGE@Arbitrum": {
-  "usd": 8.1142e-08,
+  "usd": 7.6429e-08,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ADS@BSC": {
-  "usd": 0.470671,
+  "usd": 0.469764,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "AERGO@Ethereum": {
-  "usd": 0.00922892,
+  "usd": 0.0092839,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "AGAC@Polygon": {
   "usd": 0.00182511,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "AGF@Avalanche": {
   "usd": 0.00019033,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "AGLD@Ethereum": {
-  "usd": 0.172624,
+  "usd": 0.171906,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "AKITAX@Avalanche": {
   "usd": 7.10012e-07,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "AKNC@Ethereum": {
-  "usd": 0.117783,
+  "usd": 0.117311,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ALBT@Avalanche": {
-  "usd": 5.573e-05,
+  "usd": 5.572e-05,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ALINK@Avalanche": {
-  "usd": 12.27,
+  "usd": 12.34,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ALINK@Ethereum": {
-  "usd": 12.27,
+  "usd": 12.34,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ALU@BSC": {
-  "usd": 0.00603079,
+  "usd": 0.00582946,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ALUSD@Ethereum": {
-  "usd": 0.953413,
+  "usd": 0.955057,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "AMANA@Ethereum": {
-  "usd": 0.074831,
+  "usd": 0.076055,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "AMATICC@Polygon": {
   "usd": 0.109417,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "AMDAI@Polygon": {
-  "usd": 0.999451,
+  "usd": 0.999619,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "AMKR@Ethereum": {
-  "usd": 1641.13,
+  "usd": 1634.7,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "AMUSDC@Polygon": {
-  "usd": 0.999613,
+  "usd": 0.999836,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "AMUSDT@Polygon": {
-  "usd": 0.999773,
+  "usd": 0.999905,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "AMWBTC@Polygon": {
-  "usd": 79330.0,
+  "usd": 79817.0,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "AMWETH@Polygon": {
-  "usd": 2499.79,
+  "usd": 2489.99,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "AMWMATIC@Polygon": {
-  "usd": 0.096007,
+  "usd": 0.096613,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ANN@BSC": {
   "usd": 0.00350338,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "AOG@BSC": {
-  "usd": 0.00053199,
+  "usd": 0.00053227,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "APEIN@Avalanche": {
   "usd": 0.0339604,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "APW@Ethereum": {
   "usd": 0.01979195,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "APX@BSC": {
-  "usd": 0.217466,
+  "usd": 0.218096,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ARBIS@Arbitrum": {
   "usd": 1.07e-06,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ARBYS@Arbitrum": {
   "usd": 0.155641,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ARCH@Ethereum": {
   "usd": 0.01205416,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ARCX@Ethereum": {
   "usd": 0.07109,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ARMOR@Ethereum": {
   "usd": 0.00021405,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ARNXM@Ethereum": {
   "usd": 52.61,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ASKO@Ethereum": {
   "usd": 2.1957e-07,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ASNX@Ethereum": {
-  "usd": 0.224898,
+  "usd": 0.228909,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ASUSD@Ethereum": {
-  "usd": 0.394137,
+  "usd": 0.392593,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ATA@BSC": {
-  "usd": 0.00066474,
+  "usd": 0.00065347,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ATIS@Ethereum": {
   "usd": 0.0035623,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ATUSD@Ethereum": {
-  "usd": 1.001,
+  "usd": 0.999189,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "AURUM@Polygon": {
-  "usd": 7.903e-05,
+  "usd": 7.859e-05,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "AUSDC@Avalanche": {
-  "usd": 1.001,
+  "usd": 0.999571,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "AUSDC@Ethereum": {
-  "usd": 1.001,
+  "usd": 0.999571,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "AUSDT@Ethereum": {
-  "usd": 1.002,
+  "usd": 0.999668,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "AUSDT@Avalanche": {
-  "usd": 1.002,
+  "usd": 0.999668,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "AWBTC@Ethereum": {
-  "usd": 80351.0,
+  "usd": 80036.0,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "AWBTC@Avalanche": {
-  "usd": 80351.0,
+  "usd": 80036.0,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "AWETH@Avalanche": {
-  "usd": 2499.79,
+  "usd": 2489.99,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "AZRX@Ethereum": {
-  "usd": 0.105098,
+  "usd": 0.106063,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "BASE@Ethereum": {
-  "usd": 1.92,
+  "usd": 1.97,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "BASK@Ethereum": {
   "usd": 0.195031,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "BBTC@Ethereum": {
-  "usd": 79925.0,
+  "usd": 79762.0,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "BCDT@Ethereum": {
   "usd": 0.0118356,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "BCMC@Polygon": {
   "usd": 0.00025183,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "BCOIN@BSC": {
-  "usd": 0.01481684,
+  "usd": 0.01468098,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "BCT@Polygon": {
-  "usd": 0.00106465,
+  "usd": 0.00106286,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "BEPRO@Ethereum": {
-  "usd": 6.429e-05,
+  "usd": 6.475e-05,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "BETA@BSC": {
-  "usd": 0.00585482,
+  "usd": 0.00122923,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "SUI@Ethereum": {
-  "usd": 0.799739,
+  "usd": 0.795634,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "NEAR@Ethereum": {
-  "usd": 2.39,
+  "usd": 2.42,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "TAO@Ethereum": {
-  "usd": 236.21,
+  "usd": 266.94,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "APT@Ethereum": {
-  "usd": 0.62451,
+  "usd": 0.615797,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "THETA@Ethereum": {
-  "usd": 0.180459,
+  "usd": 0.183598,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ALGO@Ethereum": {
-  "usd": 0.095057,
+  "usd": 0.094747,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ICP@Ethereum": {
-  "usd": 2.69,
+  "usd": 2.67,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "VET@Ethereum": {
-  "usd": 0.00694763,
+  "usd": 0.00703797,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ZEN@Ethereum": {
-  "usd": 7.28,
+  "usd": 7.37,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "XTZ@Ethereum": {
-  "usd": 0.237297,
+  "usd": 0.237992,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "MINA@Ethereum": {
-  "usd": 0.074853,
+  "usd": 0.077253,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "FLOW@Ethereum": {
-  "usd": 0.0292995,
+  "usd": 0.02943283,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "KAVA@Ethereum": {
-  "usd": 0.052276,
+  "usd": 0.052894,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ONE@Ethereum": {
-  "usd": 0.00074762,
+  "usd": 0.00073896,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "HBAR@Ethereum": {
-  "usd": 0.081405,
+  "usd": 0.080508,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "XDC@Ethereum": {
-  "usd": 0.02800455,
+  "usd": 0.02795992,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "DASH@Ethereum": {
-  "usd": 69.29,
+  "usd": 70.86,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "BTT@BSC": {
-  "usd": 3.00569e-07,
+  "usd": 3.0366e-07,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "WIN@BSC": {
-  "usd": 3.533e-05,
+  "usd": 3.58e-05,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "CKB@Ethereum": {
-  "usd": 0.00110768,
+  "usd": 0.00111367,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "STEEM@Ethereum": {
-  "usd": 0.04593527,
+  "usd": 0.04577282,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "KSM@Ethereum": {
-  "usd": 3.79,
+  "usd": 3.84,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ICX@Ethereum": {
-  "usd": 0.01456575,
+  "usd": 0.01422115,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "KEKEC@Ethereum": {
-  "usd": 1.98e-05,
+  "usd": 1.971e-05,
   "source": "CoinGecko",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "GALXE@BSC": {
   "usd": 0.3212,
   "source": "DexScreener",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "IO@Solana": {
-  "usd": 0.133,
+  "usd": 0.1398,
   "source": "DexScreener",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "BOLD@Ethereum": {
   "usd": 0.9997,
   "source": "DexScreener",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "GEARBOX@Ethereum": {
-  "usd": 0.0004027,
+  "usd": 0.0003883,
   "source": "DexScreener",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "USD0@Ethereum": {
   "usd": 0.9681,
   "source": "DexScreener",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "AIXBT@Base": {
-  "usd": 0.02195,
+  "usd": 0.02184,
   "source": "DexScreener",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "SWEAT@Ethereum": {
-  "usd": 0.0003329,
+  "usd": 0.0003325,
   "source": "DexScreener",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "ATM@BSC": {
-  "usd": 0.06704,
+  "usd": 0.06707,
   "source": "DexScreener",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "TYBG@Base": {
-  "usd": 1.364e-05,
+  "usd": 1.325e-05,
   "source": "DexScreener",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "BUILD@Base": {
-  "usd": 2.746e-07,
+  "usd": 2.738e-07,
   "source": "DexScreener",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "INDEX@Ethereum": {
-  "usd": 0.2599,
+  "usd": 0.2593,
   "source": "DexScreener",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "LISUSD@BSC": {
-  "usd": 7.547e-06,
+  "usd": 7.548e-06,
   "source": "DexScreener",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "PROM@Ethereum": {
-  "usd": 5.11,
+  "usd": 5.37,
   "source": "DexScreener",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "TREMP@Solana": {
-  "usd": 0.004125,
+  "usd": 0.004197,
   "source": "DexScreener",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "GNON@Solana": {
-  "usd": 0.000148,
+  "usd": 0.00015,
   "source": "DexScreener",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "SIGMA@Solana": {
-  "usd": 0.001583,
+  "usd": 0.001563,
   "source": "DexScreener",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "PRISMA@Ethereum": {
-  "usd": 0.006572,
+  "usd": 0.006433,
   "source": "DexScreener",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "SIREN@BSC": {
-  "usd": 0.02806,
+  "usd": 0.02817,
   "source": "DexScreener",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "WLFI@Ethereum": {
   "usd": 0.02742,
   "source": "DexScreener",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "XOR@Ethereum": {
   "usd": 7.568e-36,
   "source": "DexScreener",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "TRUTH@Solana": {
-  "usd": 3.835e-05,
+  "usd": 3.849e-05,
   "source": "DexScreener_search",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "SYRUP@Ethereum": {
   "usd": 0.3095,
   "source": "DexScreener_search",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "TigerOG@Base": {
-  "usd": 9.673e-19,
+  "usd": 9.553e-19,
   "source": "DexScreener",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "LionOG@Base": {
-  "usd": 1.033e-19,
+  "usd": 1.02e-19,
   "source": "DexScreener",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "FrogOG@Base": {
-  "usd": 8.604e-20,
+  "usd": 8.496e-20,
   "source": "DexScreener",
-  "ts": "2026-09-06T10:03:14Z"
+  "ts": "2026-09-06T19:50:45Z"
  },
  "sUSD@Ethereum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-06T10:03:14Z",
+  "ts": "2026-09-06T19:50:45Z",
   "error": "no price source resolved"
  }
 }
