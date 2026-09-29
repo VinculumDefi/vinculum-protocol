@@ -1,5212 +1,5209 @@
 {
  "USDC@Ethereum": {
-  "usd": 1.00036,
+  "usd": 1.0004,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
+ },
+ "USDT@Ethereum": {
+  "usd": 0.07545,
+  "source": "DexScreener",
+  "ts": "2026-09-29T21:44:15Z"
  },
  "WBTC@Ethereum": {
-  "usd": 84309.67,
+  "usd": 83202.37,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "LINK@Ethereum": {
-  "usd": 15.43,
+  "usd": 14.64,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "stETH@Ethereum": {
-  "usd": 2713.78,
+  "usd": 2686.29,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "DAI@Ethereum": {
-  "usd": 1.0002,
+  "usd": 1.00046,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "USDC_ARB@Arbitrum": {
-  "usd": 2733.85,
+  "usd": 2678.57,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "UNI@Ethereum": {
-  "usd": 7819347.22,
+  "usd": 8115028.92,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "AAVE@Ethereum": {
-  "usd": 142513374.38,
+  "usd": 143583694.46,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "LDO@Ethereum": {
-  "usd": 0.472,
+  "usd": 0.4697,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "USDC_SOL@Solana": {
-  "usd": 0.00558,
+  "usd": 0.005777,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "SHIB@Ethereum": {
-  "usd": 5.84e-06,
+  "usd": 5.758e-06,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "USDT_ARB@Arbitrum": {
   "usd": 1.17,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "PEPE@Ethereum": {
-  "usd": 4.295e-06,
+  "usd": 4.249e-06,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "ARB@Arbitrum": {
-  "usd": 0.2139,
+  "usd": 0.2055,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "AVAX@Avalanche": {
-  "usd": 11.77,
+  "usd": 11.4,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "wstETH@Ethereum": {
-  "usd": 3401.72,
+  "usd": 3336.32,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "CBETH@Base": {
-  "usd": 3116.63,
+  "usd": 3055.071,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "OP@Optimism": {
-  "usd": 0.135,
+  "usd": 0.13,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "SKY@Ethereum": {
-  "usd": 1.00078,
+  "usd": 0.9998,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "CBBTC@Base": {
-  "usd": 84149.79,
+  "usd": 83311.92,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "USDS@Ethereum": {
-  "usd": 1.00056,
+  "usd": 1.00055,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "BONK@Solana": {
-  "usd": 3.682e-06,
+  "usd": 3.618e-06,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "PENGU@Solana": {
-  "usd": 0.009836,
+  "usd": 0.009883,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "MKR@Ethereum": {
-  "usd": 1912.9,
+  "usd": 1892.68,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "WIF@Solana": {
-  "usd": 0.2411,
+  "usd": 0.2402,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "AERO@Base": {
-  "usd": 0.8303,
+  "usd": 0.8138,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "GRT@Ethereum": {
-  "usd": 0.03075,
+  "usd": 0.02943,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "ENS@Ethereum": {
-  "usd": 6.98,
+  "usd": 7.08,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "PAXG@Ethereum": {
-  "usd": 4178.56,
+  "usd": 4176.83,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "WBTC_ARB@Arbitrum": {
-  "usd": 84450.77,
+  "usd": 83406.48,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "USDC_OP@Optimism": {
-  "usd": 0.8883,
+  "usd": 0.8852,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "USDC_POL@Polygon": {
-  "usd": 1.00035,
+  "usd": 1.00032,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "USDC_BSC@BSC": {
-  "usd": 1.83,
+  "usd": 1.79,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "USDC_AVAX@Avalanche": {
   "usd": 0.9995,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "LINK_ARB@Arbitrum": {
-  "usd": 15.3,
+  "usd": 15.25,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "DAI_ARB@Arbitrum": {
-  "usd": 0.8272,
+  "usd": 0.8168,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "cbBTC@Base": {
-  "usd": 84149.79,
+  "usd": 83311.92,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "IMX@Ethereum": {
-  "usd": 0.1683,
+  "usd": 0.1641,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "PENDLE@Ethereum": {
-  "usd": 2.39,
+  "usd": 2.36,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "EIGEN@Ethereum": {
-  "usd": 0.267,
+  "usd": 0.2545,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "USDT_POL@Polygon": {
-  "usd": 0.0001554,
+  "usd": 0.0001581,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "USDT_BSC@BSC": {
-  "usd": 6.36,
+  "usd": 6.35,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "GMX@Arbitrum": {
-  "usd": 7.98,
+  "usd": 7.85,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "MATIC@Ethereum": {
-  "usd": 0.1185,
+  "usd": 0.1176,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "RNDR@Ethereum": {
-  "usd": 1.99,
+  "usd": 1.92,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "SNX@Ethereum": {
   "usd": 212456.076,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "CRV@Ethereum": {
   "usd": 341868.14,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "1INCH@Ethereum": {
-  "usd": 0.1039,
+  "usd": 0.1022,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "RPL@Ethereum": {
-  "usd": 2.024,
+  "usd": 1.98,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "rETH@Ethereum": {
-  "usd": 2958.3,
+  "usd": 2921.38,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "ENA@Ethereum": {
-  "usd": 0.2543,
+  "usd": 0.2497,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "CAKE@BSC": {
-  "usd": 2.6,
+  "usd": 2.55,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "CHZ@Ethereum": {
   "usd": 0.01644,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "FET@Ethereum": {
-  "usd": 0.2345,
+  "usd": 0.2277,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "USDe@Ethereum": {
   "usd": 0.9999,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "ONDO@Ethereum": {
-  "usd": 0.5237,
+  "usd": 0.5065,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "OKB@Ethereum": {
   "usd": 118.55,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "GHO@Ethereum": {
   "usd": 0.9999,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "COMP@Ethereum": {
-  "usd": 25.088,
+  "usd": 25.42,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "FLOKI@Ethereum": {
-  "usd": 2.756e-05,
+  "usd": 2.742e-05,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "PYTH@Solana": {
-  "usd": 0.08009,
+  "usd": 0.07953,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "VIRTUAL@Base": {
-  "usd": 0.8238,
+  "usd": 0.7728,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "BLUR@Ethereum": {
   "usd": 0.01948,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "BRETT@Base": {
-  "usd": 0.005678,
+  "usd": 0.005641,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "BAR@Ethereum": {
-  "usd": 0.0055,
+  "usd": 0.00525,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "JTO@Solana": {
-  "usd": 0.5683,
+  "usd": 0.5555,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "JUP@Solana": {
-  "usd": 0.3336,
+  "usd": 0.327,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "RAY@Solana": {
-  "usd": 1.94,
+  "usd": 1.86,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "PYUSD@Ethereum": {
-  "usd": 1.00056,
+  "usd": 1.00055,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "AAVE_ARB@Arbitrum": {
-  "usd": 170.35,
+  "usd": 165.43,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "AAVE_OP@Optimism": {
-  "usd": 170.42,
+  "usd": 163.85,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "AAVE_POL@Polygon": {
-  "usd": 171.72,
+  "usd": 166.58,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "UNI_ARB@Arbitrum": {
-  "usd": 9.011,
+  "usd": 0.8154,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "UNI_OP@Optimism": {
-  "usd": 9.16,
+  "usd": 8.94,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "WBTC_OP@Optimism": {
-  "usd": 84051.55,
+  "usd": 82237.64,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "WBTC_POL@Polygon": {
-  "usd": 84229.4,
+  "usd": 83588.14,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "DAI_OP@Optimism": {
-  "usd": 2727.98,
+  "usd": 2685.96,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "DAI_POL@Polygon": {
-  "usd": 0.2554,
+  "usd": 0.2536,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "LINK_POL@Polygon": {
-  "usd": 15.39,
+  "usd": 14.71,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "LINK_BSC@BSC": {
-  "usd": 15.41,
+  "usd": 14.67,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "LINK_AVAX@Avalanche": {
-  "usd": 15.36,
+  "usd": 14.79,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "AAVE_AVAX@Avalanche": {
-  "usd": 171.14,
+  "usd": 165.26,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "BAL@Ethereum": {
-  "usd": 0.1401,
+  "usd": 0.135,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "DAI_BSC@BSC": {
   "usd": 2.0075,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "SPX@Ethereum": {
-  "usd": 0.4172,
+  "usd": 0.4162,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "WLD@Ethereum": {
-  "usd": 0.5036,
+  "usd": 0.4926,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "DEGEN@Base": {
-  "usd": 0.001089,
+  "usd": 0.001081,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "BAT@Ethereum": {
-  "usd": 0.09099,
+  "usd": 0.09074,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "LUSD@Ethereum": {
-  "usd": 1.0068,
+  "usd": 1.0058,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "PENDLE_ARB@Arbitrum": {
-  "usd": 2.42,
+  "usd": 2.34,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "POPCAT@Solana": {
-  "usd": 0.05413,
+  "usd": 0.05292,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "FARTCOIN@Solana": {
-  "usd": 0.1791,
+  "usd": 0.181,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "MEW@Solana": {
-  "usd": 0.0004865,
+  "usd": 0.0004748,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "COW@Ethereum": {
-  "usd": 0.1631,
+  "usd": 0.1613,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "MNT@Ethereum": {
-  "usd": 0.668,
+  "usd": 0.6651,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "STRK@Ethereum": {
-  "usd": 0.044,
+  "usd": 0.04209,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "CRO@Ethereum": {
-  "usd": 58011.022,
+  "usd": 66153.0057,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "VELO@Optimism": {
-  "usd": 0.03882,
+  "usd": 0.0378,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "POL@Ethereum": {
-  "usd": 0.1185,
+  "usd": 0.1173,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "YFI@Ethereum": {
-  "usd": 2455.62,
+  "usd": 2425.25,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "FXS@Ethereum": {
-  "usd": 0.3094,
+  "usd": 0.3024,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "FRAX@Ethereum": {
   "usd": 0.9999,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "CRVUSD@Ethereum": {
   "usd": 82885.31,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "USDT_OP@Optimism": {
-  "usd": 1.00014,
+  "usd": 1.00012,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "CVX@Ethereum": {
-  "usd": 2.3,
+  "usd": 2.21,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "USDT_AVAX@Avalanche": {
   "usd": 0.9996,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "ai16Z@Solana": {
-  "usd": 0.0004678,
+  "usd": 0.0004555,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "MOG@Ethereum": {
-  "usd": 1.223e-07,
+  "usd": 1.18e-07,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "APE@Ethereum": {
-  "usd": 0.1526,
+  "usd": 0.15,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "JOE@Avalanche": {
-  "usd": 0.04025,
+  "usd": 0.03923,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "MANA@Ethereum": {
-  "usd": 0.09082,
+  "usd": 0.0891,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "SAND@Ethereum": {
-  "usd": 0.04332,
+  "usd": 0.04368,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "AXS@Ethereum": {
-  "usd": 1.18,
+  "usd": 1.14,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "OCEAN@Ethereum": {
-  "usd": 0.1613,
+  "usd": 0.1598,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "ETHFI@Ethereum": {
-  "usd": 0.7543,
+  "usd": 0.7728,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "sUSDe@Ethereum": {
-  "usd": 1.25,
+  "usd": 1.24,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "WEETH@Ethereum": {
   "usd": 2941.94,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "eETH@Ethereum": {
-  "usd": 2706.07,
+  "usd": 2676.94,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "MORPHO@Ethereum": {
-  "usd": 2.58,
+  "usd": 2.46,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "LQTY@Ethereum": {
-  "usd": 0.2394,
+  "usd": 0.2329,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "DYDX@Ethereum": {
-  "usd": 0.0256,
+  "usd": 0.02371,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
+ },
+ "WOO@Arbitrum": {
+  "usd": 0.01262,
+  "source": "DexScreener",
+  "ts": "2026-09-29T21:44:15Z"
  },
  "FRXETH@Ethereum": {
-  "usd": 2709.65,
+  "usd": 2669.57,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "SNS@Optimism": {
-  "usd": 0.2585,
+  "usd": 0.2571,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "PNUT@Solana": {
-  "usd": 0.05388,
+  "usd": 0.05291,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "BOME@Solana": {
-  "usd": 0.0009976,
+  "usd": 0.0009955,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "TOSHI@Base": {
-  "usd": 0.0001233,
+  "usd": 0.0001213,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "PRIME@Ethereum": {
-  "usd": 0.2446,
+  "usd": 0.2434,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "MAGIC@Arbitrum": {
-  "usd": 0.05343,
+  "usd": 0.05138,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "GMT@BSC": {
-  "usd": 0.008621,
+  "usd": 0.008505,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "sfrxETH@Ethereum": {
-  "usd": 3129.89,
+  "usd": 3178.77,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "TRUMP@Solana": {
-  "usd": 2.032,
+  "usd": 2.035,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "TNSR@Solana": {
-  "usd": 0.04064,
+  "usd": 0.03924,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "ACM@Ethereum": {
-  "usd": 1912.9,
+  "usd": 1892.68,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "SUSHI@Ethereum": {
-  "usd": 0.2699,
+  "usd": 0.2658,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "W@Ethereum": {
-  "usd": 0.01457,
+  "usd": 0.01379,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "AXL@Ethereum": {
-  "usd": 0.05183,
+  "usd": 0.05251,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "FLUID@Ethereum": {
-  "usd": 1.53,
+  "usd": 1.47,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "STG@Ethereum": {
-  "usd": 0.1339,
+  "usd": 0.1364,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "DAI_AVAX@Avalanche": {
-  "usd": 11.8,
+  "usd": 11.39,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "PYUSD_ETH@Ethereum": {
-  "usd": 1.00056,
+  "usd": 1.00055,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "BABYDOGE@BSC": {
-  "usd": 4.228e-10,
+  "usd": 4.136e-10,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "jitoSOL@Solana": {
-  "usd": 156.51,
+  "usd": 154.65,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "NEIRO@Ethereum": {
   "usd": 0.0002357,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "TURBO@Ethereum": {
-  "usd": 0.001019,
+  "usd": 0.001011,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "BANANA@Ethereum": {
-  "usd": 4.1,
+  "usd": 4.045,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "UNIBOT@Ethereum": {
-  "usd": 0.8222,
+  "usd": 0.8289,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "HNT@Solana": {
-  "usd": 0.487,
+  "usd": 0.4737,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "ORCA@Solana": {
-  "usd": 1.65,
+  "usd": 1.6,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "DRIFT@Solana": {
-  "usd": 0.02046,
+  "usd": 0.01978,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
+ },
+ "GALA@Ethereum": {
+  "usd": 4.222e-05,
+  "source": "DexScreener",
+  "ts": "2026-09-29T21:44:15Z"
  },
  "ARKM@Ethereum": {
-  "usd": 0.1319,
+  "usd": 0.129,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "KMNO@Solana": {
-  "usd": 0.04404,
+  "usd": 0.04378,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "mSOL@Solana": {
-  "usd": 169.096,
+  "usd": 167.015,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "SLP@Ethereum": {
-  "usd": 0.0006653,
+  "usd": 0.0006547,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "ELIZA@Solana": {
-  "usd": 0.0001608,
+  "usd": 0.0001624,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "PONKE@Solana": {
-  "usd": 0.02429,
+  "usd": 0.02398,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "MOODENG@Solana": {
-  "usd": 0.0472,
+  "usd": 0.04683,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "BGB@Ethereum": {
-  "usd": 1.99,
+  "usd": 1.97,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "MUMU@Solana": {
-  "usd": 7.417e-08,
+  "usd": 7.365e-08,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "FDUSD@BSC": {
-  "usd": 0.9987,
+  "usd": 0.9985,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "GALXE@BSC": {
-  "usd": 0.5765,
+  "usd": 0.5764,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "KCS@Ethereum": {
-  "usd": 7.49,
+  "usd": 7.47,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "USUAL@Ethereum": {
-  "usd": 0.01432,
+  "usd": 0.01369,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "EUROC@Ethereum": {
   "usd": 1.13,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "UNI_POL@Polygon": {
-  "usd": 9.16,
+  "usd": 8.99,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "PIPPIN@Solana": {
-  "usd": 0.0179,
+  "usd": 0.01802,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "LUNC@BSC": {
-  "usd": 6.111e-06,
+  "usd": 5.966e-06,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "HIGHER@Base": {
-  "usd": 0.0002046,
+  "usd": 0.0002004,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "LINK_OP@Optimism": {
-  "usd": 15.3,
+  "usd": 14.52,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "GOAT@Solana": {
-  "usd": 0.01958,
+  "usd": 0.0191,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "CHILLGUY@Solana": {
-  "usd": 0.0135,
+  "usd": 0.01337,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "PEOPLE@Ethereum": {
-  "usd": 0.009353,
+  "usd": 0.009383,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "IO@Solana": {
-  "usd": 0.1654,
+  "usd": 0.1577,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "STEPN@Solana": {
-  "usd": 0.001135,
+  "usd": 0.00112,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "NMR@Ethereum": {
-  "usd": 12.56,
+  "usd": 12.6,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "API3@Ethereum": {
-  "usd": 0.2806,
+  "usd": 0.2846,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "TRB@Ethereum": {
-  "usd": 19.56,
+  "usd": 20.06,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "UMA@Ethereum": {
-  "usd": 0.4124,
+  "usd": 0.4084,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "tBTC@Ethereum": {
-  "usd": 82818.65,
+  "usd": 82807.45,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "LPT@Ethereum": {
-  "usd": 1.71,
+  "usd": 1.69,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "GLM@Ethereum": {
-  "usd": 0.1258,
+  "usd": 0.1276,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "MILADY@Ethereum": {
-  "usd": 7.641e-09,
+  "usd": 7.501e-09,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "WOJAK@Ethereum": {
-  "usd": 2.217e-05,
+  "usd": 2.194e-05,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "GRASS@Solana": {
-  "usd": 0.6939,
+  "usd": 0.7463,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "ETHX@Ethereum": {
-  "usd": 2972.9,
+  "usd": 2930.3,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "ILV@Ethereum": {
-  "usd": 4.013,
+  "usd": 3.85,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "GODS@Ethereum": {
-  "usd": 0.02609,
+  "usd": 0.02492,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "PUFFER@Ethereum": {
-  "usd": 0.02689,
+  "usd": 0.026,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "SWELL@Ethereum": {
-  "usd": 0.0008088,
+  "usd": 0.000834,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "METIS@Ethereum": {
-  "usd": 3.5,
+  "usd": 3.42,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "ANKR@Ethereum": {
-  "usd": 0.004872,
+  "usd": 0.004893,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "TRAC@Ethereum": {
-  "usd": 0.3749,
+  "usd": 0.3785,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "BIFI@Ethereum": {
-  "usd": 71.67,
+  "usd": 72.67,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "SYN@Ethereum": {
   "usd": 0.1964,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "GNS@Arbitrum": {
-  "usd": 0.4796,
+  "usd": 0.4775,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "sAVAX@Avalanche": {
-  "usd": 14.98,
+  "usd": 14.32,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "BOLD@Ethereum": {
-  "usd": 0.9971,
+  "usd": 0.9968,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "LRC@Ethereum": {
-  "usd": 0.01014,
+  "usd": 0.009974,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "TAIKO@Ethereum": {
-  "usd": 0.08565,
+  "usd": 0.08669,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "GRAIL@Arbitrum": {
-  "usd": 0.4668,
+  "usd": 0.4697,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "DIA@Ethereum": {
-  "usd": 0.1647,
+  "usd": 0.1618,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "OETH@Ethereum": {
-  "usd": 2711.96,
+  "usd": 2683.28,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "GEARBOX@Ethereum": {
-  "usd": 0.0007288,
+  "usd": 0.0007192,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "QI@Avalanche": {
-  "usd": 0.003109,
+  "usd": 0.003057,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "STORJ@Ethereum": {
-  "usd": 0.03061,
+  "usd": 0.03029,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "QUICK@Polygon": {
-  "usd": 13.73,
+  "usd": 13.64,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "PENDLE_B@Base": {
-  "usd": 2.41,
+  "usd": 2.31,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "GMT2@BSC": {
-  "usd": 0.008621,
+  "usd": 0.008505,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "FLOKI2@BSC": {
-  "usd": 2.759e-05,
+  "usd": 2.746e-05,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "MPLX@Solana": {
-  "usd": 0.05561,
+  "usd": 0.05606,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "MOBILE@Solana": {
-  "usd": 7.223e-05,
+  "usd": 7.206e-05,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "MNDE@Solana": {
-  "usd": 0.02665,
+  "usd": 0.02649,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "BAND@Ethereum": {
-  "usd": 0.2181,
+  "usd": 0.2198,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "LAYER3@Ethereum": {
-  "usd": 0.003052,
+  "usd": 0.00301,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "XAUT@Ethereum": {
-  "usd": 4160.039,
+  "usd": 4182.75,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "DODO@Ethereum": {
-  "usd": 0.01845,
+  "usd": 0.01834,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "GHST@Polygon": {
-  "usd": 0.06666,
+  "usd": 0.06718,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "CLOUD@Solana": {
-  "usd": 0.07087,
+  "usd": 0.07333,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "MOCHI@Base": {
-  "usd": 9.402e-07,
+  "usd": 9.374e-07,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "OHM@Ethereum": {
   "usd": 1.11,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
+ },
+ "PIXEL@Ethereum": {
+  "usd": 0.005832,
+  "source": "DexScreener",
+  "ts": "2026-09-29T21:44:15Z"
  },
  "OLAS@Ethereum": {
-  "usd": 0.0495,
+  "usd": 0.05034,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "ACH@Ethereum": {
-  "usd": 0.006085,
+  "usd": 0.006125,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "XVS@BSC": {
-  "usd": 3.3,
+  "usd": 3.38,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "ALT@Ethereum": {
-  "usd": 0.007687,
+  "usd": 0.00766,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "ZRC20@Ethereum": {
-  "usd": 0.05396,
+  "usd": 0.05175,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "IOTX@Ethereum": {
   "usd": 0.002569,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "rswETH@Ethereum": {
   "usd": 27135384.29,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "USD0@Ethereum": {
-  "usd": 0.9758,
+  "usd": 0.9732,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "ALPACA@BSC": {
-  "usd": 0.0007496,
+  "usd": 0.0007424,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "AIXBT@Base": {
-  "usd": 0.02365,
+  "usd": 0.02237,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "CLANKER@Base": {
-  "usd": 14.31,
+  "usd": 13.95,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "SWEAT@Ethereum": {
-  "usd": 0.000289,
+  "usd": 0.0002918,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "RARE@Ethereum": {
-  "usd": 0.114,
+  "usd": 0.121,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "TLM@BSC": {
-  "usd": 0.001505,
+  "usd": 0.001519,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "RDNT@Arbitrum": {
-  "usd": 0.008187,
+  "usd": 0.008217,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "CRV_ARB@Arbitrum": {
-  "usd": 0.394,
+  "usd": 0.3836,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "SNS_OP@Optimism": {
-  "usd": 0.2585,
+  "usd": 0.257,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "TNSR2@Solana": {
-  "usd": 0.04064,
+  "usd": 0.03932,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "ZEREBRO@Solana": {
-  "usd": 0.03219,
+  "usd": 0.03207,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "ARC@Solana": {
-  "usd": 0.06916,
+  "usd": 0.07226,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "ELON@Ethereum": {
-  "usd": 3.359e-08,
+  "usd": 3.296e-08,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "HONEY_HM@Solana": {
-  "usd": 0.001303,
+  "usd": 0.001344,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "ATLAS@Solana": {
-  "usd": 0.0001559,
+  "usd": 0.0001715,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "LAZIO@BSC": {
-  "usd": 0.4121,
+  "usd": 0.405,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "PORTO@BSC": {
   "usd": 0.4626,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "ATM@BSC": {
-  "usd": 0.06195,
+  "usd": 0.06197,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "NORMIE@Base": {
-  "usd": 5.8e-09,
+  "usd": 5.917e-09,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "DEGENAI@Solana": {
-  "usd": 0.0001413,
+  "usd": 0.0001422,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "MX@Ethereum": {
-  "usd": 1.85,
+  "usd": 1.83,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "ALICE@Ethereum": {
-  "usd": 0.1634,
+  "usd": 0.1702,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "BEAM@Ethereum": {
-  "usd": 0.002119,
+  "usd": 0.002051,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "YGG@Ethereum": {
-  "usd": 0.02668,
+  "usd": 0.02618,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "SANTOS@BSC": {
-  "usd": 0.525,
+  "usd": 0.5152,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "MASK@Ethereum": {
-  "usd": 0.466,
+  "usd": 0.4501,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "CYBER@Ethereum": {
   "usd": 1.17,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "AIOZ@Ethereum": {
-  "usd": 0.1191,
+  "usd": 0.1132,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "ID@BSC": {
-  "usd": 0.03815,
+  "usd": 0.03774,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "ACT@Solana": {
-  "usd": 0.0109,
+  "usd": 0.0106,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "MYRO@Solana": {
-  "usd": 0.0001055,
+  "usd": 0.0001051,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "WEN@Solana": {
-  "usd": 7.453e-06,
+  "usd": 7.185e-06,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "TYBG@Base": {
-  "usd": 9.969e-06,
+  "usd": 9.959e-06,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "POOL@Ethereum": {
-  "usd": 0.02005,
+  "usd": 0.01989,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "EUROC_ETH@Ethereum": {
   "usd": 1.13,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "TROLL@Solana": {
-  "usd": 0.04687,
+  "usd": 0.04628,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "GIGA@Solana": {
-  "usd": 0.002168,
+  "usd": 0.002195,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "MAGA@Ethereum": {
-  "usd": 0.03112,
+  "usd": 0.03075,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "ACROSS@Ethereum": {
   "usd": 0.04382,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "agEUR@Ethereum": {
   "usd": 1.14,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "T@Ethereum": {
-  "usd": 0.005408,
+  "usd": 0.005461,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "BIFI@Polygon": {
-  "usd": 0.2564,
+  "usd": 0.2621,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "SHIB2@BSC": {
-  "usd": 5.822e-06,
+  "usd": 5.747e-06,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "MELANIA@Solana": {
-  "usd": 0.1039,
+  "usd": 0.1029,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "JONES@Arbitrum": {
-  "usd": 0.03686,
+  "usd": 0.03612,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "GHST2@Ethereum": {
-  "usd": 0.06846,
+  "usd": 0.06883,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "BUILD@Base": {
-  "usd": 2.95e-07,
+  "usd": 2.913e-07,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "RLC@Ethereum": {
   "usd": 0.3522,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "INDEX@Ethereum": {
-  "usd": 0.2921,
+  "usd": 0.2857,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "BADGER@Ethereum": {
-  "usd": 0.3338,
+  "usd": 0.3324,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "SPELL@Ethereum": {
-  "usd": 9.961e-05,
+  "usd": 9.777e-05,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "REQ@Ethereum": {
-  "usd": 0.05763,
+  "usd": 0.05646,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "PERP@Optimism": {
-  "usd": 0.02067,
+  "usd": 0.02069,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "INST@Ethereum": {
-  "usd": 1.53,
+  "usd": 1.47,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "ALCX@Ethereum": {
-  "usd": 2.7,
+  "usd": 2.71,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "PONKE@Base": {
-  "usd": 0.02413,
+  "usd": 0.0239,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "PUNCH@Solana": {
-  "usd": 0.0003597,
+  "usd": 0.0003577,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "SLERF@Solana": {
-  "usd": 0.02321,
+  "usd": 0.02316,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "VVAIFU@Solana": {
-  "usd": 0.0002781,
+  "usd": 0.0002765,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "HARAMBE@Solana": {
-  "usd": 0.0003664,
+  "usd": 0.0003463,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "FWOG@Solana": {
-  "usd": 0.006965,
+  "usd": 0.006424,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "OMNI@Ethereum": {
-  "usd": 0.1743,
+  "usd": 0.1739,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "WILD@Ethereum": {
-  "usd": 0.01445,
+  "usd": 0.01389,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "ASR@Ethereum": {
   "usd": 5.8,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "HOOK@BSC": {
-  "usd": 0.004032,
+  "usd": 0.004186,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "LISUSD@BSC": {
   "usd": 0.9956,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "AURORA@Ethereum": {
-  "usd": 0.06552,
+  "usd": 0.06653,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "XYO@Ethereum": {
-  "usd": 0.0036,
+  "usd": 0.003556,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
- },
- "LUMIA@Ethereum": {
-  "usd": 0.09146,
-  "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "LOOKS@Ethereum": {
   "usd": 7.882e-05,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "KWENTA@Optimism": {
-  "usd": 4.25,
+  "usd": 4.36,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "BSW@BSC": {
-  "usd": 0.0003977,
+  "usd": 0.0003994,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "UNFI@BSC": {
-  "usd": 0.06773,
+  "usd": 0.06704,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "TKO@BSC": {
-  "usd": 0.06078,
+  "usd": 0.05873,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
+ },
+ "ggAVAX@Avalanche": {
+  "usd": 0.00941,
+  "source": "DexScreener",
+  "ts": "2026-09-29T21:44:15Z"
  },
  "PYR@Ethereum": {
-  "usd": 0.3465,
+  "usd": 0.3437,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "FUEL@Ethereum": {
-  "usd": 0.0007329,
+  "usd": 0.0007562,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "LSK@Ethereum": {
-  "usd": 0.3099,
+  "usd": 0.3017,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "HIGH@Ethereum": {
-  "usd": 0.03402,
+  "usd": 0.03417,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "POWR@Ethereum": {
-  "usd": 0.06844,
+  "usd": 0.06622,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "PROM@Ethereum": {
   "usd": 5.8,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "SUB@Ethereum": {
-  "usd": 6.392e-06,
+  "usd": 6.716e-06,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
- },
- "TLM2@Ethereum": {
-  "usd": 0.001539,
-  "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "SAMO@Solana": {
-  "usd": 0.0003732,
+  "usd": 0.0003575,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "HXRO@Solana": {
-  "usd": 0.004023,
+  "usd": 0.003982,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "POLIS@Solana": {
-  "usd": 0.01496,
+  "usd": 0.01494,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "TSUKA@Ethereum": {
-  "usd": 0.001127,
+  "usd": 0.001115,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "IOT@Solana": {
-  "usd": 7.394e-05,
+  "usd": 7.194e-05,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "DIMO@Polygon": {
-  "usd": 0.01434,
+  "usd": 0.01457,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "HONEY_SOL@Solana": {
-  "usd": 0.001303,
+  "usd": 0.001344,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "GRIFFAIN@Solana": {
-  "usd": 0.01669,
+  "usd": 0.01628,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "RETARDIO@Solana": {
-  "usd": 0.001626,
+  "usd": 0.001635,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "AKITA@Ethereum": {
-  "usd": 4.791e-09,
+  "usd": 4.756e-09,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "ANON@Base": {
-  "usd": 0.3388,
+  "usd": 0.3346,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "PNG@Avalanche": {
-  "usd": 0.0366,
+  "usd": 0.03528,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "LUNA_AI@Solana": {
-  "usd": 0.005973,
+  "usd": 0.005689,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "ELON2@BSC": {
-  "usd": 3.253e-08,
+  "usd": 3.268e-08,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "TREMP@Solana": {
-  "usd": 0.004046,
+  "usd": 0.003997,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "BODEN@Solana": {
-  "usd": 0.001362,
+  "usd": 0.001389,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "BASED@Base": {
-  "usd": 1.226e-06,
+  "usd": 1.216e-06,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "TBTC2@Arbitrum": {
-  "usd": 83240.17,
+  "usd": 84377.26,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "VIRTUAL2@Solana": {
-  "usd": 0.8268,
+  "usd": 0.7703,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "CULT@Ethereum": {
-  "usd": 9.257e-07,
+  "usd": 9.126e-07,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "GNON@Solana": {
-  "usd": 0.0001598,
+  "usd": 0.0001583,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "COQ@Avalanche": {
-  "usd": 1.443e-07,
+  "usd": 1.406e-07,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "AVAX_MEME@Avalanche": {
-  "usd": 11.94,
+  "usd": 11.41,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "LUNA_AI@Base": {
-  "usd": 0.006021,
+  "usd": 0.005644,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "SKI@Base": {
-  "usd": 0.003195,
+  "usd": 0.003186,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "MIGGLES@Base": {
-  "usd": 0.00181,
+  "usd": 0.001865,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "PAAL@Ethereum": {
-  "usd": 0.01118,
+  "usd": 0.01116,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "rsETH@Ethereum": {
-  "usd": 2923.8,
+  "usd": 2897.59,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "STEP@Solana": {
-  "usd": 0.0001321,
+  "usd": 0.0001313,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
+ },
+ "ezETH@Ethereum": {
+  "usd": 2885.6,
+  "source": "DexScreener",
+  "ts": "2026-09-29T21:44:15Z"
  },
  "SIGMA@Solana": {
-  "usd": 0.001568,
+  "usd": 0.001553,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
- },
- "SPECTRA@Ethereum": {
-  "usd": 0.006094,
-  "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "KIMBO@Avalanche": {
-  "usd": 4.452e-06,
+  "usd": 4.768e-06,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "NATIX@Solana": {
-  "usd": 0.0001926,
+  "usd": 0.0001664,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "GEOD@Polygon": {
-  "usd": 0.2595,
+  "usd": 0.2628,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "MNGO@Solana": {
-  "usd": 0.03372,
+  "usd": 0.03373,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "REVV@Polygon": {
-  "usd": 8.772e-05,
+  "usd": 8.681e-05,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "FRAX_BSC@BSC": {
-  "usd": 0.9781,
+  "usd": 0.9918,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "EULER@Ethereum": {
-  "usd": 1.43,
+  "usd": 1.41,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "RAIL@Ethereum": {
-  "usd": 2.63,
+  "usd": 2.54,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "PRISMA@Ethereum": {
-  "usd": 0.00764,
+  "usd": 0.007665,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "KEYCAT@Base": {
-  "usd": 0.0006643,
+  "usd": 0.000651,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "WETH_ARB@Arbitrum": {
-  "usd": 2732.27,
+  "usd": 2678.38,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "WETH_POL@Polygon": {
-  "usd": 2727.66,
+  "usd": 2685.092,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "WETH_BSC@BSC": {
-  "usd": 2732.97,
+  "usd": 2678.44,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "WETH_AVAX@Avalanche": {
-  "usd": 2728.53,
+  "usd": 2675.84,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "STETH_ETH@Ethereum": {
-  "usd": 2713.78,
+  "usd": 2678.79,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "OP_TOKEN@Optimism": {
-  "usd": 0.1345,
+  "usd": 0.13,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "ARB_TOKEN@Arbitrum": {
-  "usd": 0.2137,
+  "usd": 0.2064,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "AVAX_NATIVE@Avalanche": {
-  "usd": 11.94,
+  "usd": 11.41,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "IMX_ETH@Ethereum": {
-  "usd": 0.1683,
+  "usd": 0.1641,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "RNDR_SOL@Solana": {
-  "usd": 1.97,
+  "usd": 1.92,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "FET_ETH@Ethereum": {
-  "usd": 0.2345,
+  "usd": 0.2277,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "OCEAN_ETH@Ethereum": {
-  "usd": 0.1613,
+  "usd": 0.1598,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "NMR_ETH@Ethereum": {
-  "usd": 12.4,
+  "usd": 12.6,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "VIRTUAL_BASE@Base": {
-  "usd": 0.8244,
+  "usd": 0.7728,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "BAT_ETH@Ethereum": {
-  "usd": 0.09099,
+  "usd": 0.09074,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "CHZ_ETH@Ethereum": {
   "usd": 0.01644,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "AXS_ETH@Ethereum": {
-  "usd": 1.18,
+  "usd": 1.14,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "SAND_ETH@Ethereum": {
-  "usd": 0.04332,
+  "usd": 0.04368,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "MANA_ETH@Ethereum": {
-  "usd": 0.09082,
+  "usd": 0.0891,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "SHIB_ETH@Ethereum": {
-  "usd": 5.838e-06,
+  "usd": 5.755e-06,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "LUNC_BSC@BSC": {
-  "usd": 6.111e-06,
+  "usd": 5.966e-06,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "RLC_ETH@Ethereum": {
   "usd": 0.3522,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "GLM_ETH@Ethereum": {
-  "usd": 0.1258,
+  "usd": 0.1276,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "BAND_ETH@Ethereum": {
-  "usd": 0.2181,
+  "usd": 0.2198,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "TRB_ETH@Ethereum": {
-  "usd": 19.56,
+  "usd": 20.06,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "CBETH_BASE@Base": {
-  "usd": 3117.54,
+  "usd": 3055.36,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "USDC_BASE@Base": {
-  "usd": 0.8278,
+  "usd": 0.8138,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "CAKE_BSC@BSC": {
-  "usd": 2.6,
+  "usd": 2.56,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "JOE_AVAX2@Avalanche": {
-  "usd": 0.0403,
+  "usd": 0.03918,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "WBTC_ETH@Ethereum": {
-  "usd": 84309.67,
+  "usd": 83222.62,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "USDC_ETH@Ethereum": {
-  "usd": 1.00037,
+  "usd": 1.0004,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
+ },
+ "USDT_ETH@Ethereum": {
+  "usd": 0.07543,
+  "source": "DexScreener",
+  "ts": "2026-09-29T21:44:15Z"
  },
  "LINK_ETH@Ethereum": {
-  "usd": 15.39,
+  "usd": 14.64,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "UNI_ETH@Ethereum": {
-  "usd": 7819347.22,
+  "usd": 8115028.92,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "MKR_ETH@Ethereum": {
-  "usd": 1912.9,
+  "usd": 1892.68,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "SNX_ETH@Ethereum": {
   "usd": 212456.076,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "COMP_ETH@Ethereum": {
-  "usd": 25.088,
+  "usd": 25.42,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "CRV_ETH@Ethereum": {
   "usd": 341868.14,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "LDO_ETH@Ethereum": {
-  "usd": 0.4752,
+  "usd": 0.4697,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "RPL_ETH@Ethereum": {
-  "usd": 2.024,
+  "usd": 1.98,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "RETH_ETH@Ethereum": {
-  "usd": 2958.3,
+  "usd": 2921.38,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "FXS_ETH@Ethereum": {
-  "usd": 0.3094,
+  "usd": 0.3024,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "CVX_ETH@Ethereum": {
-  "usd": 2.3,
+  "usd": 2.2,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "BAL_ETH@Ethereum": {
-  "usd": 0.1401,
+  "usd": 0.135,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "YFI_ETH@Ethereum": {
-  "usd": 2455.62,
+  "usd": 2425.25,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "GRT_ETH@Ethereum": {
-  "usd": 0.03075,
+  "usd": 0.02943,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "MATIC_ETH@Ethereum": {
-  "usd": 0.1185,
+  "usd": 0.1172,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "ARB_ETH@Ethereum": {
-  "usd": 0.2143,
+  "usd": 0.2065,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "2Z@Solana": {
-  "usd": 0.06876,
+  "usd": 0.06523,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "ASTER@BSC": {
-  "usd": 0.7285,
+  "usd": 0.7245,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "AUSD@Ethereum": {
   "usd": 0.9999,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "BMX@Ethereum": {
   "usd": 0.006041,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "BTSE@Ethereum": {
   "usd": 1.024,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "CHEEMS@BSC": {
-  "usd": 5.464e-07,
+  "usd": 5.343e-07,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "DEXE@Ethereum": {
   "usd": 1.83,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "DOLA@Ethereum": {
-  "usd": 1.25,
+  "usd": 1.24,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "FTM@Ethereum": {
   "usd": 0.03783,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "FTT@Ethereum": {
-  "usd": 0.2516,
+  "usd": 0.247,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "GNO@Ethereum": {
-  "usd": 120.076,
+  "usd": 119.41,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "GOMINING@Ethereum": {
-  "usd": 0.3791,
+  "usd": 0.3743,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "HEX@Ethereum": {
-  "usd": 0.001071,
+  "usd": 0.001051,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "INJ@Ethereum": {
-  "usd": 7.77,
+  "usd": 7.71,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "JASMY@Ethereum": {
-  "usd": 0.00535,
+  "usd": 0.005324,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "KTA@Base": {
-  "usd": 0.07483,
+  "usd": 0.07002,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "LEO@Ethereum": {
   "usd": 8.85,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "LSETH@Ethereum": {
-  "usd": 3010.47,
+  "usd": 2985.12,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "NEXO@Ethereum": {
-  "usd": 0.8436,
+  "usd": 0.8509,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "QNT@Ethereum": {
-  "usd": 252.39,
+  "usd": 268.71,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "RLB@Ethereum": {
-  "usd": 0.07988,
+  "usd": 0.08122,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "RLUSD@Ethereum": {
-  "usd": 1.000075,
+  "usd": 1.0001,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "RSR@Ethereum": {
-  "usd": 0.00166,
+  "usd": 1.0033,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "SFP@BSC": {
-  "usd": 0.3021,
+  "usd": 0.2981,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "SHFL@Ethereum": {
-  "usd": 0.5309,
+  "usd": 0.5192,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "SIREN@BSC": {
-  "usd": 0.02286,
+  "usd": 0.02259,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "SKYAI@BSC": {
-  "usd": 0.03936,
+  "usd": 0.04058,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "SOSO@Base": {
-  "usd": 0.3171,
+  "usd": 0.3108,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "TEL@Polygon": {
-  "usd": 0.002351,
+  "usd": 0.002332,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "TIBBIR@Base": {
-  "usd": 0.3394,
+  "usd": 0.4001,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "TUSD@Ethereum": {
   "usd": 0.999,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "TWT@BSC": {
-  "usd": 0.591,
+  "usd": 0.5986,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "USDG@Ethereum": {
-  "usd": 1.000092,
+  "usd": 1.000008,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "VVV@Base": {
-  "usd": 27.94,
+  "usd": 27.11,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "WBETH@BSC": {
-  "usd": 3023.66,
+  "usd": 2994.097,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "WBNB@BSC": {
-  "usd": 765.38,
+  "usd": 756.86,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "XCN@Ethereum": {
-  "usd": 0.004882,
+  "usd": 0.004879,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "YZY@Solana": {
-  "usd": 0.2882,
+  "usd": 0.2941,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "ZBCN@Solana": {
-  "usd": 0.002434,
+  "usd": 0.002404,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "ZIG@Ethereum": {
-  "usd": 0.05034,
+  "usd": 0.05203,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "sUSDS@Ethereum": {
   "usd": 1.11,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "WMATIC@Polygon": {
-  "usd": 0.1193,
+  "usd": 0.1179,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "MIM@Avalanche": {
-  "usd": 0.02079,
+  "usd": 0.03462,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "MIMATIC@Polygon": {
-  "usd": 0.9939,
+  "usd": 0.994,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "TIME@Avalanche": {
-  "usd": 0.006666,
+  "usd": 0.007505,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "USDTE@Avalanche": {
-  "usd": 11.95,
+  "usd": 11.41,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "WAVAX@Avalanche": {
-  "usd": 11.96,
+  "usd": 11.43,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "BTCB@BSC": {
-  "usd": 84387.62,
+  "usd": 83474.22,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "BUSD@BSC": {
-  "usd": 0.9983,
+  "usd": 1.0014,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "ENJ@Ethereum": {
-  "usd": 0.03043,
+  "usd": 0.02994,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "FISH@Polygon": {
-  "usd": 0.007705,
+  "usd": 0.00764,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
+ },
+ "MELT@Avalanche": {
+  "usd": 0.0001766,
+  "source": "DexScreener",
+  "ts": "2026-09-29T21:44:15Z"
  },
  "RAI@Ethereum": {
-  "usd": 3.1,
+  "usd": 3.067,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "YAK@Avalanche": {
-  "usd": 54.93,
+  "usd": 56.86,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "ZRX@Ethereum": {
-  "usd": 0.1218,
+  "usd": 0.1195,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "ADA@BSC": {
-  "usd": 0.254,
+  "usd": 0.2439,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "ADDY@Polygon": {
-  "usd": 0.01023,
+  "usd": 0.01011,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "AMP@Ethereum": {
-  "usd": 0.0006538,
+  "usd": 0.0006409,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "BNT@Ethereum": {
-  "usd": 0.358,
+  "usd": 0.3535,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "BOND@Ethereum": {
-  "usd": 0.01144,
+  "usd": 0.01153,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "DOT@BSC": {
-  "usd": 1.21,
+  "usd": 1.19,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "DPX@Arbitrum": {
-  "usd": 4.522e-06,
+  "usd": 9.343e-06,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "HELMET@BSC": {
-  "usd": 0.002497,
+  "usd": 0.002461,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "KLO@Avalanche": {
   "usd": 3.277e-05,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "LTC@BSC": {
-  "usd": 69.23,
+  "usd": 67.27,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "MBOX@BSC": {
-  "usd": 0.0005196,
+  "usd": 0.0005121,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "PEFI@Avalanche": {
-  "usd": 0.002506,
+  "usd": 0.002419,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "PTP@Avalanche": {
-  "usd": 7.238e-05,
+  "usd": 7.539e-05,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "REN@Ethereum": {
-  "usd": 7819347.22,
+  "usd": 8115028.92,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "SNOB@Avalanche": {
-  "usd": 0.0003726,
+  "usd": 0.0004034,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "SX@Polygon": {
-  "usd": 0.0225,
+  "usd": 0.02262,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "SXP@BSC": {
-  "usd": 0.003995,
+  "usd": 0.003987,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
+ },
+ "TUS@Avalanche": {
+  "usd": 3.513e-06,
+  "source": "DexScreener",
+  "ts": "2026-09-29T21:44:15Z"
  },
  "USTC@BSC": {
-  "usd": 0.009453,
+  "usd": 0.009479,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "XAVA@Avalanche": {
-  "usd": 0.1625,
+  "usd": 0.1612,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "XRP@BSC": {
-  "usd": 1.51,
+  "usd": 1.49,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "AGA@Polygon": {
   "usd": 0.003035,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "ALPHA@BSC": {
-  "usd": 0.0003206,
+  "usd": 0.0003173,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "AVE@Avalanche": {
-  "usd": 6.716e-06,
+  "usd": 6.69e-06,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "BAKE@BSC": {
-  "usd": 0.0002099,
+  "usd": 0.0002341,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "BANANA@BSC": {
-  "usd": 7.859e-11,
+  "usd": 7.729e-11,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "BCH@BSC": {
-  "usd": 313.36,
+  "usd": 310.071,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "BSCX@BSC": {
-  "usd": 3.43,
+  "usd": 3.39,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "BTCST@BSC": {
-  "usd": 0.01012,
+  "usd": 0.01002,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "BURGER@BSC": {
-  "usd": 0.0006805,
+  "usd": 0.0006918,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "CEL@Ethereum": {
   "usd": 0.006253,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "CELR@Arbitrum": {
   "usd": 0.002857,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "CRA@Avalanche": {
-  "usd": 0.000112,
+  "usd": 0.0001138,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "CRAFT@Avalanche": {
   "usd": 0.00012,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "DCAU@Avalanche": {
-  "usd": 0.1813,
+  "usd": 0.1807,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "DOGE@BSC": {
-  "usd": 0.09559,
+  "usd": 0.09371,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "EOS@BSC": {
-  "usd": 0.1744,
+  "usd": 0.1717,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "EPS@BSC": {
-  "usd": 0.01694,
+  "usd": 0.01673,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "FIL@BSC": {
-  "usd": 1.085,
+  "usd": 1.077,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "FRONT@BSC": {
-  "usd": 0.01637,
+  "usd": 0.01606,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "GOHM@Avalanche": {
-  "usd": 5602.18,
+  "usd": 5464.89,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "HERO@BSC": {
-  "usd": 0.0005684,
+  "usd": 0.000563,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "HUSKY@Avalanche": {
-  "usd": 2.832e-09,
+  "usd": 2.674e-09,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "IGG@Polygon": {
   "usd": 1.617e-07,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "KNCL@Ethereum": {
-  "usd": 0.1425,
+  "usd": 0.1405,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "LYD@Avalanche": {
-  "usd": 6.173e-05,
+  "usd": 6.053e-05,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "MCB@Arbitrum": {
-  "usd": 2.54,
+  "usd": 2.53,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "MUST@Polygon": {
-  "usd": 0.4128,
+  "usd": 0.4034,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
- },
- "O3@BSC": {
-  "usd": 0.0008817,
-  "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "OM@Polygon": {
-  "usd": 0.002625,
+  "usd": 0.002705,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "OMG@Ethereum": {
-  "usd": 0.04972,
+  "usd": 0.05031,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "ORN@Ethereum": {
-  "usd": 0.03274,
+  "usd": 0.0311,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "QI@Polygon": {
-  "usd": 0.0001125,
+  "usd": 0.0001107,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "REEF@BSC": {
-  "usd": 5.255e-05,
+  "usd": 5.267e-05,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "SPORE@Avalanche": {
-  "usd": 1.237e-11,
+  "usd": 1.165e-11,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "TOKE@Ethereum": {
   "usd": 0.05624,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "VAI@BSC": {
-  "usd": 0.9968,
+  "usd": 0.9964,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "WEGLD@BSC": {
-  "usd": 4.62,
+  "usd": 4.56,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "WOLF@Polygon": {
-  "usd": 3.948e-08,
+  "usd": 3.929e-08,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "ADX@Ethereum": {
-  "usd": 0.06279,
+  "usd": 0.06217,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "ALEPH@Ethereum": {
-  "usd": 0.01386,
+  "usd": 0.01401,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "AMPL@Ethereum": {
-  "usd": 1.22,
+  "usd": 1.21,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "ANY@Polygon": {
-  "usd": 0.3654,
+  "usd": 0.366,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "ARV@BSC": {
-  "usd": 1.726e-06,
+  "usd": 1.7e-06,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "AUTO@BSC": {
-  "usd": 2.75,
+  "usd": 2.62,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "AVAI@Avalanche": {
-  "usd": 0.4191,
+  "usd": 0.425,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
- "BAC@Ethereum": {
-  "usd": 0.0009598,
+ "AVME@Avalanche": {
+  "usd": 5.233e-05,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "BDO@BSC": {
-  "usd": 0.001148,
+  "usd": 0.001144,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "BELT@BSC": {
   "usd": 0.02702,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "BETH@BSC": {
-  "usd": 2991.38,
+  "usd": 2987.035,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
- },
- "BRY@BSC": {
-  "usd": 3.557e-11,
-  "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "BSCPAD@BSC": {
-  "usd": 0.004706,
+  "usd": 0.004655,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "BTCB@Avalanche": {
-  "usd": 84342.099,
+  "usd": 83252.67,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "BUNNY@BSC": {
-  "usd": 0.02137,
+  "usd": 0.02106,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "C98@BSC": {
-  "usd": 0.01635,
+  "usd": 0.01606,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
+ },
+ "CAP@Arbitrum": {
+  "usd": 0.4903,
+  "source": "DexScreener",
+  "ts": "2026-09-29T21:44:15Z"
  },
  "CHESS@BSC": {
   "usd": 7.523e-05,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "COTI@Ethereum": {
-  "usd": 0.01306,
+  "usd": 0.01298,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "CREAM@Ethereum": {
   "usd": 0.4672,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "CTSI@Ethereum": {
   "usd": 0.02825,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "CTX@Ethereum": {
-  "usd": 0.7495,
+  "usd": 0.7086,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "CWS@BSC": {
   "usd": 0.006527,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "DEXT@Ethereum": {
-  "usd": 0.09783,
+  "usd": 0.0971,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "DOME@BSC": {
-  "usd": 2.36e-06,
+  "usd": 2.314e-06,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "DPI@Ethereum": {
-  "usd": 73.15,
+  "usd": 71.98,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "EGG@Avalanche": {
   "usd": 0.000257,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "FARM@Ethereum": {
-  "usd": 7.85,
+  "usd": 8.16,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "FEI@Ethereum": {
-  "usd": 1.00044,
+  "usd": 0.9876,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "FINE@BSC": {
-  "usd": 0.000286,
+  "usd": 0.0002853,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "FODL@Ethereum": {
-  "usd": 0.0003365,
+  "usd": 0.0003362,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "FUSE@Ethereum": {
-  "usd": 0.007758,
+  "usd": 0.007733,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "GAJ@Polygon": {
-  "usd": 0.002627,
+  "usd": 0.002626,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "GB@Avalanche": {
   "usd": 0.005051,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "GUSD@Ethereum": {
-  "usd": 0.9995,
+  "usd": 1.000046,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "IFARM@Polygon": {
-  "usd": 13.58,
+  "usd": 13.72,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "IOTX@BSC": {
-  "usd": 0.003402,
+  "usd": 0.003367,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "ISA@Avalanche": {
-  "usd": 2.015e-06,
+  "usd": 1.937e-06,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "JGN@BSC": {
   "usd": 0.0003177,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "KEEP@Ethereum": {
-  "usd": 0.02563,
+  "usd": 0.0261,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "KP3R@Ethereum": {
-  "usd": 0.9857,
+  "usd": 0.9851,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "KRILL@Polygon": {
-  "usd": 0.000466,
+  "usd": 0.0004651,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "LINA@BSC": {
   "usd": 8.849e-06,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "MCRN@BSC": {
-  "usd": 0.00388,
+  "usd": 0.003867,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "MLN@Ethereum": {
-  "usd": 1.48,
+  "usd": 1.51,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "MTA@Ethereum": {
-  "usd": 0.03076,
+  "usd": 0.03111,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "NRV@BSC": {
-  "usd": 0.0004055,
+  "usd": 0.0004074,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "NU@Ethereum": {
-  "usd": 0.0173,
+  "usd": 0.01777,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "OGN@Ethereum": {
-  "usd": 0.01993,
+  "usd": 0.0201,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "ONT@BSC": {
-  "usd": 0.05768,
+  "usd": 0.05794,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "PERL@BSC": {
-  "usd": 0.007096,
+  "usd": 0.007111,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "PLOT@Polygon": {
-  "usd": 0.003774,
+  "usd": 0.003773,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "PNK@Ethereum": {
-  "usd": 0.008304,
+  "usd": 0.008169,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "POLY@Ethereum": {
-  "usd": 0.009665,
+  "usd": 0.009098,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "POTS@BSC": {
-  "usd": 0.003856,
+  "usd": 0.003787,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "RACA@BSC": {
-  "usd": 1.416e-05,
+  "usd": 1.465e-05,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "RAMP@BSC": {
-  "usd": 0.02329,
+  "usd": 0.02342,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "RARI@Ethereum": {
   "usd": 0.1259,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "RENBTC@Ethereum": {
-  "usd": 16391.12,
+  "usd": 16366.35,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "REP@Ethereum": {
-  "usd": 0.2477,
+  "usd": 0.2473,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "ROCO@Avalanche": {
-  "usd": 0.01824,
+  "usd": 0.01704,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
+ },
+ "ROOK@Ethereum": {
+  "usd": 0.06644,
+  "source": "DexScreener",
+  "ts": "2026-09-29T21:44:15Z"
  },
  "ROUTE@Polygon": {
-  "usd": 0.04116,
+  "usd": 0.04066,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "SDT@Ethereum": {
-  "usd": 0.1067,
+  "usd": 0.1084,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "SFUND@BSC": {
-  "usd": 0.004026,
+  "usd": 0.003994,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "SHIBX@Avalanche": {
   "usd": 3.939e-06,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "SOS@Ethereum": {
-  "usd": 2.059e-09,
+  "usd": 2.042e-09,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "STARL@Ethereum": {
-  "usd": 1.597e-07,
+  "usd": 1.582e-07,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "SUPER@Ethereum": {
-  "usd": 0.1979,
+  "usd": 0.1934,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "SWPR@Arbitrum": {
-  "usd": 0.00519,
+  "usd": 0.005156,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "TITAN@Polygon": {
-  "usd": 1.819e-09,
+  "usd": 1.803e-09,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "TPT@BSC": {
-  "usd": 0.009724,
+  "usd": 0.009482,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "TRIBE@Ethereum": {
-  "usd": 1.00044,
+  "usd": 0.9876,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "TRU@Ethereum": {
   "usd": 0.0009054,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "TRX@BSC": {
-  "usd": 0.3341,
+  "usd": 0.3346,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "TSD@Avalanche": {
-  "usd": 0.3175,
+  "usd": 0.3529,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "UBT@Ethereum": {
-  "usd": 0.04451,
+  "usd": 0.04573,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "UFO@Ethereum": {
-  "usd": 3.791e-08,
+  "usd": 3.731e-08,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "USDP@Ethereum": {
-  "usd": 0.9986,
+  "usd": 0.993,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "UST@Ethereum": {
-  "usd": 0.005841,
+  "usd": 0.005787,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "VISION@Polygon": {
-  "usd": 0.1689,
+  "usd": 0.1674,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "WEX@BSC": {
-  "usd": 6.542e-06,
+  "usd": 6.462e-06,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "ZIL@BSC": {
-  "usd": 0.003611,
+  "usd": 0.003534,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "8PAY@BSC": {
   "usd": 7.054e-05,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "AELIN@Optimism": {
   "usd": 375.63,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
+ },
+ "AETHC@Ethereum": {
+  "usd": 3348.41,
+  "source": "DexScreener",
+  "ts": "2026-09-29T21:44:15Z"
  },
  "AKRO@Ethereum": {
-  "usd": 6.167e-06,
+  "usd": 6.072e-06,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
+ },
+ "ALGB@Polygon": {
+  "usd": 1.098e-05,
+  "source": "DexScreener",
+  "ts": "2026-09-29T21:44:15Z"
  },
  "ALPA@BSC": {
   "usd": 0.0004303,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "ANRX@Polygon": {
-  "usd": 3.139e-05,
+  "usd": 3.161e-05,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "ANT@Ethereum": {
   "usd": 0.0668,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "ARIA20@Polygon": {
-  "usd": 0.01134,
+  "usd": 0.01099,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "ARPA@BSC": {
-  "usd": 0.01109,
+  "usd": 0.01087,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "AST@Ethereum": {
-  "usd": 0.005802,
+  "usd": 0.009039,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
- },
- "AUCTION@Ethereum": {
-  "usd": 3.74,
-  "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "AUDIO@Ethereum": {
-  "usd": 0.01623,
+  "usd": 0.01562,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
+ },
+ "AZUKI@Polygon": {
+  "usd": 0.0005041,
+  "source": "DexScreener",
+  "ts": "2026-09-29T21:44:15Z"
  },
  "BABYCAKE@BSC": {
   "usd": 7.483e-06,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "BEL@BSC": {
-  "usd": 0.1295,
+  "usd": 0.129,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "BICO@Ethereum": {
-  "usd": 0.02118,
+  "usd": 0.02126,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "BIT@Ethereum": {
-  "usd": 0.6444,
+  "usd": 0.6472,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "BLZ@Ethereum": {
-  "usd": 0.01051,
+  "usd": 0.01048,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "BMON@BSC": {
-  "usd": 0.001706,
+  "usd": 0.001687,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
- },
- "BONDLY@BSC": {
-  "usd": 0.0002864,
-  "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "BSGG@Avalanche": {
-  "usd": 3.875e-06,
+  "usd": 4.223e-06,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "BTTOLD@BSC": {
-  "usd": 0.0004085,
+  "usd": 0.0004032,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
- },
- "BZRX@Ethereum": {
-  "usd": 0.0007828,
-  "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
- },
- "CETH@Ethereum": {
-  "usd": 54.058,
-  "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "CLY@Avalanche": {
   "usd": 0.0004224,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "COVAL@Ethereum": {
-  "usd": 2.651e-05,
+  "usd": 2.73e-05,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
+ },
+ "CUSDC@Ethereum": {
+  "usd": 0.0251,
+  "source": "DexScreener",
+  "ts": "2026-09-29T21:44:15Z"
  },
  "CVC@Ethereum": {
-  "usd": 0.02994,
+  "usd": 0.02954,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "CVP@Ethereum": {
   "usd": 0.002678,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "CYCLE@Avalanche": {
   "usd": 0.01269,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "DERC@Ethereum": {
   "usd": 0.01132,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
- },
- "DF@Ethereum": {
-  "usd": 0.0001027,
-  "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "DFX@Polygon": {
   "usd": 0.000583,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "DFYN@Polygon": {
-  "usd": 0.0001569,
+  "usd": 0.0001567,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "DG@Polygon": {
-  "usd": 0.129,
+  "usd": 0.1275,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "DNT@Ethereum": {
   "usd": 0.007032,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "DSLA@Polygon": {
-  "usd": 3.986e-05,
+  "usd": 4.02e-05,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "ETH2X-FLI-P@Polygon": {
-  "usd": 6.18,
+  "usd": 6.13,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "EXRD@Ethereum": {
-  "usd": 0.0005122,
+  "usd": 0.000512,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
+ },
+ "FEED@Avalanche": {
+  "usd": 5.339e-05,
+  "source": "DexScreener",
+  "ts": "2026-09-29T21:44:15Z"
  },
  "FOR@BSC": {
-  "usd": 5.377e-05,
+  "usd": 5.514e-05,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "FUN@Ethereum": {
-  "usd": 0.007264,
+  "usd": 0.007247,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "GAME@Polygon": {
-  "usd": 0.0002887,
+  "usd": 0.0002869,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
- },
- "GDL@Avalanche": {
-  "usd": 2.673e-06,
-  "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "GFARM2@Polygon": {
-  "usd": 690.37,
+  "usd": 682.26,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "GTC@Ethereum": {
-  "usd": 0.08719,
+  "usd": 0.08678,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "GUM@BSC": {
-  "usd": 0.006582,
+  "usd": 0.006617,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "GYEN@Ethereum": {
   "usd": 0.006344,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "HAY@BSC": {
   "usd": 0.9956,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
+ },
+ "HEC@Avalanche": {
+  "usd": 0.0004111,
+  "source": "DexScreener",
+  "ts": "2026-09-29T21:44:15Z"
  },
  "HEZ@Ethereum": {
-  "usd": 3.39,
+  "usd": 3.38,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "HON@Avalanche": {
-  "usd": 0.0018,
+  "usd": 0.001932,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "HOT@Ethereum": {
-  "usd": 0.0004477,
+  "usd": 0.0004439,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "HT@Ethereum": {
   "usd": 0.1557,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "IF@BSC": {
   "usd": 0.002613,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "INSUR@BSC": {
-  "usd": 0.001331,
+  "usd": 0.001329,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "INV@Ethereum": {
-  "usd": 0.04651,
+  "usd": 0.04657,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
+ },
+ "IRIS@Polygon": {
+  "usd": 0.001214,
+  "source": "DexScreener",
+  "ts": "2026-09-29T21:44:15Z"
  },
  "IRON@Polygon": {
   "usd": 7.4e-05,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "JPYC@Polygon": {
-  "usd": 0.009086,
+  "usd": 0.009069,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "JRT@Ethereum": {
   "usd": 0.0008475,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "KISHU@Ethereum": {
-  "usd": 9.183e-11,
+  "usd": 9.023e-11,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "KLIMA@Polygon": {
   "usd": 0.001677,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "KNC@Polygon": {
-  "usd": 0.1379,
+  "usd": 0.1386,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "KOM@Polygon": {
-  "usd": 4.839e-05,
+  "usd": 4.728e-05,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "LCX@Ethereum": {
-  "usd": 0.03805,
+  "usd": 0.04035,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
- },
- "LIEN@BSC": {
-  "usd": 0.06216,
-  "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "LON@Ethereum": {
-  "usd": 0.2013,
+  "usd": 0.1981,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
+ },
+ "LOST@Avalanche": {
+  "usd": 0.0001601,
+  "source": "DexScreener",
+  "ts": "2026-09-29T21:44:15Z"
  },
  "LUNC@Ethereum": {
-  "usd": 9.226e-06,
+  "usd": 9.202e-06,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "LYRA@Optimism": {
-  "usd": 0.0001669,
+  "usd": 0.0001674,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "MASQ@Ethereum": {
-  "usd": 0.008833,
+  "usd": 0.008882,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "MDT@Ethereum": {
-  "usd": 0.007458,
+  "usd": 0.007144,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "MIR@Ethereum": {
-  "usd": 0.000941,
+  "usd": 0.001043,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "MIST@Ethereum": {
   "usd": 0.2444,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "MTL@Ethereum": {
-  "usd": 0.3346,
+  "usd": 0.3357,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "MULTI@Ethereum": {
-  "usd": 0.03084,
+  "usd": 0.02996,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "MYST@Polygon": {
-  "usd": 0.09506,
+  "usd": 0.0967,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "NCT@Ethereum": {
-  "usd": 0.01016,
+  "usd": 0.01026,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
+ },
+ "NFTX@Ethereum": {
+  "usd": 10.085,
+  "source": "DexScreener",
+  "ts": "2026-09-29T21:44:15Z"
  },
  "NYAN@Arbitrum": {
-  "usd": 0.00146,
+  "usd": 0.001462,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "ODDZ@BSC": {
   "usd": 0.00021,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "OMEN@Polygon": {
-  "usd": 0.0007779,
+  "usd": 0.0007769,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "OOE@Avalanche": {
   "usd": 0.008508,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
+ },
+ "OPIUM@Ethereum": {
+  "usd": 0.01426,
+  "source": "DexScreener",
+  "ts": "2026-09-29T21:44:15Z"
  },
  "ORBS@BSC": {
-  "usd": 0.02396,
+  "usd": 0.02402,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "ORCA@Avalanche": {
-  "usd": 0.0001372,
+  "usd": 0.0001306,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "OXT@Ethereum": {
-  "usd": 0.01002,
+  "usd": 0.009974,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "PBTC@BSC": {
-  "usd": 137.2,
+  "usd": 137.9,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "PICKLE@Ethereum": {
   "usd": 0.01493,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "PLU@Ethereum": {
   "usd": 0.1619,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "POLS@Ethereum": {
-  "usd": 0.0672,
+  "usd": 0.06634,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "POLYBUNNY@Polygon": {
   "usd": 0.003673,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "POND@Ethereum": {
-  "usd": 0.002194,
+  "usd": 0.00192,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "PRE@Ethereum": {
-  "usd": 0.0009519,
+  "usd": 0.0009699,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "PROM@BSC": {
-  "usd": 5.74,
+  "usd": 5.94,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "PRQ@Ethereum": {
-  "usd": 0.0008565,
+  "usd": 0.0008457,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "PSP@Ethereum": {
   "usd": 0.001266,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
- },
- "QRDO@Ethereum": {
-  "usd": 0.0001284,
-  "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "RAD@Ethereum": {
-  "usd": 0.2519,
+  "usd": 0.2526,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
- },
- "RFOX@BSC": {
-  "usd": 0.0005036,
-  "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "RLY@Ethereum": {
   "usd": 2.1e-05,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "RUNE@Ethereum": {
   "usd": 0.02021,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "SAFLE@Polygon": {
-  "usd": 8.229e-07,
+  "usd": 7.117e-07,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "SBDO@BSC": {
-  "usd": 0.2336,
+  "usd": 0.2343,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
+ },
+ "SETH2@Ethereum": {
+  "usd": 2658.47,
+  "source": "DexScreener",
+  "ts": "2026-09-29T21:44:15Z"
  },
  "SFI@Ethereum": {
-  "usd": 117.84,
+  "usd": 117.56,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
- },
- "SI@Ethereum": {
-  "usd": 0.003839,
-  "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "SKILL@BSC": {
-  "usd": 0.1042,
+  "usd": 0.1046,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "SKL@Ethereum": {
-  "usd": 0.00464,
+  "usd": 0.004743,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "SMRTR@Avalanche": {
-  "usd": 2.119e-08,
+  "usd": 2.015e-08,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "SNT@Ethereum": {
-  "usd": 0.008159,
+  "usd": 0.008296,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "SPS@BSC": {
   "usd": 0.004367,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
+ },
+ "STACK@BSC": {
+  "usd": 1.403e-05,
+  "source": "DexScreener",
+  "ts": "2026-09-29T21:44:15Z"
  },
  "STAKE@Ethereum": {
-  "usd": 0.0288,
+  "usd": 0.0329,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "STAX@BSC": {
   "usd": 0.09486,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "STMATIC@Polygon": {
-  "usd": 0.1364,
+  "usd": 0.1352,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
- },
- "STRONG@Ethereum": {
-  "usd": 0.6405,
-  "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "SWAP@Ethereum": {
-  "usd": 0.04322,
+  "usd": 0.04455,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "TCR@Arbitrum": {
-  "usd": 4.918e-05,
+  "usd": 0.001138,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "THG@BSC": {
-  "usd": 0.0001384,
+  "usd": 0.0001342,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
+ },
+ "TIME@Ethereum": {
+  "usd": 0.3783,
+  "source": "DexScreener",
+  "ts": "2026-09-29T21:44:15Z"
  },
  "TUNDRA@Avalanche": {
-  "usd": 0.03568,
+  "usd": 0.03496,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
- },
- "TVK@Ethereum": {
-  "usd": 0.000326,
-  "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "TXL@BSC": {
   "usd": 0.0003145,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
+ },
+ "VTX@Avalanche": {
+  "usd": 0.001333,
+  "source": "DexScreener",
+  "ts": "2026-09-29T21:44:15Z"
  },
  "WATCH@BSC": {
-  "usd": 0.007756,
+  "usd": 0.007748,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "WMEMO@Avalanche": {
-  "usd": 17.086,
+  "usd": 18.099,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "WNXM@Ethereum": {
-  "usd": 68.24,
+  "usd": 67.52,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "WOM@BSC": {
-  "usd": 0.000552,
+  "usd": 0.0005524,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "WONE@BSC": {
-  "usd": 1.072e-05,
+  "usd": 9.726e-06,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "WOOP@BSC": {
-  "usd": 0.0002818,
+  "usd": 0.0002773,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "WRX@Polygon": {
-  "usd": 0.5768,
+  "usd": 0.5844,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "X2Y2@Ethereum": {
   "usd": 0.001087,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
- },
- "XED@BSC": {
-  "usd": 0.000887,
-  "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "XOR@Ethereum": {
-  "usd": 9.381e-36,
+  "usd": 1.089e-35,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "XPR@Ethereum": {
-  "usd": 0.002437,
+  "usd": 0.002395,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "XSUSHI@Ethereum": {
-  "usd": 0.4249,
+  "usd": 0.4178,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "YFII@Ethereum": {
-  "usd": 37.62,
+  "usd": 37.99,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "YTS@Avalanche": {
-  "usd": 1.821e-05,
+  "usd": 1.801e-05,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "YUSD@Avalanche": {
   "usd": 0.02957,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "ZOO@Avalanche": {
   "usd": 0.0001279,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "0XMR@Ethereum": {
   "usd": 0.01063,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "ABYSS@Ethereum": {
-  "usd": 0.004487,
+  "usd": 0.004433,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "ACRE@Avalanche": {
   "usd": 1.762e-06,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
- },
- "ACS@BSC": {
-  "usd": 0.1346,
-  "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "ACSI@BSC": {
-  "usd": 0.02831,
+  "usd": 0.02828,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "ADOGE@Arbitrum": {
   "usd": 1.053e-07,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "AERGO@Ethereum": {
-  "usd": 0.009828,
+  "usd": 0.01003,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "AGLD@Ethereum": {
-  "usd": 0.2217,
+  "usd": 0.2063,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "ALU@BSC": {
-  "usd": 0.005422,
+  "usd": 0.005393,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "ALUSD@Ethereum": {
-  "usd": 0.9518,
+  "usd": 0.9509,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "AMATICC@Polygon": {
-  "usd": 0.1455,
+  "usd": 0.1555,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "AMDAI@Polygon": {
   "usd": 0.8817,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "AMUSDC@Polygon": {
-  "usd": 1.11,
+  "usd": 1.14,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "AMUSDT@Polygon": {
   "usd": 1.094,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
- "AMWMATIC@Polygon": {
-  "usd": 0.1135,
+ "AMWETH@Polygon": {
+  "usd": 2563.78,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "ANN@BSC": {
-  "usd": 6.049e-05,
+  "usd": 6.05e-05,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "AOG@BSC": {
-  "usd": 0.0004906,
+  "usd": 0.0004911,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "APX@BSC": {
-  "usd": 0.2159,
+  "usd": 0.2165,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
- },
- "ARBIS@Arbitrum": {
-  "usd": 1.056e-06,
-  "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "ARBYS@Arbitrum": {
   "usd": 0.1668,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
- "ARMOR@Ethereum": {
-  "usd": 0.0002274,
+ "ARCH@Ethereum": {
+  "usd": 0.01818,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "ATA@BSC": {
-  "usd": 0.0008714,
+  "usd": 0.0009128,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
+ },
+ "ATIS@Ethereum": {
+  "usd": 0.00309,
+  "source": "DexScreener",
+  "ts": "2026-09-29T21:44:15Z"
  },
  "AURUM@Polygon": {
-  "usd": 8.368e-05,
+  "usd": 8.343e-05,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
- },
- "AWETH@Avalanche": {
-  "usd": 17386.76,
-  "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "BASE@Ethereum": {
   "usd": 1.7,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "BBTC@Ethereum": {
-  "usd": 83243.78,
+  "usd": 82860.44,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "BCOIN@BSC": {
-  "usd": 0.01203,
+  "usd": 0.01187,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "BCT@Polygon": {
-  "usd": 0.002684,
+  "usd": 0.002676,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "BEPRO@Ethereum": {
-  "usd": 5.519e-05,
+  "usd": 5.675e-05,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "BETA@BSC": {
-  "usd": 0.001614,
+  "usd": 0.001597,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "NEAR@Ethereum": {
-  "usd": 4.88,
+  "usd": 4.94,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "TAO@Ethereum": {
-  "usd": 313.42,
+  "usd": 304.67,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "RENDER@Ethereum": {
-  "usd": 1.98,
+  "usd": 1.92,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "THETA@Ethereum": {
-  "usd": 0.02319,
+  "usd": 0.02287,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "ALGO@Ethereum": {
-  "usd": 0.01386,
+  "usd": 0.01401,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "BTT@BSC": {
-  "usd": 3.793e-07,
+  "usd": 3.71e-07,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "WIN@BSC": {
-  "usd": 0.9987,
+  "usd": 1.0029,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "KEKEC@Ethereum": {
-  "usd": 1.785e-05,
+  "usd": 1.793e-05,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "ETH@Ethereum": {
-  "usd": 2729.1,
+  "usd": 2677.21,
   "source": "DexScreener_search",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "SOL@Solana": {
   "usd": 121.068,
   "source": "DexScreener_search",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "RNDR@Solana": {
   "usd": 4.711e-06,
   "source": "DexScreener_search",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "ZK@Ethereum": {
-  "usd": 0.01206,
+  "usd": 0.01267,
   "source": "DexScreener_search",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
- "GALA@Ethereum": {
-  "usd": 0.002353,
+ "NOT@Ethereum": {
+  "usd": 4.877e-05,
   "source": "DexScreener_search",
-  "ts": "2026-09-29T11:55:40Z"
- },
- "FIL@Ethereum": {
-  "usd": 2.17,
-  "source": "DexScreener_search",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "MANTA@Ethereum": {
   "usd": 0.07073,
   "source": "DexScreener_search",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "CFG@Ethereum": {
-  "usd": 0.1627,
+  "usd": 0.1538,
   "source": "DexScreener_search",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "OG@Ethereum": {
   "usd": 4.355e-06,
   "source": "DexScreener_search",
-  "ts": "2026-09-29T11:55:40Z"
- },
- "MC@Ethereum": {
-  "usd": 5.475e-07,
-  "source": "DexScreener_search",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "DOGE2@Solana": {
-  "usd": 8.881e-06,
+  "usd": 8.957e-06,
   "source": "DexScreener_search",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "ANDY@Ethereum": {
-  "usd": 1.231e-05,
+  "usd": 1.189e-05,
   "source": "DexScreener_search",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "USDM@Ethereum": {
   "usd": 0.9999,
   "source": "DexScreener_search",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "TRUTH@Solana": {
-  "usd": 3.889e-05,
+  "usd": 3.904e-05,
   "source": "DexScreener_search",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "SUPRA@Ethereum": {
-  "usd": 0.0001731,
+  "usd": 0.0001724,
   "source": "DexScreener_search",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "SYRUP@Ethereum": {
-  "usd": 0.2524,
+  "usd": 0.2367,
   "source": "DexScreener_search",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
+ },
+ "WEN@Ethereum": {
+  "usd": 1.88e-07,
+  "source": "DexScreener_search",
+  "ts": "2026-09-29T21:44:15Z"
  },
  "LAYER@Ethereum": {
-  "usd": 0.0001642,
+  "usd": 0.0007842,
   "source": "DexScreener_search",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "USDD@Ethereum": {
   "usd": 0.9998,
   "source": "DexScreener_search",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "WLFI@Ethereum": {
-  "usd": 0.05722,
+  "usd": 0.05676,
   "source": "DexScreener_search",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "FUEL@BSC": {
-  "usd": 0.000513,
+  "usd": 0.0005124,
   "source": "DexScreener_search",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "EDEN@Ethereum": {
-  "usd": 0.06357,
+  "usd": 0.06228,
   "source": "DexScreener_search",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
+ },
+ "LTO@BSC": {
+  "usd": 1.449e-14,
+  "source": "DexScreener_search",
+  "ts": "2026-09-29T21:44:15Z"
  },
  "TRADE@BSC": {
-  "usd": 0.05369,
+  "usd": 0.05426,
   "source": "DexScreener_search",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
+ },
+ "AUCTION@Ethereum": {
+  "usd": 3.67,
+  "source": "DexScreener_search",
+  "ts": "2026-09-29T21:44:15Z"
+ },
+ "BANK@Ethereum": {
+  "usd": 0.1889,
+  "source": "DexScreener_search",
+  "ts": "2026-09-29T21:44:15Z"
  },
  "CYC@BSC": {
-  "usd": 0.06833,
+  "usd": 0.06679,
   "source": "DexScreener_search",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
+ },
+ "DEGEN@Ethereum": {
+  "usd": 4.148e-11,
+  "source": "DexScreener_search",
+  "ts": "2026-09-29T21:44:15Z"
  },
  "DMT@Polygon": {
-  "usd": 0.0007777,
+  "usd": 0.000767,
   "source": "DexScreener_search",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "DUCK@Ethereum": {
-  "usd": 0.001519,
+  "usd": 0.001527,
   "source": "DexScreener_search",
-  "ts": "2026-09-29T11:55:40Z"
- },
- "IRIS@Polygon": {
-  "usd": 0.02937,
-  "source": "DexScreener_search",
-  "ts": "2026-09-29T11:55:40Z"
- },
- "OPIUM@Ethereum": {
-  "usd": 0.0004263,
-  "source": "DexScreener_search",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "RBC@Ethereum": {
   "usd": 0.001339,
   "source": "DexScreener_search",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "RFG@BSC": {
   "usd": 3.261e-05,
   "source": "DexScreener_search",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
- "TIME@Ethereum": {
-  "usd": 0.0004529,
+ "ACS@BSC": {
+  "usd": 0.07872,
   "source": "DexScreener_search",
-  "ts": "2026-09-29T11:55:40Z"
- },
- "ADS@BSC": {
-  "usd": 0.0003472,
-  "source": "DexScreener_search",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "AUSDT@Avalanche": {
   "usd": 0.5089,
   "source": "DexScreener_search",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "ICP@Ethereum": {
-  "usd": 3.33,
+  "usd": 5.6,
   "source": "DexScreener_search",
-  "ts": "2026-09-29T11:55:40Z"
- },
- "ZEN@Ethereum": {
-  "usd": 0.006726,
-  "source": "DexScreener_search",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "FLOW@Ethereum": {
   "usd": 0.0001866,
   "source": "DexScreener_search",
-  "ts": "2026-09-29T11:55:40Z"
- },
- "XDC@Ethereum": {
-  "usd": 0.04678,
-  "source": "DexScreener_search",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "TigerOG@Base": {
-  "usd": 1.299e-18,
+  "usd": 1.28e-18,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "LionOG@Base": {
-  "usd": 9.548e-20,
+  "usd": 9.378e-20,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "FrogOG@Base": {
-  "usd": 9.031e-20,
+  "usd": 8.948e-20,
   "source": "DexScreener",
-  "ts": "2026-09-29T11:55:40Z"
+  "ts": "2026-09-29T21:44:15Z"
  },
  "WKC@Ethereum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price on DexScreener or GeckoTerminal \u2014 low/no liquidity"
  },
  "BTC@Bitcoin": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "DOGE@Dogecoin": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
-  "error": "no price source resolved"
- },
- "USDT@Ethereum": {
-  "usd": null,
-  "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "XRP@XRPL": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "BNB@BSC": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "LTC@Litecoin": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "BCH@Bitcoin": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "RON@Ethereum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "CBBTC_ETH@Ethereum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "PSG@Ethereum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "DGB@DigiByte": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "BLAST@Ethereum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
-  "error": "no price source resolved"
- },
- "WOO@Arbitrum": {
-  "usd": null,
-  "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "JUV@Ethereum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "CITY@Ethereum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "AGIX@Ethereum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "ZEC@Zcash": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "KAITO@Ethereum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
+  "error": "no price source resolved"
+ },
+ "FIL@Ethereum": {
+  "usd": null,
+  "source": "none",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "sUSD@Ethereum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "GT@Ethereum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "SCROLL@Ethereum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
-  "error": "no price source resolved"
- },
- "NOT@Ethereum": {
-  "usd": null,
-  "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
-  "error": "no price source resolved"
- },
- "PIXEL@Ethereum": {
-  "usd": null,
-  "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "FLUX@Ethereum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "AKT@Ethereum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "MPL@Ethereum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "CELO@Ethereum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "CARV@Ethereum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "SNX_ARB@Arbitrum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "INTER@Ethereum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "MFER@Ethereum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
+  "error": "no price source resolved"
+ },
+ "MC@Ethereum": {
+  "usd": null,
+  "source": "none",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "ALPINE@BSC": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "HOP@Ethereum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "MEMECORE@Ethereum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "ZEREBRO2@Ethereum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "KNINE@Solana": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "JPEG@Ethereum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "XBORG@Ethereum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "XCAD@Ethereum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
- "ggAVAX@Avalanche": {
+ "LUMIA@Ethereum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "MODE@Ethereum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "PLA@Ethereum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "VOXEL@Ethereum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "BTRST@Ethereum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "MOBY@Arbitrum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "NOTIONAL@Arbitrum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
+  "error": "no price source resolved"
+ },
+ "TLM2@Ethereum": {
+  "usd": null,
+  "source": "none",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "NORMIE2@Ethereum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "ANGLE@Ethereum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "FREYSA@Ethereum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
-  "error": "no price source resolved"
- },
- "WEN@Ethereum": {
-  "usd": null,
-  "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "MENCHESTER@Ethereum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
-  "error": "no price source resolved"
- },
- "ezETH@Ethereum": {
-  "usd": null,
-  "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "IPOR@Ethereum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
+  "error": "no price source resolved"
+ },
+ "SPECTRA@Ethereum": {
+  "usd": null,
+  "source": "none",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "MNGO@Ethereum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "BERA@Ethereum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "WETH_OP@Optimism": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "GRT_ARB@Arbitrum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "AGIX_ETH@Ethereum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
-  "error": "no price source resolved"
- },
- "USDT_ETH@Ethereum": {
-  "usd": null,
-  "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "OP_ETH@Ethereum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "ATOM@Cosmos": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "NXPC@Ethereum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "XLM@Stellar": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
-  "error": "no price source resolved"
- },
- "MELT@Avalanche": {
-  "usd": null,
-  "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "RGT@Ethereum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
-  "error": "no price source resolved"
- },
- "TUS@Avalanche": {
-  "usd": null,
-  "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "VSO@Avalanche": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "AGAR@Polygon": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "DXD@Arbitrum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "FIRE@Avalanche": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "IME@Avalanche": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "MATH@Arbitrum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
+  "error": "no price source resolved"
+ },
+ "O3@BSC": {
+  "usd": null,
+  "source": "none",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "PREMIA@Arbitrum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "RDPX@Arbitrum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "THOR@Avalanche": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "0XBTC@Ethereum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
-  "error": "no price source resolved"
- },
- "AVME@Avalanche": {
-  "usd": null,
-  "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "AVXT@Avalanche": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
+  "error": "no price source resolved"
+ },
+ "BAC@Ethereum": {
+  "usd": null,
+  "source": "none",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "BOOFI@Avalanche": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
- "CAP@Arbitrum": {
+ "BRY@BSC": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "CGG@BSC": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "COOK@Avalanche": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "DOG@Arbitrum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "DYP@Avalanche": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "EZ@BSC": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "H2O@Avalanche": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "KUN@BSC": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
-  "error": "no price source resolved"
- },
- "LTO@BSC": {
-  "usd": null,
-  "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "MONA@Polygon": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
-  "error": "no price source resolved"
- },
- "ROOK@Ethereum": {
-  "usd": null,
-  "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "SRM@Ethereum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "SUSD@Arbitrum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "VISR@Arbitrum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "WET@Avalanche": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "XFT@Ethereum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "ABNBC@BSC": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
-  "error": "no price source resolved"
- },
- "AETHC@Ethereum": {
-  "usd": null,
-  "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
-  "error": "no price source resolved"
- },
- "ALGB@Polygon": {
-  "usd": null,
-  "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "AMAAVE@Polygon": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "AUC@Ethereum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "AXIAL@Avalanche": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
-  "error": "no price source resolved"
- },
- "AZUKI@Polygon": {
-  "usd": null,
-  "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
-  "error": "no price source resolved"
- },
- "BANK@Ethereum": {
-  "usd": null,
-  "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "BAO@Ethereum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "BFI@BSC": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
+  "error": "no price source resolved"
+ },
+ "BONDLY@BSC": {
+  "usd": null,
+  "source": "none",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "BORING@BSC": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "BPT@Avalanche": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "BUX@BSC": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
+  "error": "no price source resolved"
+ },
+ "BZRX@Ethereum": {
+  "usd": null,
+  "source": "none",
+  "ts": "2026-09-29T21:44:15Z",
+  "error": "no price source resolved"
+ },
+ "CETH@Ethereum": {
+  "usd": null,
+  "source": "none",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "COMBO@Ethereum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "CORE@Ethereum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "CQT@Ethereum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
-  "error": "no price source resolved"
- },
- "CUSDC@Ethereum": {
-  "usd": null,
-  "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "DDX@Ethereum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
-  "error": "no price source resolved"
- },
- "DEGEN@Ethereum": {
-  "usd": null,
-  "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "DEV@Ethereum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
+  "error": "no price source resolved"
+ },
+ "DF@Ethereum": {
+  "usd": null,
+  "source": "none",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "DHT@Ethereum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "DVF@Ethereum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "ERSDL@Ethereum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
- "FEED@Avalanche": {
+ "GDL@Avalanche": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
-  "error": "no price source resolved"
- },
- "HEC@Avalanche": {
-  "usd": null,
-  "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "HND@Arbitrum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "HUSD@Ethereum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "ICE@Ethereum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "LEND@Ethereum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
- "LOST@Avalanche": {
+ "LIEN@BSC": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "MAHA@Ethereum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "MARSH@BSC": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "MOD@Polygon": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "NDX@Ethereum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
-  "error": "no price source resolved"
- },
- "NFTX@Ethereum": {
-  "usd": null,
-  "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "PECO@Polygon": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "POLAR@Avalanche": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "PPDEX@Polygon": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
+  "error": "no price source resolved"
+ },
+ "QRDO@Ethereum": {
+  "usd": null,
+  "source": "none",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "RACEX@Avalanche": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "RCN@Ethereum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "RENBCH@Ethereum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "RENZEC@Ethereum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
+  "error": "no price source resolved"
+ },
+ "RFOX@BSC": {
+  "usd": null,
+  "source": "none",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "SETH@Optimism": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
- "SETH2@Ethereum": {
+ "SI@Ethereum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "SPANK@Ethereum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
- "STACK@BSC": {
+ "STRONG@Ethereum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "STRP@Arbitrum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "SUKU@Ethereum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "SWINGBY@BSC": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
+  "error": "no price source resolved"
+ },
+ "TVK@Ethereum": {
+  "usd": null,
+  "source": "none",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "UBXT@BSC": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
-  "error": "no price source resolved"
- },
- "VTX@Avalanche": {
-  "usd": null,
-  "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "XCHF@Ethereum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "XDEFI@Ethereum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
+  "error": "no price source resolved"
+ },
+ "XED@BSC": {
+  "usd": null,
+  "source": "none",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "XEND@BSC": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "XGEM@Polygon": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "XMARK@BSC": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "YAY@Avalanche": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "aAVAXb@Avalanche": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "2KEY@Ethereum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "ABAT@Ethereum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "ABI@Polygon": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "ABLOCK@Avalanche": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "ACAR@Polygon": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "ADAI@Ethereum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "ADAI@Avalanche": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
+  "error": "no price source resolved"
+ },
+ "ADS@BSC": {
+  "usd": null,
+  "source": "none",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "AGAC@Polygon": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "AGF@Avalanche": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "AKITAX@Avalanche": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "AKNC@Ethereum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "ALBT@Avalanche": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "ALINK@Avalanche": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "ALINK@Ethereum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "AMANA@Ethereum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "AMKR@Ethereum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "AMWBTC@Polygon": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
- "AMWETH@Polygon": {
+ "AMWMATIC@Polygon": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "APEIN@Avalanche": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "APW@Ethereum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
- "ARCH@Ethereum": {
+ "ARBIS@Arbitrum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "ARCX@Ethereum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
+  "error": "no price source resolved"
+ },
+ "ARMOR@Ethereum": {
+  "usd": null,
+  "source": "none",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "ARNXM@Ethereum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "ASKO@Ethereum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "ASNX@Ethereum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "ASUSD@Ethereum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
-  "error": "no price source resolved"
- },
- "ATIS@Ethereum": {
-  "usd": null,
-  "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "ATUSD@Ethereum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "AUSDC@Avalanche": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "AUSDC@Ethereum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "AUSDT@Ethereum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "AWBTC@Ethereum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "AWBTC@Avalanche": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
+  "error": "no price source resolved"
+ },
+ "AWETH@Avalanche": {
+  "usd": null,
+  "source": "none",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "AZRX@Ethereum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "BASK@Ethereum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "BCDT@Ethereum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "BCMC@Polygon": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "SUI@Ethereum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "APT@Ethereum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "VET@Ethereum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
+  "error": "no price source resolved"
+ },
+ "ZEN@Ethereum": {
+  "usd": null,
+  "source": "none",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "XTZ@Ethereum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "MINA@Ethereum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "KAVA@Ethereum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "ONE@Ethereum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "HBAR@Ethereum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
+  "error": "no price source resolved"
+ },
+ "XDC@Ethereum": {
+  "usd": null,
+  "source": "none",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "DASH@Ethereum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "CKB@Ethereum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "STEEM@Ethereum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "KSM@Ethereum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "ICX@Ethereum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  },
  "ZIL@Ethereum": {
   "usd": null,
   "source": "none",
-  "ts": "2026-09-29T11:55:40Z",
+  "ts": "2026-09-29T21:44:15Z",
   "error": "no price source resolved"
  }
 }
