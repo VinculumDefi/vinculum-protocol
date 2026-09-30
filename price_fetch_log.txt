@@ -1,240 +1,187 @@
-[21:44:15] === Vinculum Price Fetcher v9 ===
-[21:44:15] Assets: 1001 | Purpose: vault reference rates (2x/day)
-[21:44:15] Input:  approved_assets_final.json
-[21:44:15] 
-[21:44:15] Step 1: CoinGecko batch...
-[21:44:15]   881 unique CoinGecko IDs across 1001 assets
-[21:44:47]   429 rate-limit -- waiting 36s
-[21:45:27]   429 rate-limit -- waiting 12s
-[21:45:39]   429 rate-limit -- waiting 24s
-[21:46:41]   429 rate-limit -- waiting 24s
-[21:47:05]   429 rate-limit -- waiting 36s
-[21:47:41]   Got 0 prices -> 0 assets covered (881 IDs returned no price)
-[21:47:41] Step 2: DexScreener (contract address)...
-[21:47:41]   988 assets to try...
-[21:58:59]   DexScreener contract: 762 prices found
-[21:58:59] Step 3: DexScreener symbol search...
-[21:58:59]   226 assets to try...
-[22:01:43]   DexScreener search: 34 prices found
-[22:01:43] Step 4: Community tokens (DexScreener -> GeckoTerminal)...
-[22:01:44]   TigerOG@Base: $1.28e-18 [DexScreener]
-[22:01:44]   LionOG@Base: $9.378e-20 [DexScreener]
-[22:01:45]   FrogOG@Base: $8.948e-20 [DexScreener]
-[22:01:47]   WKC@Ethereum: no price found on either source
-[22:01:47]   Community tokens: 3 priced
-[22:01:47] 
-[22:01:47] === FINAL SUMMARY ===
-[22:01:47] Total assets:  1001
-[22:01:47] Priced:        799 (79.8%)
-[22:01:47] No price:      202
-[22:01:47] 
-[22:01:47]   DexScreener                    765
-[22:01:47]   DexScreener_search             34
-[22:01:47] 
-Not priced (201):
-[22:01:47]   BTC@Bitcoin
-[22:01:47]   DOGE@Dogecoin
-[22:01:47]   XRP@XRPL
-[22:01:47]   BNB@BSC
-[22:01:47]   LTC@Litecoin
-[22:01:47]   BCH@Bitcoin
-[22:01:47]   RON@Ethereum
-[22:01:47]   CBBTC_ETH@Ethereum
-[22:01:47]   PSG@Ethereum
-[22:01:47]   DGB@DigiByte
-[22:01:47]   BLAST@Ethereum
-[22:01:47]   JUV@Ethereum
-[22:01:47]   CITY@Ethereum
-[22:01:47]   AGIX@Ethereum
-[22:01:47]   ZEC@Zcash
-[22:01:47]   KAITO@Ethereum
-[22:01:47]   FIL@Ethereum
-[22:01:47]   sUSD@Ethereum
-[22:01:47]   GT@Ethereum
-[22:01:47]   SCROLL@Ethereum
-[22:01:47]   FLUX@Ethereum
-[22:01:47]   AKT@Ethereum
-[22:01:47]   MPL@Ethereum
-[22:01:47]   CELO@Ethereum
-[22:01:47]   CARV@Ethereum
-[22:01:47]   SNX_ARB@Arbitrum
-[22:01:47]   INTER@Ethereum
-[22:01:47]   MFER@Ethereum
-[22:01:47]   MC@Ethereum
-[22:01:47]   ALPINE@BSC
-[22:01:47]   HOP@Ethereum
-[22:01:47]   MEMECORE@Ethereum
-[22:01:47]   ZEREBRO2@Ethereum
-[22:01:47]   KNINE@Solana
-[22:01:47]   JPEG@Ethereum
-[22:01:47]   XBORG@Ethereum
-[22:01:47]   XCAD@Ethereum
-[22:01:47]   LUMIA@Ethereum
-[22:01:47]   MODE@Ethereum
-[22:01:47]   PLA@Ethereum
-[22:01:47]   VOXEL@Ethereum
-[22:01:47]   BTRST@Ethereum
-[22:01:47]   MOBY@Arbitrum
-[22:01:47]   NOTIONAL@Arbitrum
-[22:01:47]   TLM2@Ethereum
-[22:01:47]   NORMIE2@Ethereum
-[22:01:47]   ANGLE@Ethereum
-[22:01:47]   FREYSA@Ethereum
-[22:01:47]   MENCHESTER@Ethereum
-[22:01:47]   IPOR@Ethereum
-[22:01:47]   SPECTRA@Ethereum
-[22:01:47]   MNGO@Ethereum
-[22:01:47]   BERA@Ethereum
-[22:01:47]   WETH_OP@Optimism
-[22:01:47]   GRT_ARB@Arbitrum
-[22:01:47]   AGIX_ETH@Ethereum
-[22:01:47]   OP_ETH@Ethereum
-[22:01:47]   ATOM@Cosmos
-[22:01:47]   NXPC@Ethereum
-[22:01:47]   XLM@Stellar
-[22:01:47]   RGT@Ethereum
-[22:01:47]   VSO@Avalanche
-[22:01:47]   AGAR@Polygon
-[22:01:47]   DXD@Arbitrum
-[22:01:47]   FIRE@Avalanche
-[22:01:47]   IME@Avalanche
-[22:01:47]   MATH@Arbitrum
-[22:01:47]   O3@BSC
-[22:01:47]   PREMIA@Arbitrum
-[22:01:47]   RDPX@Arbitrum
-[22:01:47]   THOR@Avalanche
-[22:01:47]   0XBTC@Ethereum
-[22:01:47]   AVXT@Avalanche
-[22:01:47]   BAC@Ethereum
-[22:01:47]   BOOFI@Avalanche
-[22:01:47]   BRY@BSC
-[22:01:47]   CGG@BSC
-[22:01:47]   COOK@Avalanche
-[22:01:47]   DOG@Arbitrum
-[22:01:47]   DYP@Avalanche
-[22:01:47]   EZ@BSC
-[22:01:47]   H2O@Avalanche
-[22:01:47]   KUN@BSC
-[22:01:47]   MONA@Polygon
-[22:01:47]   SRM@Ethereum
-[22:01:47]   SUSD@Arbitrum
-[22:01:47]   VISR@Arbitrum
-[22:01:47]   WET@Avalanche
-[22:01:47]   XFT@Ethereum
-[22:01:47]   ABNBC@BSC
-[22:01:47]   AMAAVE@Polygon
-[22:01:47]   AUC@Ethereum
-[22:01:47]   AXIAL@Avalanche
-[22:01:47]   BAO@Ethereum
-[22:01:47]   BFI@BSC
-[22:01:47]   BONDLY@BSC
-[22:01:47]   BORING@BSC
-[22:01:47]   BPT@Avalanche
-[22:01:47]   BUX@BSC
-[22:01:47]   BZRX@Ethereum
-[22:01:47]   CETH@Ethereum
-[22:01:47]   COMBO@Ethereum
-[22:01:47]   CORE@Ethereum
-[22:01:47]   CQT@Ethereum
-[22:01:47]   DDX@Ethereum
-[22:01:47]   DEV@Ethereum
-[22:01:47]   DF@Ethereum
-[22:01:47]   DHT@Ethereum
-[22:01:47]   DVF@Ethereum
-[22:01:47]   ERSDL@Ethereum
-[22:01:47]   GDL@Avalanche
-[22:01:47]   HND@Arbitrum
-[22:01:47]   HUSD@Ethereum
-[22:01:47]   ICE@Ethereum
-[22:01:47]   LEND@Ethereum
-[22:01:47]   LIEN@BSC
-[22:01:47]   MAHA@Ethereum
-[22:01:47]   MARSH@BSC
-[22:01:47]   MOD@Polygon
-[22:01:47]   NDX@Ethereum
-[22:01:47]   PECO@Polygon
-[22:01:47]   POLAR@Avalanche
-[22:01:47]   PPDEX@Polygon
-[22:01:47]   QRDO@Ethereum
-[22:01:47]   RACEX@Avalanche
-[22:01:47]   RCN@Ethereum
-[22:01:47]   RENBCH@Ethereum
-[22:01:47]   RENZEC@Ethereum
-[22:01:47]   RFOX@BSC
-[22:01:47]   SETH@Optimism
-[22:01:47]   SI@Ethereum
-[22:01:47]   SPANK@Ethereum
-[22:01:47]   STRONG@Ethereum
-[22:01:47]   STRP@Arbitrum
-[22:01:47]   SUKU@Ethereum
-[22:01:47]   SWINGBY@BSC
-[22:01:47]   TVK@Ethereum
-[22:01:47]   UBXT@BSC
-[22:01:47]   XCHF@Ethereum
-[22:01:47]   XDEFI@Ethereum
-[22:01:47]   XED@BSC
-[22:01:47]   XEND@BSC
-[22:01:47]   XGEM@Polygon
-[22:01:47]   XMARK@BSC
-[22:01:47]   YAY@Avalanche
-[22:01:47]   aAVAXb@Avalanche
-[22:01:47]   2KEY@Ethereum
-[22:01:47]   ABAT@Ethereum
-[22:01:47]   ABI@Polygon
-[22:01:47]   ABLOCK@Avalanche
-[22:01:47]   ACAR@Polygon
-[22:01:47]   ADAI@Ethereum
-[22:01:47]   ADAI@Avalanche
-[22:01:47]   ADS@BSC
-[22:01:47]   AGAC@Polygon
-[22:01:47]   AGF@Avalanche
-[22:01:47]   AKITAX@Avalanche
-[22:01:47]   AKNC@Ethereum
-[22:01:47]   ALBT@Avalanche
-[22:01:47]   ALINK@Avalanche
-[22:01:47]   ALINK@Ethereum
-[22:01:47]   AMANA@Ethereum
-[22:01:47]   AMKR@Ethereum
-[22:01:47]   AMWBTC@Polygon
-[22:01:47]   AMWMATIC@Polygon
-[22:01:47]   APEIN@Avalanche
-[22:01:47]   APW@Ethereum
-[22:01:47]   ARBIS@Arbitrum
-[22:01:47]   ARCX@Ethereum
-[22:01:47]   ARMOR@Ethereum
-[22:01:47]   ARNXM@Ethereum
-[22:01:47]   ASKO@Ethereum
-[22:01:47]   ASNX@Ethereum
-[22:01:47]   ASUSD@Ethereum
-[22:01:47]   ATUSD@Ethereum
-[22:01:47]   AUSDC@Avalanche
-[22:01:47]   AUSDC@Ethereum
-[22:01:47]   AUSDT@Ethereum
-[22:01:47]   AWBTC@Ethereum
-[22:01:47]   AWBTC@Avalanche
-[22:01:47]   AWETH@Avalanche
-[22:01:47]   AZRX@Ethereum
-[22:01:47]   BASK@Ethereum
-[22:01:47]   BCDT@Ethereum
-[22:01:47]   BCMC@Polygon
-[22:01:47]   SUI@Ethereum
-[22:01:47]   APT@Ethereum
-[22:01:47]   VET@Ethereum
-[22:01:47]   ZEN@Ethereum
-[22:01:47]   XTZ@Ethereum
-[22:01:47]   MINA@Ethereum
-[22:01:47]   KAVA@Ethereum
-[22:01:47]   ONE@Ethereum
-[22:01:47]   HBAR@Ethereum
-[22:01:47]   XDC@Ethereum
-[22:01:47]   DASH@Ethereum
-[22:01:47]   CKB@Ethereum
-[22:01:47]   STEEM@Ethereum
-[22:01:47]   KSM@Ethereum
-[22:01:47]   ICX@Ethereum
-[22:01:47]   ZIL@Ethereum
-[22:01:47] 
+[11:43:22] === Vinculum Price Fetcher v9 ===
+[11:43:22] Assets: 1001 | Purpose: vault reference rates (2x/day)
+[11:43:22] Input:  approved_assets_final.json
+[11:43:22] 
+[11:43:22] Step 1: CoinGecko batch...
+[11:43:22]   881 unique CoinGecko IDs across 1001 assets
+[11:43:53]   429 rate-limit -- waiting 36s
+[11:44:34]   429 rate-limit -- waiting 12s
+[11:44:46]   429 rate-limit -- waiting 24s
+[11:45:45]   Got 81 prices -> 81 assets covered (800 IDs returned no price)
+[11:45:45] Step 2: DexScreener (contract address)...
+[11:45:45]   907 assets to try...
+[11:55:59]   DexScreener contract: 739 prices found
+[11:55:59] Step 3: DexScreener symbol search...
+[11:55:59]   168 assets to try...
+[11:57:58]   DexScreener search: 28 prices found
+[11:57:58] Step 4: Community tokens (DexScreener -> GeckoTerminal)...
+[11:57:59]   TigerOG@Base: $1.301e-18 [DexScreener]
+[11:57:59]   LionOG@Base: $9.456e-20 [DexScreener]
+[11:58:00]   FrogOG@Base: $9.175e-20 [DexScreener]
+[11:58:03]   WKC@Ethereum: no price found on either source
+[11:58:03]   Community tokens: 3 priced
+[11:58:03] 
+[11:58:03] === FINAL SUMMARY ===
+[11:58:03] Total assets:  1001
+[11:58:03] Priced:        851 (85.0%)
+[11:58:03] No price:      150
+[11:58:03] 
+[11:58:03]   DexScreener                    742
+[11:58:03]   CoinGecko                      81
+[11:58:03]   DexScreener_search             28
+[11:58:03] 
+Not priced (149):
+[11:58:03]   BTC@Bitcoin
+[11:58:03]   DOGE@Dogecoin
+[11:58:03]   XRP@XRPL
+[11:58:03]   BNB@BSC
+[11:58:03]   LTC@Litecoin
+[11:58:03]   BCH@Bitcoin
+[11:58:03]   RON@Ethereum
+[11:58:03]   CBBTC_ETH@Ethereum
+[11:58:03]   PSG@Ethereum
+[11:58:03]   DGB@DigiByte
+[11:58:03]   RNDR@Solana
+[11:58:03]   BLAST@Ethereum
+[11:58:03]   JUV@Ethereum
+[11:58:03]   CITY@Ethereum
+[11:58:03]   AGIX@Ethereum
+[11:58:03]   ZEC@Zcash
+[11:58:03]   KAITO@Ethereum
+[11:58:03]   sUSD@Ethereum
+[11:58:03]   GT@Ethereum
+[11:58:03]   SCROLL@Ethereum
+[11:58:03]   FLUX@Ethereum
+[11:58:03]   MANTA@Ethereum
+[11:58:03]   CELO@Ethereum
+[11:58:03]   CARV@Ethereum
+[11:58:03]   SNX_ARB@Arbitrum
+[11:58:03]   INTER@Ethereum
+[11:58:03]   PORTO@BSC
+[11:58:03]   MFER@Ethereum
+[11:58:03]   MC@Ethereum
+[11:58:03]   ALPINE@BSC
+[11:58:03]   CYBER@Ethereum
+[11:58:03]   MEMECORE@Ethereum
+[11:58:03]   ZEREBRO2@Ethereum
+[11:58:03]   KNINE@Solana
+[11:58:03]   JPEG@Ethereum
+[11:58:03]   XBORG@Ethereum
+[11:58:03]   LUMIA@Ethereum
+[11:58:03]   MODE@Ethereum
+[11:58:03]   PLA@Ethereum
+[11:58:03]   BTRST@Ethereum
+[11:58:03]   MOBY@Arbitrum
+[11:58:03]   NOTIONAL@Arbitrum
+[11:58:03]   TLM2@Ethereum
+[11:58:03]   NORMIE2@Ethereum
+[11:58:03]   ANGLE@Ethereum
+[11:58:03]   FREYSA@Ethereum
+[11:58:03]   MENCHESTER@Ethereum
+[11:58:03]   IPOR@Ethereum
+[11:58:03]   SPECTRA@Ethereum
+[11:58:03]   MNGO@Ethereum
+[11:58:03]   WETH_OP@Optimism
+[11:58:03]   GRT_ARB@Arbitrum
+[11:58:03]   AGIX_ETH@Ethereum
+[11:58:03]   OP_ETH@Ethereum
+[11:58:03]   ATOM@Cosmos
+[11:58:03]   NXPC@Ethereum
+[11:58:03]   XLM@Stellar
+[11:58:03]   KLO@Avalanche
+[11:58:03]   RGT@Ethereum
+[11:58:03]   AGAR@Polygon
+[11:58:03]   CELR@Arbitrum
+[11:58:03]   CRAFT@Avalanche
+[11:58:03]   DXD@Arbitrum
+[11:58:03]   FIRE@Avalanche
+[11:58:03]   IGG@Polygon
+[11:58:03]   IME@Avalanche
+[11:58:03]   MATH@Arbitrum
+[11:58:03]   O3@BSC
+[11:58:03]   PREMIA@Arbitrum
+[11:58:03]   RDPX@Arbitrum
+[11:58:03]   THOR@Avalanche
+[11:58:03]   AVXT@Avalanche
+[11:58:03]   BAC@Ethereum
+[11:58:03]   BOOFI@Avalanche
+[11:58:03]   BRY@BSC
+[11:58:03]   COOK@Avalanche
+[11:58:03]   CWS@BSC
+[11:58:03]   DOG@Arbitrum
+[11:58:03]   DYP@Avalanche
+[11:58:03]   EZ@BSC
+[11:58:03]   H2O@Avalanche
+[11:58:03]   JGN@BSC
+[11:58:03]   KUN@BSC
+[11:58:03]   MONA@Polygon
+[11:58:03]   SHIBX@Avalanche
+[11:58:03]   SUSD@Arbitrum
+[11:58:03]   VISR@Arbitrum
+[11:58:03]   WET@Avalanche
+[11:58:03]   XFT@Ethereum
+[11:58:03]   ABNBC@BSC
+[11:58:03]   ALPA@BSC
+[11:58:03]   AMAAVE@Polygon
+[11:58:03]   ANT@Ethereum
+[11:58:03]   AXIAL@Avalanche
+[11:58:03]   BABYCAKE@BSC
+[11:58:03]   BAO@Ethereum
+[11:58:03]   BONDLY@BSC
+[11:58:03]   BPT@Avalanche
+[11:58:03]   BUX@BSC
+[11:58:03]   BZRX@Ethereum
+[11:58:03]   COMBO@Ethereum
+[11:58:03]   CORE@Ethereum
+[11:58:03]   CYCLE@Avalanche
+[11:58:03]   DDX@Ethereum
+[11:58:03]   DERC@Ethereum
+[11:58:03]   DEV@Ethereum
+[11:58:03]   GDL@Avalanche
+[11:58:03]   HND@Arbitrum
+[11:58:03]   HUSD@Ethereum
+[11:58:03]   ICE@Ethereum
+[11:58:03]   LIEN@BSC
+[11:58:03]   MAHA@Ethereum
+[11:58:03]   MARSH@BSC
+[11:58:03]   MOD@Polygon
+[11:58:03]   ODDZ@BSC
+[11:58:03]   OOE@Avalanche
+[11:58:03]   PECO@Polygon
+[11:58:03]   PICKLE@Ethereum
+[11:58:03]   POLAR@Avalanche
+[11:58:03]   PPDEX@Polygon
+[11:58:03]   RACEX@Avalanche
+[11:58:03]   RENBCH@Ethereum
+[11:58:03]   RFG@BSC
+[11:58:03]   RFOX@BSC
+[11:58:03]   SETH@Optimism
+[11:58:03]   SPANK@Ethereum
+[11:58:03]   STRP@Arbitrum
+[11:58:03]   SWINGBY@BSC
+[11:58:03]   TVK@Ethereum
+[11:58:03]   TXL@BSC
+[11:58:03]   UBXT@BSC
+[11:58:03]   XCHF@Ethereum
+[11:58:03]   XDEFI@Ethereum
+[11:58:03]   XED@BSC
+[11:58:03]   XEND@BSC
+[11:58:03]   XGEM@Polygon
+[11:58:03]   XMARK@BSC
+[11:58:03]   YAY@Avalanche
+[11:58:03]   ZOO@Avalanche
+[11:58:03]   aAVAXb@Avalanche
+[11:58:03]   2KEY@Ethereum
+[11:58:03]   ABAT@Ethereum
+[11:58:03]   ABI@Polygon
+[11:58:03]   ABLOCK@Avalanche
+[11:58:03]   ACAR@Polygon
+[11:58:03]   ACRE@Avalanche
+[11:58:03]   ADAI@Ethereum
+[11:58:03]   ADAI@Avalanche
+[11:58:03]   ZIL@Ethereum
+[11:58:03] 
 JSON saved: vinculum_prices.json
-[22:01:48] Excel saved: vinculum_prices.xlsx
-[22:01:48] 
-Done. 799/1001 assets priced (79.8% coverage).
+[11:58:03] Excel saved: vinculum_prices.xlsx
+[11:58:03] 
+Done. 851/1001 assets priced (85.0% coverage).
