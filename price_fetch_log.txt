@@ -1,36 +1,36 @@
-[11:55:27] === Vinculum Price Fetcher v9 ===
-[11:55:27] Assets: 1001 | Purpose: vault reference rates (2x/day)
-[11:55:27] Input:  approved_assets_final.json
-[11:55:27] 
-[11:55:27] Step 1: CoinGecko batch...
-[11:55:27]   881 unique CoinGecko IDs across 1001 assets
-[11:55:43]   Got 858 prices -> 975 assets covered (23 IDs returned no price)
-[11:55:43] Step 2: DexScreener (contract address)...
-[11:55:43]   23 assets to try...
-[11:55:59]   DexScreener contract: 20 prices found
-[11:55:59] Step 3: DexScreener symbol search...
-[11:55:59]   3 assets to try...
-[11:56:02]   DexScreener search: 2 prices found
-[11:56:02] Step 4: Community tokens (DexScreener -> GeckoTerminal)...
-[11:56:02]   TigerOG@Base: $1.039e-18 [DexScreener]
-[11:56:03]   LionOG@Base: $8.8e-20 [DexScreener]
-[11:56:04]   FrogOG@Base: $9.759e-20 [DexScreener]
-[11:56:04]   WKC@Ethereum: already priced
-[11:56:04]   Community tokens: 3 priced
-[11:56:04] 
-[11:56:04] === FINAL SUMMARY ===
-[11:56:04] Total assets:  1001
-[11:56:04] Priced:        1000 (99.9%)
-[11:56:04] No price:      1
-[11:56:04] 
-[11:56:04]   CoinGecko                      975
-[11:56:04]   DexScreener                    23
-[11:56:04]   DexScreener_search             2
-[11:56:04] 
+[21:20:15] === Vinculum Price Fetcher v9 ===
+[21:20:15] Assets: 1001 | Purpose: vault reference rates (2x/day)
+[21:20:15] Input:  approved_assets_final.json
+[21:20:15] 
+[21:20:15] Step 1: CoinGecko batch...
+[21:20:15]   881 unique CoinGecko IDs across 1001 assets
+[21:20:32]   Got 858 prices -> 975 assets covered (23 IDs returned no price)
+[21:20:32] Step 2: DexScreener (contract address)...
+[21:20:32]   23 assets to try...
+[21:20:48]   DexScreener contract: 20 prices found
+[21:20:48] Step 3: DexScreener symbol search...
+[21:20:48]   3 assets to try...
+[21:20:51]   DexScreener search: 2 prices found
+[21:20:51] Step 4: Community tokens (DexScreener -> GeckoTerminal)...
+[21:20:51]   TigerOG@Base: $1.046e-18 [DexScreener]
+[21:20:52]   LionOG@Base: $8.853e-20 [DexScreener]
+[21:20:53]   FrogOG@Base: $9.737e-20 [DexScreener]
+[21:20:53]   WKC@Ethereum: already priced
+[21:20:53]   Community tokens: 3 priced
+[21:20:53] 
+[21:20:53] === FINAL SUMMARY ===
+[21:20:53] Total assets:  1001
+[21:20:53] Priced:        1000 (99.9%)
+[21:20:53] No price:      1
+[21:20:53] 
+[21:20:53]   CoinGecko                      975
+[21:20:53]   DexScreener                    23
+[21:20:53]   DexScreener_search             2
+[21:20:53] 
 Not priced (1):
-[11:56:04]   sUSD@Ethereum
-[11:56:04] 
+[21:20:53]   sUSD@Ethereum
+[21:20:53] 
 JSON saved: vinculum_prices.json
-[11:56:04] Excel saved: vinculum_prices.xlsx
-[11:56:04] 
+[21:20:53] Excel saved: vinculum_prices.xlsx
+[21:20:53] 
 Done. 1000/1001 assets priced (99.9% coverage).
